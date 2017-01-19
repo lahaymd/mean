@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%">
+<defs>
+    <style>
+        svg { 
+  background: #0F7173;
+}
+#scales { 
+  fill: #0F7173;
+}
+#inner { 
+    stroke: #0c4c4d;
+    stroke-width: 3.1;
+}
+#outer { 
+  stroke: #098f92;
+  stroke-width: 0.9;
+}
+
+    </style>
+    <pattern id="scales" width="30" height="30" 
+    patternUnits="userSpaceOnUse"  patternTransform="scale(2)">
+            <g id="curves">
+                <path id="inner" d="M0 0c0,30, 30,30 30,0" />
+                <path id="outer" d="M0 0c0,30, 30,30 30,0" />
+            </g>
+            <use x="15" y="15" xlink:href="#curves" />
+            <use x="-15" y="15" xlink:href="#curves" />
+            <use x="0" y="0" xlink:href="#curves" />  
+            <use x="15" y="-15" xlink:href="#curves" />
+            <use x="-15" y="-15" xlink:href="#curves" />
+        </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#scales)" />
+</svg>

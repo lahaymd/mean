@@ -1,0 +1,69 @@
+div(layout='row' layout-wrap)
+	md-content.user-intro(flex='100' layout-padding)	Example of 
+					abbr(title='Create Read Update Destroy') CRUD 
+					|operations. You can 
+					i Create 
+					|a user, 
+					i Read 
+					|the data into the view, 
+					i Update 
+					|the 
+					|username and password, and 
+					i Delete 
+					|the user.
+	md-input-container
+		label(for='search') Search
+		input(name='search' ng-model='searchText')
+		{{searchText}}
+	md-select( flex='33'  ng-model='selectedItem' ng-change="sortBy(selectedItem)")
+		md-option(ng-repeat='list in lists' ng-value='list') {{list}}
+	md-select(flex='33' ng-model='selectedLimit' ng-change='limitDisplayedTo(selectedLimit)')
+		md-option(ng-repeat='number in numbers' ng-value='number') {{number}}
+	table(flex='50')
+		thead
+			tr
+				th(ng-style="{color: selectedItem === 'username' ? 'red' : ''}") Username 
+				th(ng-style="{color: selectedItem === 'id' ? 'red' : ''}") User ID 
+				th delete
+				th Edit
+			tbody
+				tr(ng-repeat='user in userlist | orderBy:propertyName:checkboxModel | limitTo: displayAmount : begin | filter: searchText' class='repeatedItem')
+					td.success {{user.username}}
+					td {{user._id}} 
+					td
+						md-button.md-warn.md-raised(ng-click='removeUser(user._id)') delete me
+					td  
+						md-button.md-accent.md-raised
+							a(ui-sref="users.detail({id : user._id})") Edit
+	h1 user length = {{userlist.length}}
+	div(flex='100' layout='row' layout-align='space-around')
+		md-button.md-accent.md-raised(ng-click='displayPagination(0)') First
+		div.pagination(ng-repeat='button in userlist | limitTo: limit')
+			md-button.md-primary.md-raised( ng-click='displayPagination($index)') {{$index + 1}}
+		md-button.md-accent.md-raised(ng-click='displayPagination(limit - 1)') Last
+	h1 limit is {{limit}}
+	h3 begin is {{begin}}
+	h4 display amount is {{displayAmount}}
+
+	//- md-list(flex='50')
+	//- 	md-list-item(ng-repeat='user in userlist' ng-click='null')
+	//- 		{{user.username}}
+	//- 		{{user.password}}
+	md-card(flex='50' flex-sm='100' flex-xs='100')		
+		md-card-title Register
+		form( name='myForm' ng-model="myForm" ng-submit='register()') 
+			div( ng-class="{ 'has-error': myForm.username.$touched && myForm.username.$invalid}")
+			md-input-container
+				label(for="username") Username<br />
+				input#username(name="username" ng-model='userlist.username' minlength='5' required autofocus) 
+				div.help-block(ng-messages='myForm.username.$error' ng-if="myForm.username.$touched")
+					div(ng-message='required') I'm required
+					div(ng-message='minlength') Name is too short
+			md-input-container
+				label(for="password") Password<br />
+				input#password(name="password" ng-model='userlist.password' required) 
+			md-button.md-raised.md-primary(type="submit", value="Create") Create
+	
+	div.ui-view(flex='100')
+	
+	md-progress-circular( md-mode="indeterminate" ng-show='isLoading')

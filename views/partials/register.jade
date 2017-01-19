@@ -1,0 +1,16 @@
+div(layout-align='center center' layout='column')
+	div.loginBox(class='md-whiteframe-z1' layout='column')
+		md-toolbar(layout-align='center center' layout='row')
+			div.tool-bar-tools Login
+		md-content.md-padding(layout='column')
+			md-input-container.md-block
+				label(for="username") Username
+				input#username(name="username" ng-model='vm.registerForm.username' required autofocus)
+				div(ng-show='myForm.username.$error.required') username is required
+			md-input-container
+				label(for="password") Password
+				input#password(name="password" ng-model='vm.registerForm.password' required minlength='5') 
+				div(ng-show='myForm.password.$error.required') password is required
+				div(ng-show='myForm.password.$error.minlength') minlength is 5
+			md-button.md-primary(type="submit", value="Create"  ng-disabled='myForm.$pristine' ng-click='vm.register()') Create
+			div( id='dirty' ng-show='myForm.$dirty') I'm dirty
