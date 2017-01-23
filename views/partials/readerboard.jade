@@ -3,7 +3,7 @@ div(layout='row' layout-wrap )
 	md-button(flex='100' ng-click='vm.clear()') clear
 	md-input-container(flex='50')
 		label textarea 1
-		textarea(id='one' ng-model='one' ng-change='vm.areaOne(one,two)' autofocus) 
+		textarea(id='one' ng-model='one' ng-change='vm.areaOne(one,two); diff()' autofocus) 
 	md-input-container(flex='50')
 		label textarea 2
 		textarea(id='two' ng-model='two' ng-change=' vm.areaOne(one,two)')
@@ -26,3 +26,4 @@ div(layout='row' layout-wrap )
 				//- div(ng-if='vm.highest(vm.letterDifference)') highest number of occurences {{key}}	{{value}}		
 	//- p copy {{vm.cop}}
 	//- ng-class="{'diffs': {{vm.cop[$parent.$index][key]}}!=={{letter[key]}}}"
+	

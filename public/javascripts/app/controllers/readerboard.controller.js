@@ -3,19 +3,18 @@
 		controller('ReaderboardController',  function($document, $log, $timeout){
 			var vm = this;
 
-
-vm.areaOne = function(one,two) {
-
-// 				vm.copy = function(x){
-// 	vm.cop = angular.copy(vm.letterDifference,x)
-// }
-
-	vm.clear = () => {
+				vm.clear = () => {
 		$document.find('textarea').val('');
 		vm.letterDifference = {};
 	}
 
-	var foo = function(x){
+	
+
+
+
+vm.areaOne = function(one,two) {
+
+	vm.foo = function(x){
 		x = x || '';
 
 	return	x.replace(/\s+/g, '').split('').sort()
@@ -45,20 +44,77 @@ vm.areaOne = function(one,two) {
 		}) 
 	};
 
-	 vm.letters = foo(one);
-	 vm.lettersTwo = foo(two)
+	 vm.letters = vm.foo(one);
+	 vm.lettersTwo = vm.foo(two)
 	
 	 
 		console.log('letters',vm.letters)
+		console.log('letters2',vm.lettersTwo)
+
+	
+						
+// vm.letterDifference = vm.letters.map(function(item, index, array){
+
+// 		console.log('item', item)
+// 		console.log('index', index)
+// 		console.log('array', array)
+// 		console.log('this[index]', this[index])
+// 		console.log('this', this)
+
+// 		var thisMapped= this.map(function(i, idx, arr) {return i[0]})
+// 	  	console.log('thisMapped', thisMapped)
+
+// 		var lettersMapped = vm.letters.map(function(item){return item[0]})
+// 		console.log('lettersMapped', lettersMapped)
+							
+// 		var thisMappedFindIndex =thisMapped.findIndex(function(i, idx, arr){return i === item[0];});
+
+// 		console.log('thisMappedFindIndex',thisMappedFindIndex)
+
+// 		var notThisMappedFindIndex =thisMapped.find(function(i, idx, arr){return i !== item[0];});
+
+// 		console.log('notThisMappedFindIndex',notThisMappedFindIndex)
+
+// 		var vm.obj = {};
+	
+// 	  	if( this.length > 0 && thisMapped.indexOf(item[0]) !== -1 && thisMappedFindIndex !== -1) {
+
+// 			vm.obj[item[0]] =  item[1] - this[thisMappedFindIndex][1];
+
+// 			}
+
+// 		// else if(thisMapped.indexOf(item[0]) === -1) {
+// 		// 	vm.obj['z'] = 5
+// 		// 		// vm.obj[this[notThisMappedFindIndex][0]] = -Math.abs(this[notThisMappedFindIndex][1]);
+// 		// 	}
+
+// 		 else {
+							
+// 			vm.obj[item[0]] = item[1]
+
+// 				};
+							
+// 		console.log('thisMappedFindIndex',thisMappedFindIndex)
+// 		console.log('vm.obj', vm.obj)
+
+// 		return vm.obj;
+// 	},vm.lettersTwo)
 
 
-				
 
 
 
+	  	var lettersTwoMapped = vm.lettersTwo.map(function(item){return item[0]})
+		console.log('lettersTwoMapped', lettersTwoMapped)
+
+			var lettersMapped = vm.letters.map(function(item){return item[0]})
+		console.log('lettersMapped', lettersMapped)
+		
+
+	vm.letterDifference = //function(){
 
 
-	vm.letterDifference = vm.lettersTwo.map(function(item, index, array){
+		  vm.lettersTwo.map(function(item, index, array){
 
 		console.log('item', item)
 		console.log('index', index)
@@ -67,32 +123,47 @@ vm.areaOne = function(one,two) {
 		console.log('this', this)
 
 		var thisMapped= this.map(function(i, idx, arr) {return i[0]})
-
 	  	console.log('thisMapped', thisMapped)
+
 							
 		var thisMappedFindIndex =thisMapped.findIndex(function(i, idx, arr){return i === item[0];});
+		console.log('thisMappedFindIndex',thisMappedFindIndex)
 
-		console.log(thisMappedFindIndex)
 
-		var obj = {};
-	  
-	  	if( this.length > 0 && thisMapped.indexOf(item[0] !== -1) && thisMappedFindIndex !== -1) {
+		var notThisMappedFindIndex =thisMapped.find(function(i, idx, arr){return i !== item[0];});
+		console.log('notThisMappedFindIndex',notThisMappedFindIndex)
 
-			obj[item[0]] =  item[1] - this[thisMappedFindIndex][1];
+		vm.obj = {};
 
-		} else {
+		
+	
+	  	if( this.length > 0 && thisMapped.indexOf(item[0]) !== -1 && thisMappedFindIndex !== -1) {
+
+			vm.obj[item[0]] =  item[1] - this[thisMappedFindIndex][1];
+
+			}
+
+		// else if(thisMapped.indexOf(item[0]) === -1) {
+		// 	vm.obj['z'] = 5
+		// 		// vm.obj[this[notThisMappedFindIndex][0]] = -Math.abs(this[notThisMappedFindIndex][1]);
+		// 	}
+
+		 else {
 							
-			obj[item[0]] = item[1]
+			vm.obj[item[0]] = item[1]
 
 				};
 							
 		console.log('thisMappedFindIndex',thisMappedFindIndex)
-		console.log('obj', obj)
+		console.log('vm.obj', vm.obj)
 
-		return obj;
+		return vm.obj;
 	},vm.letters)
 
 
-				}
+//}
+console.log('vm.letterDifference', vm.letterDifference)
+
+				} //end of area one
 		})
 })()
