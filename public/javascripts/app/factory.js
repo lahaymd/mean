@@ -26,66 +26,93 @@ angular.module('myApp').factory('AuthService',
     return service;
 
     function update(id) {
-      var deferred = $q.defer();
-      $http.put('/api/users/' + id._id, id)
-      .success(function(user) {
-        console.log(user)
-        deferred.resolve(user)
-      })
-      .error(function(error) {
-        deferred.reject(error);
-      })
-      return deferred.promise;
+      // var deferred = $q.defer();
+      return $http.put('/api/users/' + id._id, id)
+        .then(function(response){
+          response.data 
+        }, function(response){
+          alert(response)
+        })
+      // .success(function(user) {
+      //   console.log(user)
+      //   deferred.resolve(user)
+      // })
+      // .error(function(error) {
+      //   deferred.reject(error);
+      // })
+      // return deferred.promise;
     }
 
     function remove(id) {
 
-      var deferred = $q.defer();
-      $http.delete('api/users/' + id)
-      .success(function(user) {
-        deferred.resolve(user)
-      })
-      .error(function(error) {
-        deferred.reject(error + '!!')
-      })
-      return deferred.promise;
+      // var deferred = $q.defer();
+      return $http.delete('api/users/' + id)
+        .then(function(response){
+          response.data 
+        }, function(response){
+          alert(response)
+        })
+      // .success(function(user) {
+      //   deferred.resolve(user)
+      // })
+      // .error(function(error) {
+      //   deferred.reject(error + '!!')
+      // })
+      // return deferred.promise;
     }
 
     function find(id) {
-      var deferred = $q.defer();
-      $http.get('/api/users/' + id)
-        .success(function(user) {
-          deferred.resolve(user)
+      // var deferred = $q.defer();
+      return $http.get('/api/users/' + id)
+        .then(function(response){
+          return response.data 
+        }, function(response){
+          alert(response)
         })
-        .error(function(error) {
-          deferred.reject(error +'!')
-        })
-        return deferred.promise;
+
+        // .success(function(user) {
+        //   deferred.resolve(user)
+        // })
+        // .error(function(error) {
+        //   deferred.reject(error +'!')
+        // })
+        // return deferred.promise;
 
     }
 
     function getUsers() {
-      var deferred = $q.defer();
-      $http.get('/api/users')
-        .success(function(users) {
-          deferred.resolve(users)
+      // var deferred = $q.defer();
+      return $http.get('/api/users')
+        .then(function(response){
+          console.log(response.data)
+          return response.data 
+        }, function(response){
+          alert(response)
         })
-        .error(function(error) {
-          deferred.reject(error +'!')
-        })
-        return deferred.promise;
+        // .success(function(users) {
+        //   deferred.resolve(users)
+        // })
+        // .error(function(error) {
+        //   deferred.reject(error +'!')
+        // })
+        // return deferred.promise;
     }
 
         function getHired() {
-      var deferred = $q.defer();
-      $http.get('/api/hireme')
-        .success(function(users) {
-          deferred.resolve(users)
-        })
-        .error(function(error) {
-          deferred.reject(error +'!')
-        })
-        return deferred.promise;
+      // var deferred = $q.defer();
+          return $http.get('/api/hireme')
+              .then(function(response){
+                response.data 
+              }, function(response){
+                alert(response)
+              })
+        // .success(function(users) {
+        //   deferred.resolve(users)
+        // })
+        // .error(function(error) {
+        //   deferred.reject(error +'!')
+        // })
+        // return deferred.promise;
     }
 
     function isLoggedIn() {
@@ -169,35 +196,63 @@ angular.module('myApp').factory('AuthService',
 
                   
       // create a new instance of deferred
-      var deferred = $q.defer();
+      // var deferred = $q.defer();
 
       // send a post request to the server
-      $http.post('/api/users', {username: username, password: password})
+      return $http.post('/api/users', {username: username, password: password})
+        .then(function(response) {
+           return response.data;
+        }, function(response) {
+          alert(response)
+        })
         // handle success
-        .success(function (response) {
-            deferred.resolve(response);
+      //   .success(function (response) {
+      //       deferred.resolve(response);
          
-        }).error (function(response) {
-          deferred.reject(response)
-        });
+      //   }).error (function(response) {
+      //     deferred.reject(response)
+      //   });
         
 
-      // return promise object
-      return deferred.promise;
+      // // return promise object
+      // return deferred.promise;
 
     }
 
     function getMongoLab() {
-      var deferred = $q.defer();
-      $http.get('/api/mongolab')
-        .success(function(users) {
-          deferred.resolve(users)
+      // var deferred = $q.defer();
+     return $http.get('/api/mongolab')
+        .then(function(response) {
+           return response.data;
+        }, function(response) {
+          alert(response)
         })
-        .error(function(error) {
-          deferred.reject(error +'!')
-        })
-        return deferred.promise;
+        // .success(function(users) {
+        //   deferred.resolve(users)
+        // })
+
+        // .error(function(error) {
+        //   deferred.reject(error +'!')
+        // })
+        // return deferred.promise;
     }
+
+
+    // function getMongoLab() {
+    //   var deferred = $q.defer();
+    //   $http.get('/api/mongolab')
+    //     .success(function(users) {
+    //       deferred.resolve(users)
+    //     })
+    //     .error(function(error) {
+    //       deferred.reject(error +'!')
+    //     })
+    //     return deferred.promise;
+    // }
+
+
+
+
 
     function postToMongoLab(fuck) {
 
@@ -227,27 +282,32 @@ angular.module('myApp').factory('AuthService',
 
                   
       // create a new instance of deferred
-      var deferred = $q.defer();
+      // var deferred = $q.defer();
 
       // send a post request to the server
-      $http.post('/api/hireme', {
+      return $http.post('/api/hireme', {
         firstname: firstname,
          lastname: lastname, 
          email: email, 
          phone: phone, 
          message: message
       })
-        // handle success
-        .success(function (response) {
-            deferred.resolve(response);
+      .then(function(response) {
+        response.data 
+      }, function(response){
+        alert(response)
+      })
+      //   // handle success
+      //   .success(function (response) {
+      //       deferred.resolve(response);
          
-        }).error (function(response) {
-          deferred.reject(response)
-        });
+      //   }).error (function(response) {
+      //     deferred.reject(response)
+      //   });
         
 
-      // return promise object
-      return deferred.promise;
+      // // return promise object
+      // return deferred.promise;
 
     }
 

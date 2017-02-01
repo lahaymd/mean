@@ -28,6 +28,14 @@
 			var vm = this;
 			 vm.userlist = {};
 
+			 vm.addLogo = function() {
+			 var el = document.querySelector('#b');
+			 el.classList.add('logo-path')
+			 alert(1)
+			}
+
+			 vm.lucy = 'jhljkhljkh'
+
 			 vm.demo = function() {alert(1)}
 			 
 
