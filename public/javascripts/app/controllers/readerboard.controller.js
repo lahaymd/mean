@@ -3,26 +3,16 @@
 		controller('ReaderboardController',  function($document, $log, $timeout){
 			var vm = this;
 
-<<<<<<< HEAD
-				vm.clear = () => {
-=======
 
 vm.areaOne = function(one,two) {
 
 
 	vm.clear = () => {
->>>>>>> diff
 		$document.find('textarea').val('');
 		vm.letterDifference = {};
 	}
 
-	
-
-
-
-vm.areaOne = function(one,two) {
-
-	vm.foo = function(x){
+	var foo = function(x){
 		x = x || '';
 
 	return	x.replace(/\s+/g, '').split('').sort()
@@ -52,50 +42,13 @@ vm.areaOne = function(one,two) {
 		}) 
 	};
 
-	 vm.letters = vm.foo(one);
-	 vm.lettersTwo = vm.foo(two)
+	 vm.letters = foo(one);
+	 vm.lettersTwo = foo(two)
 	
 	 
-<<<<<<< HEAD
-		console.log('letters',vm.letters)
-		console.log('letters2',vm.lettersTwo)
-=======
 		// console.log('letters',vm.letters)
->>>>>>> diff
 
-	
-						
-// vm.letterDifference = vm.letters.map(function(item, index, array){
 
-<<<<<<< HEAD
-// 		console.log('item', item)
-// 		console.log('index', index)
-// 		console.log('array', array)
-// 		console.log('this[index]', this[index])
-// 		console.log('this', this)
-
-// 		var thisMapped= this.map(function(i, idx, arr) {return i[0]})
-// 	  	console.log('thisMapped', thisMapped)
-
-// 		var lettersMapped = vm.letters.map(function(item){return item[0]})
-// 		console.log('lettersMapped', lettersMapped)
-							
-// 		var thisMappedFindIndex =thisMapped.findIndex(function(i, idx, arr){return i === item[0];});
-
-// 		console.log('thisMappedFindIndex',thisMappedFindIndex)
-
-// 		var notThisMappedFindIndex =thisMapped.find(function(i, idx, arr){return i !== item[0];});
-
-// 		console.log('notThisMappedFindIndex',notThisMappedFindIndex)
-
-// 		var vm.obj = {};
-	
-// 	  	if( this.length > 0 && thisMapped.indexOf(item[0]) !== -1 && thisMappedFindIndex !== -1) {
-
-// 			vm.obj[item[0]] =  item[1] - this[thisMappedFindIndex][1];
-
-// 			}
-=======
 // 	vm.diff = function(){
 // console.log('test')
 // 					vm.arr = [];
@@ -192,43 +145,8 @@ vm.areaOne = function(one,two) {
 		}
 
 console.log('arr',arr)
->>>>>>> diff
-
-// 		// else if(thisMapped.indexOf(item[0]) === -1) {
-// 		// 	vm.obj['z'] = 5
-// 		// 		// vm.obj[this[notThisMappedFindIndex][0]] = -Math.abs(this[notThisMappedFindIndex][1]);
-// 		// 	}
-
-<<<<<<< HEAD
-// 		 else {
-							
-// 			vm.obj[item[0]] = item[1]
-
-// 				};
-							
-// 		console.log('thisMappedFindIndex',thisMappedFindIndex)
-// 		console.log('vm.obj', vm.obj)
-
-// 		return vm.obj;
-// 	},vm.lettersTwo)
 
 
-
-
-
-	  	var lettersTwoMapped = vm.lettersTwo.map(function(item){return item[0]})
-		console.log('lettersTwoMapped', lettersTwoMapped)
-
-			var lettersMapped = vm.letters.map(function(item){return item[0]})
-		console.log('lettersMapped', lettersMapped)
-		
-
-	vm.letterDifference = //function(){
-
-
-		  vm.lettersTwo.map(function(item, index, array){
-=======
->>>>>>> diff
 
 			
 		
@@ -247,37 +165,6 @@ console.log('arr',arr)
 
 		// if(vm.lettersTwo.length !== 0 && lettersMapped.indexOf(lettersTwoMapped))
 
-<<<<<<< HEAD
-		var thisMapped= this.map(function(i, idx, arr) {return i[0]})
-	  	console.log('thisMapped', thisMapped)
-
-							
-		var thisMappedFindIndex =thisMapped.findIndex(function(i, idx, arr){return i === item[0];});
-		console.log('thisMappedFindIndex',thisMappedFindIndex)
-
-
-		var notThisMappedFindIndex =thisMapped.find(function(i, idx, arr){return i !== item[0];});
-		console.log('notThisMappedFindIndex',notThisMappedFindIndex)
-
-		vm.obj = {};
-
-		
-	
-	  	if( this.length > 0 && thisMapped.indexOf(item[0]) !== -1 && thisMappedFindIndex !== -1) {
-
-			vm.obj[item[0]] =  item[1] - this[thisMappedFindIndex][1];
-
-			}
-
-		// else if(thisMapped.indexOf(item[0]) === -1) {
-		// 	vm.obj['z'] = 5
-		// 		// vm.obj[this[notThisMappedFindIndex][0]] = -Math.abs(this[notThisMappedFindIndex][1]);
-		// 	}
-
-		 else {
-							
-			vm.obj[item[0]] = item[1]
-=======
 
 							
 
@@ -303,17 +190,9 @@ console.log('arr',arr)
 		// } else {
 							
 		// 	obj[item[0]] = item[1]
->>>>>>> diff
 
 		// 		};
 							
-<<<<<<< HEAD
-		console.log('thisMappedFindIndex',thisMappedFindIndex)
-		console.log('vm.obj', vm.obj)
-
-		return vm.obj;
-	},vm.letters)
-=======
 		// console.log('thisMappedFindIndex',thisMappedFindIndex)
 		// console.log('obj', obj)
 
@@ -327,12 +206,8 @@ vm.results = letterDifference();
 
 // console.log('results', vm.results)
 
->>>>>>> diff
 
 
-//}
-console.log('vm.letterDifference', vm.letterDifference)
-
-				} //end of area one
+				}
 		})
 })()
