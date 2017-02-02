@@ -1,0 +1,12 @@
+p {{$ctrl.title}}
+//- p {{$ctrl.myname}}
+//- p from within component{{$ctrl.test}}
+//- h1 readerboard component
+//- ng-transclude
+textarea(id='one' ng-model='one' ng-change='$ctrl.area({one: one, two: two})' autofocus)
+textarea(id='two' ng-model='two' ng-change='$ctrl.area({one: one, two: two})')
+md-button(ng-click='$ctrl.clear()') clear me
+div(class='diff-container' flex='100' layout='row' layout-fill  layout-wrap layout-align='start center')
+		div(class='foo' ng-repeat='letter in $ctrl.results | orderBy:"toString()"' flex='20' flex-xs='33')
+			div.bar(id='{{key}}' ng-if='value !== 0' md-whiteframe='10'  ng-repeat='(key,value) in letter' layout-padding layout-margin) 		
+				div() {{key}} : {{value}}

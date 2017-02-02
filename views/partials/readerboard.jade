@@ -7,27 +7,10 @@ div(layout='row' layout-wrap )
 	md-input-container(flex='50')
 		label textarea 2
 		textarea(id='two' ng-model='two' ng-change=' vm.areaOne(one,two)')
-	//- div(flex='50' layout='column' layout-align='center center')
-	//- 	div(ng-repeat='letter in vm.letters'  )
-	//- 		{{letter[0]}}  {{letter[1]}}
-	//- div(flex='50' layout='column')		
-	//- 	div(ng-repeat='letterTwo in vm.lettersTwo' class='diff' )
-	//- 		{{letterTwo[0]}} {{letterTwo[1]}}
 	div(class='diff-container' flex='100' layout='row' layout-fill  layout-wrap layout-align='start center')
 		div(class='foo' ng-repeat='letter in vm.results | orderBy:"toString()"' flex='20' flex-xs='33')
-			//- {{vm.letterDifference}}
-
-			//- {{letter}}
-			div.bar(id='{{key}}' ng-if='value !== 0' md-whiteframe='10'  ng-repeat='(key,value) in letter' layout-padding layout-margin) 
-				//- example
-				
+			div.bar(id='{{key}}' ng-if='value !== 0' md-whiteframe='10'  ng-repeat='(key,value) in letter' layout-padding layout-margin) 		
 				div() {{key}} : {{value}}
-				//- ng-style="{'color': vm.isVowel(key), 'background-color': 'purple'}"
-				//- div(ng-if='vm.highest(vm.letterDifference)') highest number of occurences {{key}}	{{value}}		
-
-	//- p copy {{vm.cop}}
-	//- ng-class="{'diffs': {{vm.cop[$parent.$index][key]}}!=={{letter[key]}}}"
-
-	{{vm.results}}
+		
 
 	
