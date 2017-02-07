@@ -55,7 +55,7 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
         }).
         state('pdf', {
           url: '/pdf',
-          template: "<object data='/images/illustrator-resume.pdf' width='100%' height='100%'></object>"
+          template: "<object data='/images/illustrator-resume.pdf' type='application/pdf' width='100%' height='100%'></object>"
         });
         
 }

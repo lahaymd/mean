@@ -7,6 +7,7 @@
 vm.areaOne = function(one,two) {
 
 
+
 	vm.clear = () => {
 		$document.find('textarea').val('');
 		vm.letterDifference = {};
@@ -46,7 +47,7 @@ vm.areaOne = function(one,two) {
 	 vm.lettersTwo = foo(two)
 	
 	 
-		// console.log('letters',vm.letters)
+		console.log('letters',vm.letters)
 
 
 // 	vm.diff = function(){
