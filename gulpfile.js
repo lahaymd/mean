@@ -95,7 +95,7 @@ gulp.task('browser-sync', ['nodemon'], function () {
   });
 });
 
-gulp.task('scripts', function() {
+gulp.task('scripts', ['vendor'], function() {
   return gulp.src(['public/javascripts/app/app.module.js', 'public/javascripts/**/*.js'])
     .pipe(plumber())
     .pipe(ngAnnotate())
@@ -118,7 +118,8 @@ gulp.task('vendor', function() {
       'node_modules/angular-animate/angular-animate.min.js',
       'node_modules/angular-material/angular-material.min.js',
       'node_modules/angular-aria/angular-aria.min.js',
-      'node_modules/angular-inview/angular-inview.js' 
+      'node_modules/angular-inview/angular-inview.js',
+      'node_modules/angular-material-data-table/dist/md-data-table.min.js'
     ])
     .pipe(sourcemaps.init())
     .pipe(concat('vendorbundle.js'))
@@ -131,7 +132,8 @@ gulp.task('css',['styles'], function() {
   return gulp.src([
       'public/stylesheets/style.css',
       'node_modules/animate.css/animate.min.css',
-      'node_modules/angular-material/angular-material.min.css'
+      'node_modules/angular-material/angular-material.min.css',
+      'node_modules/angular-material-data-table/dist/md-data-table.min.css'
 
     ])
     .pipe(minifyCSS({'uglyComments': false}))
@@ -147,6 +149,7 @@ gulp.task('styles', function() {
               .pipe(stylus({
                 use: [typographic(), nib(), rupture(), axis(),  poststylus([lost(), rucksack(), font()])]
               }))
+              .pipe(postcss([ autoprefixer() ]))
               .pipe(gulp.dest('public/stylesheets'))
               .pipe(reload({stream: true}));
 });

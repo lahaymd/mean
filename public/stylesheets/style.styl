@@ -123,22 +123,37 @@ md-card
 	// background-image url('/images/background.svg')
 	background-size cover
 	backgroun-repeat no-repeat
+	clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+	
 	
 		
 md-nav-bar
 	background linear-gradient(45deg, red, yellow)
 	height 200px
 	
-.logo
-	background url('/images/graybluelogo.svg') no-repeat
-	size 100px
-	absolute()
-	left 0
-	cursor pointer !important
+// .logo
+// 	background url('/images/graybluelogo.svg') no-repeat
+// 	size 100px
+// 	absolute()
+// 	left 0
+// 	cursor pointer !important
+
+.coat
+	z-index 1
+	
+@media screen and (max-width: 960px) {
+	.coat {
+		// display: inline-block;
+		display inline-block
+		// position static
+	}
+}
 	
 
 #hamburger
 	float right
+	margin-bottom 100px
+	// display inline-block
 
 .diff.ng-enter
 	animation bounceIn 1s

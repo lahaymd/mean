@@ -9,9 +9,6 @@
 }
 footer {
   background: -webkit-linear-gradient(45deg, #2ecc40, #0074d9);
-  background: -moz-linear-gradient(45deg, #2ecc40, #0074d9);
-  background: -o-linear-gradient(45deg, #2ecc40, #0074d9);
-  background: -ms-linear-gradient(45deg, #2ecc40, #0074d9);
   background: linear-gradient(45deg, #2ecc40, #0074d9);
 }
 md-fab-speed-dial {
@@ -20,20 +17,52 @@ md-fab-speed-dial {
  {
   zoom: 1;
 }
+#trans {
+  height: 50px;
+  width: 50px;
+  background-color: #d13f19;
+  -webkit-transition: all 0.4s ease-in;
+  transition: all 0.4s ease-in;
+}
+#trans:hover {
+  height: 200px;
+  width: 200px;
+  background-color: #0074d9;
+}
+#svg-mask {
+  -webkit-mask-image: url("/images/cooper1.png"), url("/images/mask.svg");
+          mask-image: url("/images/cooper1.png"), url("/images/mask.svg");
+}
+.blend {
+  height: 100vh;
+  width: 100vw;
+  background-color: #3db6b8;
+  background-size: cover;
+  background-image: url("/images/IMG_2157.jpg");
+  background-blend-mode: difference;
+  background-position: right bottom;
+}
+#target {
+  -webkit-filter: url("#f1");
+          filter: url("#f1");
+}
+#target:hover {
+  -webkit-filter: none;
+          filter: none;
+}
+svg text {
+  font-size: 72px;
+}
+.text-inside {
+  background-image: url("/images/IMG_2154.jpg");
+}
 .hero {
   background-image: -webkit-linear-gradient(rgba(255,0,0,0.5), rgba(255,0,0,0.5)), url("/images/cooper.jpg");
-  background-image: -moz-linear-gradient(rgba(255,0,0,0.5), rgba(255,0,0,0.5)), url("/images/cooper.jpg");
-  background-image: -o-linear-gradient(rgba(255,0,0,0.5), rgba(255,0,0,0.5)), url("/images/cooper.jpg");
-  background-image: -ms-linear-gradient(rgba(255,0,0,0.5), rgba(255,0,0,0.5)), url("/images/cooper.jpg");
   background-image: linear-gradient(rgba(255,0,0,0.5), rgba(255,0,0,0.5)), url("/images/cooper.jpg");
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
   background-size: cover;
   height: 100vh;
 }
 .hero2 {
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
   background-size: cover;
   height: 100vh;
   background-image: url("/images/cooper.jpg");
@@ -84,12 +113,36 @@ md-fab-speed-dial {
   stroke-dasharray: 10022.2587890625;
   stroke-dashoffset: 10022.2587890625;
   -webkit-animation: dash 5s linear forwards;
-  -moz-animation: dash 5s linear forwards;
-  -o-animation: dash 5s linear forwards;
-  -ms-animation: dash 5s linear forwards;
   animation: dash 5s linear forwards;
   fill: #303030;
   stroke-width: 6;
+}
+.coat {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.small-coat {
+  display: block;
+  position: static;
+}
+img[src*='IMG_215'] {
+  height: 100vh;
+  width: 100%;
+}
+img[src*="/images/IMG_2155.jpg"] {
+  -webkit-filter: url("#pictureFilter1");
+          filter: url("#pictureFilter1");
+}
+.coat:hover,
+.element:hover {
+  -webkit-filter: url("#imgFilter");
+          filter: url("#imgFilter");
+}
+md-nav-bar {
+  height: 120px !important;
 }
 :before,
 :after {
@@ -100,15 +153,19 @@ md-fab-speed-dial {
   clear: both;
 }
 img[src*='shape'] {
-  shape-outside: url("/images/shape.png");
-  shape-image-threshold: 0.5;
+  -webkit-shape-outside: url("/images/shape.png");
+          shape-outside: url("/images/shape.png");
+  -webkit-shape-image-threshold: 0.5;
+          shape-image-threshold: 0.5;
   float: right;
 }
 .element {
   width: 300px;
   height: 300px;
-  shape-outside: url("/images/cooper1.png");
-  shape-image-threshold: 0.5;
+  -webkit-shape-outside: url("/images/cooper1.png");
+          shape-outside: url("/images/cooper1.png");
+  -webkit-shape-image-threshold: 0.5;
+          shape-image-threshold: 0.5;
   float: left;
 }
 .hello {
@@ -134,17 +191,7 @@ img[src*='shape'] {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
   filter: alpha(opacity=90);
 }
-@-moz-keyframes dash {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
 @-webkit-keyframes dash {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-@-o-keyframes dash {
   to {
     stroke-dashoffset: 0;
   }
@@ -217,8 +264,6 @@ md-card {
 }
 .autoprefixer {
   display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: box;
   display: flex;
@@ -235,64 +280,48 @@ md-card {
   clear: both;
 }
 .hero {
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
   background-size: cover;
   backgroun-repeat: no-repeat;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
 }
 md-nav-bar {
   background: -webkit-linear-gradient(45deg, #d13f19, #ffdc00);
-  background: -moz-linear-gradient(45deg, #d13f19, #ffdc00);
-  background: -o-linear-gradient(45deg, #d13f19, #ffdc00);
-  background: -ms-linear-gradient(45deg, #d13f19, #ffdc00);
   background: linear-gradient(45deg, #d13f19, #ffdc00);
   height: 200px;
 }
-.logo {
-  background: url("/images/graybluelogo.svg") no-repeat;
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  left: 0;
-  cursor: pointer !important;
+.coat {
+  z-index: 1;
+}
+@media screen and (max-width: 960px) {
+  .coat {
+    display: inline-block;
+  }
 }
 #hamburger {
   float: right;
+  margin-bottom: 100px;
 }
 .diff.ng-enter {
   -webkit-animation: bounceIn 1s;
-  -moz-animation: bounceIn 1s;
-  -o-animation: bounceIn 1s;
-  -ms-animation: bounceIn 1s;
   animation: bounceIn 1s;
 }
 .diff.ng-enter-stagger {
   -webkit-animation-delay: 0.1s;
-  -moz-animation-delay: 0.1s;
-  -o-animation-delay: 0.1s;
-  -ms-animation-delay: 0.1s;
   animation-delay: 0.1s;
   -webkit-animation-duration: 0s;
-  -moz-animation-duration: 0s;
-  -o-animation-duration: 0s;
-  -ms-animation-duration: 0s;
   animation-duration: 0s;
   -webkit-animation-delay: 0.1s;
   -webkit-animation-duration: 0s;
   -webkit-transition-delay: 0.1s;
-  -moz-transition-delay: 0.1s;
-  -o-transition-delay: 0.1s;
-  -ms-transition-delay: 0.1s;
   transition-delay: 0.1s;
   -webkit-transition-duration: 0s;
-  -moz-transition-duration: 0s;
-  -o-transition-duration: 0s;
-  -ms-transition-duration: 0s;
   transition-duration: 0s;
   -webkit-transition-delay: 0.1s;
   -webkit-transition-duration: 0s;
 }
 #stick {
+  position: -webkit-sticky;
   position: sticky;
   top: 100px;
   z-index: 1;
@@ -313,10 +342,8 @@ body {
 }
 ul {
   -webkit-box-pack: distribute;
-  -moz-box-pack: distribute;
   -o-box-pack: distribute;
   -ms-flex-pack: distribute;
-  -webkit-justify-content: space-around;
   justify-content: space-around;
 }
 .loginBox {
@@ -325,23 +352,14 @@ ul {
 }
 [ui-view].ng-enter {
   -webkit-animation: slideInRight 1s;
-  -moz-animation: slideInRight 1s;
-  -o-animation: slideInRight 1s;
-  -ms-animation: slideInRight 1s;
   animation: slideInRight 1s;
 }
 [ui-view].ng-leave {
   -webkit-animation: slideOutRight 1s;
-  -moz-animation: slideOutRight 1s;
-  -o-animation: slideOutRight 1s;
-  -ms-animation: slideOutRight 1s;
   animation: slideOutRight 1s;
 }
 .ui-view.ng-enter {
   -webkit-animation: zoomIn 1s;
-  -moz-animation: zoomIn 1s;
-  -o-animation: zoomIn 1s;
-  -ms-animation: zoomIn 1s;
   animation: zoomIn 1s;
 }
 .ui-view.ng-enter.ng-enter-active {
@@ -353,30 +371,18 @@ ul {
 }
 .repeatedItem.ng-leave {
   -webkit-animation: bounceOut 3s;
-  -moz-animation: bounceOut 3s;
-  -o-animation: bounceOut 3s;
-  -ms-animation: bounceOut 3s;
   animation: bounceOut 3s;
 }
 .repeatedItem.ng-enter {
   -webkit-animation: bounceIn 3s;
-  -moz-animation: bounceIn 3s;
-  -o-animation: bounceIn 3s;
-  -ms-animation: bounceIn 3s;
   animation: bounceIn 3s;
 }
 .ng-hide-add {
   -webkit-animation: bounceOut 3s;
-  -moz-animation: bounceOut 3s;
-  -o-animation: bounceOut 3s;
-  -ms-animation: bounceOut 3s;
   animation: bounceOut 3s;
   display: block !important;
 }
 .ng-hide-remove {
   -webkit-animation: bounceIn 3s;
-  -moz-animation: bounceIn 3s;
-  -o-animation: bounceIn 3s;
-  -ms-animation: bounceIn 3s;
   animation: bounceIn 3s;
 }

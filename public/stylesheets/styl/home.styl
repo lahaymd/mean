@@ -1,9 +1,39 @@
-main
-	// background-color red
-	// height 1000px
+#trans	
+	height 50px
+	width 50px
+	background-color red
+	transition all .4s ease-in
 	
-aside
-	// background-color blue
+#trans:hover
+	height 200px
+	width 200px
+	background-color blue
+
+#svg-mask
+	 
+	mask-image url('/images/cooper1.png'), url('/images/mask.svg')
+	
+.blend 
+	height 100vh
+	width 100vw
+	background-color #3db6b8
+	background-size cover 
+	background-image url("/images/IMG_2157.jpg")
+	background-blend-mode difference
+	background-position right bottom 
+
+
+#target
+	filter url(#f1)
+		
+#target:hover
+	filter none
+		
+svg text 
+	font-size 72px
+		
+.text-inside
+	background-image url("/images/IMG_2154.jpg")
 	
 .hero
 	background-image  linear-gradient(rgba(255, 0, 0, 0.5),rgba(255, 0, 0, 0.5)), url('/images/cooper.jpg')
@@ -61,11 +91,58 @@ aside
 	animation dash 5s linear forwards
 	fill #303030
 	stroke-width 6
+// .st1
+// 	stroke-dasharray 128.72665405273438
+// 	stroke-dashoffset 128.72665405273438
+// 	animation dash 5s linear forwards
+// 	fill #303030
+// 	stroke-width 2
+// 	stroke pink
 @keyframes dash {
 	to {
 		stroke-dashoffset 0
 	}
 }
+// .st2:hover
+// 	filter: url(#pictureFilter);
+// 	fill: yellow;
+	
+// .st0:hover
+// 	filter url(#imageFilter)
+.coat
+	size 100px
+	position absolute
+	top 10px
+	left 10px
+	
+.small-coat
+	display block
+	position static
+	
+img[src*='IMG_215']
+	height 100vh
+	width 100%
+	
+img[src*="/images/IMG_2155.jpg"]
+	filter url(#pictureFilter1)
+	
+	
+	
+.coat:hover, .element:hover
+	filter url(#imgFilter)
+		
+// .svg:hover
+// 	filter url(#svgFilter)
+		
+// #b:hover
+// 	filter url(#imageFilter)
+		
+
+
+	
+md-nav-bar
+	height 120px !important
+	
 	
 // img[src$='png']
 clearfix()
@@ -98,6 +175,10 @@ img[src*='shape']
 	color cornflowerBlue
 	opacity .9
 	
+
+// .is-visible
+// 	width 50% !important
 	
+
 
 	

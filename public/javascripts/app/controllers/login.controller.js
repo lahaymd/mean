@@ -23,10 +23,81 @@
 			$ctrl.toggleNav = () => $mdSidenav('left').toggle();
 			
 		}]).
-		controller('LoginController', ['AuthService', function(AuthService){
+		controller('LoginController', ['AuthService','$scope', '$window', function(AuthService, $scope, $window){
 
 			var vm = this;
 			 vm.userlist = {};
+
+			 vm.scale = 0;
+
+			 var didScroll = false;
+			 // vm.isVisible= true;
+
+			 var getElemDistance = function ( elem ) {
+    var location = 0;
+    if (elem.offsetParent) {
+        do {
+            location += elem.offsetTop;
+            elem = elem.offsetParent;
+        } while (elem);
+    }
+    return location >= 0 ? location : 0;
+};
+var elem = document.querySelector('#visible-img');
+var location = getElemDistance( elem );
+console.log('location', location)
+
+
+
+			 angular.element($window).on('scroll', function() {
+
+			 	didScroll = true;
+
+			 	
+
+			 	$scope.$apply(setInterval(function() {
+			 		if(didScroll && vm.isVisible ) {
+        didScroll = false;
+        console.log('You scrolled');
+	console.log('scrollY', window.scrollY);
+	console.log('scale', vm.scale)
+	var a = document.getElementById('visible-img');
+	var rect = a.getBoundingClientRect();
+	console.log('rect',rect.top)
+			vm.scale = Math.round(  (  window.scrollY - (location - window.innerHeight)) / 10)
+    }
+	
+
+		
+
+	}, 500))
+
+
+
+
+			 })
+
+
+
+// var didScroll = false;
+
+// window.onscroll = doThisStuffOnScroll;
+
+// function doThisStuffOnScroll() {
+//     didScroll = true;
+// }
+
+// setInterval(function() {
+//     if(didScroll) {
+//         didScroll = false;
+//         console.log('You scrolled');
+//     }
+// }, 100);
+
+
+
+
+
 
 			 vm.addLogo = function() {
 			 var el = document.querySelector('#b');
