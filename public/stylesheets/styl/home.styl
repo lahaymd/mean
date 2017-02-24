@@ -1,3 +1,10 @@
+#pooh
+	mask-image url('/images/half-mask.svg')
+
+.csssvg
+	color black 
+	filter url(#light)
+
 #trans	
 	height 50px
 	width 50px
@@ -11,7 +18,8 @@
 
 #svg-mask
 	 
-	mask-image url('/images/cooper1.png'), url('/images/mask.svg')
+	mask-image url('/images/cooper1.png')
+	mask-size cover
 	
 .blend 
 	height 100vh
@@ -113,7 +121,7 @@ svg text
 	size 100px
 	position absolute
 	top 10px
-	left 10px
+	// left 10px
 	
 .small-coat
 	display block

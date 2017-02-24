@@ -1,0 +1,13 @@
+<svg width="120" height="120" viewBox="0 0 120 120"
+    xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <pattern fill-opacity='.2' id="Triangle" x='10' y='10' width="10" height="10"
+        patternUnits="userSpaceOnUse">
+      <polygon  points="5,0 10,10 0,10"/>
+	</pattern>
+  </defs>
+
+<rect  width="120" height="120"
+    stroke= "#333333" stroke-width="2" fill="url(#Triangle)"/>
+</svg>

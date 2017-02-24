@@ -7,9 +7,8 @@
 			
 
 
-
 			vm.currentNavItem = $location.path().slice(1) || 'login';
-			console.log(vm.currentNavItem)
+			console.log('current nav item',vm.currentNavItem)
 
 
 	
@@ -29,6 +28,7 @@
 			 vm.userlist = {};
 
 			 vm.scale = 0;
+			 vm.sd = 0;
 
 			 var didScroll = false;
 			 // vm.isVisible= true;
@@ -61,10 +61,12 @@ console.log('location', location)
         console.log('You scrolled');
 	console.log('scrollY', window.scrollY);
 	console.log('scale', vm.scale)
+	console.log('sd', vm.sd)
 	var a = document.getElementById('visible-img');
 	var rect = a.getBoundingClientRect();
 	console.log('rect',rect.top)
 			vm.scale = Math.round(  (  window.scrollY - (location - window.innerHeight)) / 10)
+			vm.sd = Math.round(  (  window.scrollY - (location - window.innerHeight)) / 10)
     }
 	
 
@@ -144,22 +146,6 @@ console.log('location', location)
 
 			fetchMongoLab();
 			
-		}]).
-		controller('ModalController', ['$mdDialog', function($mdDialog) {
-			var ctrl = this;
-
-			ctrl.showAlert = function(event) {
-			$mdDialog.show(
-		      	$mdDialog.alert()
-		        .parent(angular.element(document.querySelector('#popupContainer')))
-		        .clickOutsideToClose(true)
-		        .title('This is an alert title')
-		        .textContent('You can specify some description text in here.')
-		        .ariaLabel('Alert Dialog Demo')
-		        .ok('Got it!')
-		        .targetEvent(event)
-		    );
-		}
-	}])
+		}])
 		
 })();

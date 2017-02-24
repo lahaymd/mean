@@ -2,7 +2,7 @@ footer#foot(ng-controller='FooterController as $ctrl')
 	md-fab-speed-dial(md-open='false' class='md-scale' md-direction='left')
 			md-fab-trigger
 				md-button(class='md-fab')
-					md-icon(md-svg-src='/static/material-design-icons/navigation/svg/production/ic_menu_24px.svg' style='color: purple;')
+					md-icon(md-svg-src='/static/material-design-icons/communication/svg/production/ic_contacts_24px.svg' style='color: purple;')
 			md-fab-actions
 				md-button(class='md-fab md-mini')
 					md-tooltip github
@@ -13,4 +13,9 @@ footer#foot(ng-controller='FooterController as $ctrl')
 					md-tooltip linkedin
 					a(href='https://www.linkedin.com/in/michael-la-hay-23265747?trk=nav_responsive_tab_profile')
 						md-icon(md-svg-src='/images/linkedin.svg')
-	p Mike La Hay {{$ctrl.date}}
+			md-fab-actions
+				md-button(class='md-fab md-mini')
+					md-tooltip twitter
+					a(href='https://twitter.com/lahaymd')
+						md-icon(md-svg-src='/images/twitter.svg')
+	p() Mike La Hay {{$ctrl.date}}

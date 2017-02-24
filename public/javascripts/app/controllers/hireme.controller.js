@@ -1,18 +1,31 @@
 (function() {
-	angular.module('myApp')
-		.controller('HireMeController', ['AuthService', '$scope', '$mdDialog', '$mdToast',  function(AuthService, $scope, $mdDialog, $mdToast) {
-		$scope.checkboxModel = false;
-
-    $scope.propertyName = 'firstname';
-
-    $scope.lists = ['firstname', 'lastname', 'email', 'phone', 'message']
-
-    $scope.sortBy = function(property) {
-
-      $scope.propertyName = property;
-      // return property;
-    }
-
+  angular.module('myApp')
+    .controller('HireMeController', ['AuthService', '$scope', '$mdDialog', '$mdToast',  function(AuthService, $scope, $mdDialog, $mdToast) {
+			$scope.hiremelist;
+    
+  var hired = function() {
+        // $scope.showConfirm().
+        // then(function(){ 
+        // if($scope.status){
+            AuthService.hire($scope.hiremelist.firstname,$scope.hiremelist.lastname,$scope.hiremelist.email,$scope.hiremelist.phone,$scope.hiremelist.message)
+            .then(function (newUser) {
+                    console.log('New',JSON.stringify(newUser));
+                    $scope.hiremelist.push(newUser);
+                    console.log('new user',newUser)
+                    // alert($scope.hiremelist);
+                    angular.element(document.querySelectorAll('input')).val('');
+             
+                }, function(error) {
+                    alert(JSON.stringify($scope.hiremelist));
+                    alert(error);
+                })
+                // .catch(function(error) {
+                //   alert($scope.hiremelist);
+                //   alert(error)
+                // })
+        // } //end of if block
+        // })
+      }
   
 
 
@@ -29,10 +42,11 @@
 
     $mdDialog.show(confirm).then(function() {
       // $scope.status = true;
-      $scope.hired();
+      hired();
       $scope.openToast();
-    }, function() {
      angular.element(document.querySelectorAll('input')).val('');
+    }, function(error) {
+      alert(error);
     });
   };
 
@@ -46,7 +60,6 @@
     // Could also do $mdToast.showSimple('Hello');
   };
 
-			$scope.hiremelist = {};
 
 
 
@@ -54,7 +67,7 @@
                   AuthService.getHired()
                   .then(function(users) {
                     $scope.hiremelist = users;
-                    console.log(users)
+                    console.log('users',users)
                   }, function(error) {
                     console.log(error)
                   })
@@ -63,25 +76,7 @@
 fetchHired();
 
 
-			$scope.hired = function() {
-        // $scope.showConfirm().
-        // then(function(){ 
-        // if($scope.status){
-    				AuthService.hire($scope.hiremelist.firstname,$scope.hiremelist.lastname,$scope.hiremelist.email,$scope.hiremelist.phone,$scope.hiremelist.message)
-    				.then(function (newUser) {
-              			// alert(JSON.stringify(newUser));
-              			$scope.hiremelist.push(newUser);
-              			// alert($scope.hiremelist);
-              			angular.element(document.querySelectorAll('input')).val('');
-             
-            		})
-            		.catch(function(error) {
-            			alert($scope.hiremelist);
-            			alert(error)
-            		})
-        // } //end of if block
-        // })
-			}
+
 
 
 		}])

@@ -1,7 +1,7 @@
 extends layout
 block content 
 	include header
-	div(class='container' ng-controller="SidenavController as $ctrl" layout='row' flex)
+	div(class='container' ng-controller="SidenavController as $ctrl")
 		md-sidenav(flex class='md-sidenav-left md-whiteframe-z2' md-component-id='left'  ng-click='$ctrl.toggleNav()') 
 			md-button( name='users' md-nav-click="goto('users')" ui-sref='users' ui-sref-active='active') Users
 			md-divider
@@ -13,9 +13,8 @@ block content
 			md-divider
 			md-button( name='pdf' md-nav-click="goto('pdf')" ui-sref='pdf' ui-sref-active='active') Resume
 			md-divider
-			md-button( name='hireme' md-nav-click="goto('hireme')" ui-sref='hireme' ui-sref-active='active') Hire Me
-		div(ui-view flex)
-		
+			md-button( name='hireme' md-nav-click="goto('hireme')" ui-sref='hireme' ui-sref-active='active') Contact Me
+	div(ui-view flex)
 	include footer
 	
          

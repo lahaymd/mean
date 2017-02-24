@@ -1,0 +1,22 @@
+<svg width='0' height='0'>
+	<defs>
+		<pattern id="imgpattern" x="0" y="0" width="1" height="1">
+        	<image width='1000' height='400' xlink:href="/images/circles.svg"/>
+      	</pattern>
+		<filter id="pictureFilter1" >
+		  <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="2" result="turbulence_3" data-filterId="3"/>
+		  <feDisplacementMap xChannelSelector="R" yChannelSelector="G" in="SourceGraphic" in2="turbulence_3" ng-attr-scale="{{vm.scale}}" />
+		<filter />
+		<filter id='blurred'>
+			<feGaussianBlur  ng-attr-stdDeviation='{{vm.sd}}'/>
+		</filter>
+		<linearGradient id='myGradient'>
+			<stop offset="5%"  stop-color="green"/>
+            <stop offset="95%" stop-color="gold"/>
+		</linearGradient>
+		<path d='M 100 200 C 200 100 300   0 400 100 C 500 200 600 300 700 200 C 800 100 900 100 900 100' id='circ'/>
+		<filter id="pictureFilter" >
+  			<feGaussianBlur stdDeviation="2" />
+		<filter />
+	</defs>
+</svg>

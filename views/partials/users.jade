@@ -1,16 +1,17 @@
-div(layout='row' layout-wrap)
-	md-content.user-intro(flex='100' layout-padding)	Example of 
-					abbr(title='Create Read Update Destroy') CRUD 
-					|operations. You can 
-					i Create 
-					|a user, 
-					i Read 
-					|the data into the view, 
-					i Update 
-					|the 
-					|username and password, and 
-					i Delete 
-					|the user.
+div(layout='row' layout-wrap layout-align='center')
+	md-content.user-intro(flex='100' layout-padding) 
+				p 
+					| Example of 
+					abbr(title='Create Read Update Destroy') CRUD  
+					|  operations. You can  
+					i Create  
+					|  a user,  
+					i Read  
+					|  the data into the view,   
+					i Update  
+					|  the username and password, and  
+					i Delete  
+					|  the user.
 	md-input-container(flex='33')
 		label(for='search') Search
 		input(name='search' ng-model='searchText')
@@ -40,15 +41,15 @@ div(layout='row' layout-wrap)
 						td(md-cell)  
 							md-button.md-accent.md-raised
 								a(ui-sref="users.detail({id : user._id})") Edit
-	h1 user length = {{userlist.length}}
+	//- h1 user length = {{userlist.length}}
 	div(flex='100' layout='row' layout-align='center' layout-wrap)
 		md-button.md-accent.md-raised(ng-click='displayPagination(0)' ) First
 		div.pagination(ng-repeat='button in userlist | limitTo: limit' )
 			md-button.md-primary.md-raised( ng-click='displayPagination($index)') {{$index + 1}}
 		md-button.md-accent.md-raised(ng-click='displayPagination(limit - 1)') Last
-	h1 limit is {{limit}}
-	h3 begin is {{begin}}
-	h4 display amount is {{displayAmount}}
+	//- h1 limit is {{limit}}
+	//- h3 begin is {{begin}}
+	//- h4 display amount is {{displayAmount}}
 
 	//- md-list(flex='50')
 	//- 	md-list-item(ng-repeat='user in userlist' ng-click='null')
@@ -72,3 +73,8 @@ div(layout='row' layout-wrap)
 	div.ui-view(flex='100')
 	
 	md-progress-circular( md-mode="indeterminate" ng-show='isLoading')
+
+
+
+
+	

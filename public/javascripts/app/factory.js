@@ -33,14 +33,6 @@ angular.module('myApp').factory('AuthService',
         }, function(response){
           alert(response)
         })
-      // .success(function(user) {
-      //   console.log(user)
-      //   deferred.resolve(user)
-      // })
-      // .error(function(error) {
-      //   deferred.reject(error);
-      // })
-      // return deferred.promise;
     }
 
     function remove(id) {
@@ -52,13 +44,6 @@ angular.module('myApp').factory('AuthService',
         }, function(response){
           alert(response)
         })
-      // .success(function(user) {
-      //   deferred.resolve(user)
-      // })
-      // .error(function(error) {
-      //   deferred.reject(error + '!!')
-      // })
-      // return deferred.promise;
     }
 
     function find(id) {
@@ -69,15 +54,6 @@ angular.module('myApp').factory('AuthService',
         }, function(response){
           alert(response)
         })
-
-        // .success(function(user) {
-        //   deferred.resolve(user)
-        // })
-        // .error(function(error) {
-        //   deferred.reject(error +'!')
-        // })
-        // return deferred.promise;
-
     }
 
     function getUsers() {
@@ -89,30 +65,16 @@ angular.module('myApp').factory('AuthService',
         }, function(response){
           alert(response)
         })
-        // .success(function(users) {
-        //   deferred.resolve(users)
-        // })
-        // .error(function(error) {
-        //   deferred.reject(error +'!')
-        // })
-        // return deferred.promise;
     }
 
         function getHired() {
       // var deferred = $q.defer();
           return $http.get('/api/hireme')
               .then(function(response){
-                response.data 
+                return response.data 
               }, function(response){
                 alert(response)
               })
-        // .success(function(users) {
-        //   deferred.resolve(users)
-        // })
-        // .error(function(error) {
-        //   deferred.reject(error +'!')
-        // })
-        // return deferred.promise;
     }
 
     function isLoggedIn() {
@@ -192,30 +154,14 @@ angular.module('myApp').factory('AuthService',
     }
 
     function register(username, password) {
-     
 
-                  
-      // create a new instance of deferred
-      // var deferred = $q.defer();
-
-      // send a post request to the server
       return $http.post('/api/users', {username: username, password: password})
         .then(function(response) {
            return response.data;
         }, function(response) {
           alert(response)
         })
-        // handle success
-      //   .success(function (response) {
-      //       deferred.resolve(response);
-         
-      //   }).error (function(response) {
-      //     deferred.reject(response)
-      //   });
-        
-
-      // // return promise object
-      // return deferred.promise;
+  
 
     }
 
@@ -227,28 +173,9 @@ angular.module('myApp').factory('AuthService',
         }, function(response) {
           alert(response)
         })
-        // .success(function(users) {
-        //   deferred.resolve(users)
-        // })
 
-        // .error(function(error) {
-        //   deferred.reject(error +'!')
-        // })
-        // return deferred.promise;
     }
 
-
-    // function getMongoLab() {
-    //   var deferred = $q.defer();
-    //   $http.get('/api/mongolab')
-    //     .success(function(users) {
-    //       deferred.resolve(users)
-    //     })
-    //     .error(function(error) {
-    //       deferred.reject(error +'!')
-    //     })
-    //     return deferred.promise;
-    // }
 
 
 
@@ -278,13 +205,7 @@ angular.module('myApp').factory('AuthService',
 
     
      function hire(firstname, lastname, email, phone, message) {
-     
 
-                  
-      // create a new instance of deferred
-      // var deferred = $q.defer();
-
-      // send a post request to the server
       return $http.post('/api/hireme', {
         firstname: firstname,
          lastname: lastname, 
@@ -293,22 +214,11 @@ angular.module('myApp').factory('AuthService',
          message: message
       })
       .then(function(response) {
-        response.data 
+        return response.data 
       }, function(response){
         alert(response)
       })
-      //   // handle success
-      //   .success(function (response) {
-      //       deferred.resolve(response);
-         
-      //   }).error (function(response) {
-      //     deferred.reject(response)
-      //   });
-        
-
-      // // return promise object
-      // return deferred.promise;
-
+  
     }
 
 

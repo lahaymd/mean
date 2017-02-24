@@ -2,14 +2,19 @@ div(ng-controller='NavController as vm')
 		a#logo(href='/')
 			include coat-of-arms.svg
 		md-nav-bar( hide-sm hide-xs md-selected-nav-item='vm.currentNavItem'  layout='row' layout-align='space-around' layout-fill layout-margin layout-padding) 
-			//- md-nav-item( name='home' md-nav-click='goto("home")' ui-sref='home' ui-sref-active='active') Home
-			md-nav-item( name='users' md-nav-click="goto('users')" ui-sref='users' ui-sref-active='active') Users
-			md-nav-item( name='hireme' md-nav-click="goto('hireme')" ui-sref='hireme' ui-sref-active='active') Hire Me
-			//- md-nav-item( name='register' md-nav-click="goto('register')" ui-sref='register' ui-sref-active='active') Register
-			md-nav-item( name='login' md-nav-click="goto('login')" ui-sref='login' ui-sref-active='active') Home
-			md-nav-item( name='readerboard' md-nav-click="goto('readerboard')" ui-sref='readerboard' ui-sref-active='active') Readerboard
+			md-nav-item(  name='login' md-nav-click="goto('login')" ui-sref='login' ui-sref-active='active') Home
+			//- md-nav-item( name='users' md-nav-click="goto('users')" ui-sref='users' ui-sref-active='active') Table Example
+			//- md-nav-item( name='readerboard' md-nav-click="goto('readerboard')" ui-sref='readerboard' ui-sref-active='active') Letter Example
+			md-nav-item( name='hireme' md-nav-click="goto('hireme')" ui-sref='hireme' ui-sref-active='active') Contact Me
 			md-nav-item( name='pdf' md-nav-click="goto('pdf')" ui-sref='pdf' ui-sref-active='active') Resume
+			md-menu(md-offset='0 50')
+				md-button(ng-click='$mdOpenMenu($event)') Examples
+				md-menu-content(ng-click='$mdCloseMenu($event)' width='4')
+					md-menu-item
+						md-button(ui-sref='users') Table
+					md-menu-item
+						md-button(ui-sref='readerboard') Letter
+	
 		md-button#hamburger( ng-click='vm.open()' hide-gt-sm)
 			md-icon(md-svg-src='/static/material-design-icons/navigation/svg/production/ic_menu_24px.svg')
-		//- md-button(ng-click='ctrl.showAlert($event)' md-raised) open modal
 		

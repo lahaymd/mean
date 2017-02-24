@@ -17,7 +17,7 @@ router.post('/', function(req, res) {
 
 router.get('/', function(req, res) {
 	HireMe.find({}, function(err, docs) {
-		 if (err) return console.error(err);
+		 // if (err) return console.error(err);
 		res.json(docs);
 	})
 })

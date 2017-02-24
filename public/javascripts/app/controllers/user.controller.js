@@ -1,6 +1,6 @@
 (function() {
 	angular.module('myApp').
-		controller('UserController', ['$scope', '$stateParams', 'AuthService', '$location', '$window',  function($scope, $stateParams, AuthService, $location, $window ) {
+		controller('UserController', ['$scope', '$stateParams', 'AuthService', '$location', '$window', '$mdDialog',  function($scope, $stateParams, AuthService, $location, $window, $mdDialog ) {
 
  // $scope.userlist = {};
 // $scope.displayAmount = 3;
@@ -49,11 +49,34 @@ var fetchUsers= function() {
 fetchUsers();
 
 
+$scope.showConfirm = function(ev) {
+    
+    
+
+    $mdDialog.show({
+               
+                template: '<md-dialog ng-show="isLoading" id="plz_wait" style="background-color:transparent;box-shadow:none">' +
+                            '<div layout="row" layout-sm="column" layout-align="center center" aria-label="wait">' +
+                                '<md-progress-circular md-mode="indeterminate" ></md-progress-circular>' +
+                            '</div>' +
+                         '</md-dialog>',
+                parent: angular.element(document.body),
+                clickOutsideToClose:false,
+                fullscreen: false
+              }).then(function() {
+      // $scope.isLoading = false;
+    }, function(error) {
+      alert(error);
+    });
+  };
+
+
 
  
   $scope.removeUser = function(id) {
                       console.log(id)
                       $scope.isLoading = true;
+                              // $scope.showConfirm();
                           AuthService.remove(id)
                             .then(function(user) {
                               console.log(user);
@@ -64,6 +87,7 @@ fetchUsers();
                               $scope.userlistLength = $scope.userlist.length;
                               $scope.limit = Math.ceil($scope.userlistLength / $scope.displayAmount);
                               console.log('promise returned');
+
                               $scope.isLoading= false;
                             
                             })
