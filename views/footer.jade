@@ -1,4 +1,6 @@
-footer#foot(ng-controller='FooterController as $ctrl')
+footer#foot( layout layout-align='space-between center' ng-controller='FooterController as $ctrl')
+	p() Mike La Hay {{$ctrl.date}}
+	//- p Built with MEAN stack
 	md-fab-speed-dial(md-open='false' class='md-scale' md-direction='left')
 			md-fab-trigger
 				md-button(class='md-fab')
@@ -18,4 +20,3 @@ footer#foot(ng-controller='FooterController as $ctrl')
 					md-tooltip twitter
 					a(href='https://twitter.com/lahaymd')
 						md-icon(md-svg-src='/images/twitter.svg')
-	p() Mike La Hay {{$ctrl.date}}

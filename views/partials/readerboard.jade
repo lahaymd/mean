@@ -1,6 +1,7 @@
 include ../scratch.svg
 div(layout='row' layout-wrap )
-	h1.filtered(flex='100' ng-style='{"text-align": "center"}' ) readerboard
+	h1.filtered(hide-xs hide-sm show-gt-sm flex='100' ng-style='{"text-align": "center"}' ) readerboard
+	h1.small-header(flex show-xs show-sm hide-gt-sm) Letters App
 	md-button(flex='100' ng-click='vm.clear()') clear
 	md-input-container(flex='50')
 		label textarea 1
@@ -13,6 +14,6 @@ div(layout='row' layout-wrap )
 			div.result  {{letter[0]}} : {{letter[1]}}
 	{{vm.results}}
 	
-	
+
 
 	

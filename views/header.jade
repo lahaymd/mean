@@ -11,9 +11,9 @@ div(ng-controller='NavController as vm')
 				md-button(ng-click='$mdOpenMenu($event)') Examples
 				md-menu-content(ng-click='$mdCloseMenu($event)' width='4')
 					md-menu-item
-						md-button(ui-sref='users') Table
+						md-button(ui-sref='users') Dynamic Users Table
 					md-menu-item
-						md-button(ui-sref='readerboard') Letter
+						md-button(ui-sref='readerboard') Letters App
 	
 		md-button#hamburger( ng-click='vm.open()' hide-gt-sm)
 			md-icon(md-svg-src='/static/material-design-icons/navigation/svg/production/ic_menu_24px.svg')
