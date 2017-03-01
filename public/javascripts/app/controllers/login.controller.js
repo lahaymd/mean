@@ -22,15 +22,17 @@
 			$ctrl.toggleNav = () => $mdSidenav('left').toggle();
 			
 		}]).
-		controller('LoginController', ['AuthService','$scope', '$window', function(AuthService, $scope, $window){
+		controller('LoginController', ['AuthService','$scope', '$interval', '$window', function(AuthService, $scope, $interval, $window){
 
 			var vm = this;
 			 vm.userlist = {};
 
 			 vm.scale = 0;
-			 vm.sd = 0;
+			 vm.sd = 1;
+			 vm.rad = 0;
 
 			 var didScroll = false;
+			 var didS = false;
 			 // vm.isVisible= true;
 
 			 var getElemDistance = function ( elem ) {
@@ -43,33 +45,44 @@
     }
     return location >= 0 ? location : 0;
 };
-var elem = document.querySelector('#visible-img');
+var elem = document.querySelector('#blurredimg');
 var location = getElemDistance( elem );
+var elem2 = document.querySelector('#pica');
+var location2 = getElemDistance(elem2);
+var size = elem.clientHeight;
+var size2 = elem2.clientHeight;
+console.log('size', size)
+console.log('size2', size2)
 console.log('location', location)
+console.log('location2', location2)
+
 
 
 
 			 angular.element($window).on('scroll', function() {
-
 			 	didScroll = true;
-
-			 	
-
-			 	$scope.$apply(setInterval(function() {
+			 	didS = true;
+			 	$scope.$apply($interval(function() {
 			 		if(didScroll && vm.isVisible ) {
-        didScroll = false;
-        console.log('You scrolled');
-	console.log('scrollY', window.scrollY);
-	console.log('scale', vm.scale)
-	console.log('sd', vm.sd)
-	var a = document.getElementById('visible-img');
-	var rect = a.getBoundingClientRect();
-	console.log('rect',rect.top)
-			vm.scale = Math.round(  (  window.scrollY - (location - window.innerHeight)) / 10)
-			vm.sd = Math.round(  (  window.scrollY - (location - window.innerHeight)) / 10)
-    }
-	
 
+        				didScroll = false;
+        				console.log('You scrolled');
+						console.log('scrollY', $window.scrollY);
+console.log('location', location)
+console.log('innerHeight', $window.innerHeight)						
+						vm.sd = Math.round(  (location + size - ($window.scrollY + $window.innerHeight)) / 50)
+						console.log('sd', vm.sd)
+    				}
+	
+    				if (didS && vm.isVis) {
+    					didS = false;
+						vm.scale = Math.round(  (location2 + size2 - ($window.scrollY + $window.innerHeight)) / 10)
+						// vm.rad = Math.round(  (location2 + size2  - ($window.scrollY + $window.innerHeight))  )
+						console.log('scale', vm.scale)
+						console.log('scrollY', $window.scrollY);
+
+						// vm.rad = Math.round(  (  $window.scrollY - (location - $window.innerHeight)) / 50)
+    				}
 		
 
 	}, 500))
@@ -78,27 +91,6 @@ console.log('location', location)
 
 
 			 })
-
-
-
-// var didScroll = false;
-
-// window.onscroll = doThisStuffOnScroll;
-
-// function doThisStuffOnScroll() {
-//     didScroll = true;
-// }
-
-// setInterval(function() {
-//     if(didScroll) {
-//         didScroll = false;
-//         console.log('You scrolled');
-//     }
-// }, 100);
-
-
-
-
 
 
 			 vm.addLogo = function() {

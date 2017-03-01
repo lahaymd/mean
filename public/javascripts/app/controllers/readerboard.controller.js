@@ -46,7 +46,7 @@
 
 					vm.letters = foo(one);
 				 	vm.lettersTwo = foo(two)
-					// console.log('letters',vm.letters)
+					
 
 				var letterDifference = function(){
 					var arr = [];
@@ -60,8 +60,7 @@
 								for(var i = 0; i< lettersLength; i++) {
 									if(lettersTwoMapped.indexOf(lettersMapped[i]) !== -1) {
 										var MappedFindIdx =lettersTwoMapped.findIndex(function(index, idx, arr){return index === lettersMapped[i] ;});
-										// console.log('MappedFindIdx', MappedFindIdx);
-										continue;
+											continue;
 									} else {
 
 												arr.push([lettersMapped[i] , -Math.abs(lettersMap[i]) ] );

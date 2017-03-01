@@ -1,14 +1,17 @@
 <svg width='0' height='0'>
+		<filter id='blurred'>
+			<feGaussianBlur in="SourceGraphic"  ng-attr-std_deviation='{{vm.sd}}'/>
+		</filter>
 	<defs>
 		<pattern id="imgpattern" x="0" y="0" width="1" height="1">
         	<image width='1000' height='400' xlink:href="/images/circles.svg"/>
       	</pattern>
-		<filter id="pictureFilter1" >
+		<!-- <filter id="pic" >
 		  <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="2" result="turbulence_3" data-filterId="3"/>
 		  <feDisplacementMap xChannelSelector="R" yChannelSelector="G" in="SourceGraphic" in2="turbulence_3" ng-attr-scale="{{vm.scale}}" />
-		<filter />
-		<filter id='blurred'>
-			<feGaussianBlur  ng-attr-stdDeviation='{{vm.sd}}'/>
+		<filter /> -->
+		<filter id="pic">
+			<feGaussianBlur ng-attr-std_deviation='{{vm.scale}}'/>
 		</filter>
 		<linearGradient id='myGradient'>
 			<stop offset="5%"  stop-color="green"/>
@@ -18,5 +21,9 @@
 		<filter id="pictureFilter" >
   			<feGaussianBlur stdDeviation="2" />
 		<filter />
+		<filter id="rad" >
+  <feMorphology operator="erode" ng-attr-radius="{{vm.rad}}" />
+<filter />
+
 	</defs>
 </svg>
