@@ -35,7 +35,7 @@ div(layout='row' layout-wrap layout-align='center')
 				tbody(md-body)
 					tr(md-row ng-repeat='user in userlist | orderBy:propertyName:checkboxModel | limitTo: displayAmount : begin | filter: searchText' class='repeatedItem')
 						td.success(md-cell) {{user.username}}
-						td(md-cell) {{user._id}} 
+						td(md-cell) {{user._id | limitTo : 5}} 
 						td(md-cell)
 							md-button.md-warn.md-raised(ng-click='removeUser(user._id)') delete me
 						td(md-cell)  
@@ -58,7 +58,7 @@ div(layout='row' layout-wrap layout-align='center')
 	md-card(flex='50' flex-sm='100' flex-xs='100')		
 		md-card-title Register
 		form( name='myForm' ng-model="myForm" ng-submit='register()') 
-			div( ng-class="{ 'has-error': myForm.username.$touched && myForm.username.$invalid}")
+			//- div( ng-class="{ 'has-error': myForm.username.$touched && myForm.username.$invalid}")
 			md-input-container
 				label(for="username") Username<br />
 				input#username(name="username" ng-model='userlist.username' minlength='5' required autofocus) 

@@ -27,10 +27,17 @@
 			var vm = this;
 			 vm.userlist = {};
 
-			 vm.scale = 0;
-			 vm.sd = 1;
+
+			 vm.scale = 15;
+			 vm.sd = 15;
 			 vm.rad = 0;
 
+			 // angular.element($window).on('resize', function(){
+			 // 	$window.scrollTo(0, 0);
+			 // 	vm.scale = 0;
+			 // vm.sd = 0;
+			 // vm.rad = 0;
+			 // })
 			 var didScroll = false;
 			 var didS = false;
 			 // vm.isVisible= true;
@@ -76,7 +83,7 @@ console.log('innerHeight', $window.innerHeight)
 	
     				if (didS && vm.isVis) {
     					didS = false;
-						vm.scale = Math.round(  (location2 + size2 - ($window.scrollY + $window.innerHeight)) / 10)
+						vm.scale = Math.round(  (location2 + size2 - ($window.scrollY + $window.innerHeight)) / 50)
 						// vm.rad = Math.round(  (location2 + size2  - ($window.scrollY + $window.innerHeight))  )
 						console.log('scale', vm.scale)
 						console.log('scrollY', $window.scrollY);

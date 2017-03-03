@@ -1,5 +1,6 @@
 footer#foot( layout layout-align='space-between center' ng-controller='FooterController as $ctrl')
-	p() Mike La Hay {{$ctrl.date}}
+	include full-signature.svg
+	span {{$ctrl.date}}
 	//- p Built with MEAN stack
 	md-fab-speed-dial(md-open='false' class='md-scale' md-direction='left')
 			md-fab-trigger

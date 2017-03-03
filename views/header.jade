@@ -1,7 +1,7 @@
 div(ng-controller='NavController as vm')
 		a#logo(href='/')
 			include coat-of-arms.svg
-		md-nav-bar( hide-sm hide-xs md-selected-nav-item='vm.currentNavItem'  layout='row' layout-align='space-around' layout-fill layout-margin layout-padding) 
+		md-nav-bar( hide-xs   md-selected-nav-item='vm.currentNavItem'  layout='row' layout-align='space-around' layout-fill layout-margin layout-padding) 
 			md-nav-item(  name='login' md-nav-click="goto('login')" ui-sref='login' ui-sref-active='active') Home
 			//- md-nav-item( name='users' md-nav-click="goto('users')" ui-sref='users' ui-sref-active='active') Table Example
 			//- md-nav-item( name='readerboard' md-nav-click="goto('readerboard')" ui-sref='readerboard' ui-sref-active='active') Letter Example
@@ -15,6 +15,6 @@ div(ng-controller='NavController as vm')
 					md-menu-item
 						md-button(ui-sref='readerboard') Letters App
 	
-		md-button#hamburger( ng-click='vm.open()' hide-gt-sm)
+		md-button#hamburger( ng-click='vm.open()' hide show-xs )
 			md-icon(md-svg-src='/static/material-design-icons/navigation/svg/production/ic_menu_24px.svg')
 		
