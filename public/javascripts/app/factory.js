@@ -29,7 +29,7 @@ angular.module('myApp').factory('AuthService',
       // var deferred = $q.defer();
       return $http.put('/api/users/' + id._id, id)
         .then(function(response){
-          response.data 
+          return response.data 
         }, function(response){
           alert(response)
         })
@@ -40,7 +40,7 @@ angular.module('myApp').factory('AuthService',
       // var deferred = $q.defer();
       return $http.delete('api/users/' + id)
         .then(function(response){
-          response.data 
+          return response.data 
         }, function(response){
           alert(response)
         })

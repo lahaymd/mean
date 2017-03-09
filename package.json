@@ -17,7 +17,7 @@
     "angular-material": "^1.1.1",
     "angular-material-data-table": "^0.10.10",
     "angular-messages": "1.5.8",
-    "angular-ui-router": "^0.3.2",
+    "angular-ui-router": "^1.0.0-alpha.1",
     "animate.css": "^3.5.2",
     "autoprefixer": "^6.3.6",
     "axis": "^0.6.1",
@@ -51,6 +51,7 @@
     "serve-favicon": "latest",
     "stylus": "latest",
     "typographic": "^2.9.3",
+    "ui-router": "^1.0.0-alpha.3",
     "util": "latest"
   },
   "devDependencies": {

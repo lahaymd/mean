@@ -1,6 +1,6 @@
 (function() {
 	angular.module('myApp').
-		controller('UserController', ['$scope', '$stateParams', 'AuthService', '$location', '$window', '$mdDialog',  function($scope, $stateParams, AuthService, $location, $window, $mdDialog ) {
+		controller('UserController', ['$scope', '$stateParams', 'AuthService', '$location', '$window', '$mdDialog', '$state', '$timeout',  function($scope, $stateParams, AuthService, $location, $window, $mdDialog, $state, $timeout ) {
 
  // $scope.userlist = {};
 // $scope.displayAmount = 3;
@@ -33,9 +33,10 @@ for(var i =1; i <= 100; i++){
              $scope.limit = Math.ceil($scope.userlistLength / $scope.displayAmount);
            }
 
-var fetchUsers= function() {
+$scope.fetchUsers= function() {
                   AuthService.getUsers()
                   .then(function(users) {
+                    console.log('users',users)
                     $scope.userlist = users;
                     $scope.userlistLength = users.length;
                     $scope.displayAmount = $scope.displayAmount || 3;
@@ -46,7 +47,7 @@ var fetchUsers= function() {
                   })
                 }
 
-fetchUsers();
+$scope.fetchUsers();
 
 
 $scope.showConfirm = function(ev) {
@@ -111,23 +112,31 @@ $scope.showConfirm = function(ev) {
     refresh();
 
 
+    $scope.scrollMe = function() {
+      // var card = document.querySelector('md-card');
+      // card.scrollIntoView(false)
+      
+      $timeout( function(){
+      var uname = document.querySelector('#uname');
+      uname.focus()
+      }, 1500)
+    }
+
+
       $scope.updateUser = function() {
-        console.log($scope.selectedUser)
+        console.log('selected user',$scope.selectedUser)
         AuthService.update($scope.selectedUser)
           .then(function(x) {
-            var index= $scope.userlist.findIndex(x=> x._id == $scope.selectedUser._id)
-            console.log(index)
-            console.log(x);
-            console.log('updated from controller')
-            $window.location.reload();
-
-              // $scope.userlist.splice(index, 1, $scope.selectedUser);
-              $location.path('/users');
-
+            $state.go("^", null, { reload: true });
+            $timeout( ()=>  {
+            var table = document.getElementById('table')
+            table.scrollIntoView();
+              },100)
           }, function(error) {
             console.log('you fucked up')
             console.log(error.message)
           })
+
       }
 
 

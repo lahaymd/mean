@@ -4,6 +4,54 @@
   font-weight: 400;
   src: local(Alice),local(Alice-Regular),url(//fonts.gstatic.com/s/alice/v7/sZyKh5NKrCk1xkCk_F1S8A.eot?#) format("eot"),url(//fonts.gstatic.com/s/alice/v7/_H4kMcdhHr0B8RDaQcqpTA.woff) format("woff2"),url(//fonts.gstatic.com/s/alice/v7/_H4kMcdhHr0B8RDaQcqpTA.woff) format("woff");
 }
+#l1 {
+  stroke-dasharray: 164.4051971435547;
+  stroke-dashoffset: 164.4051971435547;
+  -webkit-animation: dash 1s linear 1s forwards;
+  animation: dash 1s linear 1s forwards;
+}
+#a1 {
+  stroke-dasharray: 203.31631469726562;
+  stroke-dashoffset: 203.31631469726562;
+  -webkit-animation: dash 1s linear 1s forwards;
+  animation: dash 1s linear 1s forwards;
+}
+#h1 {
+  stroke-dasharray: 263.337646484375;
+  stroke-dashoffset: 263.337646484375;
+  -webkit-animation: dash 1s linear 1s forwards;
+  animation: dash 1s linear 1s forwards;
+}
+#a21 {
+  stroke-dasharray: 203.58432006835938;
+  stroke-dashoffset: 203.58432006835938;
+  -webkit-animation: dash 1s linear 1s forwards;
+  animation: dash 1s linear 1s forwards;
+}
+#y1 {
+  stroke-dasharray: 177.01693725585938;
+  stroke-dashoffset: 177.01693725585938;
+  -webkit-animation: dash 1s linear 1s forwards;
+  animation: dash 1s linear 1s forwards;
+}
+#left {
+  stroke-dasharray: 688.7686767578125;
+  stroke-dashoffset: 688.7686767578125;
+  -webkit-animation: dash 1s linear 1s forwards;
+  animation: dash 1s linear 1s forwards;
+}
+#center {
+  stroke-dasharray: 242.9929656982422;
+  stroke-dashoffset: 242.9929656982422;
+  -webkit-animation: dash 1s linear 1s forwards;
+  animation: dash 1s linear 1s forwards;
+}
+#right {
+  stroke-dasharray: 242.23355102539062;
+  stroke-dashoffset: 242.23355102539062;
+  -webkit-animation: dash 1s linear 1s forwards;
+  animation: dash 1s linear 1s forwards;
+}
 .font-magician {
   font-family: 'Alice';
 }
@@ -26,6 +74,9 @@ footer svg {
 }
 #plaid md-input-container {
   display: block;
+}
+md-input-container {
+  margin: 80px 0px 80px 0px !important;
 }
  {
   zoom: 1;
@@ -362,7 +413,7 @@ abbr {
 }
 .user-intro {
   border: 3px #2196f3 solid;
-  margin: 8px 0 8px 0;
+  margin: 40px 0 8px 0;
   text-align: center;
 }
 md-card-title {
@@ -774,7 +825,6 @@ md-card {
 }
 #hamburger {
   float: right;
-  margin-bottom: 100px;
 }
 .diff.ng-enter {
   -webkit-animation: bounceIn 1s;

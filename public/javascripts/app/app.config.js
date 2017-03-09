@@ -32,8 +32,9 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
         }).
         state('users.detail', {
           url: '/:id',
-          templateUrl: '/partials/selecteduser',
-          controller: 'UserController'
+          templateUrl: '/partials/selecteduser'
+          ,controller: 'UserController'
+          ,parent: 'users'
         }).
         state('register', {
           url: '/register',
@@ -56,6 +57,11 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
         state('pdf', {
           url: '/pdf',
           templateUrl: '/partials/pdf' 
+        }).
+        state('portfolio', {
+          url: '/portfolio',
+          component: 'portfolio'
+          // template: '<portfolio-component></portfolio-component>'
         });
         
 }

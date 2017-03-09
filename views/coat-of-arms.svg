@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" class='coat' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height='100px' width='100px' x="0px" y="0px"
+<svg  version="1.1" id="Layer_1" class='coat' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height='100px' width='100px' x="0px" y="0px"
 	 viewBox="0 0 356.5 432" style="enable-background:new 0 0 356.5 432;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:#534741;stroke:#FFFF00;stroke-width:12;stroke-miterlimit:10;}
@@ -10,7 +10,7 @@
 	.st4{fill:#FF0000;}
 </style>
 
-<ellipse id="XMLID_366_" class="st0" cx="180.5" cy="214" rx="171.5" ry="210"/>
+<ellipse hide-xs id="XMLID_366_" class="st0" cx="180.5" cy="214" rx="171.5" ry="210"/>
 <g id="XMLID_329_">
 	<path id="XMLID_415_" class="st1" d="M172.3,125.8c1.9-4.2,5.8-7.2,10.1-8.9c4.3-1.7,8.9-2.3,13.5-2.9c-1.2,1.6-2.3,3.3-3.5,4.9
 		c2-0.7,4.1-1.1,6.2-1.1c-0.5,1.6-1.1,3.1-1.6,4.7c2.1,1.2,5.3-2.2,7-0.4c0.9,1,0.2,2.7-0.4,3.9c-3.6,6.7-4.6,14.5-5.6,22.1

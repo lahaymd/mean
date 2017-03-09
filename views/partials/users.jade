@@ -24,7 +24,7 @@ div(layout='row' layout-wrap layout-align='center')
 		label Number of Rows
 		md-select( ng-model='selectedLimit' ng-change='limitDisplayedTo(selectedLimit)')
 			md-option(ng-repeat='number in numbers' ng-value='number') {{number}}
-	md-table-container(flex='100')
+	md-table-container#table(flex='100')
 		table(md-table)
 			thead(md-head)
 				tr(md-row)
@@ -40,7 +40,7 @@ div(layout='row' layout-wrap layout-align='center')
 							md-button.md-warn.md-raised(ng-click='removeUser(user._id)') delete me
 						td(md-cell)  
 							md-button.md-accent.md-raised
-								a(ui-sref="users.detail({id : user._id})") Edit
+								a(ng-click='scrollMe()' ui-sref="users.detail({id : user._id})") Edit
 	//- h1 user length = {{userlist.length}}
 	div(flex='100' layout='row' layout-align='center' layout-wrap)
 		md-button.md-accent.md-raised(ng-click='displayPagination(0)' ) First
@@ -61,7 +61,7 @@ div(layout='row' layout-wrap layout-align='center')
 			//- div( ng-class="{ 'has-error': myForm.username.$touched && myForm.username.$invalid}")
 			md-input-container
 				label(for="username") Username<br />
-				input#username(name="username" ng-model='userlist.username' minlength='5' required autofocus) 
+				input#username(name="username" ng-model='userlist.username' minlength='5' required) 
 				div.help-block(ng-messages='myForm.username.$error' ng-if="myForm.username.$touched")
 					div(ng-message='required') I'm required
 					div(ng-message='minlength') Name is too short
