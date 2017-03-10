@@ -898,8 +898,9 @@ ul {
   float: right;
 }
 .repeatedItem.ng-leave {
-  -webkit-animation: bounceOut 3s;
-  animation: bounceOut 3s;
+  -webkit-animation: zoomOut 3s;
+  animation: zoomOut 3s;
+  display: table-row !important;
 }
 .repeatedItem.ng-enter {
   -webkit-animation: bounceIn 3s;
