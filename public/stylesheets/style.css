@@ -419,6 +419,21 @@ abbr {
 md-card-title {
   padding-bottom: 70px !important;
 }
+md-progress-circular {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  height: 100% !important;
+  width: 100% !important;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 100;
+}
+md-progress-circular svg {
+  position: absolute;
+  left: 50% !important;
+  top: 50% !important;
+  margin: -150px 0 0 -150px !important;
+}
 html {
   font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
   font-weight: 300;
@@ -903,15 +918,6 @@ ul {
   display: table-row !important;
 }
 .repeatedItem.ng-enter {
-  -webkit-animation: bounceIn 3s;
-  animation: bounceIn 3s;
-}
-.ng-hide-add {
-  -webkit-animation: bounceOut 3s;
-  animation: bounceOut 3s;
-  display: block !important;
-}
-.ng-hide-remove {
   -webkit-animation: bounceIn 3s;
   animation: bounceIn 3s;
 }
