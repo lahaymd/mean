@@ -7,7 +7,10 @@
 
 angular
     .module('myApp')
-    .config(config);
+    .config(config)
+    .run(function($rootScope) {
+      $rootScope.rs = '30 percent'
+    })
 
 function config($stateProvider, $urlRouterProvider, $locationProvider) {
 	       $urlRouterProvider.otherwise('/');
