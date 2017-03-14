@@ -34,7 +34,7 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
           url: '/:id',
           templateUrl: '/partials/selecteduser'
           ,controller: 'UserController'
-          ,parent: 'users'
+          // ,parent: 'users'
         }).
         state('register', {
           url: '/register',
