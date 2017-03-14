@@ -12,15 +12,15 @@ div(layout='row' layout-wrap layout-align='center')
 					|  the username and password, and  
 					i Delete  
 					|  the user.
-	md-input-container(flex='33')
+	md-input-container(flex)
 		label(for='search') Search
 		input(name='search' ng-model='searchText')
 		{{searchText}}
-	md-input-container(flex='33')
+	md-input-container(flex)
 		label Search By
 		md-select(   ng-model='selectedItem' ng-change="sortBy(selectedItem)")
 			md-option(ng-repeat='list in lists' ng-value='list') {{list}}
-	md-input-container(flex='33')
+	md-input-container(flex)
 		label Number of Rows
 		md-select( ng-model='selectedLimit' ng-change='limitDisplayedTo(selectedLimit)')
 			md-option(ng-repeat='number in numbers' ng-value='number') {{number}}
