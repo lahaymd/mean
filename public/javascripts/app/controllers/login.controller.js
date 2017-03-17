@@ -25,7 +25,9 @@
 		controller('LoginController', ['AuthService','$scope', '$interval', '$window', function(AuthService, $scope, $interval, $window){
 
 			var vm = this;
+			vm.user = 'mik'
 			 vm.userlist = {};
+			 vm.loginForm ={};
 
 
 			 vm.scale = 15;
@@ -109,15 +111,42 @@ console.log('innerHeight', $window.innerHeight)
 			 vm.lucy = 'jhljkhljkh'
 
 			 vm.demo = function() {alert(1)}
+
+			 vm.loginToMongoLab  = function () {
+
+				      
+				      // call login from service
+				      AuthService.findMongoLab(vm.loginForm.fuck, vm.loginForm.shit)
+				        // handle success
+				        .then(function (user) {
+				        	alert(user.fuck + 'userdata')
+				        	vm.getSession()
+				          // $location.path('/');
+				          // $scope.disabled = false;
+				          // $scope.loginForm = {};
+				        })
+				        // handle error
+				        .catch(function (error) {
+				        	alert(error)
+				          // $scope.error = true;
+				          // $scope.errorMessage = "Invalid username and/or password";
+				          // $scope.disabled = false;
+				          // $scope.loginForm = {};
+				        });
+
+				    };
 			 
 
 			 vm.saveToMongoLab = function () {
 			      // $scope.isLoading= true;
 			      // call register from service
-			      AuthService.postToMongoLab(vm.userlist.fuck)
+			      AuthService.postToMongoLab(vm.userlist.fuck, vm.userlist.shit)
 			        // handle success
 			        .then(function (newUser) {
-			          console.log(newUser)
+			        	// alert(newUser)
+			          // console.log(newUser)
+			          console.log('fuck:::' ,newUser.fuck)
+			          if(newUser.fuck === undefined) {alert('already in db')}
 			          vm.userlist.push(newUser);
 			          // angular.element(document.querySelectorAll('input')).val('');
 			          // $scope.isLoading= false;
@@ -144,6 +173,38 @@ console.log('innerHeight', $window.innerHeight)
 			                }
 
 			fetchMongoLab();
+
+
+			vm.logout = function () {
+
+      // call logout from service
+      AuthService.logout()
+        .then(function () {
+        	alert('logged out')
+          // $location.path('/login');
+        });
+
+    };
+
+			vm.isLogged = function() {
+			return	AuthService.isLoggedIn() 
+				
+				 // .then(function(foo){
+				 // 	vm.user= foo.toString()
+				 // })
+			}
+			vm.isLogged()
+
+			vm.getSession = function () {
+				AuthService.getSession()
+					.then(function(session) {
+						vm.session = session.authenticated
+						alert(session)
+					}, function(error) {
+						consol.log(error)
+					})
+			}
+			vm.getSession()
 			
 		}])
 		

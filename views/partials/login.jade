@@ -1,5 +1,43 @@
 include ../defs.svg
-{{rs}}
+div.contain
+	div session name {{vm.session}}
+	div(ng-show='vm.isLogged()') you are logged in
+	md-button(ng-click='vm.isLogged()') is logged?
+	md-button(ng-click='vm.logout()') Log Out
+
+	//- div user is {{vm.user}}
+	//- div(ng-show='vm.isLogged') I’m logged in
+	form( name='myForm1' ng-model="myForm1" ng-submit='vm.saveToMongoLab()') 
+				//- div( ng-class="{ 'has-error': myForm.username.$touched && myForm.username.$invalid}")
+				md-input-container
+					label(for="fuck") Username<br />
+					input#username(name="fuck" ng-model='vm.userlist.fuck' minlength='5' required) 
+				md-input-container
+					label(for="shit") password<br />
+					input#password(name="shit" ng-model='vm.userlist.shit' minlength='5' required) 
+					//- div.help-block(ng-messages='myForm1.username.$error' ng-if="myForm.username.$touched")
+					//- 	div(ng-message='required') I'm required
+					//- 	div(ng-message='minlength') Name is too short
+				//- md-input-container
+				//- 	label(for="password") Password<br />
+				//- 	input#password(name="password" ng-model='userlist.password' required) 
+				md-button.md-raised.md-primary(type="submit", value="Create") Create
+	form( name='myForm2' ng-model="myForm2" ng-submit='vm.loginToMongoLab()') 
+				//- div( ng-class="{ 'has-error': myForm.username.$touched && myForm.username.$invalid}")
+				md-input-container
+					label(for="fuck") Username<br />
+					input#username(name="fuck" ng-model='vm.loginForm.fuck' minlength='5' required) 
+				md-input-container
+					label(for="shit") password<br />
+					input#password(name="shit" ng-model='vm.loginForm.shit' minlength='5' required) 
+					//- div.help-block(ng-messages='myForm1.username.$error' ng-if="myForm.username.$touched")
+					//- 	div(ng-message='required') I'm required
+					//- 	div(ng-message='minlength') Name is too short
+				//- md-input-container
+				//- 	label(for="password") Password<br />
+				//- 	input#password(name="password" ng-model='userlist.password' required) 
+				md-button.md-raised.md-primary(type="submit", value="Create") Create
+	{{vm.userlist}}
 div#main-content(flex='75')
 	//- include ../new-coat.svg
 	div.blend(layout='row')
