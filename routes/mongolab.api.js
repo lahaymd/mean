@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 
 router.post('/', function(req, res) {
 	Mongolab.create({fuck:req.body.fuck, shit: req.body.shit}, function(err, user) {
-		
+		req.session.authenticated = user.fuck;
 		res.json(user);
 	})
 })

@@ -1,43 +1,11 @@
 include ../defs.svg
 div.contain
-	div session name {{vm.session}}
-	div(ng-show='vm.isLogged()') you are logged in
-	md-button(ng-click='vm.isLogged()') is logged?
-	md-button(ng-click='vm.logout()') Log Out
+	
 
 	//- div user is {{vm.user}}
 	//- div(ng-show='vm.isLogged') I’m logged in
-	form( name='myForm1' ng-model="myForm1" ng-submit='vm.saveToMongoLab()') 
-				//- div( ng-class="{ 'has-error': myForm.username.$touched && myForm.username.$invalid}")
-				md-input-container
-					label(for="fuck") Username<br />
-					input#username(name="fuck" ng-model='vm.userlist.fuck' minlength='5' required) 
-				md-input-container
-					label(for="shit") password<br />
-					input#password(name="shit" ng-model='vm.userlist.shit' minlength='5' required) 
-					//- div.help-block(ng-messages='myForm1.username.$error' ng-if="myForm.username.$touched")
-					//- 	div(ng-message='required') I'm required
-					//- 	div(ng-message='minlength') Name is too short
-				//- md-input-container
-				//- 	label(for="password") Password<br />
-				//- 	input#password(name="password" ng-model='userlist.password' required) 
-				md-button.md-raised.md-primary(type="submit", value="Create") Create
-	form( name='myForm2' ng-model="myForm2" ng-submit='vm.loginToMongoLab()') 
-				//- div( ng-class="{ 'has-error': myForm.username.$touched && myForm.username.$invalid}")
-				md-input-container
-					label(for="fuck") Username<br />
-					input#username(name="fuck" ng-model='vm.loginForm.fuck' minlength='5' required) 
-				md-input-container
-					label(for="shit") password<br />
-					input#password(name="shit" ng-model='vm.loginForm.shit' minlength='5' required) 
-					//- div.help-block(ng-messages='myForm1.username.$error' ng-if="myForm.username.$touched")
-					//- 	div(ng-message='required') I'm required
-					//- 	div(ng-message='minlength') Name is too short
-				//- md-input-container
-				//- 	label(for="password") Password<br />
-				//- 	input#password(name="password" ng-model='userlist.password' required) 
-				md-button.md-raised.md-primary(type="submit", value="Create") Create
-	{{vm.userlist}}
+	
+	//- {{vm.userlist}}
 div#main-content(flex='75')
 	//- include ../new-coat.svg
 	div.blend(layout='row')
@@ -52,27 +20,3 @@ div#main-content(flex='75')
 		p(flex)  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, dolorem. Debitis excepturi quis libero, perspiciatis fugiat maiores, rerum aliquam praesentium est! Laudantium eligendi porro ut, voluptatum doloremque placeat nihil. Consequatur.
 	div#pica.visible-img(in-view="vm.isVis = $inview"  ng-class="{'is-visible': vm.isVis}")
 	div.hero(layout='row' layout-wrap)
-		//- h1.about-me About me
-		//- p.about-me I started learning web development in 2013 when I was looking for a program that would calculate the difference in letters between two blocks of text. No such program existed to my knowledge, so I decided to build it myself.  Thus began my hobby in the web. Check out the project 
-		//- 	a.here(href='/readerboard') here.
-	//- 	h1.hello(flex='100' style='text-align: center') hello 
-	//- img.element(src='/images/cooper1.png')
-	//- p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa dolor et obcaecati quis debitis dolorum reiciendis ex nisi expedita error, 
-	//- 	| ab repudiandae porro aspernatur sunt, eveniet. Nisi quos atque cupiditate!
-	//- 	|  Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consequuntur optio quis quasi dolores. Recusandae voluptatum veniam maiores magnam perferendis dicta asperiores facilis. Nostrum fugit at et quisquam, pariatur asperiores.
-	//- 	|  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo esse eos maxime quis id, dolores corporis veniam possimus! Ratione a hic laudantium soluta dignissimos recusandae vitae iusto, aspernatur nisi aut.
-	//- 	|  	 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem animi quas in quidem optio, officia ratione debitis blanditiis. Quasi optio magnam deleniti cupiditate, temporibus libero quaerat provident itaque aspernatur voluptatem.
-	//- img.svg(src='/images/shape.png')
-	//- p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa dolor et obcaecati quis debitis dolorum reiciendis ex nisi expedita error, 
-	//- 	| ab repudiandae porro aspernatur sunt, eveniet. Nisi quos atque cupiditate!
-	//- 	|  Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consequuntur optio quis quasi dolores. Recu sandae voluptatum veniam maiores magnam perferendis dicta asperiores facilis. Nostrum fugit at et quisquam, pariatur asperiores.
-	//- 	|  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo esse eos maxime quis id, dolores corporis veniam possimus! Ratione a hic laudantium soluta dignissimos recus andae vitae iusto, aspernatur nisi aut.
-	//- 	|  	 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem animi quas in quidem optio, officia ratione debitis blanditiis. Quasi optio magnam deleniti cupiditate, temporibus libero quaerat provident itaque aspernatur voluptatem.
-	//- include ../svglogo.svg
-	//- include ../full-signature.svg
-	//- include ../pencil-sig.svg
-	//- img(src='/images/signature.svg')
-	//- img(src='/images/full-signature.svg')
-div#empty(layout layout-sm='column' flex='noshrink')
-	div(flex) blah
-	div#beep(flex) beep bop boop

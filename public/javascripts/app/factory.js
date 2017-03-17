@@ -107,18 +107,7 @@ angular.module('myApp').factory('AuthService',
           user = false;
           alert(response)
         })
-      // handle success
-      // .success(function (data) {
-      //   if(data.status){
-      //     user = true;
-      //   } else {
-      //     user = false;
-      //   }
-      // })
-      // // handle error
-      // .error(function (data) {
-      //   user = false;
-      // });
+
     }
 
     function login(username, password) {
@@ -209,11 +198,6 @@ angular.module('myApp').factory('AuthService',
 
 
     function postToMongoLab(fuck,shit) {
-
-      // create a new instance of deferred
-      // var deferred = $q.defer();
-
-      // send a post request to the server
       return $http.post('/api/mongolab', {fuck: fuck, shit: shit})
         // handle success
          .then(function(response) {
@@ -237,11 +221,6 @@ angular.module('myApp').factory('AuthService',
 
 
     function findMongoLab(fuck, shit) {
-
-      // create a new instance of deferred
-      // var deferred = $q.defer();
-
-      // send a post request to the server
       return $http.post('/api/mongolab/login',
         {fuck: fuck, shit: shit})
         // handle success
