@@ -149,7 +149,7 @@ gulp.task('styles', function() {
               .pipe(stylus({
                 use: [typographic(), nib(), rupture(), axis(),  poststylus([lost(), rucksack(), font()])]
               }))
-              .pipe(postcss([ autoprefixer() ]))
+              .pipe(postcss([ autoprefixer({grid: false}) ]))
               .pipe(gulp.dest('public/stylesheets'))
               .pipe(reload({stream: true}));
 });
@@ -169,7 +169,8 @@ gulp.task('default', ['browser-sync', 'scripts', 'css'], function () {
 
 
 gulp.task('imagemin', function() {
-    return gulp.src('public/images/*')
+  var formats = ['public/images/**/*.png', 'public/images/**/*.jpg', 'public/images/**/*.jpeg'];
+    return gulp.src(formats)
     .pipe(imagemin({ progressive: true }))
     .pipe(gulp.dest('public/distribution/images'));
 });

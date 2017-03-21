@@ -46,7 +46,7 @@ md-card
 
 
 
-.nib
+// .nib
 	clearfix()
 
 
@@ -83,8 +83,22 @@ md-card
 
 #hamburger
 	float right
-	// margin-bottom 100px
-	// display inline-block
+	
+// #hamburger:after
+// 	content "."
+// 	visibility hidden 
+// 	display block 
+// 	height 0 
+// 	clear both
+		
+
+// .clearfix:after { 
+//    content: "."; 
+//    visibility: hidden; 
+//    display: block; 
+//    height: 0; 
+//    clear: both;
+// }
 
 .diff.ng-enter
 	animation bounceIn 1s
@@ -124,7 +138,7 @@ ul
 	max-width 90%
 	width 500px
 	
-.banner-text
+.banner-text-in-view
 	animation zoomIn 1s
 
 
@@ -167,5 +181,7 @@ ul
 	
 // .ng-hide-remove
 // 	animation bounceIn 3s
+
+@import 'styl/grid'
 	
 
