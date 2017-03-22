@@ -1,13 +1,14 @@
 include ../defs.svg
 include ../new-coat.svg
-.test what color am i 
+//- .test what color am i 
 div.login-wrapper
+	//- include ../coat-of-arms.svg
 	include ../sidebar
 	div.blend.grid-blend
 		p.banner-text(in-view="ctrl.bannerTextIsVisible = $inview"  ng-class="{'banner-text-in-view': ctrl.bannerTextIsVisible}") Hey, I’m an independent web developer and designer. I work primarily with the MEAN stack. Have a look through some of my projects. Need help with an upcoming project or application? Learn a bit more about me and then consider hiring me.
-	div#blurredimg.visible-img.grid-blurred(  in-view="vm.isVisible = $inview"  ng-class="{'is-visible': vm.isVisible}")
-	div#pica.visible-img.grid-pica(in-view="vm.isVis = $inview"  ng-class="{'is-visible': vm.isVis}")
-	div.hero.grid-hero(layout='row' layout-wrap)
+	div#blurredimg.visible-img.grid-code(  in-view="vm.isVisible = $inview"  ng-class="{'is-visible': vm.isVisible}")
+	div#pica.visible-img.grid-tree(in-view="vm.isVis = $inview"  ng-class="{'is-visible': vm.isVis}")
+	//- div.hero.grid-cooper(layout='row' layout-wrap)
 	//- h1.about-me About me
 	//- p.about-me I started learning web development in 2013 when I was looking for a program that would calculate the difference in letters between two blocks of text. No such program existed to my knowledge, so I decided to build it myself.  Thus began my hobby in the web. Check out the project 
 	//- 	a.here(href='/readerboard') here.

@@ -169,7 +169,7 @@ gulp.task('default', ['browser-sync', 'scripts', 'css'], function () {
 
 
 gulp.task('imagemin', function() {
-  var formats = ['public/images/**/*.png', 'public/images/**/*.jpg', 'public/images/**/*.jpeg'];
+  var formats = ['public/images/**/*.png', 'public/images/**/*.jpg', 'public/images/**/*.jpeg', 'public/images/**/*.svg' ];
     return gulp.src(formats)
     .pipe(imagemin({ progressive: true }))
     .pipe(gulp.dest('public/distribution/images'));
