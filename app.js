@@ -70,7 +70,7 @@ app.use(session({ secret: 'anystringoftext',
   // });
 app.use('/api/hireme', hireme);
 app.use('/api/users', api);
-app.use('/api/mongolab/', mongolab);
+app.use('/api/mongolab', mongolab);
 app.get('/', routes.index);
 app.get('/partials/:name', routes.partials);
 app.get('/partials/:name/:id', routes.nested);
