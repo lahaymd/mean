@@ -3,8 +3,10 @@ div(ng-controller='NavController as vm')
 		//- 	include coat-of-arms.svg
 		div session name {{vm.session}}
 		div(ng-show='vm.isLogged()') you are logged in
-		md-button(ng-click='vm.isLogged()') is logged?
+		//- md-button(ng-click='vm.isLogged()') is logged?
 		md-button(ng-click='vm.logout()') Log Out
+		md-button(ng-click='vm.showAdvanced($event)') Sign Up
+		md-button(ng-click='vm.showSignIn($event)') Sign In
 		
 		md-nav-bar( hide-xs   md-selected-nav-item='vm.currentNavItem'  layout='row' layout-align='space-around' layout-fill layout-margin layout-padding) 
 			md-nav-item(  name='login' md-nav-click="goto('login')" ui-sref='login' ui-sref-active='active') Home
@@ -22,24 +24,8 @@ div(ng-controller='NavController as vm')
 	
 		md-button#hamburger( ng-click='vm.open()' hide show-xs )
 			md-icon(md-svg-src='/static/material-design-icons/navigation/svg/production/ic_menu_24px.svg')
-		form.signup( name='myForm1' ng-model="myForm1" ng-submit='vm.saveToMongoLab()') 
-				//- div( ng-class="{ 'has-error': myForm.username.$touched && myForm.username.$invalid}")
-				md-input-container
-					label(for="fuck") Username<br />
-					input#username(name="fuck" ng-model='vm.userlist.fuck' minlength='5' required) 
-				md-input-container
-					label(for="shit") password<br />
-					input#password(name="shit" ng-model='vm.userlist.shit' minlength='5' required) 
+		
 				
-				md-button.md-raised.md-primary(type="submit", value="Create") Create
-		form.login( name='myForm2' ng-model="myForm2" ng-submit='vm.loginToMongoLab()') 
-				//- div( ng-class="{ 'has-error': myForm.username.$touched && myForm.username.$invalid}")
-				md-input-container
-					label(for="fuck") Username<br />
-					input#username(name="fuck" ng-model='vm.loginForm.fuck' minlength='5' required) 
-				md-input-container
-					label(for="shit") password<br />
-					input#password(name="shit" ng-model='vm.loginForm.shit' minlength='5' required) 
 				
-				md-button.md-raised.md-primary(type="submit", value="Create") Create
+		
 		{{vm.userlist}}

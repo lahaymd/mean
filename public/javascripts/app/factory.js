@@ -93,7 +93,7 @@ angular.module('myApp').factory('AuthService',
     function getUserStatus() {
       return $http.get('/api/mongolab/status')
         .then(function(response) {
-          alert(response.data.status + 'resonseee')
+          alert(response.data.status + ' RESPONSE')
           if(response.data.status !== false) {
 
            user = true;
@@ -105,7 +105,7 @@ angular.module('myApp').factory('AuthService',
            // return response.data;
         }, function(response) {
           user = false;
-          alert(response)
+          alert('error from factory getUserStatus' + response)
         })
 
     }
@@ -148,7 +148,7 @@ angular.module('myApp').factory('AuthService',
       return $http.get('/api/mongolab/logout')
         .then(function(data) {
           user = false;
-          alert(data)
+          alert('logout data ' + data.data.status)
         }, function(data) {
           user = false;
           alert(data)
@@ -203,8 +203,9 @@ angular.module('myApp').factory('AuthService',
          .then(function(response) {
           // console.log('response', response)
           // console.log('responSE.data', response.data)
-          // alert(response.data)
-            if(response.data == "") {
+          alert('factory posttomongolab response' + JSON.stringify(response))
+          alert('factory posttomongolab response.data' +response.data)
+            if(response.data == "" || response.data == 'this names taken') {
               alert('already in db')
             } else {
 
@@ -213,7 +214,7 @@ angular.module('myApp').factory('AuthService',
            return response.data;
         }, function(response) {
           console.log(response)
-          alert(response)
+          alert('error from factory posttomongolab ' + response.data)
         })
 
     }
@@ -243,7 +244,7 @@ angular.module('myApp').factory('AuthService',
         .then(function(response) {
            return response.data;
         }, function(response) {
-          alert(response)
+          alert('error from factory getsession' +response)
         })
     }
      

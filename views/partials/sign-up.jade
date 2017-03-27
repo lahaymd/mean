@@ -1,0 +1,13 @@
+md-dialog
+	form.signup( name='myForm1' ng-model="myForm1" ng-submit='dialog.saveToMongoLab()')
+		md-dialog-content
+			md-button(ng-click='dialog.closeDialog()') close
+		md-dialog-actions 
+					//- div( ng-class="{ 'has-error': myForm.username.$touched && myForm.username.$invalid}")
+					md-input-container
+						label(for="fuck") Username<br />
+						input#username(name="fuck" ng-model='dialog.userlist.fuck' minlength='5' required) 
+					md-input-container
+						label(for="shit") password<br />
+						input#password(name="shit" ng-model='dialog.userlist.shit' minlength='5' required) 
+					md-button.md-raised.md-primary(type="submit", value="Create" ) Sign Up

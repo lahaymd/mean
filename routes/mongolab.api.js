@@ -5,10 +5,20 @@ var mongoose = require('mongoose');
 
 
 router.post('/', function(req, res) {
-	Mongolab.create({fuck:req.body.fuck, shit: req.body.shit}, function(err, user) {
+	Mongolab.findOne({fuck:req.body.fuck}, function(err, docs){
+		if(docs){
+			res.json('this names taken')
+		} else{
+				Mongolab.create({fuck:req.body.fuck, shit: req.body.shit}, function(err, user) {
+		if(err) {
+			res.json(err)
+		}
 		req.session.authenticated = user.fuck;
 		res.json(user);
 	})
+		}
+	})
+
 })
 
 router.get('/', function(req, res) {
