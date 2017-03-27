@@ -389,7 +389,7 @@ img[src*='shape'] {
 }
 object {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   -webkit-box-flex: 1;
   -o-box-flex: 1;
   box-flex: 1;
@@ -428,16 +428,6 @@ object {
 }
 md-sidenav .md-button {
   text-align: end;
-}
-[ui-view] {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: box;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -o-box-orient: vertical;
-  -ms-flex-direction: column;
-  flex-direction: column;
 }
 .md-cell,
 .md-column {
