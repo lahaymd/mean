@@ -4,9 +4,9 @@ div(ng-controller='NavController as vm')
 		div session name {{vm.session}}
 		div(ng-show='vm.isLogged()') you are logged in
 		//- md-button(ng-click='vm.isLogged()') is logged?
-		md-button(ng-click='vm.logout()') Log Out
-		md-button(ng-click='vm.showAdvanced($event)') Sign Up
-		md-button(ng-click='vm.showSignIn($event)') Sign In
+		md-button(ng-hide='!vm.isLogged()' ng-click='vm.logout()') Log Out
+		md-button(ng-hide='vm.isLogged()' ng-click='vm.showAdvanced($event)') Sign Up
+		md-button(ng-hide='vm.isLogged()' ng-click='vm.showSignIn($event)') Sign In
 		
 		md-nav-bar( hide-xs   md-selected-nav-item='vm.currentNavItem'  layout='row' layout-align='space-around' layout-fill layout-margin layout-padding) 
 			md-nav-item(  name='login' md-nav-click="goto('login')" ui-sref='login' ui-sref-active='active') Home
@@ -28,4 +28,4 @@ div(ng-controller='NavController as vm')
 				
 				
 		
-		{{vm.userlist}}
+		//- {{vm.userlist}}

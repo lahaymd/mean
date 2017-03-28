@@ -108,7 +108,7 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
         state('pdf', {
           url: '/pdf',
           templateUrl: '/partials/pdf' ,
-          data: {restricted: true}
+          data: {restricted: false}
         }).
         state('portfolio', {
           url: '/portfolio',
