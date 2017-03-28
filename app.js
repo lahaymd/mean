@@ -5,7 +5,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-// var session = require('express-session');
+var session = require('express-session');
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 // var util = require('util');
@@ -14,6 +14,7 @@ var api = require('./routes/api');
 var routes = require('./routes/index');
 var hireme = require('./routes/hireme.api');
 var mongolab = require('./routes/mongolab.api');
+// var login = require('./routes/mongolab.api')
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var app = express();
 
@@ -41,7 +42,7 @@ app.set('view engine', 'jade');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/static',express.static( path.join(__dirname,'node_modules')))
 // uncomment after placing your favicon in /public
-app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -54,10 +55,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //   }
 // }));
 app.use(cookieParser('anystringoftext'));
-// app.use(session({ secret: 'anystringoftext',
-//                   saveUninitialized: true,
-//                   maxAge: 30000,
-//                   resave: true}));
+app.use(session({ secret: 'anystringoftext',
+                  name: 'server-session-cookie-id',
+                  saveUninitialized: true,
+                  maxAge: 30000,
+                  resave: true}));
 
 
 // Give Views/Layouts direct access to session data.
