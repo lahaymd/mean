@@ -19,8 +19,10 @@ angular.module('myApp').factory('AuthService',
       update: update,
       getMongoLab: getMongoLab,
       postToMongoLab: postToMongoLab,
+      findMongoLab: findMongoLab,
       hire: hire,
-      getHired: getHired
+      getHired: getHired,
+      getSession: getSession
     };
 
     return service;
@@ -31,7 +33,7 @@ angular.module('myApp').factory('AuthService',
         .then(function(response){
           return response.data 
         }, function(response){
-          alert(response)
+          // alert(response)
         })
     }
 
@@ -42,7 +44,7 @@ angular.module('myApp').factory('AuthService',
         .then(function(response){
           return response.data 
         }, function(response){
-          alert(response)
+          // alert(response)
         })
     }
 
@@ -52,7 +54,7 @@ angular.module('myApp').factory('AuthService',
         .then(function(response){
           return response.data 
         }, function(response){
-          alert(response)
+          // alert(response)
         })
     }
 
@@ -60,10 +62,10 @@ angular.module('myApp').factory('AuthService',
       // var deferred = $q.defer();
       return $http.get('/api/users')
         .then(function(response){
-          console.log(response.data)
+          // console.log(response.data)
           return response.data 
         }, function(response){
-          alert(response)
+          // alert(response)
         })
     }
 
@@ -73,41 +75,48 @@ angular.module('myApp').factory('AuthService',
               .then(function(response){
                 return response.data 
               }, function(response){
-                alert(response)
+                // alert(response)
               })
     }
 
     function isLoggedIn() {
+        // console.log(user)
       if(user) {
+        // console.log(user + 'user123')
         return true;
       } else {
+        // console.log(user + 'user123')
         return false;
       }
     }
 
     function getUserStatus() {
-      return $http.get('/user/status')
-      // handle success
-      .success(function (data) {
-        if(data.status){
-          user = true;
+      return $http.get('/api/mongolab/status')
+        .then(function(response) {
+          // alert(response.data.status + ' RESPONSE')
+          if(response.data.status !== false) {
+
+           user = true;
+           return response.data
         } else {
           user = false;
+          return response.data
         }
-      })
-      // handle error
-      .error(function (data) {
-        user = false;
-      });
+           // return response.data;
+        }, function(response) {
+          user = false;
+          // alert('error from factory getUserStatus' + response)
+        })
+
     }
 
     function login(username, password) {
 
       // create a new instance of deferred
-      var deferred = $q.defer();
+      // var deferred = $q.defer();
 
       // send a post request to the server
-      $http.post('/user/login',
+      return $http.post('/user/login',
         {username: username, password: password})
         // handle success
         .success(function (data, status) {
@@ -133,23 +142,30 @@ angular.module('myApp').factory('AuthService',
     function logout() {
 
       // create a new instance of deferred
-      var deferred = $q.defer();
+      // var deferred = $q.defer();
 
       // send a get request to the server
-      $http.get('/user/logout')
-        // handle success
-        .success(function (data) {
+      return $http.get('/api/mongolab/logout')
+        .then(function(data) {
           user = false;
-          deferred.resolve();
+          // alert('logout data ' + data.data.status)
+        }, function(data) {
+          user = false;
+          // alert(data)
         })
-        // handle error
-        .error(function (data) {
-          user = false;
-          deferred.reject();
-        });
+        // handle success
+      //   .success(function (data) {
+      //     user = false;
+      //     deferred.resolve();
+      //   })
+      //   // handle error
+      //   .error(function (data) {
+      //     user = false;
+      //     deferred.reject();
+      //   });
 
-      // return promise object
-      return deferred.promise;
+      // // return promise object
+      // return deferred.promise;
 
     }
 
@@ -159,7 +175,7 @@ angular.module('myApp').factory('AuthService',
         .then(function(response) {
            return response.data;
         }, function(response) {
-          alert(response)
+          // alert(response)
         })
   
 
@@ -171,7 +187,7 @@ angular.module('myApp').factory('AuthService',
         .then(function(response) {
            return response.data;
         }, function(response) {
-          alert(response)
+          // alert(response)
         })
 
     }
@@ -181,26 +197,57 @@ angular.module('myApp').factory('AuthService',
 
 
 
-    function postToMongoLab(fuck) {
-
-      // create a new instance of deferred
-      var deferred = $q.defer();
-
-      // send a post request to the server
-      $http.post('/api/mongolab', {fuck: fuck})
+    function postToMongoLab(fuck,shit) {
+      return $http.post('/api/mongolab', {fuck: fuck, shit: shit})
         // handle success
-        .success(function (response) {
-            deferred.resolve(response);
-         
-        }).error (function(response) {
-          defer.reject(response)
-        });
-        
+         .then(function(response) {
+          // console.log('response', response)
+          // console.log('responSE.data', response.data)
+          // alert('factory posttomongolab response' + JSON.stringify(response))
+          // alert('factory posttomongolab response.data' +response.data)
+            if(response.data == "" || response.data == 'this names taken') {
+              alert('already in db')
+            } else {
 
-      // return promise object
-      return deferred.promise;
+           user = true;
+            }
+           return response.data;
+        }, function(response) {
+          // console.log(response)
+          // alert('error from factory posttomongolab ' + response.data)
+        })
 
     }
+
+
+
+    function findMongoLab(fuck, shit) {
+      return $http.post('/api/mongolab/login',
+        {fuck: fuck, shit: shit})
+        // handle success
+        .then(function (response) {
+           if(response.data.shit === shit){
+            user = true;
+           } else {
+            user = false;
+           }
+           return response.data
+        }, function(response) {
+           // alert(response)
+        })
+       
+    }
+
+
+    function getSession() {
+      return $http.get('/api/mongolab/sess')
+        .then(function(response) {
+           return response.data;
+        }, function(response) {
+          // alert('error from factory getsession' +response)
+        })
+    }
+     
 
 
     
@@ -216,7 +263,7 @@ angular.module('myApp').factory('AuthService',
       .then(function(response) {
         return response.data 
       }, function(response){
-        alert(response)
+        // alert(response)
       })
   
     }
