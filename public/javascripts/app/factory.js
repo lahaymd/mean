@@ -1,8 +1,8 @@
 
 
 angular.module('myApp').factory('AuthService',
-  ['$q', '$timeout', '$http',
-  function ($q, $timeout, $http) {
+  ['$q', '$timeout', '$http', '$mdToast',
+  function ($q, $timeout, $http, $mdToast) {
 
     // create user variable
     var user = null;
@@ -22,10 +22,22 @@ angular.module('myApp').factory('AuthService',
       findMongoLab: findMongoLab,
       hire: hire,
       getHired: getHired,
-      getSession: getSession
+      getSession: getSession,
+      showToast: showToast
     };
 
     return service;
+
+    function showToast() {
+      console.log('from show toast service')
+      $mdToast.show(
+                     $mdToast.simple()
+                        .textContent('not logged in ')  
+                        .position('top')                     
+                        .hideDelay(3000)
+                        .theme("success-toast")
+                  );
+    }
 
     function update(id) {
       // var deferred = $q.defer();
@@ -97,10 +109,10 @@ angular.module('myApp').factory('AuthService',
           if(response.data.status !== false) {
 
            user = true;
-           return response.data
+           return response.data;
         } else {
           user = false;
-          return response.data
+          return response.data;
         }
            // return response.data;
         }, function(response) {

@@ -8,7 +8,7 @@
 angular
     .module('myApp')
     .config(config)
-    .run(function($rootScope, $transitions, $state) {
+    .run(function($rootScope, $transitions, $state, $mdToast, $location) {
       // $transitions.onBefore({ to:'hireme'}, function(trans){
       //   var myAuthService = trans.injector().get('AuthService');
       //   return myAuthService.isLoggedIn();
@@ -30,24 +30,49 @@ angular
 // });
     $transitions.onBefore({to:'*'}, function(trans){
       // alert(11)
-      var foo = trans.$to().data.restricted
-      //   // alert(foo)
+      var myAuthService = trans.injector().get('AuthService');
+      var foo = trans.$to().data.restricted;
+        // alert('foo' +foo)
+        // alert('isslogged' + myAuthService.isLoggedIn())
       //   return foo;
       
-      var myAuthService = trans.injector().get('AuthService');
       // if(foo && !myAuthService.isLoggedIn() ) {
       //   return trans.router.stateService.target('login');
       // }
-      
+       //      if(!myAuthService.getUserStatus() ){
+       //    return trans.router.stateService.target('login');
+       // }
+      // if(!myAuthService.getUserStatus().$$state.status  ){
+      //  console.log('no session son' +JSON.stringify(myAuthService.getUserStatus().$$state.status) )          
+      //  return trans.router.stateService.target('login');
+      //  } 
+
       if(!myAuthService.getUserStatus() ){
+        myAuthService.showToast()
           return trans.router.stateService.target('login');
        }
          
           
             
           if(foo && !myAuthService.isLoggedIn()){
+            myAuthService.showToast()
               return trans.router.stateService.target('login');
           }
+          // myAuthService.getUserStatus()
+          //   .then( function(){
+
+          // if(foo && !myAuthService.isLoggedIn()){
+          //   // alert(3)
+          //   // console.log(myAuthService.isLoggedIn())
+          //      // myAuthService.showToast()
+          //     $location.path('/');
+          //      alert(4)
+          //     // return trans.router.stateService.target('login');
+          //     // return trans.router.stateService.target('login');
+          // }
+              
+          //   })
+            
       
         
       })
@@ -81,9 +106,9 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
         }).
         state('users.detail', {
           url: '/:id',
-          templateUrl: '/partials/selecteduser'
-          ,controller: 'UserController'
-          // ,parent: 'users'
+          templateUrl: '/partials/selecteduser',
+          controller: 'UserController',
+          data: {restricted: true}
         }).
         state('register', {
           url: '/register',

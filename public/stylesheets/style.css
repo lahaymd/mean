@@ -62,6 +62,14 @@ footer {
 footer svg {
   width: 100%;
 }
+@media (max-width: 959px) {
+  md-toast {
+    bottom: unset !important;
+  }
+}
+md-toast.md-success-toast-theme .md-toast-content {
+  background-color: #2ecc40;
+}
 .test {
   color: #0074d9;
 }
@@ -354,12 +362,35 @@ img[src*='IMG_215'] {
           filter: url("#blurred");
 }
 #pica {
+  position: absolute;
+  top: 0px;
+  left: 0px;
   height: 100vh;
   width: 100%;
   background-size: cover;
-  background-image: url("/images/IMG_2157.jpg");
+  background-image: url("/images/cooper1.png");
   -webkit-filter: url("#pic");
           filter: url("#pic");
+  z-index: 2;
+}
+#coop {
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-image: url("/images/cooper.png");
+}
+.rela {
+  position: relative;
+  height: 100vh;
+}
+#blurcoop {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-image: url("/images/cooper.png");
 }
 .coat:hover,
 .element:hover {
@@ -989,6 +1020,14 @@ ul {
 .repeatedItem.ng-enter {
   -webkit-animation: bounceIn 3s;
   animation: bounceIn 3s;
+}
+@media (max-width: 959px) {
+  md-toast {
+    bottom: unset !important;
+  }
+}
+md-toast.md-success-toast-theme .md-toast-content {
+  background-color: #2ecc40;
 }
 .test {
   color: #0074d9;

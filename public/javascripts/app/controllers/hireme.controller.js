@@ -55,6 +55,7 @@
     $mdToast.show($mdToast.simple()
       .textContent('sent')
       .position('bottom')
+      .hideDelay(10000)
 
       );
     // Could also do $mdToast.showSimple('Hello');

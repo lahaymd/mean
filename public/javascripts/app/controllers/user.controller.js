@@ -1,7 +1,7 @@
 (function() {
 	angular.module('myApp').
-		controller('UserController', ['$scope', '$stateParams', 'AuthService', '$location', '$window', '$mdDialog', '$state', '$timeout',  function($scope, $stateParams, AuthService, $location, $window, $mdDialog, $state, $timeout ) {
-
+		controller('UserController', ['$scope', '$transition$', 'AuthService', '$location', '$window', '$mdDialog', '$state', '$timeout',  function($scope, $transition$, AuthService, $location, $window, $mdDialog, $state, $timeout ) {
+// $scope.alertTransition = () => alert($transition$.params())
  // $scope.userlist = {};
 // $scope.displayAmount = 3;
 $scope.numbers = [];
@@ -98,9 +98,9 @@ $scope.showConfirm = function(ev) {
 
   $scope.test = 'testing link function'
 
-      $scope.selectedUser = {};
+      // $scope.selectedUser = {};
       
-   var refresh=  function(){ AuthService.find($stateParams.id)
+   var refresh=  function(){ AuthService.find($transition$.params().id)
                       .then(function(user) {
                         $scope.selectedUser = user;
                         console.log(user,'!!')
