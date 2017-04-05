@@ -57,9 +57,9 @@ angular
       return myAuthService.getUserStatus()
         .then(function(response) {
           //response = {status:true}
-            alert(JSON.stringify(response))
-            alert(foo)
-            alert(myAuthService.isLoggedIn())
+            // alert(JSON.stringify(response))
+            // alert(foo)
+            // alert(myAuthService.isLoggedIn())
           if( (!myAuthService.isLoggedIn()) && (foo)) {
             // alert(2)
             myAuthService.showToast()
