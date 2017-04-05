@@ -47,17 +47,33 @@ angular
       //  return trans.router.stateService.target('login');
       //  } 
 
-      if(!myAuthService.getUserStatus() ){
-        myAuthService.showToast()
-          return trans.router.stateService.target('login');
-       }
-         
-          
-            
-          if(foo && !myAuthService.isLoggedIn()){
+      // if(foo && !myAuthService.getUserStatus() ){
+      //   alert(1)
+      //   myAuthService.showToast()
+      //     return trans.router.stateService.target('login');
+
+
+      //  }
+      return myAuthService.getUserStatus()
+        .then(function(response) {
+          //response = {status:true}
+            alert(JSON.stringify(response))
+            alert(foo)
+            alert(myAuthService.isLoggedIn())
+          if( (!myAuthService.isLoggedIn()) && (foo)) {
+            // alert(2)
             myAuthService.showToast()
               return trans.router.stateService.target('login');
           }
+          })
+      
+          
+            
+          // if(foo && !myAuthService.isLoggedIn()){
+          //   alert(2)
+          //   myAuthService.showToast()
+          //     return trans.router.stateService.target('login');
+          // }
           // myAuthService.getUserStatus()
           //   .then( function(){
 

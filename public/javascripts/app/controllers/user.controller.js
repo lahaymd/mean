@@ -96,20 +96,20 @@ $scope.showConfirm = function(ev) {
                         }
 
 
-  $scope.test = 'testing link function'
+  // $scope.test = 'testing link function'
 
-      // $scope.selectedUser = {};
+  //     // $scope.selectedUser = {};
       
-   var refresh=  function(){ AuthService.find($transition$.params().id)
-                      .then(function(user) {
-                        $scope.selectedUser = user;
-                        console.log(user,'!!')
-                      }, function(error) {
-                        console.log(error);
-                      })
-                  }
+  //  var refresh=  function(){ AuthService.find($transition$.params().id)
+  //                     .then(function(user) {
+  //                       $scope.selectedUser = user;
+  //                       console.log(user,'!!')
+  //                     }, function(error) {
+  //                       console.log(error);
+  //                     })
+  //                 }
 
-    refresh();
+  //   refresh();
 
 
     $scope.scrollMe = function() {
