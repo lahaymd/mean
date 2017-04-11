@@ -1,3 +1,75 @@
+.flexxer
+	display flex
+
+
+.view-test
+	size 50vw
+	background-color red
+	
+.view-test2
+	size 50vw
+	background-color blue
+	
+.not-in-view
+	transition all 2s 
+	transform  translate(-100%)
+	opacity 0
+	
+.not-in-view2
+	transition all 2s 
+	transform  translate(100%)
+	opacity 0
+	
+	
+.testing-view
+	transform  translate(0)
+	opacity 1
+	
+.testing-view2
+	transform  translate(0)
+	opacity 1
+	
+
+
+
+.md-fab:hover
+	transform rotate3d(60,60,60,45deg)
+	
+// .md-fab
+	// animation fly 2s linear  infinite alternate
+	
+	
+
+@keyframes fly 
+	from
+		transform rotate3d(0,0,0,0deg)
+	to
+		transform rotate3d(90,90,90,90deg)
+		
+.md-fab-wrapper
+	background-color cyan
+	// box-shadow 0 0 10px 40px cyan
+	border-radius 50%
+	animation btn-pulse 4s infinite cubic-bezier(.66,0,0,1) alternate
+	
+@keyframes btn-pulse {
+    0% {
+        box-shadow: 0 0 0 transparent
+        transform rotate3d(0,0,0,0deg) scale(1) 
+    }
+
+    20% {
+        box-shadow: 0 0 0 45px cyan
+    }
+
+    100% {
+        transform rotate3d(90,90,90,90deg) scale(0) 
+        box-shadow: 0 0 0 45px rgba(232,76,61,0)
+    }
+}
+
+
+
 .banner-text
 	
 	text-align center
