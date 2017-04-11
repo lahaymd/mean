@@ -2,6 +2,19 @@ var express = require('express');
 var router = express.Router();
 var Mongolab = require('../models/mongolab.model.js');
 var mongoose = require('mongoose');
+var multer  = require('multer')
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './public/images')
+  },
+  filename: function (req, file, cb) {
+    var index= file.mimetype.indexOf('/');
+    var mime= file.mimetype.substring(index).slice(1);
+    cb(null, Date.now() +'.'+ mime) //Appending .jpg
+  }
+})
+
+var upload = multer({ storage: storage });
 
 
 router.post('/', function(req, res) {

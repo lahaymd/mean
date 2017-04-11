@@ -3,7 +3,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var Mongolab = new Schema({
 	fuck:  {type:String, unique :true},
-	shit: String
+	shit: String,
+	image: String
 });
 
 

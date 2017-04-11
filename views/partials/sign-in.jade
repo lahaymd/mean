@@ -1,5 +1,5 @@
 md-dialog
-	form.login( name='myForm2' ng-model="myForm2" ng-submit='dialog.loginToMongoLab()')
+	form.login( name='myForm2' enctype="multipart/form-data" ng-model="myForm2" ng-submit='dialog.loginToMongoLab()')
 		md-dialog-content
 			md-button(ng-click='dialog.closeDialog()') close
 		md-dialog-actions 
@@ -9,6 +9,9 @@ md-dialog
 						input#username(name="fuck" ng-model='dialog.loginForm.fuck' minlength='5' required ) 
 					md-input-container
 						label(for="shit") password<br />
-						input#password(type='password' name="shit" ng-model='dialog.loginForm.shit' minlength='5' required) 
+						input#password(type='password' name="shit" ng-model='dialog.loginForm.shit' minlength='5' required)
+					md-input-container
+						label(for="image") profile pic<br />
+						input#image(type='file' name="image" ng-model='dialog.loginForm.image' required) 
 					
 					md-button.md-raised.md-primary(type="submit", value="Create") Create
