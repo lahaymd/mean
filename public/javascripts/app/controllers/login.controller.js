@@ -201,7 +201,7 @@
 
 			    dialog.loginToMongoLab = function () {
 				      // call login from service
-				      AuthService.findMongoLab(dialog.loginForm.fuck, dialog.loginForm.shit, dialog.userlist.shit)
+				      AuthService.findMongoLab(dialog.loginForm.fuck, dialog.loginForm.shit)
 				        // handle success
 				        .then(function (user) {
 				        	// alert(user.fuck + 'userdata')

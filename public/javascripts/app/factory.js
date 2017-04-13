@@ -235,7 +235,7 @@ angular.module('myApp').factory('AuthService',
 
     function findMongoLab(fuck, shit) {
       return $http.post('/api/mongolab/login',
-        {fuck: fuck, shit: shit, image: image})
+        {fuck: fuck, shit: shit})
         // handle success
         .then(function (response) {
            if(response.data.shit === shit){
