@@ -2,10 +2,10 @@ var express = require('express');
 var router = express.Router();
 var Mongolab = require('../models/mongolab.model.js');
 var mongoose = require('mongoose');
-var multer  = require('multer')
+var multer  = require('multer');
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, './public/images')
+    cb(null, 'uploads')
   },
   filename: function (req, file, cb) {
     var index= file.mimetype.indexOf('/');
@@ -15,18 +15,35 @@ var storage = multer.diskStorage({
 })
 
 var upload = multer({ storage: storage });
+// var upload = multer({dest: 'uploads'})
 
 
-router.post('/', function(req, res) {
+router.post('/', upload.single('files'), function(req, res) {
+    console.log('body ' + JSON.stringify(req.body))
+    console.log('filess', req.file)
+      var array = req.body;
+    array.files = req.file.path;
+	// var array = req.body;
+ //    array.image = req.file.path;
+// console.log('filepath!!!' + JSON.stringify(req.file));
+// console.log('array ' + JSON.stringify(array));
 	Mongolab.findOne({fuck:req.body.fuck}, function(err, docs){
+
+        console.log('docs' + JSON.stringify(docs));
 		if(docs){
 			res.json('this names taken')
 		} else{
-				Mongolab.create({fuck:req.body.fuck, shit: req.body.shit}, function(err, user) {
+				Mongolab.create(array, function(err, user) {
+					console.log(user)
 		if(err) {
+			console.log('error' + err)
 			res.json(err)
 		}
 		req.session.authenticated = user.fuck;
+		console.log("SESSION!!!"+JSON.stringify(req.session.user));
+    // console.log('filepath!!!' + JSON.stringify(req.file));
+    // console.log('filepath!!!' + JSON.stringify(req.file.path));
+    console.log('body ' + JSON.stringify(req.body))
 		res.json(user);
 	})
 		}
@@ -44,6 +61,7 @@ router.get('/', function(req, res) {
 
 
 router.post('/login', function(req,res) {
+	console.log('reqbody', req.body)
 	// res.json('from api / login')
 	Mongolab.findOne({fuck: req.body.fuck}, function(err,docs) {
 		// res.json(docs)

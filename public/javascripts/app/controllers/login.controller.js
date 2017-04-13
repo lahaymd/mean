@@ -179,7 +179,7 @@
     		dialog.saveToMongoLab = function () {
 			      // $scope.isLoading= true;
 			      // call register from service
-			      AuthService.postToMongoLab(dialog.userlist.fuck, dialog.userlist.shit, dialog.userlist.image)
+			      AuthService.postToMongoLab(dialog.userlist.fuck, dialog.userlist.shit, dialog.userlist.files)
 			        // handle success
 			        .then(function (newUser) {
 			        	// vm.getSession();
@@ -201,7 +201,7 @@
 
 			    dialog.loginToMongoLab = function () {
 				      // call login from service
-				      AuthService.findMongoLab(dialog.loginForm.fuck, dialog.loginForm.shit, dialog.userlist.shit)
+				      AuthService.findMongoLab(dialog.loginForm.fuck, dialog.loginForm.shit)
 				        // handle success
 				        .then(function (user) {
 				        	// alert(user.fuck + 'userdata')
