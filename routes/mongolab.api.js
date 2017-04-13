@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 var multer  = require('multer');
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'uploads')
+    cb(null, 'public/images')
   },
   filename: function (req, file, cb) {
     var index= file.mimetype.indexOf('/');
@@ -22,7 +22,8 @@ router.post('/', upload.single('files'), function(req, res) {
     console.log('body ' + JSON.stringify(req.body))
     console.log('filess', req.file)
       var array = req.body;
-    array.files = req.file.path;
+      var path = req.file.path.replace('public', '')
+    array.files = path;
 	// var array = req.body;
  //    array.image = req.file.path;
 // console.log('filepath!!!' + JSON.stringify(req.file));
@@ -59,6 +60,14 @@ router.get('/', function(req, res) {
 })
 
 
+router.get('/id' , function(req, res) {
+	Mongolab.findOne({fuck:req.session.authenticated}, function(err, docs) {
+		 if (err) return console.error(err);
+		res.json(docs);
+	})
+})
+
+
 
 router.post('/login', function(req,res) {
 	console.log('reqbody', req.body)
@@ -68,6 +77,7 @@ router.post('/login', function(req,res) {
 		if(docs){
 			if(docs.shit === req.body.shit){
 				req.session.authenticated = docs.fuck;
+				console.log('login docs', docs)
 				res.json(docs)
 			} else {
 				res.json('password does not match')
@@ -104,6 +114,8 @@ router.get('/status', function(req, res) {
 router.get('/sess' , function(req, res) {
 	res.json(req.session)
 })
+
+
 
 
 

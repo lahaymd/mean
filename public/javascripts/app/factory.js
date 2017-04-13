@@ -23,7 +23,8 @@ angular.module('myApp').factory('AuthService',
       hire: hire,
       getHired: getHired,
       getSession: getSession,
-      showToast: showToast
+      showToast: showToast,
+      getUser: getUser
     };
 
     return service;
@@ -267,9 +268,10 @@ angular.module('myApp').factory('AuthService',
            } else {
             user = false;
            }
-           return response.data
+           alert('response'+ JSON.stringify(response));
+           return response.data;
         }, function(response) {
-           // alert(response)
+           alert(response)
         })
        
     }
@@ -281,6 +283,16 @@ angular.module('myApp').factory('AuthService',
            return response.data;
         }, function(response) {
           // alert('error from factory getsession' +response)
+        })
+    }
+
+    function getUser() {
+      return $http.get('/api/mongolab/id')
+        .then(function(response){
+          // alert('from getUser' + JSON.stringify(response))
+          return response.data 
+        }, function(response){
+          // alert(response)
         })
     }
      

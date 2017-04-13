@@ -4,7 +4,7 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
-// var bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 var session = require('express-session');
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
@@ -46,8 +46,8 @@ app.use('/static',express.static( path.join(__dirname,'node_modules')))
 app.use(logger('dev'));
 // app.use(express.json())
 // app.use(express.urlencoded())
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(methodOverride(function(req, res){
 //   if (req.body && typeof req.body === 'object' && '_method' in req.body) {
 //     // look in urlencoded POST bodies and delete it
