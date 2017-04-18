@@ -268,7 +268,7 @@ angular.module('myApp').factory('AuthService',
            } else {
             user = false;
            }
-           alert('response'+ JSON.stringify(response));
+           // alert('response'+ JSON.stringify(response));
            return response.data;
         }, function(response) {
            alert(response)

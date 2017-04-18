@@ -3,7 +3,7 @@
 		controller('NavController', ['$mdSidenav', '$location', 'AuthService', '$mdDialog',  function($mdSidenav, $location, AuthService, $mdDialog) {
 			var vm = this;
 			// vm.isSidenavOpen= false;
-			vm.user
+			// vm.user
 			
 			 vm.showAdvanced = function(ev) {
 					    $mdDialog.show({
@@ -16,6 +16,7 @@
 					      fullscreen: true// Only for -xs, -sm breakpoints.
 					    })
 					    .then(function(answer) {
+					    	vm.userr = answer;
 					    	// console.log('answer', answer)
 					    	 // vm.userlist.push(answer);
 					    	vm.getSession();
@@ -46,9 +47,9 @@
 					      fullscreen: true// Only for -xs, -sm breakpoints.
 					    })
 					    .then(function(answer) {
-					    	alert('answer' + JSON.stringify(answer))
+					    	// alert('answer' + JSON.stringify(answer))
 					    	console.log('answer', answer)
-					    	vm.user = answer;
+					    	vm.userr = answer;
 					    	// var token = "xxx";
 // localStorage.setItem("vm.user", vm.user);
 // localStorage.getItem("vm.user"); //returns "xxx"
@@ -130,6 +131,7 @@
         .then(function () {
         	// alert('logged out')
         	vm.session = '';
+        	vm.user = {};
           $location.path('/');
         });
 
@@ -220,7 +222,7 @@
 				      AuthService.findMongoLab(dialog.loginForm.fuck, dialog.loginForm.shit)
 				        // handle success
 				        .then(function (user) {
-				        	alert('User '+ JSON.stringify(user))
+				        	// alert('logged('User '+ JSON.stringify(user))
 				        	console.log('USER', user)
 				        	// vm.user = user
 				        	// alert(user.fuck + 'userdata')

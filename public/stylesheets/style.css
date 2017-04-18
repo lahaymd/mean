@@ -175,6 +175,9 @@ md-toast.md-success-toast-theme .md-toast-content {
 md-input-container {
   margin: 80px 0px 80px 0px !important;
 }
+.red-stroke {
+  stroke: #d13f19;
+}
 .flexxer {
   display: -webkit-box;
   display: -ms-flexbox;
