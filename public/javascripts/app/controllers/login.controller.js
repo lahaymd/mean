@@ -158,7 +158,7 @@
 			vm.persistUser = function () {
 				AuthService.getUser()
 					.then(function(user) {
-						vm.user = user
+						vm.userr = user
 					})
 			}
 
