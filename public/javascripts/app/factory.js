@@ -23,7 +23,8 @@ angular.module('myApp').factory('AuthService',
       hire: hire,
       getHired: getHired,
       getSession: getSession,
-      showToast: showToast
+      showToast: showToast,
+      getUser: getUser
     };
 
     return service;
@@ -209,8 +210,30 @@ angular.module('myApp').factory('AuthService',
 
 
 
-    function postToMongoLab(fuck,shit) {
-      return $http.post('/api/mongolab', {fuck: fuck, shit: shit, image:image})
+    function postToMongoLab(fuck,shit, files) {
+      // var formDatum = formData(fuck,shit,image)
+      var fd = new FormData();
+
+        fd.append('fuck', fuck);
+        fd.append('shit', shit);
+        fd.append('files', files[0]);
+      console.log(fuck)
+      console.log(shit)
+      console.log('ffiless',files)
+      //   console.log('fr',fd)
+      //   var obj = {};
+      //   obj.fuck = fuck;
+      //   obj.shit = shit;
+      //   obj.fd = fd
+      //   console.log('obj', obj)
+      
+      return $http.post('/api/mongolab', fd , 
+          {
+            transformRequest: angular.identity,
+            headers: {'Content-Type': undefined}
+          }
+
+        )
         // handle success
          .then(function(response) {
           // console.log('response', response)
@@ -231,6 +254,8 @@ angular.module('myApp').factory('AuthService',
 
     }
 
+  
+
 
 
     function findMongoLab(fuck, shit) {
@@ -243,9 +268,10 @@ angular.module('myApp').factory('AuthService',
            } else {
             user = false;
            }
-           return response.data
+           // alert('response'+ JSON.stringify(response));
+           return response.data;
         }, function(response) {
-           // alert(response)
+           alert(response)
         })
        
     }
@@ -257,6 +283,16 @@ angular.module('myApp').factory('AuthService',
            return response.data;
         }, function(response) {
           // alert('error from factory getsession' +response)
+        })
+    }
+
+    function getUser() {
+      return $http.get('/api/mongolab/id')
+        .then(function(response){
+          // alert('from getUser' + JSON.stringify(response))
+          return response.data 
+        }, function(response){
+          // alert(response)
         })
     }
      

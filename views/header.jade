@@ -3,6 +3,10 @@ div.headercontroller.grid-header(ng-controller='NavController as vm')
 		a#logo(href='/')
 			include coat-of-arms.svg
 		div.welcome(ng-show='vm.isLogged()') Welcome {{vm.session}}
+		//- img(src='/images/code.png')
+		//- ({{vm.user.files}})
+		//- {{vm.userr}}
+		img#profile-pic(ng-hide='!vm.isLogged()' src="{{vm.userr.files}}")
 		md-button(hide show-xs ng-hide='!vm.isLogged()' ng-click='vm.logout()') Log Out
 		md-button(hide show-xs ng-hide='vm.isLogged()' ng-click='vm.showAdvanced($event)') Sign Up
 		md-button(hide show-xs ng-hide='vm.isLogged()' ng-click='vm.showSignIn($event)') Sign In

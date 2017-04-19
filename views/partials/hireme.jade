@@ -1,7 +1,7 @@
 //- include ../tile.svg
 //- include ../plaid.svg
 div#dialogcontainer
-	form#plaid(novalidate name='hireme' ng-model='hireme' ng-submit='hireme.$valid && showConfirm($event)' )
+	form#plaid( novalidate name='hireme' ng-model='hireme' ng-submit='hireme.$valid && showConfirm($event)' )
 		md-input-container
 			label(name='firstname') First Name
 			input(type='text' name='firstname' ng-model='hiremelist.firstname' required ng-minlength='3' ng-maxlength='20')

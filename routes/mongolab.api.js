@@ -1,11 +1,12 @@
 var express = require('express');
+var fs = require('fs');
 var router = express.Router();
 var Mongolab = require('../models/mongolab.model.js');
 var mongoose = require('mongoose');
-var multer  = require('multer')
+var multer  = require('multer');
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, './public/images')
+    cb(null, 'public/images')
   },
   filename: function (req, file, cb) {
     var index= file.mimetype.indexOf('/');
@@ -15,18 +16,71 @@ var storage = multer.diskStorage({
 })
 
 var upload = multer({ storage: storage });
+// var upload = multer({dest: 'uploads'})
 
 
-router.post('/', function(req, res) {
+
+const nodemailer = require('nodemailer');
+
+
+	// create reusable transporter object using the default SMTP transport
+	let transporter = nodemailer.createTransport({
+	    service: 'gmail',
+	    auth: {
+	        user: 'lahaymd@gmail.com',
+	        pass: 'zz040577'
+	    }
+	});
+
+	// setup email data with unicode symbols
+	
+
+// send mail with defined transport object
+
+
+
+
+
+router.post('/', upload.single('files'),  function(req, res) {
+	let mailOptions = {
+	    from: '"Fred Foo 👻" <foo@blurdybloop.com>', // sender address
+	    to: 'lahaymd@yahoo.com', // list of receivers
+	    subject: 'Hello ✔ ' + req.body.fuck, // Subject line
+	    text: 'Hello world ?' + req.body.fuck, // plain text body
+	    html: '<b style="color: red">Hello world ?</b>' // html body
+	};
+	transporter.sendMail(mailOptions, (error, info) => {
+	    if (error) {
+	        return console.log(error);
+	    }
+	    console.log('Message %s sent: %s', info.messageId, info.response);
+	});
+    console.log('body ' + JSON.stringify(req.body))
+    console.log('filess', req.file)
+      var array = req.body;
+      var path = req.file.path.replace('public', '')
+    array.files = path;
+	// var array = req.body;
+ //    array.image = req.file.path;
+// console.log('filepath!!!' + JSON.stringify(req.file));
+// console.log('array ' + JSON.stringify(array));
 	Mongolab.findOne({fuck:req.body.fuck}, function(err, docs){
+
+        console.log('docs' + JSON.stringify(docs));
 		if(docs){
 			res.json('this names taken')
 		} else{
-				Mongolab.create({fuck:req.body.fuck, shit: req.body.shit}, function(err, user) {
+				Mongolab.create(array, function(err, user) {
+					console.log(user)
 		if(err) {
+			console.log('error' + err)
 			res.json(err)
 		}
 		req.session.authenticated = user.fuck;
+		console.log("SESSION!!!"+JSON.stringify(req.session.user));
+    // console.log('filepath!!!' + JSON.stringify(req.file));
+    // console.log('filepath!!!' + JSON.stringify(req.file.path));
+    console.log('body ' + JSON.stringify(req.body))
 		res.json(user);
 	})
 		}
@@ -42,14 +96,24 @@ router.get('/', function(req, res) {
 })
 
 
+router.get('/id' , function(req, res) {
+	Mongolab.findOne({fuck:req.session.authenticated}, function(err, docs) {
+		 if (err) return console.error(err);
+		res.json(docs);
+	})
+})
+
+
 
 router.post('/login', function(req,res) {
+	console.log('reqbody', req.body)
 	// res.json('from api / login')
 	Mongolab.findOne({fuck: req.body.fuck}, function(err,docs) {
 		// res.json(docs)
 		if(docs){
 			if(docs.shit === req.body.shit){
 				req.session.authenticated = docs.fuck;
+				console.log('login docs', docs)
 				res.json(docs)
 			} else {
 				res.json('password does not match')
@@ -86,6 +150,8 @@ router.get('/status', function(req, res) {
 router.get('/sess' , function(req, res) {
 	res.json(req.session)
 })
+
+
 
 
 

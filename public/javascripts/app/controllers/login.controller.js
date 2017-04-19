@@ -3,8 +3,8 @@
 		controller('NavController', ['$mdSidenav', '$location', 'AuthService', '$mdDialog',  function($mdSidenav, $location, AuthService, $mdDialog) {
 			var vm = this;
 			// vm.isSidenavOpen= false;
-
-
+			// vm.user
+			
 			 vm.showAdvanced = function(ev) {
 					    $mdDialog.show({
 					      controller: 'DialogController',
@@ -16,6 +16,8 @@
 					      fullscreen: true// Only for -xs, -sm breakpoints.
 					    })
 					    .then(function(answer) {
+					    	vm.userr = answer;
+					    	// console.log('answer', answer)
 					    	 // vm.userlist.push(answer);
 					    	vm.getSession();
 					    	// vm.saveToMongoLab();
@@ -45,6 +47,12 @@
 					      fullscreen: true// Only for -xs, -sm breakpoints.
 					    })
 					    .then(function(answer) {
+					    	// alert('answer' + JSON.stringify(answer))
+					    	console.log('answer', answer)
+					    	vm.userr = answer;
+					    	// var token = "xxx";
+// localStorage.setItem("vm.user", vm.user);
+// localStorage.getItem("vm.user"); //returns "xxx"
 					    	 // vm.userlist.push(answer);
 					    	vm.getSession();
 					    	// vm.saveToMongoLab();
@@ -62,43 +70,45 @@
 
 
 
-		 vm.loginToMongoLab  = function () {
-				      // call login from service
-				      AuthService.findMongoLab(vm.loginForm.fuck, vm.loginForm.shit)
-				        // handle success
-				        .then(function (user) {
-				        	// alert(user.fuck + 'userdata')
-				        	vm.getSession();
-				        })
-				        // handle error
-				        .catch(function (error) {
-				        	console.log(error)
-				        });
-				    };
+		 // vm.loginToMongoLab  = function () {
+			// 	      // call login from service
+			// 	      AuthService.findMongoLab(vm.loginForm.fuck, vm.loginForm.shit)
+			// 	        // handle success
+			// 	        .then(function (user) {
+			// 	        	console.log('USER', user)
+			// 	        	vm.user = user
+			// 	        	// alert(user.fuck + 'userdata')
+			// 	        	vm.getSession();
+			// 	        })
+			// 	        // handle error
+			// 	        .catch(function (error) {
+			// 	        	console.log(error)
+			// 	        });
+			// 	    };
 			 
 
-			 vm.saveToMongoLab = function () {
-			      // $scope.isLoading= true;
-			      // call register from service
-			      AuthService.postToMongoLab(vm.userlist.fuck, vm.userlist.shit)
-			        // handle success
-			        .then(function (newUser) {
-			        	vm.getSession();
-			        	// alert('new user' + newUser)
-			          // console.log(newUser)
-			          // console.log('fuck:::' ,newUser.fuck)
-			          if(newUser.fuck === undefined) {
-			          	// alert('already in db')
-			          }
-			          vm.userlist.push(newUser);
-			      vm.getSession();
-			        })
-			        // handle error
-			        .catch(function (error) {
-			          // console.log(error)
-			        });
-			        // $scope.registerForm = {};
-			    };
+			//  vm.saveToMongoLab = function () {
+			//       // $scope.isLoading= true;
+			//       // call register from service
+			//       AuthService.postToMongoLab(vm.userlist.fuck, vm.userlist.shit)
+			//         // handle success
+			//         .then(function (newUser) {
+			//         	vm.getSession();
+			//         	// alert('new user' + newUser)
+			//           // console.log(newUser)
+			//           // console.log('fuck:::' ,newUser.fuck)
+			//           if(newUser.fuck === undefined) {
+			//           	// alert('already in db')
+			//           }
+			//           vm.userlist.push(newUser);
+			//       vm.getSession();
+			//         })
+			//         // handle error
+			//         .catch(function (error) {
+			//           // console.log(error)
+			//         });
+			//         // $scope.registerForm = {};
+			//     };
 
 
 			vm.fetchMongoLab= function() {
@@ -121,6 +131,7 @@
         .then(function () {
         	// alert('logged out')
         	vm.session = '';
+        	vm.user = {};
           $location.path('/');
         });
 
@@ -144,7 +155,14 @@
 			}
 			vm.getSession()
 
+			vm.persistUser = function () {
+				AuthService.getUser()
+					.then(function(user) {
+						vm.user = user
+					})
+			}
 
+			vm.persistUser()
 
 
 
@@ -179,7 +197,7 @@
     		dialog.saveToMongoLab = function () {
 			      // $scope.isLoading= true;
 			      // call register from service
-			      AuthService.postToMongoLab(dialog.userlist.fuck, dialog.userlist.shit, dialog.userlist.image)
+			      AuthService.postToMongoLab(dialog.userlist.fuck, dialog.userlist.shit, dialog.userlist.files)
 			        // handle success
 			        .then(function (newUser) {
 			        	// vm.getSession();
@@ -204,6 +222,9 @@
 				      AuthService.findMongoLab(dialog.loginForm.fuck, dialog.loginForm.shit)
 				        // handle success
 				        .then(function (user) {
+				        	// alert('logged('User '+ JSON.stringify(user))
+				        	console.log('USER', user)
+				        	// vm.user = user
 				        	// alert(user.fuck + 'userdata')
 				        	// vm.getSession();
 				        	$mdDialog.hide(user);
