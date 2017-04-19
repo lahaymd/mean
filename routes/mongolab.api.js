@@ -1,4 +1,5 @@
 var express = require('express');
+var fs = require('fs');
 var router = express.Router();
 var Mongolab = require('../models/mongolab.model.js');
 var mongoose = require('mongoose');
@@ -18,7 +19,42 @@ var upload = multer({ storage: storage });
 // var upload = multer({dest: 'uploads'})
 
 
-router.post('/', upload.single('files'), function(req, res) {
+
+const nodemailer = require('nodemailer');
+
+
+	// create reusable transporter object using the default SMTP transport
+	let transporter = nodemailer.createTransport({
+	    service: 'gmail',
+	    auth: {
+	        user: 'lahaymd@gmail.com',
+	        pass: 'zz040577'
+	    }
+	});
+
+	// setup email data with unicode symbols
+	
+
+// send mail with defined transport object
+
+
+
+
+
+router.post('/', upload.single('files'),  function(req, res) {
+	let mailOptions = {
+	    from: '"Fred Foo 👻" <foo@blurdybloop.com>', // sender address
+	    to: 'lahaymd@yahoo.com', // list of receivers
+	    subject: 'Hello ✔ ' + req.body.fuck, // Subject line
+	    text: 'Hello world ?' + req.body.fuck, // plain text body
+	    html: '<b style="color: red">Hello world ?</b>' // html body
+	};
+	transporter.sendMail(mailOptions, (error, info) => {
+	    if (error) {
+	        return console.log(error);
+	    }
+	    console.log('Message %s sent: %s', info.messageId, info.response);
+	});
     console.log('body ' + JSON.stringify(req.body))
     console.log('filess', req.file)
       var array = req.body;
