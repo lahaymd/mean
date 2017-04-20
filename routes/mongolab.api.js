@@ -43,11 +43,12 @@ const nodemailer = require('nodemailer');
 
 router.post('/', upload.single('files'),  function(req, res) {
 	let mailOptions = {
-	    from: '"Fred Foo 👻" <foo@blurdybloop.com>', // sender address
+	    from: '"Mike La Hay" <lahaymd@gmail.com>', // sender address
 	    to: 'lahaymd@yahoo.com', // list of receivers
-	    subject: 'Hello ✔ ' + req.body.fuck, // Subject line
-	    text: 'Hello world ?' + req.body.fuck, // plain text body
-	    html: '<b style="color: red">Hello world ?</b>' // html body
+	    subject: 'Hello ' + req.body.fuck, // Subject line
+	    text: '' + req.body.fuck, // plain text body
+	    html: 'Thanks for signing up on <a href="http://mikelahay.com">mikelahay.com</a>'
+	    	   
 	};
 	transporter.sendMail(mailOptions, (error, info) => {
 	    if (error) {
