@@ -576,6 +576,11 @@ object {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
 }
+@media (max-width: 736px) {
+  object {
+    height: 100%;
+  }
+}
 .result {
   font-size: 44px;
   color: #222;
