@@ -210,13 +210,22 @@ angular.module('myApp').factory('AuthService',
 
 
 
-    function postToMongoLab(fuck,shit, files) {
+    function postToMongoLab(fuck,shit, files ) {
+      
+      // if(files === undefined) {files === 'public/images/cooper1.png'}
       // var formDatum = formData(fuck,shit,image)
       var fd = new FormData();
+      // var defaultfile = files[0] || 
 
         fd.append('fuck', fuck);
         fd.append('shit', shit);
+        
+      if(files === undefined) {
+        alert(1)
+        fd.append('files', '/images/cooper1.png')
+      } else {
         fd.append('files', files[0]);
+      }
       console.log(fuck)
       console.log(shit)
       console.log('ffiless',files)

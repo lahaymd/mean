@@ -42,6 +42,25 @@ const nodemailer = require('nodemailer');
 
 
 router.post('/', upload.single('files'),  function(req, res) {
+	console.log('fucker!!')
+	var array= req.body;
+    console.log( array);
+    console.log('body ' + JSON.stringify(req.body));
+    console.log('filess', req.file)
+    	if(req.body.files === '/images/cooper1.png') {
+    		console.log('bleoop')
+       // array = req.body;
+       // console.log('array from if block' + array)
+    		// array.files = '/images/cooper1.png'
+    	} else {
+    		// array = req.body;
+      var path = req.file.path.replace('public', '')
+    array.files = path;
+    	console.log(array)
+    	}
+    	console.log( array);
+
+
 	let mailOptions = {
 	    from: '"Mike La Hay" <lahaymd@gmail.com>', // sender address
 	    to: 'lahaymd@yahoo.com', // list of receivers
@@ -56,11 +75,7 @@ router.post('/', upload.single('files'),  function(req, res) {
 	    }
 	    console.log('Message %s sent: %s', info.messageId, info.response);
 	});
-    console.log('body ' + JSON.stringify(req.body))
-    console.log('filess', req.file)
-      var array = req.body;
-      var path = req.file.path.replace('public', '')
-    array.files = path;
+ 
 	// var array = req.body;
  //    array.image = req.file.path;
 // console.log('filepath!!!' + JSON.stringify(req.file));
