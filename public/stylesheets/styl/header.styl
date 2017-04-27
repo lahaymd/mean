@@ -1,8 +1,19 @@
 .headercontroller
 	display flex
 	justify-content space-between
-.headercontroller div
-	flex-grow 1
+	
+
+@media (min-width 600px)
+	.headercontroller
+	display flex
+	justify-content space-between
+	max-width 375px
+	& *
+		margin 0 !important
+		padding 0 !important
+// .headercontroller div
+// 	flex-grow 1
+	
 	
 
 #logo
@@ -12,6 +23,9 @@
 .log-wrapper
 	display flex
 	align-items center
+	margin 0
+	padding 0
+	
 	
 
 #profile-pic
