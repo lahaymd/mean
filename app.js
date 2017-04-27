@@ -14,9 +14,11 @@ var api = require('./routes/api');
 var routes = require('./routes/index');
 var hireme = require('./routes/hireme.api');
 var mongolab = require('./routes/mongolab.api');
+var postmysql = require('./routes/mysql');
 // var login = require('./routes/mongolab.api')
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var app = express();
+// var connection = require('./connection.js');
 
 // <<<<<<< HEAD
 if(env === 'development'){
@@ -24,6 +26,8 @@ mongoose.connect('localhost:27017/mongoose');
 } else {
 mongoose.connect('mongodb://lahaymd:zz040577@ds127998.mlab.com:27998/mikelahay');
 }
+
+
 
 // =======
 // mongoose.connect('127.0.0.1:27017/mongoose');
@@ -73,6 +77,7 @@ app.use(session({ secret: 'anystringoftext',
 app.use('/api/hireme', hireme);
 app.use('/api/users', api);
 app.use('/api/mongolab', mongolab);
+app.use('/postmysql', postmysql)
 app.get('/', routes.index);
 app.get('/partials/:name', routes.partials);
 app.get('/partials/:name/:id', routes.nested);

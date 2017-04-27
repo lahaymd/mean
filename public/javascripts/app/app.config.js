@@ -139,6 +139,11 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
            data: {restricted: true},
           controller: 'UserController'
         }).
+        state('mysql', {
+          url: '/mysql',
+          templateUrl: '/partials/mysql',
+         data: {restricted: false}
+        }).
         state('readerboard', {
           url: '/readerboard',
           templateUrl: '/partials/readerboard',
