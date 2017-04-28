@@ -142,6 +142,10 @@ md-toast.md-success-toast-theme .md-toast-content {
     padding: 0 !important;
   }
 }
+#no-pad {
+  margin: 0 !important;
+  padding: 0 !important;
+}
 #logo {
   display: inline-block;
   margin-top: 10px;
@@ -617,6 +621,12 @@ object {
 }
 md-sidenav .md-button {
   text-align: end;
+}
+@media (max-width: 420px) {
+  .coat {
+    height: 50px;
+    width: 50px;
+  }
 }
 [ui-view] {
   display: -webkit-box;
