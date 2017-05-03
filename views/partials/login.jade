@@ -1,42 +1,19 @@
 include ../defs.svg
-include ../new-coat.svg
+.svg-wrapper
+	include ../new-coat.svg
+	h4.learn-more Learn more about what I do
+	include ../caret.svg
 //- .test what color am i 
 //- .flexxer
 //- 	.view-test.not-in-view(in-view="ctrl.bannerTextIsVisible = $inview"  ng-class="{'testing-view': ctrl.bannerTextIsVisible}")
 //- 	.view-test2.not-in-view2(in-view="ctrl.bannerTextIsVisible2 = $inview"  ng-class="{'testing-view2': ctrl.bannerTextIsVisible2}")
 	//- img(src='/images/cooper.png')
+.blend
+	.banner-text(in-view="ctrl.bannerTextIsVisible = $inview"  ng-class="{'banner-text-in-view': ctrl.bannerTextIsVisible}") Hey, I’m an independent web developer and designer. I work primarily with the MEAN stack. Have a look through some of my projects. Need help with an upcoming project or application? Learn a bit more about me and then consider hiring me.
 div.login-wrapper
-	//- include ../coat-of-arms.svg
 	include ../sidebar
-	//- div.blend.grid-blend
-		p.banner-text(in-view="ctrl.bannerTextIsVisible = $inview"  ng-class="{'banner-text-in-view': ctrl.bannerTextIsVisible}") Hey, I’m an independent web developer and designer. I work primarily with the MEAN stack. Have a look through some of my projects. Need help with an upcoming project or application? Learn a bit more about me and then consider hiring me.
 	div#blurredimg.visible-img.grid-code(  in-view="vm.isVisible = $inview"  )
-//- div
 div.rela
 	div#pica.visible-img.grid-tree(in-view="vm.isVis = $inview"  ng-class="{'is-visible': vm.isVis}")
 	div#blurcoop
-//- h1 beep bop boop
 
-//- div#coop
-	//- div.hero.grid-cooper(layout='row' layout-wrap)
-	//- h1.about-me About me
-	//- p.about-me I started learning web development in 2013 when I was looking for a program that would calculate the difference in letters between two blocks of text. No such program existed to my knowledge, so I decided to build it myself.  Thus began my hobby in the web. Check out the project 
-	//- 	a.here(href='/readerboard') here.
-//- 	h1.hello(flex='100' style='text-align: center') hello 
-//- img.element(src='/images/cooper1.png')
-//- p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa dolor et obcaecati quis debitis dolorum reiciendis ex nisi expedita error, 
-//- 	| ab repudiandae porro aspernatur sunt, eveniet. Nisi quos atque cupiditate!
-//- 	|  Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consequuntur optio quis quasi dolores. Recusandae voluptatum veniam maiores magnam perferendis dicta asperiores facilis. Nostrum fugit at et quisquam, pariatur asperiores.
-//- 	|  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo esse eos maxime quis id, dolores corporis veniam possimus! Ratione a hic laudantium soluta dignissimos recusandae vitae iusto, aspernatur nisi aut.
-//- 	|  	 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem animi quas in quidem optio, officia ratione debitis blanditiis. Quasi optio magnam deleniti cupiditate, temporibus libero quaerat provident itaque aspernatur voluptatem.
-//- img.svg(src='/images/shape.png')
-//- p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa dolor et obcaecati quis debitis dolorum reiciendis ex nisi expedita error, 
-//- 	| ab repudiandae porro aspernatur sunt, eveniet. Nisi quos atque cupiditate!
-//- 	|  Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consequuntur optio quis quasi dolores. Recu sandae voluptatum veniam maiores magnam perferendis dicta asperiores facilis. Nostrum fugit at et quisquam, pariatur asperiores.
-//- 	|  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo esse eos maxime quis id, dolores corporis veniam possimus! Ratione a hic laudantium soluta dignissimos recus andae vitae iusto, aspernatur nisi aut.
-//- 	|  	 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem animi quas in quidem optio, officia ratione debitis blanditiis. Quasi optio magnam deleniti cupiditate, temporibus libero quaerat provident itaque aspernatur voluptatem.
-//- include ../svglogo.svg
-//- include ../full-signature.svg
-//- include ../pencil-sig.svg
-//- img(src='/images/signature.svg')
-//- img(src='/images/full-signature.svg')

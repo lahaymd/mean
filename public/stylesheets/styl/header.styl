@@ -1,6 +1,14 @@
 .headercontroller
 	display flex
-	justify-content space-between
+	justify-content center
+	
+.welcome
+	text-align center
+	line-height 150%
+	transition all 3s ease
+	&:hover
+		line-height 10%
+		transition all 3s ease
 	
 
 @media (min-width 600px)
@@ -33,7 +41,21 @@
 
 #profile-pic
 	size 50px
-	border-radius 50%
+	// border-radius 50%
+	animation 3s clippy 2s 1
+	animation-fill-mode forwards
+	transition all
+	clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+	
+	
+	
+
+@keyframes clippy
+	from 
+		clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+	to 
+		clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+	
 	
 
 	 

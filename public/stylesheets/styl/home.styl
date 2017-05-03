@@ -70,10 +70,6 @@
 
 
 
-.banner-text
-	
-	text-align center
-	margin 20px 15% 0px 15%
 	
 .about-me
 	margin-left 33%
@@ -115,12 +111,17 @@
 	//fuck you
 	height 100vh
 	// width 100vw
+	
 	background-color #3db6b8
 	background-size cover 
 	background-image url("/images/IMG_2157.jpg")
 	background-blend-mode difference
 	background-position right bottom 
 
+.banner-text
+	position absolute
+	text-align center
+	// margin 20px 15% 0px 15%
 
 #target
 	filter url(#f1)
@@ -299,7 +300,7 @@ img[src*='IMG_215']
 	top 0px
 	left 0px 
 	height 100vh
-	width 100%
+	width 100vw
 	background-size cover
 	background-image url("/images/cooper.png")
 	
@@ -351,6 +352,18 @@ img[src*='shape']
 .hero  h1
 	color cornflowerBlue
 	opacity .9
+.svg-wrapper
+	position relative
+.learn-more
+	position absolute
+	bottom 0
+	left: 50%;
+	transform: translate(-50%, 0);
+	min-width 75vw
+	text-align center
+	
+	
+	
 
 
 
