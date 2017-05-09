@@ -119,7 +119,8 @@ gulp.task('vendor', function() {
       'node_modules/angular-material/angular-material.min.js',
       'node_modules/angular-aria/angular-aria.min.js',
       'node_modules/angular-inview/angular-inview.js',
-      'node_modules/angular-material-data-table/dist/md-data-table.min.js'
+      'node_modules/angular-material-data-table/dist/md-data-table.min.js',
+      'node_modules/d3/build/d3.min.js'
     ])
     .pipe(sourcemaps.init())
     .pipe(concat('vendorbundle.js'))
