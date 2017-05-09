@@ -1,7 +1,7 @@
 div.headercontroller.grid-header(ng-controller='NavController as vm')
 	div.log-wrapper
-		a#logo( hide-xs hide-sm href='/')
-			include coat-of-arms.svg
+		//- a#logo( hide-xs hide-sm href='/')
+		//- 	include coat-of-arms.svg
 		div.welcome(ng-show='vm.isLogged()') Welcome {{vm.session}}
 		//- img(src='/images/code.png')
 		//- ({{vm.user.files}})
@@ -35,6 +35,7 @@ div.headercontroller.grid-header(ng-controller='NavController as vm')
 	
 		md-button#hamburger( ng-click='vm.open()' hide show-xs )
 			md-icon(md-svg-src='/static/material-design-icons/navigation/svg/production/ic_menu_24px.svg')
+
 		
 				
 				

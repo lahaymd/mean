@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			background-color: blue;
+		}
+	</style>
+	
+</head>
+<body>
+	<svg id='svg' height='1000' width='1000'>
+		<path stroke-width='3' stroke='orange' d="m150 0 l100 60 " />
+		<circle id='circle' cx='500' cy='500' r='50' stroke-width='1' stroke='yellow'>
+	</svg>
+	<script>
+		var svg = document.getElementById('svg')
+		var a = document.getElementById('circle');
+
+		// a.style.fill = 'orange'
+		
+		var radius = a.getAttribute('r');
+		var stroke = a.getAttribute('stroke-width');
+		var cx = a.getAttribute('cx');
+		var cy =a.getAttribute('cy')
+			var foo = 300;
+			var bar = 300;
+			var baz = parseInt(0);
+			var e = 0;
+		var path = ['m150 0', 'l100 60', 'q 3 4 55 66', 'l150 0', 'l100 60', 'q 3 4 55 66' ]
+			var c = document.createElementNS( 'http://www.w3.org/2000/svg', 'path');
+			c.setAttribute('stroke', 'yellow')
+			c.setAttribute('d', 'm150 0 l' + baz + ' 60');
+			var d =c.getAttribute('d')
+			svg.appendChild(c)
+
+		function raf() {
+
+		if(radius > 100){
+			// clearInterval(setRadius);
+			cancelAnimationFrame(raf)
+			
+		} else {
+			var g= []
+			var t = 0
+			g.push(t)
+			t++
+			// g.push(c.getAttribute('d') + 'a')
+			console.log(g)
+			c.setAttribute('stroke-width', baz / 10)
+			console.log(d)
+			var f =c.setAttribute('d', d.concat( (  ' l0 50 '  )))
+			c.setAttribute('d', c.getAttribute('d').concat('L10 40'))
+			var b = document.createElementNS( 'http://www.w3.org/2000/svg', 'circle')
+
+			b.setAttribute('r', 5);
+			b.setAttribute('cx', 1000*Math.random())
+			b.setAttribute('cy', 1000*Math.random())
+			b.setAttribute('fill', 'green')
+			b.setAttribute('stroke', 'red')
+
+
+			svg.appendChild(b)
+			baz++;
+			e++;
+
+			a.setAttribute('r', radius);
+			radius++;
+			a.setAttribute('stroke-width', stroke);
+			stroke++;
+			a.setAttribute('cx',cx );
+			cx++;
+			a.setAttribute('cy',cy );
+			cy= parseInt(cy) + 2;
+			
+
+		}
+		requestAnimationFrame(raf);
+
+		}
+
+		requestAnimationFrame(raf)
+
+		// var setRadius =  setInterval( increaseRadius , 1);
+			
+	
+	
+			
+		//  function increaseRadius(){
+
+		// if(radius > 100){
+		// 	clearInterval(setRadius);
+			
+		// } else {
+
+		// 	a.setAttribute('r', radius);
+		// 	radius++;
+		// 	a.setAttribute('stroke-width', stroke);
+		// 	stroke++;
+		// 	a.setAttribute('cx',cx );
+		// 	cx++;
+		// 	a.setAttribute('cy',cy );
+		// 	cy= parseInt(cy) + 2;
+
+		// }
+			
+		// }
+
+	</script>
+</body>
+</html>
