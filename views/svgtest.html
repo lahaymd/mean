@@ -32,7 +32,8 @@
 		var path = ['m150 0', 'l100 60', 'q 3 4 55 66', 'l150 0', 'l100 60', 'q 3 4 55 66' ]
 			var c = document.createElementNS( 'http://www.w3.org/2000/svg', 'path');
 			c.setAttribute('stroke', 'yellow')
-			c.setAttribute('d', 'm150 0 l' + baz + ' 60');
+			c.setAttribute('fill', 'none')
+			c.setAttribute('d', 'm150 ');
 			var d =c.getAttribute('d')
 			svg.appendChild(c)
 
@@ -51,8 +52,8 @@
 			console.log(g)
 			c.setAttribute('stroke-width', baz / 10)
 			console.log(d)
-			var f =c.setAttribute('d', d.concat( (  ' l0 50 '  )))
-			c.setAttribute('d', c.getAttribute('d').concat('L10 40'))
+			c.setAttribute('d', c.getAttribute('d')  + e)
+			// var f =c.setAttribute('d', d.concat( (  ' l0 50 '  )))
 			var b = document.createElementNS( 'http://www.w3.org/2000/svg', 'circle')
 
 			b.setAttribute('r', 5);
@@ -64,7 +65,7 @@
 
 			svg.appendChild(b)
 			baz++;
-			e++;
+			e+= ' l1 1';
 
 			a.setAttribute('r', radius);
 			radius++;

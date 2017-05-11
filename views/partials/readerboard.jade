@@ -1,21 +1,22 @@
-include ../scratch.svg
-div(layout='row' layout-wrap )
-	p#d3 d3
-	p rocks
-	h1.filtered(hide-xs hide-sm show-gt-sm flex='100' ng-style='{"text-align": "center"}' ) readerboard
-	h1.small-header(flex show-xs show-sm hide-gt-sm) Letters App
-	md-button(flex='100' ng-click='vm.clear()') clear
+//- include ../scratch.svg
+div.d3-attach(layout='row' layout-wrap )
+	//- p#d3 d3
+	//- p rocks
+	//- h1.filtered(hide-xs hide-sm show-gt-sm flex='100' ng-style='{"text-align": "center"}' ) readerboard
+	//- h1.small-header(flex show-xs show-sm hide-gt-sm) Letters App
+	//- md-button(flex='100' ng-click='vm.clear()') clear
+	//- svg(#d3)
 	md-input-container(flex='50')
 		label textarea 1
 		textarea(id='two' ng-model='vm.two' ng-change='vm.areaOne(vm.one,vm.two); vm.bar(one)' autofocus) 
 	md-input-container(flex='50')
 		label textarea 2
 		textarea(id='one' ng-model='vm.one' ng-change=' vm.areaOne(vm.one,vm.two)')
-	div(class='diff-container' flex='100' layout='row' layout-fill  layout-wrap layout-align='start center')
-		div(class='foo' ng-repeat='letter in vm.results' flex='20' flex-xs='33')
-			div.result  {{letter[0]}} : {{letter[1]}}
-	{{vm.results}}
-	
+	//- div(class='diff-container' flex='100' layout='row' layout-fill  layout-wrap layout-align='start center')
+	//- 	div(class='foo' ng-repeat='letter in vm.results' flex='20' flex-xs='33')
+	//- 		div.result  {{letter[0]}} : {{letter[1]}}
+	//- {{vm.results}}
+
 
 
 	
