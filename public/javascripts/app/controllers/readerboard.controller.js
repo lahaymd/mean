@@ -94,55 +94,97 @@
 				}
 
 
-
 				var width = 500;
 				var height = 500;
 				var margin = 40;
-				var svg = d3.select(".d3-attach").append("svg")
+				var svg = d3.select(".d3-attach").insert("svg",":first-child")
 									.attr("class", 'd3')
-                                     .attr("width", width + margin + margin)
+                                     .attr("width", width + margin + margin) 
                                      .attr("height", height + margin + margin)
                                      // .style('display' ,'block')
                                      // .style('margin', '0 auto')
-                                     .append('g')
+                                    var g = svg.append('g')
                                      .attr('transform', 'translate(' +width/2 +','+ height/2 +')')
 
-                 var radii = vm.results.map(function(item) {return item[1]})
+                 var radii = vm.results.map(function(item) {return Math.abs(item[1])})
                  var color = d3.scaleOrdinal(d3.schemeCategory20);
 
-                 var rscale = d3.scaleLinear().domain([1,d3.max(radii)]).range([10,50])
-                 	console.log(rscale(3))
+                 var rscale = d3.scaleLinear().domain([1,d3.max(radii)]).range([20,75])
+                 	console.log(d3.max(radii))
+                 	console.log(radii)
+                 	console.log(d3.min(radii))
+                 	console.log(rscale(10))
+                 	console.log(rscale(-10))
+                 	console.log(rscale(Math.abs(-10)))
                  	
 
 
                                     var simulation = d3.forceSimulation()
                                     	.force('x', d3.forceX(width/2).strength(.002) )
                                     	.force('y', d3.forceY(height/2).strength(.002) )
+             //                        	.velocityDecay(.4)
+   										// .alphaTarget(.2)
                                     	.force('collide', d3.forceCollide(function(d){
                                     		// console.log('d' + d3.max(vm.results,function(d) {return d[1]}))
                                     		// console.log(rscale(d));
-                                    		return rscale(d[1]);
-                                    	}))
+                                    		return Math.abs(rscale(d[1])) +2;
+                                    	}).iterations(16))
+                                    	.force("center", d3.forceCenter())
+                                    	.force("charge", d3.forceManyBody().strength([100])) 
+                                    	// .force("link", d3.forceLink())
+                                    	// .force("charge", d3.forceManyBody(50))
+
+
+
+
+
+
+
+
+
+			// var force = d3.layout.force()
+   //  .nodes(vm.results)
+   //  .size([width, height])
+   //  .gravity(.02)
+   //  .charge(0)
+   //  .on("tick", tick)
+    // .start();
+
 
 
 
                  
-                  	var circles = svg.selectAll('circles')
-                  					.data(vm.results);
+                  	var circles = g.selectAll('circles')
+                  					.data(vm.results, function(d) { return d;});
+
+                  					// UPDATE
+								  // Update old elements as needed.
+								  // circles.attr("class", "update");
+
                   					
 
-                  				var circleEnter =	circles.enter()
+                  					var circleEnter = circles.enter()
                   					.append('circle')
-                  					.attr('fill', function(d){ return color(d[1])})
+                  					.attr('fill', function(d){
+                  						if(d[1] < 0) {return 'pink'} else {
+
+                  					 return color(d[1]);
+                  						}
+                  					})
+                  					.style('opacity', function(d){
+                  						if(d[1]===0) {return 0;} else{
+                  							return 1;
+                  						}
+                  					})
                   					.attr('id', function(d){return d[0]})
-                  					.attr('r', function(d){ return rscale(d[1])})
+                  					.attr('r', function(d){ return rscale(Math.abs(d[1]))})
                   					.attr('cx', function(d) { return d.x})
                   					.attr('cy', function(d) { return d.y})
-                  					// .append('text')
-                  					// .text(function(d){return d[0]})
-                  					// .attr('cx', 390)
-                  					// .attr('cy', 390)
-                  					// .style("opacity", 0)
+                  					.call(d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended));  
+
 
                   			// 		circlesEnter.transition()
                						// .style('transform', 'translate(100,100)')
@@ -150,20 +192,39 @@
                						.append('text')
                						.text(function(d){return d[0] + " : " + d[1]})
                						.style('font-size', '12px')
-               						.attr('transform','translate(-10,7)')
+               						.attr('transform','translate(-9,6)')
 d3.select('#a')
 			.attr('fill', 'yellow')
 
 
 
- var e = circles.exit()
 
-            .transition()
-            .delay(2000)
-              .duration(3000)
-                .attr("r", 1000)
-                // .style("opacity", 0)
-                .remove();
+function dragstarted(d) {
+            if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+        
+        function dragged(d) {
+            d.fx = d3.event.x;
+            d.fy = d3.event.y;
+        }
+        
+        function dragended(d) {
+            if (!d3.event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        } 
+
+
+ // var e = circles.exit()
+
+ //            .transition()
+ //            .delay(2000)
+ //              .duration(3000)
+ //                .attr("r", 1000)
+ //                // .style("opacity", 0)
+ //                .remove();
 
 
                   	simulation.nodes(vm.results)
