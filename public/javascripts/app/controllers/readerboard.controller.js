@@ -94,7 +94,7 @@
 				}
 
 
-				var width = 500;
+				var width = 1000;
 				var height = 500;
 				var margin = 40;
 				var svg = d3.select(".d3-attach").insert("svg",":first-child")
@@ -108,6 +108,7 @@
 
                  var radii = vm.results.map(function(item) {return Math.abs(item[1])})
                  var color = d3.scaleOrdinal(d3.schemeCategory20);
+                 const negColor =d3.scaleOrdinal(d3.schemeCategory20b)
 
                  var rscale = d3.scaleLinear().domain([1,d3.max(radii)]).range([20,75])
                  	console.log(d3.max(radii))
@@ -120,38 +121,26 @@
 
 
                                     var simulation = d3.forceSimulation()
-                                    	.force('x', d3.forceX(width/2).strength(.002) )
+                                    	.force('x', d3.forceX(function(d) {
+                                    console.log(d)    // alert(d)
+                        if(d[1]< 0)  { return 800;
+                        } else {
+                         return 200
+                       }
+                          } ))
                                     	.force('y', d3.forceY(height/2).strength(.002) )
              //                        	.velocityDecay(.4)
    										// .alphaTarget(.2)
                                     	.force('collide', d3.forceCollide(function(d){
+                                        // alert(d)
                                     		// console.log('d' + d3.max(vm.results,function(d) {return d[1]}))
                                     		// console.log(rscale(d));
                                     		return Math.abs(rscale(d[1])) +2;
                                     	}).iterations(16))
                                     	.force("center", d3.forceCenter())
-                                    	.force("charge", d3.forceManyBody().strength([100])) 
+                                    	// .force("charge", d3.forceManyBody().strength([400])) 
                                     	// .force("link", d3.forceLink())
                                     	// .force("charge", d3.forceManyBody(50))
-
-
-
-
-
-
-
-
-
-			// var force = d3.layout.force()
-   //  .nodes(vm.results)
-   //  .size([width, height])
-   //  .gravity(.02)
-   //  .charge(0)
-   //  .on("tick", tick)
-    // .start();
-
-
-
 
                  
                   	var circles = g.selectAll('circles')
@@ -166,7 +155,7 @@
                   					var circleEnter = circles.enter()
                   					.append('circle')
                   					.attr('fill', function(d){
-                  						if(d[1] < 0) {return 'pink'} else {
+                  						if(d[1] < 0) {return negColor(d[1])} else {
 
                   					 return color(d[1]);
                   						}
@@ -176,6 +165,8 @@
                   							return 1;
                   						}
                   					})
+                            .attr('stroke', (d) => color(4))
+                            .attr('stroke-width', 3)
                   					.attr('id', function(d){return d[0]})
                   					.attr('r', function(d){ return rscale(Math.abs(d[1]))})
                   					.attr('cx', function(d) { return d.x})
@@ -193,8 +184,8 @@
                						.text(function(d){return d[0] + " : " + d[1]})
                						.style('font-size', '12px')
                						.attr('transform','translate(-9,6)')
-d3.select('#a')
-			.attr('fill', 'yellow')
+// d3.select('#a')
+// 			.attr('fill', 'yellow')
 
 
 
@@ -225,6 +216,17 @@ function dragstarted(d) {
  //                .attr("r", 1000)
  //                // .style("opacity", 0)
  //                .remove();
+ // d3.select('#combine').on('click'function() {
+
+ //  d3.forceSimulation().force('x', function(d) {
+ //    if(d[1]< 0) {d3.forceX(width/1.5).strength(.002)
+ //    } else {
+ //      d3.forceX(width/4).strength(.002)
+ //    }
+
+ //    }
+
+ // })
 
 
                   	simulation.nodes(vm.results)
