@@ -47,6 +47,12 @@
         element.remove()
     }
 );
+
+                Array.from(document.getElementsByClassName("gbar")).forEach(
+    function(element, index, array) {
+        element.remove()
+    }
+);
 				
 					// var x =document.getElementsByClassName('d3');
 					// 		console.log(x)
@@ -212,9 +218,9 @@ function dragstarted(d) {
  d3.select('#separate').on('click' , function() {
     simulation.force('x', d3.forceX(function(d) {
                                   
-                        if(d[1]< 0)  { return 275;
+                        if(d[1]< 0)  { return 475;
                         } else {
-                         return 150
+                         return 120
                        }
                           } ))
               .force('y', d3.forceY(function(d) {
@@ -238,6 +244,97 @@ function dragstarted(d) {
                   		.attr('x', function(d) { return d.x})
                   		.attr('y', function(d) { return d.y})
                   	}
+
+
+
+
+var svgBar = d3.select("#bar-chart"),
+    marginBar = {top: 20, right: 20, bottom: 30, left: 40},
+    widthBar = +svgBar.attr("width") - marginBar.left - marginBar.right,
+    heightBar = +svgBar.attr("height") - marginBar.top - marginBar.bottom;
+
+var xBar = d3.scaleBand().rangeRound([0, widthBar]).padding(0.1),
+    yBar = d3.scaleLinear().rangeRound([heightBar, 0]),
+    sum = vm.results.reduce(function(prev, curr){ 
+      if(curr[1]< 0){
+      return prev;
+    } else{ 
+      return prev + curr[1];}
+      },0);
+  var t = d3.transition()
+    .duration(750)
+    .ease(d3.easeLinear);
+
+var gBar = svgBar.append("g")
+    .attr('class', 'gbar')
+    .attr("transform", "translate(" + marginBar.left + "," + marginBar.top + ")");
+
+
+    xBar.domain(vm.results.map(function(d) { return d[0]; }));
+  yBar.domain([0, 1]);
+
+
+
+
+
+
+  gBar.append("g")
+      .attr("class", "axis axis--x")
+      .attr("transform", "translate(0," + heightBar + ")")
+      .call(d3.axisBottom(xBar));
+
+  gBar.append("g")
+      .attr("class", "axis axis--y")
+      .call(d3.axisLeft(yBar).ticks(10, "%"))
+    .append("text")
+      .style('font-size', '20px')
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", "0.71em")
+      .attr("text-anchor", "end")
+      .text("Frequency");
+
+  // d3.select('#bar-chart').remove()
+
+  gBar.selectAll(".bar")
+    // .remove()
+    .data(vm.results)
+    .enter().append("rect")
+      .attr("class", "bar")
+      // .style("transform", "rotate(180deg)")
+      // .style('transform-origin', 'center center')
+      .attr("x", function(d) { return xBar(d[0]); })
+      .attr("y", function(d) { console.log('d' + d); return  yBar(Math.abs(d[1]/sum) ); })
+      .attr("width", xBar.bandwidth())
+      .transition(t)
+      .attr("height", function(d) { console.log('ybar sum ' + sum); return heightBar - (yBar(d[1]/sum)) ; })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 			} //end of vm.areaOne function
 		}]) // closing controller function

@@ -52,6 +52,18 @@
   -webkit-animation: dash 1s linear 1s forwards;
   animation: dash 1s linear 1s forwards;
 }
+.bar {
+  fill: #4682b4;
+}
+.bar:hover {
+  fill: #a52a2a;
+}
+.axis--x path {
+  display: none;
+}
+#bar-chart {
+  margin-bottom: 200px;
+}
 .font-magician {
   font-family: 'Alice';
 }
@@ -352,9 +364,6 @@ md-input-container {
 #target:hover {
   -webkit-filter: none;
           filter: none;
-}
-svg text {
-  font-size: 72px;
 }
 .text-inside {
   background-image: url("/images/IMG_2154.jpg");
