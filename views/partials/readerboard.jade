@@ -1,5 +1,6 @@
 md-button#combine combine Nodes
 md-button#separate separate nodes
+md-button#alert-width width
 //- include ../scratch.svg
 div.d3-attach(layout='row' layout-wrap )
 	svg#bar-chart(width="960" height="500")
@@ -9,7 +10,7 @@ div.d3-attach(layout='row' layout-wrap )
 	//- h1.small-header(flex show-xs show-sm hide-gt-sm) Letters App
 	//- md-button(flex='100' ng-click='vm.clear()') clear
 	//- svg(#d3)
-	#input-container(flex)
+	#input-container(flex="100")
 		md-input-container()
 			label textarea 1
 			textarea(id='two' ng-model='vm.two' ng-change='vm.areaOne(vm.one,vm.two); vm.bar(one)' autofocus) 

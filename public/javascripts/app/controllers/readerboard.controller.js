@@ -2,8 +2,8 @@
 	angular.module('myApp').
 		controller('ReaderboardController', ['$scope', function($scope){
 			var vm = this;
-	
 
+	
 			vm.areaOne = function(one,two) {
 
 				var foo = function(x){
@@ -216,6 +216,7 @@ function dragstarted(d) {
  })
  
  d3.select('#separate').on('click' , function() {
+
     simulation.force('x', d3.forceX(function(d) {
                                   
                         if(d[1]< 0)  { return 475;
@@ -246,12 +247,13 @@ function dragstarted(d) {
                   	}
 
 
-
-
 var svgBar = d3.select("#bar-chart"),
     marginBar = {top: 20, right: 20, bottom: 30, left: 40},
     widthBar = +svgBar.attr("width") - marginBar.left - marginBar.right,
     heightBar = +svgBar.attr("height") - marginBar.top - marginBar.bottom;
+// setTimeout(function(){
+
+
 
 var xBar = d3.scaleBand().rangeRound([0, widthBar]).padding(0.1),
     yBar = d3.scaleLinear().rangeRound([heightBar, 0]),
@@ -336,6 +338,10 @@ var gBar = svgBar.append("g")
 
 
 
-			} //end of vm.areaOne function
+      } //end of vm.areaOne function
 		}]) // closing controller function
+
+
+
+      
 })()
