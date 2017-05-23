@@ -231,7 +231,7 @@ md-toast.md-success-toast-theme .md-toast-content {
 }
 #plaid {
   background-image: url("/images/plaid.svg");
-  width: 50%;
+  width: 75%;
   margin: auto;
   border: 5px solid #009688;
   padding: 30px;
@@ -356,6 +356,8 @@ md-input-container {
 .banner-text {
   position: absolute;
   text-align: center;
+  margin-top: 300px;
+  margin: 100px 15% 0px 15%;
 }
 #target {
   -webkit-filter: url("#f1");
@@ -573,7 +575,6 @@ img[src*='shape'] {
 }
 .svg-wrapper {
   position: relative;
-  padding-top: 125px;
 }
 .learn-more {
   position: absolute;

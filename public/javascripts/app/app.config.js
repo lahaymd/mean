@@ -109,6 +109,7 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
         }).
        state('hireme', {
         url: '/hireme',
+        // component: 'hireMeComponent',
         templateUrl: '/partials/hireme',
          data: {restricted: false},
         controller: 'HireMeController'
