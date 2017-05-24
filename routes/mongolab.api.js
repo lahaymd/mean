@@ -28,7 +28,7 @@ const nodemailer = require('nodemailer');
 	    service: 'gmail',
 	    auth: {
 	        user: 'lahaymd@gmail.com',
-	        pass: 'zz040577'
+	        pass: 'Jacoblahay2'
 	    }
 	});
 

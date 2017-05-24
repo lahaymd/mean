@@ -109,10 +109,15 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
         }).
        state('hireme', {
         url: '/hireme',
-        // component: 'hireMeComponent',
-        templateUrl: '/partials/hireme',
+        // templateUrl: '/partials/hireme',
          data: {restricted: false},
-        controller: 'HireMeController'
+        component: 'hireMeComponent',
+        resolve: {
+          hiremelist: function(AuthService) {
+            return AuthService.getHired();
+          }
+        }
+        // controller: 'HireMeController'
         // controllerAs: '$ctrl'
        }).
         state('users', {

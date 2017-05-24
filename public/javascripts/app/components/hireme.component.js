@@ -1,37 +1,38 @@
 angular.module('myApp')
 	.component('hireMeComponent', {
         require: 'ngModel',
-		// bindings: {
-  //         hiremelist: '<'
-  //       },
+		bindings: {
+          hiremelist: '='
+        },
 		templateUrl: '/partials/hireme',
-		controller: ['AuthService', '$mdDialog', '$mdToast', hireMeController]
+		controller:  hireMeController
 	})
 
 
 
 
 function hireMeController(AuthService,  $mdDialog, $mdToast) {
-			// this.hiremelist = {}
+      // $ctrl.hiremelist = {}
+var $ctrl = this;
 			
   var hired = function() {
-        // this.showConfirm().
+        // $ctrl.showConfirm().
         // then(function(){ 
-        // if(this.status){
-            AuthService.hire(this.hiremelist.firstname,this.hiremelist.lastname,this.hiremelist.email,this.hiremelist.phone,this.hiremelist.message)
+        // if($ctrl.status){
+            AuthService.hire($ctrl.hiremelist.firstname,$ctrl.hiremelist.lastname,$ctrl.hiremelist.email,$ctrl.hiremelist.phone,$ctrl.hiremelist.message)
             .then(function (newUser) {
                     console.log('New',JSON.stringify(newUser));
-                    this.hiremelist.push(newUser);
+                    $ctrl.hiremelist.push(newUser);
                     console.log('new user',newUser)
-                    // alert(this.hiremelist);
+                    // alert($ctrl.hiremelist);
                     angular.element(document.querySelectorAll('input')).val('');
              
                 }, function(error) {
-                    alert(JSON.stringify(this.hiremelist));
+                    alert(JSON.stringify($ctrl.hiremelist));
                     alert(error);
                 })
                 // .catch(function(error) {
-                //   alert(this.hiremelist);
+                //   alert($ctrl.hiremelist);
                 //   alert(error)
                 // })
         // } //end of if block
@@ -41,7 +42,7 @@ function hireMeController(AuthService,  $mdDialog, $mdToast) {
 
 
 
-  this.showConfirm = function(ev) {
+  $ctrl.showConfirm = function(ev) {
     // Appending dialog to document.body to cover sidenav in docs app
     var confirm = $mdDialog.confirm()
           .title('Would you like to submit form?')
@@ -52,9 +53,9 @@ function hireMeController(AuthService,  $mdDialog, $mdToast) {
           .cancel('cancel');
 
     $mdDialog.show(confirm).then(function() {
-      // this.status = true;
+      // $ctrl.status = true;
       hired();
-      this.openToast();
+      $ctrl.openToast();
      angular.element(document.querySelectorAll('input')).val('');
     }, function(error) {
       alert(error);
@@ -62,7 +63,7 @@ function hireMeController(AuthService,  $mdDialog, $mdToast) {
   };
 
 
-  this.openToast = function($event) {
+  $ctrl.openToast = function($event) {
     $mdToast.show($mdToast.simple()
       .textContent('sent')
       .position('bottom')
@@ -79,7 +80,7 @@ function hireMeController(AuthService,  $mdDialog, $mdToast) {
 //                   AuthService.getHired()
 //                   .then(function(users) {
 //                     console.log('users',users)
-//                     this.hiremelist = users;
+//                     $ctrl.hiremelist = users;
 //                   }, function(error) {
 //                     console.log(error)
 //                   })
