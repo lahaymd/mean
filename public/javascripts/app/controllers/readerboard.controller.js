@@ -182,7 +182,11 @@
                						// .style('transform', 'translate(100,100)')
                						var circleText = circles.enter()
                						.append('text')
-               						.text(function(d){return d[0] + " : " + d[1]})
+               						.text(function(d){
+                            if(d[1] === 0){ return ''; } 
+                              return d[0] + " : " + d[1];
+                          })
+                          
                						.style('font-size', '12px')
                						.attr('transform','translate(-9,6)')
 // d3.select('#a')
@@ -246,12 +250,14 @@ function dragstarted(d) {
                   		.attr('y', function(d) { return d.y})
                   	}
 
-
-var svgBar = d3.select("#bar-chart"),
-    marginBar = {top: 20, right: 20, bottom: 30, left: 40},
-    widthBar = +svgBar.attr("width") - marginBar.left - marginBar.right,
-    heightBar = +svgBar.attr("height") - marginBar.top - marginBar.bottom;
-// setTimeout(function(){
+const w = 600;
+const h = 400;
+var svgBar = d3.select("#bar-chart")
+            .attr("viewBox", "0 0 " + w + " " + h )
+            .attr("preserveAspectRatio", "xMidYMid meet");
+ var   marginBar = {top: 20, right: 20, bottom: 30, left: 40},
+    widthBar = w - marginBar.left - marginBar.right,
+    heightBar = h - marginBar.top - marginBar.bottom;
 
 
 
@@ -283,13 +289,18 @@ var gBar = svgBar.append("g")
   gBar.append("g")
       .attr("class", "axis axis--x")
       .attr("transform", "translate(0," + heightBar + ")")
+      .style('stroke', 'white')
+       .style('font-size', '20px')
       .call(d3.axisBottom(xBar));
 
   gBar.append("g")
       .attr("class", "axis axis--y")
+      .style('stroke', 'white')
+       .style('font-size', '20px')
       .call(d3.axisLeft(yBar).ticks(10, "%"))
     .append("text")
       .style('font-size', '20px')
+      .style('fill', 'white')
       .attr("transform", "rotate(-90)")
       .attr("y", 6)
       .attr("dy", "0.71em")

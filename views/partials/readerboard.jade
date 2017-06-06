@@ -1,26 +1,27 @@
-md-button#combine combine Nodes
-md-button#separate separate nodes
-md-button#alert-width width
-//- include ../scratch.svg
-div.d3-attach(layout='row' layout-wrap )
-	svg#bar-chart(width="960" height="500")
-	//- p#d3 d3
-	//- p rocks
-	//- h1.filtered(hide-xs hide-sm show-gt-sm flex='100' ng-style='{"text-align": "center"}' ) readerboard
-	//- h1.small-header(flex show-xs show-sm hide-gt-sm) Letters App
-	//- md-button(flex='100' ng-click='vm.clear()') clear
-	//- svg(#d3)
-	#input-container(flex="100")
+div(layout='row')
+	div.button-group(layout='column' )
+		md-button#combine combine Nodes
+		md-button#separate separate nodes
 		md-input-container()
 			label textarea 1
 			textarea(id='two' ng-model='vm.two' ng-change='vm.areaOne(vm.one,vm.two); vm.bar(one)' autofocus) 
 		md-input-container()
 			label textarea 2
 			textarea(id='one' ng-model='vm.one' ng-change=' vm.areaOne(vm.one,vm.two)')
-		//- div(class='diff-container' flex='100' layout='row' layout-fill  layout-wrap layout-align='start center')
-		//- 	div(class='foo' ng-repeat='letter in vm.results' flex='20' flex-xs='33')
-		//- 		div.result  {{letter[0]}} : {{letter[1]}}
-		//- {{vm.results}}
+	//- md-button#alert-width width
+	//- include ../scratch.svg
+	div.d3-attach(layout='row' layout-wrap )
+		svg#bar-chart(style='display: block; width: 50vw; height: 50vh; ')
+		//- p#d3 d3
+		//- p rocks
+		//- h1.filtered(hide-xs hide-sm show-gt-sm flex='100' ng-style='{"text-align": "center"}' ) readerboard
+		//- h1.small-header(flex show-xs show-sm hide-gt-sm) Letters App
+		//- md-button(flex='100' ng-click='vm.clear()') clear
+		//- svg(#d3)
+			//- div(class='diff-container' flex='100' layout='row' layout-fill  layout-wrap layout-align='start center')
+			//- 	div(class='foo' ng-repeat='letter in vm.results' flex='20' flex-xs='33')
+			//- 		div.result  {{letter[0]}} : {{letter[1]}}
+			//- {{vm.results}}
 
 
 

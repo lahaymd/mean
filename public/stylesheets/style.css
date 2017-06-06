@@ -61,14 +61,66 @@
 .axis--x path {
   display: none;
 }
-#bar-chart {
-  margin-bottom: 200px;
-}
 .font-magician {
   font-family: 'Alice';
 }
-footer svg {
-  width: 100%;
+foot {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: distribute;
+  -o-box-pack: distribute;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  background-color: #d13f19;
+}
+foot svg {
+  width: 400px;
+  height: 200px;
+}
+#clip {
+  background: url("/images/cooper.jpg");
+  background-repeat: repeat-x;
+  background-position: 0 0;
+  font-size: 200px;
+  text-transform: uppercase;
+  text-align: center;
+  color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  -webkit-animation: BackgroundAnimated 15s linear infinite;
+  animation: BackgroundAnimated 15s linear infinite;
+  line-height: normal;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+@-webkit-keyframes BackgroundAnimated {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}
+@keyframes BackgroundAnimated {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
 }
 @media (max-width: 959px) {
   md-toast {
@@ -90,7 +142,6 @@ md-toast.md-success-toast-theme .md-toast-content {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto 1fr auto;
     grid-template-areas: "header header header" "view view view" "footer footer footer";
-    grid-gap: 20px;
   }
   .grid-header {
     grid-area: header;
@@ -670,6 +721,9 @@ object {
   color: #2196f3;
   text-transform: uppercase;
 }
+.button-group {
+  background-color: #808080;
+}
 .rucksack:nth-last-child(n+4), .rucksack:nth-last-child(n+4) ~ .rucksack {
   color: #0074d9;
 }
@@ -1242,7 +1296,6 @@ md-toast.md-success-toast-theme .md-toast-content {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto 1fr auto;
     grid-template-areas: "header header header" "view view view" "footer footer footer";
-    grid-gap: 20px;
   }
   .grid-header {
     grid-area: header;
