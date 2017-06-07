@@ -4,13 +4,11 @@ md-dialog
 			md-button(ng-click='dialog.closeDialog()') close
 		md-dialog-actions 
 					//- div( ng-class="{ 'has-error': myForm.username.$touched && myForm.username.$invalid}")
-					md-input-container
+					md-input-container.center-container
 						label(for="fuck") Username<br />
 						input#username(name="fuck" ng-model='dialog.loginForm.fuck' minlength='5' required ) 
-					md-input-container
-						label(for="shit") password<br />
+					md-input-container.center-container
+						label(for="shit") Password<br />
 						input#password(type='password' name="shit" ng-model='dialog.loginForm.shit' minlength='5' required)
-
-
 					md-button.md-raised.md-primary(type="submit", value="Create") Login
 

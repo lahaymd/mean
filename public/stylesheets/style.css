@@ -77,9 +77,8 @@ foot {
   -o-box-pack: distribute;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  background-color: #d13f19;
 }
-foot svg {
+#full-signature {
   width: 400px;
   height: 200px;
 }
@@ -292,6 +291,7 @@ md-toast.md-success-toast-theme .md-toast-content {
 }
 md-input-container {
   margin: 80px 0px 80px 0px !important;
+  height: 54px;
 }
 .red-stroke {
   stroke: #d13f19;
