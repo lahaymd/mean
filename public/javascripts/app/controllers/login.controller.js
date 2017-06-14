@@ -4,7 +4,7 @@
 			var vm = this;
 			// vm.isSidenavOpen= false;
 			// vm.user
-			
+			// vm.userr
 			 vm.showAdvanced = function(ev) {
 					    $mdDialog.show({
 					      controller: 'DialogController',
@@ -48,10 +48,10 @@
 					    })
 					    .then(function(answer) {
 					    	// alert('answer' + JSON.stringify(answer))
-					    	console.log('answer', answer)
+					    	// console.log('answer', answer)
 					    	vm.userr = answer;
 					    	// var token = "xxx";
-// localStorage.setItem("vm.user", vm.user);
+// localStorage.setItem(vm.userr, answer.files);
 // localStorage.getItem("vm.user"); //returns "xxx"
 					    	 // vm.userlist.push(answer);
 					    	vm.getSession();
@@ -66,49 +66,9 @@
 					      // $scope.status = 'You cancelled the dialog.';
 					    });
 					  };
+
+
 					  
-
-
-
-		 // vm.loginToMongoLab  = function () {
-			// 	      // call login from service
-			// 	      AuthService.findMongoLab(vm.loginForm.fuck, vm.loginForm.shit)
-			// 	        // handle success
-			// 	        .then(function (user) {
-			// 	        	console.log('USER', user)
-			// 	        	vm.user = user
-			// 	        	// alert(user.fuck + 'userdata')
-			// 	        	vm.getSession();
-			// 	        })
-			// 	        // handle error
-			// 	        .catch(function (error) {
-			// 	        	console.log(error)
-			// 	        });
-			// 	    };
-			 
-
-			//  vm.saveToMongoLab = function () {
-			//       // $scope.isLoading= true;
-			//       // call register from service
-			//       AuthService.postToMongoLab(vm.userlist.fuck, vm.userlist.shit)
-			//         // handle success
-			//         .then(function (newUser) {
-			//         	vm.getSession();
-			//         	// alert('new user' + newUser)
-			//           // console.log(newUser)
-			//           // console.log('fuck:::' ,newUser.fuck)
-			//           if(newUser.fuck === undefined) {
-			//           	// alert('already in db')
-			//           }
-			//           vm.userlist.push(newUser);
-			//       vm.getSession();
-			//         })
-			//         // handle error
-			//         .catch(function (error) {
-			//           // console.log(error)
-			//         });
-			//         // $scope.registerForm = {};
-			//     };
 
 
 			vm.fetchMongoLab= function() {
@@ -122,6 +82,21 @@
 			                }
 
 			vm.fetchMongoLab();
+
+
+			vm.getUser= function() {
+			                  AuthService.getUser()
+			                  .then(function(users) {
+			                    // vm.userlist = users;
+			                    vm.userr= users
+			                    // alert('vm.getuser ' + JSON.stringify(users))
+			                    // console.log(users)
+			                  }, function(error) {
+			                    // console.log(error)
+			                  })
+			                }
+
+			vm.getUser();
 
 
 			vm.logout = function () {
@@ -148,31 +123,14 @@
 				AuthService.getSession()
 					.then(function(session) {
 						vm.session = session.authenticated
-						// alert('session from NavController getSession ' + session.authenticated)
+						// alert('session from NavController getSession ' + JSON.stringify(session))
 					}, function(error) {
 						// alert('getSession error' + error)
 					})
 			}
 			vm.getSession()
 
-			vm.persistUser = function () {
-				AuthService.getUser()
-					.then(function(user) {
-						vm.userr = user
-					})
-			}
-
-			vm.persistUser()
-
-
-
-
-
-
-
-			
-
-
+		
 			vm.currentNavItem = $location.path().slice(1) || 'login';
 			console.log('current nav item',vm.currentNavItem)
 
@@ -222,8 +180,8 @@
 				      AuthService.findMongoLab(dialog.loginForm.fuck, dialog.loginForm.shit)
 				        // handle success
 				        .then(function (user) {
-				        	// alert('logged('User '+ JSON.stringify(user))
-				        	console.log('USER', user)
+				        	// alert('logged User' + JSON.stringify(user))
+				        	// console.log('USER', user)
 				        	// vm.user = user
 				        	// alert(user.fuck + 'userdata')
 				        	// vm.getSession();
@@ -324,93 +282,7 @@ var size2 = elem2.clientHeight;
 			 // alert(1)
 			}
 
-			//  vm.lucy = 'jhljkhljkh'
 
-			//  vm.demo = function() {alert(1)}
-
-			//  vm.loginToMongoLab  = function () {
-			// 	      // call login from service
-			// 	      AuthService.findMongoLab(vm.loginForm.fuck, vm.loginForm.shit)
-			// 	        // handle success
-			// 	        .then(function (user) {
-			// 	        	alert(user.fuck + 'userdata')
-			// 	        	vm.getSession();
-			// 	        })
-			// 	        // handle error
-			// 	        .catch(function (error) {
-			// 	        	console.log(error)
-			// 	        });
-			// 	    };
-
-
-
-				   
-
-
-
-
-			 
-
-			//  vm.saveToMongoLab = function () {
-			//       // $scope.isLoading= true;
-			//       // call register from service
-			//       AuthService.postToMongoLab(vm.userlist.fuck, vm.userlist.shit)
-			//         // handle success
-			//         .then(function (newUser) {
-			//         	// alert(newUser)
-			//           // console.log(newUser)
-			//           // console.log('fuck:::' ,newUser.fuck)
-			//           if(newUser.fuck === undefined) {alert('already in db')}
-			//           vm.userlist.push(newUser);
-			//         })
-			//         // handle error
-			//         .catch(function (error) {
-			//           console.log(error)
-			//         });
-			//         // $scope.registerForm = {};
-			//     };
-
-
-			// var fetchMongoLab= function() {
-			//                   AuthService.getMongoLab()
-			//                   .then(function(users) {
-			//                     vm.userlist = users;
-			//                     console.log(users)
-			//                   }, function(error) {
-			//                     console.log(error)
-			//                   })
-			//                 }
-
-			// fetchMongoLab();
-
-
-			// vm.logout = function () {
-
-   //    // call logout from service
-   //    AuthService.logout()
-   //      // .then(function () {
-   //      // 	// alert('logged out')
-   //      //   // $location.path('/login');
-   //      // });
-
-   //  };
-
-			// vm.isLogged = function() {
-			// return	AuthService.isLoggedIn() 
-			// }
-
-			// vm.isLogged()
-
-			// vm.getSession = function () {
-			// 	AuthService.getSession()
-			// 		.then(function(session) {
-			// 			vm.session = session.authenticated
-			// 			// alert(session)
-			// 		}, function(error) {
-			// 			// console.log(error)
-			// 		})
-			// }
-			// vm.getSession()
 			
 		}])
 		

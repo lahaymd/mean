@@ -166,20 +166,7 @@ angular.module('myApp').factory('AuthService',
           user = false;
           // alert(data)
         })
-        // handle success
-      //   .success(function (data) {
-      //     user = false;
-      //     deferred.resolve();
-      //   })
-      //   // handle error
-      //   .error(function (data) {
-      //     user = false;
-      //     deferred.reject();
-      //   });
-
-      // // return promise object
-      // return deferred.promise;
-
+      
     }
 
     function register(username, password) {
@@ -198,6 +185,7 @@ angular.module('myApp').factory('AuthService',
       // var deferred = $q.defer();
      return $http.get('/api/mongolab')
         .then(function(response) {
+          // alert(JSON.stringify(response))
            return response.data;
         }, function(response) {
           // alert(response)
@@ -229,12 +217,6 @@ angular.module('myApp').factory('AuthService',
       console.log(fuck)
       console.log(shit)
       console.log('ffiless',files)
-      //   console.log('fr',fd)
-      //   var obj = {};
-      //   obj.fuck = fuck;
-      //   obj.shit = shit;
-      //   obj.fd = fd
-      //   console.log('obj', obj)
       
       return $http.post('/api/mongolab', fd , 
           {
@@ -289,6 +271,7 @@ angular.module('myApp').factory('AuthService',
     function getSession() {
       return $http.get('/api/mongolab/sess')
         .then(function(response) {
+           // alert('error from factory getsession' +JSON.stringify(response))
            return response.data;
         }, function(response) {
           // alert('error from factory getsession' +response)
