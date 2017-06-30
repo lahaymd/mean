@@ -1,17 +1,19 @@
 div(layout='row')
-	div.button-group(layout='column' )
+	//- div#test(style='height: 100px; width:100px; background-color:red')
+	div.button-group(layout='column' style='width: 25vw;')
 		md-button#combine combine Nodes
 		md-button#separate separate nodes
+		//- md-button(ng-click='vm.showListBottomSheet()') show bottom sheet
 		md-input-container()
 			label textarea 1
-			textarea(id='two' ng-model='vm.two' ng-change='vm.areaOne(vm.one,vm.two); vm.bar(one)' autofocus) 
+			textarea(id='two' ng-model='vm.two' ng-focus='vm.focused()' ng-blur='vm.blurred()' ng-change='vm.areaOne(vm.one,vm.two); vm.bar(one); vm.qs()' autofocus) 
 		md-input-container()
 			label textarea 2
 			textarea(id='one' ng-model='vm.one' ng-change=' vm.areaOne(vm.one,vm.two)')
 	//- md-button#alert-width width
 	//- include ../scratch.svg
-	div.d3-attach(layout='row' layout-wrap )
-		svg#bar-chart(style='display: block; width: 50vw; height: 50vh; ')
+	div.d3-attach(layout='row' layout-wrap style="width: 75vw;")
+		svg#bar-chart(style='display: block; width: 75vw; height: 75vh; ')
 		//- p#d3 d3
 		//- p rocks
 		//- h1.filtered(hide-xs hide-sm show-gt-sm flex='100' ng-style='{"text-align": "center"}' ) readerboard

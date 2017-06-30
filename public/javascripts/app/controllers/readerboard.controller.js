@@ -1,9 +1,45 @@
 (function() {
 	angular.module('myApp').
-		controller('ReaderboardController', ['$scope', function($scope){
+		controller('ReaderboardController', ['$scope', '$mdBottomSheet', function($scope, $mdBottomSheet){
 			var vm = this;
 
-	
+      vm.showListBottomSheet = function() {
+    // $scope.alert = '';
+    $mdBottomSheet.show({
+      template: `<md-bottom-sheet class="md-grid" layout="column">
+ 
+  <div ng-cloak>
+    <md-list flex layout="row" layout-align="center center">
+      <md-list-item>
+        
+         
+      <label> textarea 1  </label>
+      <textarea id='two' ng-model='vm.two' ng-focus='vm.focused()' ng-blur='vm.blurred()' ng-change='vm.areaOne(vm.one,vm.two); vm.bar(one)' autofocus></textarea> 
+        
+        
+      </md-list-item>
+    </md-list>
+  </div>
+</md-bottom-sheet>`
+      // templateUrl: 'bottom-sheet-list-template.html',
+      // controller: 'ListBottomSheetCtrl'
+    }).then(function(clickedItem) {
+      // $scope.alert = clickedItem['name'] + ' clicked!';
+    }).catch(function(error) {
+      // User clicked outside or hit escape
+    });
+  };
+
+      vm.focused = function(){
+          console.log('focused')
+          angular.element(document.querySelector('.headercontroller')).addClass('hideme')
+      }
+
+      vm.blurred = ()=> {
+        console.log('blurred')
+        angular.element(document.querySelector('.headercontroller')).removeClass('hideme')
+      }
+
 			vm.areaOne = function(one,two) {
 
 				var foo = function(x){
@@ -95,20 +131,32 @@
 
 				vm.results = letterDifference().sort();
 
-				vm.changeZero = function() {
-					if(vm.results[0][1] !==NaN) {vm.results[0][1]++}
-				}
+        vm.changeZero = function() {
+          if(vm.results[0][1] !==NaN) {vm.results[0][1]++}
+        }
 
+      
+  //       vm.qs = () => {
 
-				var width = 375;
-				var height = 500;
-				var margin = 40;
-				var svg = d3.select(".d3-attach").insert("svg",":first-child")
-									.attr("class", 'd3')
-                                     .attr("width", width + margin + margin) 
-                                     .attr("height", height + margin + margin)
-                                     // .style('display' ,'block')
-                                     // .style('margin', '0 auto')
+  //       var getWidth = document.querySelector('.d3').getBoundingClientRect();
+  //       width = getWidth.width;
+  //       var getheight = document.querySelector('.d3').getBoundingClientRect();
+  //       height = getheight.height;
+  //       alert(width)
+  // }
+        // var width = getBBWidth.width;
+        // var height = getBBWidth.height;
+        var width = 500;
+        var height = 400;
+        var margin = 40;
+        var svg = d3.select(".d3-attach").insert("svg",":first-child")
+                  .attr("class", 'd3')
+                  .attr("viewBox", "0 0 " + width + " " + height )
+            .attr("preserveAspectRatio", "xMidYMid meet")
+                                     // .attr("width", width + margin + margin) 
+                                     // .attr("height", height + margin + margin)
+                                     .style('width' ,'75vw')
+                                     .style('height', '75vh')
                                     var g = svg.append('g')
                                      .attr('transform', 'translate(' +width/2 +','+ height/2 +')')
 
@@ -117,83 +165,72 @@
                  const negColor =d3.scaleOrdinal(d3.schemeCategory20b)
 
                  var rscale = d3.scaleLinear().domain([1,d3.max(radii)]).range([10,50])
-                 	console.log(d3.max(radii))
-                 	console.log(radii)
-                 	console.log(d3.min(radii))
-                 	console.log(rscale(10))
-                 	console.log(rscale(-10))
-                 	console.log(rscale(Math.abs(-10)))
-                 	
+                  console.log(d3.max(radii))
+                  console.log(radii)
+                  console.log(d3.min(radii))
+                  console.log(rscale(10))
+                  console.log(rscale(-10))
+                  console.log(rscale(Math.abs(-10)))
+                  
 
 
                                     var simulation = d3.forceSimulation()
-                                    	.force('x', d3.forceX(width/2).strength(.92))
-                                    	.force('y', d3.forceY(width/2).strength(.92) )
-             //                        	.velocityDecay(.4)
-   										// .alphaTarget(.2)
-                                    	.force('collide', d3.forceCollide(function(d){
+                                      .force('x', d3.forceX(width/2).strength(.92))
+                                      .force('y', d3.forceY(width/2).strength(.92) )
+             //                         .velocityDecay(.4)
+                      // .alphaTarget(.2)
+                                      .force('collide', d3.forceCollide(function(d){
                                         // alert(d)
-                                    		// console.log('d' + d3.max(vm.results,function(d) {return d[1]}))
-                                    		// console.log(rscale(d));
-                                    		return rscale(Math.abs(d[1])) +2;
-                                    	}).iterations(16))
-                                    	.force("center", d3.forceCenter())
+                                        // console.log('d' + d3.max(vm.results,function(d) {return d[1]}))
+                                        // console.log(rscale(d));
+                                        return rscale(Math.abs(d[1])) +2;
+                                      }).iterations(16))
+                                      .force("center", d3.forceCenter())
                                      
-                                    	// .force("charge", d3.forceManyBody().strength([400])) 
-                                    	// .force("link", d3.forceLink())
-                                    	// .force("charge", d3.forceManyBody(50))
+                                      // .force("charge", d3.forceManyBody().strength([400])) 
+                                      // .force("link", d3.forceLink())
+                                      // .force("charge", d3.forceManyBody(50))
 
                  
-                  	var circles = g.selectAll('circles')
-                  					.data(vm.results, function(d) { return d;});
+                    var circles = g.selectAll('circles')
+                            .data(vm.results, function(d) { return d;});
 
-                  					// UPDATE
-								  // Update old elements as needed.
-								  // circles.attr("class", "update");
+                            var circleEnter = circles.enter()
+                            .append('circle')
+                            .attr('fill', function(d){
+                              if(d[1] < 0) {return negColor(d[1])} else {
 
-                  					
-
-                  					var circleEnter = circles.enter()
-                  					.append('circle')
-                  					.attr('fill', function(d){
-                  						if(d[1] < 0) {return negColor(d[1])} else {
-
-                  					 return color(d[1]);
-                  						}
-                  					})
-                  					.style('opacity', function(d){
-                  						if(d[1]===0) {return 0;} else{
-                  							return 1;
-                  						}
-                  					})
+                             return color(d[1]);
+                              }
+                            })
+                            .style('opacity', function(d){
+                              if(d[1]===0) {return 0;} else{
+                                return 1;
+                              }
+                            })
                             .attr('stroke', (d) => color(4))
                             .attr('stroke-width', 3)
-                  					.attr('id', function(d){return d[0]})
-                  					.attr('r', function(d){ return rscale(Math.abs(d[1]))})
-                  					.attr('cx', function(d) { return d.x})
-                  					.attr('cy', function(d) { return d.y})
-                  					.call(d3.drag()
+                            .attr('id', function(d){return d[0]})
+                            .attr('r', function(d){ return rscale(Math.abs(d[1]))})
+                            .attr('cx', function(d) { return d.x})
+                            .attr('cy', function(d) { return d.y})
+                            .call(d3.drag()
                 .on("start", dragstarted)
                 .on("drag", dragged)
                 .on("end", dragended));  
 
 
-                  			// 		circlesEnter.transition()
-               						// .style('transform', 'translate(100,100)')
-               						var circleText = circles.enter()
-               						.append('text')
-               						.text(function(d){
+                        //    circlesEnter.transition()
+                          // .style('transform', 'translate(100,100)')
+                          var circleText = circles.enter()
+                          .append('text')
+                          .text(function(d){
                             if(d[1] === 0){ return ''; } 
                               return d[0] + " : " + d[1];
                           })
                           
-               						.style('font-size', '12px')
-               						.attr('transform','translate(-9,6)')
-// d3.select('#a')
-// 			.attr('fill', 'yellow')
-
-
-
+                          .style('font-size', '12px')
+                          .attr('transform','translate(-9,6)')
 
 function dragstarted(d) {
             if (!d3.event.active) simulation.alphaTarget(0.3).restart();
@@ -238,17 +275,22 @@ function dragstarted(d) {
  });
 
 
-                  	simulation.nodes(vm.results)
-                  		.on('tick', ticked)
+                    simulation.nodes(vm.results)
+                      .on('tick', ticked)
 
-                  	function ticked() {
-                  		circleEnter
-                  			.attr('cx', function(d) { return d.x})
-                  			.attr('cy', function(d) { return d.y})
-                  		circleText
-                  		.attr('x', function(d) { return d.x})
-                  		.attr('y', function(d) { return d.y})
-                  	}
+                    function ticked() {
+                      circleEnter
+                        .attr('cx', function(d) { return d.x})
+                        .attr('cy', function(d) { return d.y})
+                      circleText
+                      .attr('x', function(d) { return d.x})
+                      .attr('y', function(d) { return d.y})
+                    }
+
+  
+
+
+
 
 const w = 600;
 const h = 400;
@@ -321,34 +363,6 @@ var gBar = svgBar.append("g")
       .attr("width", xBar.bandwidth())
       .transition(t)
       .attr("height", function(d) { console.log('ybar sum ' + sum); return heightBar - (yBar(d[1]/sum)) ; })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       } //end of vm.areaOne function
 		}]) // closing controller function
 

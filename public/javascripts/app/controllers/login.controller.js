@@ -5,6 +5,7 @@
 			// vm.isSidenavOpen= false;
 			// vm.user
 			// vm.userr
+			
 			 vm.showAdvanced = function(ev) {
 					    $mdDialog.show({
 					      controller: 'DialogController',

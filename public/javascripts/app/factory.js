@@ -209,7 +209,7 @@ angular.module('myApp').factory('AuthService',
         fd.append('shit', shit);
         
       if(files === undefined) {
-        alert(1)
+        // alert(1)
         fd.append('files', '/images/cooper1.png')
       } else {
         fd.append('files', files[0]);

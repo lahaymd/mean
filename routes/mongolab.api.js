@@ -51,7 +51,7 @@ router.post('/', upload.single('files'),  function(req, res) {
     		console.log('bleoop')
        // array = req.body;
        // console.log('array from if block' + array)
-    		// array.files = '/images/cooper1.png'
+    		array.files = '/images/cooper1.png'
     	} else {
     		// array = req.body;
       var path = req.file.path.replace('public', '')
