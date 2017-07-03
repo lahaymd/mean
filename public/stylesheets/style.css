@@ -723,12 +723,41 @@ object {
 }
 .button-group {
   background-color: #808080;
+  width: 25vw;
+}
+#bar-chart {
+  width: 75vw;
+  height: 75vw;
 }
 #combine {
   color: #fa8072;
 }
 .hideme {
   display: none;
+}
+#noMargin {
+  margin: 0 !important;
+}
+@media (max-width: 667px) {
+  #readerboardContainer {
+    -webkit-box-orient: vertical;
+    -o-box-orient: vertical;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .button-group {
+    background-color: #b10dc9;
+    -ms-flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -o-box-orient: horizontal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    width: 100vw;
+    -webkit-box-ordinal-group: 2;
+    -o-box-ordinal-group: 2;
+    -ms-flex-order: 2;
+    order: 2;
+  }
 }
 .rucksack:nth-last-child(n+4), .rucksack:nth-last-child(n+4) ~ .rucksack {
   color: #0074d9;

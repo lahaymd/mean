@@ -297,7 +297,7 @@ const h = 400;
 var svgBar = d3.select("#bar-chart")
             .attr("viewBox", "0 0 " + w + " " + h )
             .attr("preserveAspectRatio", "xMidYMid meet");
- var   marginBar = {top: 20, right: 20, bottom: 30, left: 40},
+ var   marginBar = {top: 20, right: 20, bottom: 30, left: 60},
     widthBar = w - marginBar.left - marginBar.right,
     heightBar = h - marginBar.top - marginBar.bottom;
 

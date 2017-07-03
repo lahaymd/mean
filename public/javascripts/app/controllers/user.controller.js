@@ -1,6 +1,6 @@
 (function() {
 	angular.module('myApp').
-		controller('UserController', ['$scope', '$transition$', 'AuthService', '$location', '$window', '$mdDialog', '$state', '$timeout',  function($scope, $transition$, AuthService, $location, $window, $mdDialog, $state, $timeout ) {
+		controller('UserController', ['$scope', '$transition$', 'AuthService', '$location', '$window', '$mdDialog', '$state', '$timeout','$stateParams',  function($scope, $transition$, AuthService, $location, $window, $mdDialog, $state, $timeout, $stateParams ) {
 // $scope.alertTransition = () => alert($transition$.params())
  // $scope.userlist = {};
 // $scope.displayAmount = 3;
@@ -124,8 +124,9 @@ $scope.showConfirm = function(ev) {
 
 
       $scope.updateUser = function() {
-        console.log('selected user',$scope.selectedUser)
-        AuthService.update($scope.selectedUser)
+        console.log('selected user',$scope.selectedUser) 
+        console.log('state ' + JSON.stringify($stateParams))
+        AuthService.update($stateParams.id,$scope.selectedUser)
           .then(function(x) {
             $state.go("^", null, { reload: true });
             $timeout( ()=>  {

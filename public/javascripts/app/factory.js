@@ -40,9 +40,9 @@ angular.module('myApp').factory('AuthService',
                   );
     }
 
-    function update(id) {
+    function update(id, payload) {
       // var deferred = $q.defer();
-      return $http.put('/api/users/' + id._id, id)
+      return $http.put('/api/users/' + id, payload)
         .then(function(response){
           return response.data 
         }, function(response){
