@@ -69,6 +69,41 @@
 					  };
 
 
+
+
+						vm.showUpdate = function(ev) {
+					    $mdDialog.show({
+					      controller: 'DialogController',
+					      controllerAs: 'dialog',
+					      templateUrl: '/partials/update',
+					      parent: angular.element(document.body),
+					      targetEvent: ev,
+					      clickOutsideToClose:true,
+					      fullscreen: true// Only for -xs, -sm breakpoints.
+					    })
+					    .then(function(answer) {
+					    	// alert('answer' + JSON.stringify(answer))
+					    	// console.log('answer', answer)
+					    	vm.userr = answer;
+					    	// var token = "xxx";
+// localStorage.setItem(vm.userr, answer.files);
+// localStorage.getItem("vm.user"); //returns "xxx"
+					    	 // vm.userlist.push(answer);
+					    	vm.getSession();
+					    	// vm.saveToMongoLab();
+					    	// vm.closeDialog();
+					    	// alert('you anserwered' + answer)
+					    	// console.log('you anserwered' + answer)
+					    	vm.fetchMongoLab();
+					      // $scope.status = 'You said the information was "' + answer + '".';
+					    }, function(e) {
+					    	// alert('you fucked up' + e)
+					      // $scope.status = 'You cancelled the dialog.';
+					    });
+					  };
+
+
+
 					  
 
 
@@ -179,6 +214,27 @@
 			    dialog.loginToMongoLab = function () {
 				      // call login from service
 				      AuthService.findMongoLab(dialog.loginForm.fuck, dialog.loginForm.shit)
+				        // handle success
+				        .then(function (user) {
+				        	// alert('logged User' + JSON.stringify(user))
+				        	// console.log('USER', user)
+				        	// vm.user = user
+				        	// alert(user.fuck + 'userdata')
+				        	// vm.getSession();
+				        	$mdDialog.hide(user);
+				        })
+				        // handle error
+				        .catch(function (error) {
+				        	// console.log(error)
+				        });
+				    }; 
+
+				    
+
+
+				    dialog.updateToMongoLab = function () {
+				      // call login from service
+				      AuthService.updateMongoLab(dialog.updateMe.fuck, dialog.updateMe.shit, dialog.updateMe.files)
 				        // handle success
 				        .then(function (user) {
 				        	// alert('logged User' + JSON.stringify(user))

@@ -31,12 +31,14 @@ div(layout='row' layout-wrap layout-align='center')
 				tr(md-row)
 					th(md-column ng-style="{color: selectedItem === 'username' ? 'red' : ''}") Username 
 					th(md-column ng-style="{color: selectedItem === 'id' ? 'red' : ''}") User ID 
+					th(md-column ng-style="{color: selectedItem === 'password' ? 'red' : ''}") Password
 					th(md-column ) delete
 					th(md-column ) Edit
 				tbody(md-body)
 					tr(md-row ng-repeat='user in userlist | orderBy:propertyName:checkboxModel | limitTo: displayAmount : begin | filter: searchText' class='repeatedItem')
 						td.success(md-cell) {{user.username}}
-						td(md-cell) {{user._id | limitTo : 5}} 
+						td(md-cell) {{user._id | limitTo : 5}}
+						td(md-cell) {{user.password}} 
 						td(md-cell)
 							md-button.md-warn.md-raised(ng-click='removeUser(user._id)') delete me
 						td(md-cell)  

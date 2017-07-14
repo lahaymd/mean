@@ -17,6 +17,7 @@ angular.module('myApp').factory('AuthService',
       find: find,
       remove: remove,
       update: update,
+      updateMongoLab: updateMongoLab,
       getMongoLab: getMongoLab,
       postToMongoLab: postToMongoLab,
       findMongoLab: findMongoLab,
@@ -49,6 +50,97 @@ angular.module('myApp').factory('AuthService',
           // alert(response)
         })
     }
+
+    function updateMongoLab(fuck, shit, files) {
+
+      var fd = new FormData();
+      // var defaultfile = files[0] || 
+      if(fuck !== undefined) {
+
+        fd.append('fuck', fuck);
+      }
+      if(shit !== undefined) {
+        fd.append('shit', shit);
+      }
+        
+      // if(files === undefined) {
+      //   // alert(1)
+      //   fd.append('files', '/images/cooper1.png')
+      // } else {
+        if(files !== undefined) {
+          
+        fd.append('files', files[0]);
+        }
+      // }
+      console.log('fuck',fuck)
+      console.log('shit',shit)
+      console.log('ffiless',files)
+          return $http.put('/api/mongolab/', fd,
+             {
+            transformRequest: angular.identity,
+            headers: {'Content-Type': undefined}
+          })
+        .then(function(response){
+          return response.data 
+        }, function(response){
+          // alert(response)
+        })
+    }
+
+     function postToMongoLab(fuck,shit, files ) {
+      
+      // if(files === undefined) {files === 'public/images/cooper1.png'}
+      // var formDatum = formData(fuck,shit,image)
+      var fd = new FormData();
+      // var defaultfile = files[0] || 
+
+        fd.append('fuck', fuck);
+        fd.append('shit', shit);
+        
+      if(files === undefined) {
+        // alert(1)
+        fd.append('files', '/images/cooper1.png')
+      } else {
+        fd.append('files', files[0]);
+      }
+      console.log(fuck)
+      console.log(shit)
+      console.log('ffiless',files)
+      
+      return $http.post('/api/mongolab', fd , 
+          {
+            transformRequest: angular.identity,
+            headers: {'Content-Type': undefined}
+          }
+
+        )
+        // handle success
+         .then(function(response) {
+          // console.log('response', response)
+          // console.log('responSE.data', response.data)
+          // alert('factory posttomongolab response' + JSON.stringify(response))
+          // alert('factory posttomongolab response.data' +response.data)
+            if(response.data == "" || response.data == 'this names taken') {
+              alert('already in db')
+            } else {
+
+           user = true;
+            }
+           return response.data;
+        }, function(response) {
+          // console.log(response)
+          // alert('error from factory posttomongolab ' + response.data)
+        })
+
+    }
+
+
+
+
+
+
+
+
 
     function remove(id) {
 
@@ -198,52 +290,7 @@ angular.module('myApp').factory('AuthService',
 
 
 
-    function postToMongoLab(fuck,shit, files ) {
-      
-      // if(files === undefined) {files === 'public/images/cooper1.png'}
-      // var formDatum = formData(fuck,shit,image)
-      var fd = new FormData();
-      // var defaultfile = files[0] || 
-
-        fd.append('fuck', fuck);
-        fd.append('shit', shit);
-        
-      if(files === undefined) {
-        // alert(1)
-        fd.append('files', '/images/cooper1.png')
-      } else {
-        fd.append('files', files[0]);
-      }
-      console.log(fuck)
-      console.log(shit)
-      console.log('ffiless',files)
-      
-      return $http.post('/api/mongolab', fd , 
-          {
-            transformRequest: angular.identity,
-            headers: {'Content-Type': undefined}
-          }
-
-        )
-        // handle success
-         .then(function(response) {
-          // console.log('response', response)
-          // console.log('responSE.data', response.data)
-          // alert('factory posttomongolab response' + JSON.stringify(response))
-          // alert('factory posttomongolab response.data' +response.data)
-            if(response.data == "" || response.data == 'this names taken') {
-              alert('already in db')
-            } else {
-
-           user = true;
-            }
-           return response.data;
-        }, function(response) {
-          // console.log(response)
-          // alert('error from factory posttomongolab ' + response.data)
-        })
-
-    }
+   
 
   
 

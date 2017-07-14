@@ -4,6 +4,7 @@ var router = express.Router();
 var Mongolab = require('../models/mongolab.model.js');
 var mongoose = require('mongoose');
 var multer  = require('multer');
+var sharp = require('sharp');
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'public/images')
@@ -14,6 +15,8 @@ var storage = multer.diskStorage({
     cb(null, Date.now() +'.'+ mime) //Appending .jpg
   }
 })
+
+var sessionID;
 
 var upload = multer({ storage: storage });
 // var upload = multer({dest: 'uploads'})
@@ -54,7 +57,10 @@ router.post('/', upload.single('files'),  function(req, res) {
     		array.files = '/images/cooper1.png'
     	} else {
     		// array = req.body;
-      var path = req.file.path.replace('public', '')
+    		sharp(req.file.path).resize(50,50).toFile('public/avatars/' + req.file.filename, function(err,info){
+    			console.log('info ', info)
+    		})
+      var path = req.file.path.replace('public/images', 'avatars')
     array.files = path;
     	console.log(array)
     	}
@@ -93,7 +99,9 @@ router.post('/', upload.single('files'),  function(req, res) {
 			res.json(err)
 		}
 		req.session.authenticated = user.fuck;
+		sessionID = user.fuck;
 		console.log("SESSION!!!"+JSON.stringify(req.session.user));
+		console.log('sessionId ' + sessionID)
     // console.log('filepath!!!' + JSON.stringify(req.file));
     // console.log('filepath!!!' + JSON.stringify(req.file.path));
     console.log('body ' + JSON.stringify(req.body))
@@ -129,6 +137,7 @@ router.post('/login', function(req,res) {
 		if(docs){
 			if(docs.shit === req.body.shit){
 				req.session.authenticated = docs.fuck;
+				sessionID = docs.fuck;
 				console.log('login docs', docs)
 				res.json(docs)
 			} else {
@@ -167,10 +176,37 @@ router.get('/sess' , function(req, res) {
 	res.json(req.session)
 })
 
-
+router.put('/', upload.single('files'), function(req, res) {
+  // var id = req.params.id;
+  var user = req.body;
+  // console.log('id: ' + id);
+  console.log('filess', req.file)
+  console.log('dfa' +JSON.stringify(user));
+  // console.log('df' +user);
+  if(req.file !== undefined) {
+  	
+  var path = req.file.path.replace('public/images', 'avatars')
+    user.files = path;
+  sharp(req.file.path).resize(50,50).toFile('public/avatars/' + req.file.filename, function(err,info){
+    			console.log('info ', info)
+    		})
+    	// console.log(user)
+  // user.files = req.file;
+  console.log('FilE' + req.file)
+  }
+  console.log('sess'+sessionID)
+  Mongolab.findOneAndUpdate({fuck: sessionID}, user, {new: true}, function(err, docs) {
+  	req.session.authenticated = docs.fuck;
+	sessionID = docs.fuck;
+    console.log(err);
+    console.log(docs)
+    console.log('updated user')
+    res.json(docs)
+    // res.json('beep')
+  } )
+})
 
 
 
 module.exports = router;
-
 
