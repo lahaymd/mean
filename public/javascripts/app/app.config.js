@@ -60,6 +60,11 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
         // controller: 'HireMeController'
         // controllerAs: '$ctrl'
        }).
+        state('canvas', {
+          url: '/canvas',
+          component: 'canvasComponent',
+          data: {restricted: false}
+        }).
         state('users', {
           url: '/users',
           templateUrl: '/partials/users',
