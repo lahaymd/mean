@@ -1,2 +1,11 @@
-canvas#canvas(style='border: green 1px solid' ng-mousemove='$ctrl.myFunc($event)')
-script(src='/public/javascripts/canvas.js')
+#canvas-container
+	ng-transclude
+	canvas#canvas( ng-mousemove='$ctrl.myFunc($event)')
+	//- md-slider-container
+	//- 	span R
+	//- 	md-slider( flex='50' min="0" max="50" ng-model="$ctrl.circles" aria-label="red" id="red-slider" ng-change='$ctrl.updateCircles($ctrl.circles)')
+	//- 	md-input-container
+	//- 		input(flex style='font-size: 11px;' type="number" ng-model="$ctrl.circles" aria-label="red" aria-controls="red-slider" ng-change='$ctrl.updateCircles($ctrl.circles)')
+
+	//- {{$ctrl.circles}}
+	//- {{$ctrl.circs}}
