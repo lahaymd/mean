@@ -13,6 +13,8 @@
 		function canvasController($window,$attrs){
 			
 console.log('attrs',$attrs.circs)
+var  c = $attrs.circs !== undefined ? $attrs.circs : 30;
+console.log('c',c)
 // console.log('circs', circs)
 			
 // this.alertCircs()
@@ -114,7 +116,7 @@ function init() {
 	circleArray = []
 
 
-for(var i =0; i<$attrs.circs; i++) {
+for(var i =0; i<30; i++) {
 	var radius = Math.random() * 30 + 4;
 	var x = Math.random() * ($window.innerWidth - radius * 2) + radius;
 	var y = Math.random() * ($window.innerHeight/2- radius * 2) + radius;
