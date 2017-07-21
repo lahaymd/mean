@@ -11,7 +11,7 @@
 		})
 
 		function canvasController($window,$attrs){
-			
+
 console.log('attrs',$attrs.circs)
 var  c = $attrs.circs !== undefined ? $attrs.circs : 30;
 console.log('c',c)
@@ -76,16 +76,17 @@ gradient.addColorStop("0.5","blue");
 gradient.addColorStop("1.0","red");
 
 
-ctx.shadowColor = 'black';
-ctx.shadowOffsetX = 10;
-ctx.shadowOffsetY = 10;
-ctx.shadowBlur = 10;
+// ctx.shadowColor = 'black';
+// ctx.shadowOffsetX = 10;
+// ctx.shadowOffsetY = 10;
+// ctx.shadowBlur = 10;
+ctx.globalCompositeOperation = 'xor'
 // Fill with gradient
 ctx.strokeStyle=gradient;
-		ctx.lineWidth = 4;
+		// ctx.lineWidth = 4;
 		ctx.fillStyle = this.color
 		ctx.fill();
-		ctx.stroke();
+		// ctx.stroke();
 	}
 
 	this.update = function(){

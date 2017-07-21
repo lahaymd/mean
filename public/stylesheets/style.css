@@ -144,6 +144,24 @@ foot {
     background-position: 100% 0;
   }
 }
+#gco-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -ms-flex-direction: column;
+  -webkit-box-orient: vertical;
+  -o-box-orient: vertical;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+#gco-container canvas {
+  border: 5px #ffdc00 solid;
+}
 @media (max-width: 959px) {
   md-toast {
     bottom: unset !important;

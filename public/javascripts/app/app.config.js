@@ -65,6 +65,11 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
           component: 'canvasComponent',
           data: {restricted: false}
         }).
+        state('gco', {
+          url: '/gco',
+           data: {restricted: false},
+          component: 'gcoComponent'
+        }).
         state('users', {
           url: '/users',
           templateUrl: '/partials/users',
