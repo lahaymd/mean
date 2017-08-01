@@ -819,6 +819,9 @@ object {
 md-sidenav .md-button {
   text-align: end;
 }
+#svg-text {
+  font-size: 80px;
+}
 @media (max-width: 420px) {
   .coat {
     height: 50px;

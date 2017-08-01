@@ -34,8 +34,6 @@ canvas.width = $window.innerWidth;
 canvas.height = $window.innerHeight/2;
 var ctx = canvas.getContext('2d');
 
-var img = new Image();   // Create new img element
-img.src = 'canvas.jpeg'; // Set source path
 
 var mouse = {
 	x: undefined,
@@ -140,24 +138,7 @@ function animate(){
 	
 }
 
-this.updateCircles = function(circles){
-	console.log(circles)
 
-					circleArray = []
-
-
-for(var i =0; i<circles; i++) {
-	var radius = Math.random() * 30 + 4;
-	var x = Math.random() * ($window.innerWidth - radius * 2) + radius;
-	var y = Math.random() * ($window.innerHeight/2- radius * 2) + radius;
-	var dx = (Math.random()* 1) +2
-	var dy = (Math.random()* 1) +2
-	circleArray.push(new Circle(x,y,dx,dy,radius))
-}
-console.log(circleArray)
-
-
-}
 
 init();
 animate();

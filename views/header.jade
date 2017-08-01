@@ -31,6 +31,10 @@ div.headercontroller.grid-header(ng-controller='NavController as vm')
 						md-button(ui-sref='users') Dynamic Users Table
 					md-menu-item
 						md-button(ui-sref='readerboard') Letters App
+					md-menu-item
+						md-button(ui-sref='svg') SVG
+					md-menu-item
+						md-button(ui-sref='gco') Global Composite Operation
 			md-button#no-pad(ng-hide='!vm.isLogged()' ng-click='vm.logout()') Log Out
 			md-button#no-pad(ng-hide='vm.isLogged()' ng-click='vm.showAdvanced($event)') Sign Up
 			md-button#no-pad(ng-hide='vm.isLogged()' ng-click='vm.showSignIn($event)') Sign In

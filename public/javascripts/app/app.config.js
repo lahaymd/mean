@@ -70,6 +70,12 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
            data: {restricted: false},
           component: 'gcoComponent'
         }).
+        state('svg', {
+          url: '/svg',
+          component: 'svgComponent',
+           data: {restricted: false}
+          // component: 'gcoComponent'
+        }).
         state('users', {
           url: '/users',
           templateUrl: '/partials/users',

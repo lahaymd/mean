@@ -1,0 +1,8 @@
+<svg width='100vw' height='100vh'>
+	<rect width='100%' height='100%' fill='pink'>
+	</rect>
+		<text id=svg-text x=10 y=50%>
+			Hey, I’m an independent web developer and designer. I work primarily with the MEAN stack. Have a look through some of my projects. Need help with an upcoming project or application? Learn a bit more about me and then consider hiring me.
+		</text>
+
+</svg>
