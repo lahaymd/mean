@@ -84,6 +84,9 @@
   -ms-flex-align: center;
   align-items: center;
 }
+#canvas-container canvas {
+  height: 100%;
+}
 .font-magician {
   font-family: 'Alice';
 }
@@ -686,14 +689,15 @@ img[src*='shape'] {
   #banner-svg {
     top: 1;
     margin: 40;
-    -webkit-transform: translateY(-450px);
-    transform: translateY(-450px);
+    -webkit-transform: translateY(-350px);
+    transform: translateY(-350px);
     -webkit-filter: url("#MyFilter") grayscale(0%);
             filter: url("#MyFilter") grayscale(0%);
   }
   .svg-wrapper {
     background-image: url("/images/hexagons.svg");
     background-size: contain;
+    height: 400px;
   }
 }
 #canvas-container {
