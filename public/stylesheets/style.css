@@ -452,16 +452,6 @@ md-input-container {
   -webkit-filter: url("#MyFilter");
           filter: url("#MyFilter");
 }
-@media screen and (max-width: 667px) {
-  #banner-svg {
-    -webkit-filter: none;
-            filter: none;
-    top: 1;
-    margin: 40;
-    -webkit-transform: translateY(-350px);
-    transform: translateY(-350px);
-  }
-}
 .banner-text {
   position: absolute;
   text-align: center;
@@ -691,6 +681,20 @@ img[src*='shape'] {
   background-position: 50% 80%;
   -webkit-filter: url("#pictureFilter") grayscale(50%);
           filter: url("#pictureFilter") grayscale(50%);
+}
+@media screen and (max-width: 667px) {
+  #banner-svg {
+    top: 1;
+    margin: 40;
+    -webkit-transform: translateY(-450px);
+    transform: translateY(-450px);
+    -webkit-filter: url("#MyFilter") grayscale(0%);
+            filter: url("#MyFilter") grayscale(0%);
+  }
+  .svg-wrapper {
+    background-image: url("/images/hexagons.svg");
+    background-size: contain;
+  }
 }
 #canvas-container {
   background-color: #e6e6e6;
