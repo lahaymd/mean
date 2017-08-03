@@ -438,6 +438,7 @@ md-input-container {
           mask-size: cover;
 }
 .blend {
+  min-height: 500px;
   height: 100vh;
   background-color: #3db6b8;
   background-size: cover;
@@ -445,11 +446,14 @@ md-input-container {
   background-blend-mode: difference;
   background-position: right bottom;
 }
+#banner {
+  position: absolute;
+}
 .banner-text {
   position: absolute;
   text-align: center;
   margin-top: 300px;
-  margin: 100px 15% 0px 15%;
+  margin: 50px 15% 0px 15%;
 }
 #target {
   -webkit-filter: url("#f1");
@@ -666,7 +670,16 @@ img[src*='shape'] {
   filter: alpha(opacity=90);
 }
 .svg-wrapper {
-  position: relative;
+  height: 500px;
+  background-attachment: fixed;
+  background-size: cover;
+  background-image: url("/images/wrigley.jpeg");
+  background-position: right bottom;
+  -webkit-filter: url("#pictureFilter") grayscale(50%);
+          filter: url("#pictureFilter") grayscale(50%);
+}
+#canvas-container {
+  background-color: #e6e6e6;
 }
 .learn-more {
   position: absolute;
@@ -676,6 +689,10 @@ img[src*='shape'] {
   transform: translate(-50%, 0);
   min-width: 75vw;
   text-align: center;
+}
+.blend h3 {
+  text-align: center;
+  color: #fff;
 }
 @-webkit-keyframes fly {
   from {

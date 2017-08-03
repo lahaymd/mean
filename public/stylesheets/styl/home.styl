@@ -107,8 +107,7 @@
 	mask-size cover
 	
 .blend
-	// color red 
-	//fuck you
+	min-height 500px
 	height 100vh
 	// width 100vw
 	
@@ -117,12 +116,19 @@
 	background-image url("/images/IMG_2157.jpg")
 	background-blend-mode difference
 	background-position right bottom 
+	
+#banner 
+	position absolute 
+	
+svg#banner 
+	// filter url(#MyFilter)
+	
 
 .banner-text
 	position absolute
 	text-align center
 	margin-top 300px
-	margin 100px 15% 0px 15%
+	margin 50px 15% 0px 15%
 
 #target
 	filter url(#f1)
@@ -356,8 +362,25 @@ img[src*='shape']
 	color cornflowerBlue
 	opacity .9
 .svg-wrapper
-	position relative
+	height 500px
+	background-attachment fixed
+	background-size cover 
+	background-image url("/images/wrigley.jpeg")
+	// background-blend-mode difference
+	background-position right bottom 
+	filter url(#pictureFilter) grayscale(50%)
+	// position relative
 	// padding-top 125px
+		
+#canvas-container
+	background-color #e6e6e6
+	// background-size cover 
+	// background-image url("/images/wrigley.jpeg")
+	// // background-blend-mode difference
+	// background-position right bottom 
+	// position relative
+	// padding-top 125px
+	
 .learn-more
 	position absolute
 	bottom 0
@@ -366,7 +389,9 @@ img[src*='shape']
 	min-width 75vw
 	text-align center
 	
-	
+.blend h3
+	text-align center
+	color rgba(255,255,255,1.0)
 	
 
 

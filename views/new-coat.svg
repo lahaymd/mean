@@ -1,12 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg in-view="ctrl.coatIsVisible = $inview"  ng-class="{'coat-is-visible': ctrl.coatIsVisible}"  id='banner' class='grid-new-coat' version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<svg in-view="ctrl.coatIsVisible = $inview"  ng-class="{'coat-is-visible': ctrl.coatIsVisible}"  id='banner' filter='url(#MyFilter)'  class='grid-new-coat' version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="-435.5 169.8 455 170" style="enable-background:new -421.5 139.8 455 234;" xml:space="preserve">
+
+<defs width='0' height='0'>
+	
+	<filter id="MyFilter" filterUnits="userSpaceOnUse" width='1700' height='600'>
+        <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+        <feOffset in="blur" dx="4" dy="4" result="offsetBlur"/>
+        <feSpecularLighting in="blur" surfaceScale="5" specularConstant=".75" 
+                            specularExponent="20" lighting-color="#bbbbbb"  
+                            result="specOut">
+          <fePointLight x="-5000" y="-10000" z="20000"/>
+        </feSpecularLighting>
+        <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specOut"/>
+        <feComposite in="SourceGraphic" in2="specOut" operator="arithmetic" 
+                     k1="0" k2="1" k3="1" k4="0" result="litPaint"/>
+        <feMerge>
+          <feMergeNode in="offsetBlur"/>
+          <feMergeNode in="litPaint"/>
+        </feMerge>
+      </filter>
+</defs>
+
+
 <g fill='none' stroke='rgb(33,150,243)' stroke-width='2' id="lahay">
 	
 		
 	
-		<path in-view="ctrl.myl1 = $inview"  ng-class="{'l1': ctrl.myl1}" id='l1' d="M-272.4,237.7l-30.1,13.3l-0.2-0.4c0.7-0.5,1.5-1,2-1.6c0.7-0.6,1.1-1.3,1.4-1.9c0.1-0.3,0.1-0.6,0.1-1
+		<path  in-view="ctrl.myl1 = $inview"  ng-class="{'l1': ctrl.myl1}" id='l1' d="M-272.4,237.7l-30.1,13.3l-0.2-0.4c0.7-0.5,1.5-1,2-1.6c0.7-0.6,1.1-1.3,1.4-1.9c0.1-0.3,0.1-0.6,0.1-1
 			c0-0.4-0.1-0.8-0.3-1.3c-0.1-0.5-0.3-1-0.5-1.5c-0.2-0.5-0.4-1-0.6-1.5c-0.2-0.4-0.4-1-0.7-1.7s-0.6-1.5-1-2.3
 			c-0.4-0.9-0.7-1.7-1.1-2.5c-0.4-0.9-0.8-1.8-1.2-2.5l-3.8-8.5c-0.2-0.5-0.5-1.1-0.7-1.6s-0.5-1-0.7-1.5c-0.3-0.4-0.5-0.8-0.8-1.1
 			c-0.3-0.3-0.5-0.5-0.8-0.7c-0.7-0.3-1.5-0.4-2.2-0.4c-0.9,0.1-1.7,0.2-2.5,0.5l-0.2-0.5l15-6.6l0.2,0.5c-0.4,0.2-0.8,0.6-1.4,0.9
@@ -70,7 +92,7 @@
 
 
 </g>
-<g id='banner' fill='none' stroke='rgb(0,150,136)' stroke-width='4' stroke-linecap='butt' stroke-miterlimit='8'>
+<g  id='banner' fill='none' stroke='rgb(0,150,136)' stroke-width='4' stroke-linecap='butt' stroke-miterlimit='8'>
 		<path in-view="ctrl.myleft = $inview"  ng-class="{'left': ctrl.myleft}"  id='left' d="M-324.9,205.2c35.8-19.6,72.9-26.9,120.5-26.9c55.5,0,106.7,18.2,147.1,49.1
 			c0,0-28.1,40.7-34.5,50.2c-7.1-5.7-14.7-11-22.7-15.6c-27.1-15.8-58.6-24.8-92.2-24.8c-42.1,0-80.9,14.2-111.9,38.1l-38.3-49
 			C-346.3,218-335.6,211-324.9,205.2z"/>
