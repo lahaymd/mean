@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg in-view="ctrl.coatIsVisible = $inview"  ng-class="{'coat-is-visible': ctrl.coatIsVisible}"  id='banner' filter='url(#MyFilter)'  class='grid-new-coat' version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<svg in-view="ctrl.coatIsVisible = $inview"  ng-class="{'coat-is-visible': ctrl.coatIsVisible}"  id='banner-svg' 
+	filter='url(#MyFilter)'   
+	 class='grid-new-coat' version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="-435.5 169.8 455 170" style="enable-background:new -421.5 139.8 455 234;" xml:space="preserve">
 
 <defs width='0' height='0'>
 	
-	<filter id="MyFilter" filterUnits="userSpaceOnUse" width='1700' height='600'>
+	<filter id="MyFilter" filterUnits="userSpaceOnUse" x='0' y='0' width='100vw' height='500' >
         <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
         <feOffset in="blur" dx="4" dy="4" result="offsetBlur"/>
         <feSpecularLighting in="blur" surfaceScale="5" specularConstant=".75" 

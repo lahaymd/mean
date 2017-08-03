@@ -446,8 +446,21 @@ md-input-container {
   background-blend-mode: difference;
   background-position: right bottom;
 }
-#banner {
+#banner-svg {
   position: absolute;
+  top: 120;
+  -webkit-filter: url("#MyFilter");
+          filter: url("#MyFilter");
+}
+@media screen and (max-width: 667px) {
+  #banner-svg {
+    -webkit-filter: none;
+            filter: none;
+    top: 1;
+    margin: 40;
+    -webkit-transform: translateY(-350px);
+    transform: translateY(-350px);
+  }
 }
 .banner-text {
   position: absolute;
@@ -671,10 +684,11 @@ img[src*='shape'] {
 }
 .svg-wrapper {
   height: 500px;
+  width: 100vw;
   background-attachment: fixed;
   background-size: cover;
   background-image: url("/images/wrigley.jpeg");
-  background-position: right bottom;
+  background-position: 50% 80%;
   -webkit-filter: url("#pictureFilter") grayscale(50%);
           filter: url("#pictureFilter") grayscale(50%);
 }
