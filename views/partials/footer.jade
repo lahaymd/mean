@@ -1,23 +1,17 @@
 //- footer#foot.grid-footer( layout layout-align='space-between center' )
 include ../full-signature.svg
 //- div#clip clip
-span {{$ctrl.date}}
-md-fab-speed-dial(hide show-xs md-open='false' class='md-scale' md-direction='left')
-		md-fab-trigger
-			md-button(class='md-fab')
-				md-icon(md-svg-src='/static/material-design-icons/navigation/svg/production/ic_menu_24px.svg' style='color: purple;')
-		md-fab-actions
-			md-button(class='md-fab md-mini')
+//- span {{$ctrl.date}}
+//- div.grid-sidebar( layout='row'  layout-align="space-around center")
+md-button(class='md-fab md-mini')
 				md-tooltip github
 				a(href='https://github.com/lahaymd')
 					md-icon(md-svg-src='/images/github-logo.svg')
-		md-fab-actions
-			md-button(class='md-fab md-mini')
+md-button(class='md-fab md-mini')
 				md-tooltip linkedin
 				a(href='https://www.linkedin.com/in/michael-la-hay-23265747?trk=nav_responsive_tab_profile')
 					md-icon(md-svg-src='/images/linkedin.svg')
-		md-fab-actions()
-			md-button(class='md-fab md-mini')
+md-button(class='md-fab md-mini')
 				md-tooltip twitter
 				a(href='https://twitter.com/lahaymd')
-					md-icon(md-svg-src='/images/twitter.svg')
+					md-icon(md-svg-src='/images/twitter.svg') 

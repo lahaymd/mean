@@ -2,4 +2,42 @@
 	.coat
 		height 50px
 		width 50px
+#colorMatrix
+	filter url(#color) url(#component-transfer) url(#convolve)
+	// width 50vw
+	// height 66vh
+	// margin 30px  
+	position absolute
+	top 0
+	bottom 0
+	left 0
+	right 0
+	size 100%
+.slider-grid
+	display grid
+	grid-template-columns repeat(5, 1fr)
+	grid-column-gap 10px
+	
+.slider-grid:before, .slider-cm:before
+	content ''
+	display none
+	
+
 		
+.slider-comp-tran, .slider-cm
+	display grid
+	grid-template-columns repeat(4, 1fr)
+	grid-column-gap 10px
+	
+.slider-comp-tran:before
+	content ''
+	display none
+	
+label 
+	z-index 33
+	
+#svgid
+	display none
+	
+
+	

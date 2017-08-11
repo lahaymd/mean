@@ -5,7 +5,6 @@ var combine = document.querySelectorAll('#test');
 var bar = document.getElementById('one')
 // alert(bar)
 
-// alert(JSON.stringify(combine))
 
 // combine.addEventListener('focus', function(){
 //  alert(1)

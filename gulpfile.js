@@ -95,7 +95,7 @@ gulp.task('browser-sync', ['nodemon'], function () {
   });
 });
 
-gulp.task('scripts', ['vendor'], function() {
+gulp.task('scripts',  function() {
   return gulp.src(['public/javascripts/app/app.module.js', 'public/javascripts/**/*.js'])
     .pipe(plumber())
     .pipe(ngAnnotate())
@@ -106,8 +106,8 @@ gulp.task('scripts', ['vendor'], function() {
     .pipe(concat('scripts.js'))
     .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
-    .pipe(gulp.dest('public/distribution/scripts'))
-    .pipe(reload({stream: true}));
+    .pipe(gulp.dest('public/distribution/scripts'));
+    // .pipe(reload({stream: true}));
 })
 
 gulp.task('vendor', function() {
@@ -157,12 +157,17 @@ gulp.task('styles', function() {
 
 
 
-gulp.task('bs-reload', function () {
+gulp.task('bs-reload', ['scripts'], function (done) {
+  setTimeout(function(){
+    console.log('waited 3 seconds')
   browserSync.reload();
+  done();
+
+  },3000)
 });
 
 gulp.task('default', ['browser-sync', 'scripts', 'css'], function () {
-  gulp.watch('**/*.js',   ['scripts', reload]);
+  gulp.watch('public/javascripts/**/*.js',   ['bs-reload']);
   gulp.watch('public/stylesheets/**/*.styl',  ['css']);
   gulp.watch('views/**/*.jade', ['jade-watch']);
 });

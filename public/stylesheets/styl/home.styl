@@ -29,11 +29,11 @@
 	transform  translate(0)
 	opacity 1
 	
+.grid-sidebar
+	margin-top 1rem
 
-
-
-.md-fab:hover
-	transform rotate3d(60,60,60,45deg)
+// .md-fab:hover
+// 	transform rotate3d(60,60,60,45deg)
 	
 // .md-fab
 	// animation fly 2s linear  infinite alternate
@@ -113,14 +113,14 @@
 	
 	background-color #3db6b8
 	background-size cover 
-	background-image url("/images/IMG_2157.jpg")
-	background-blend-mode difference
-	background-position right bottom 
+	background-image url("/images/hexagons.svg")
+	background-blend-mode soft-light
+	background-position top
 	
 #banner-svg
 	position absolute 
 	top 120
-	filter url(#MyFilter)
+	filter url(#MyFilter) url(#turb)
 		
 
 		
@@ -134,7 +134,7 @@ svg#banner
 	position absolute
 	text-align center
 	margin-top 300px
-	margin 50px 15% 0px 15%
+	margin 1em 5% 0px 5%
 
 #target
 	filter url(#f1)
@@ -368,11 +368,12 @@ img[src*='shape']
 	color cornflowerBlue
 	opacity .9
 .svg-wrapper
-	height 500px
-	width 100vw
+	min-height 475px
+	height calc(100vh - 120px)
+	width 100%
 	background-attachment fixed
 	background-size cover
-	background-image url("/images/wrigley.jpeg")
+	background-image url("/images/pattern.svg")
 	// background-blend-mode difference
 	background-position 50% 80% 
 	filter url(#pictureFilter) grayscale(50%)
@@ -392,7 +393,7 @@ img[src*='shape']
 	.svg-wrapper{
 		background-image url('/images/hexagons.svg')
 		background-size contain
-		height 400px
+		height calc(100vh - 48px)
 		
 	
 	}
@@ -417,8 +418,20 @@ img[src*='shape']
 	text-align center
 	
 .blend h3
+	// color rgba(255,255,255,1.0)
+		
+.intro
+	// transform translateX(100px)
+	font-size 2em
+	font-weight bold
+	transition all 3s ease
 	text-align center
-	color rgba(255,255,255,1.0)
+	line-height normal 
+	margin-top 1em
+	
+.intro-inview
+	color purple
+	// transform translateX(0px)
 	
 
 

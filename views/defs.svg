@@ -3,6 +3,19 @@
 			<feGaussianBlur in="SourceGraphic"  ng-attr-std_deviation='{{vm.sd}}'/>
 		</filter>
 	<defs>
+    <filter id="turb">
+            <feTurbulence id="turbwave" type="fractalNoise" baseFrequency="0.03" numOctaves="2"
+                result="turbulence_3" data-filterId="3" />
+            <feDisplacementMap xChannelSelector="R" yChannelSelector="G" in="SourceGraphic" in2="turbulence_3" scale="40" />
+        </filter>
+		<filter id="color"> 
+     <feColorMatrix
+       type="matrix"
+       values="1 0 0 0 0
+               0 1 0 0 0
+               0 0 1 0 0
+               0 0 0 1 0"/>
+   </filter>
 		<pattern id="imgpattern" x="0" y="0" width="1" height="1">
         	<image width='1000' height='400' xlink:href="/images/circles.svg"/>
       	</pattern>

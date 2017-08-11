@@ -1,0 +1,101 @@
+#title-grid-container
+	background-image url('/images/scales.svg')
+	
+
+#grid-title
+	// grid-area title
+	// grid-column-start: 1
+	// grid-column-end: 4
+	// grid-row-start: 1
+	// grid-row-end: 2
+	font-size 72px
+	margin 0 auto
+
+	// text-align center
+	// align-self center
+	// justify-self center
+
+
+
+#skills-grid {
+	display grid
+	padding-bottom 10px
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	grid-auto-rows: 200px;
+	// grid-template-rows: 33% 33% 33% ;
+	// grid-template-areas: 'title title title' 'skill skill skill' 'skill skill skill';
+	grid-gap 10px 
+	// justify-items center
+	// align-items center
+	}
+	.skill-item
+		
+		// width 300px
+		height 200px
+		background-color red
+		text-align center
+		-webkit-box-shadow 2px 2px 2px #000 
+		box-shadow 2px 2px 2px #000
+		position relative
+#ab, .can
+	position absolute
+	left: 0; 
+	right: 0; 
+	margin-left: auto; 
+	margin-right: auto;
+	// width 100px
+	opacity 0
+	visibility hidden
+	z-index 2
+	// :hover
+	// 	opacity 1
+	// 	visibility visible
+		
+
+
+.skill-item:hover #ab
+		opacity .48
+		visibility visible
+		background-color rgba(33,33,33,1.0)
+		left 0
+		right 0
+		top 0
+		bottom 0
+
+.skill-item:hover .can
+	position absolute
+	left: 0; 
+	right: 0; 
+	margin-left: auto; 
+	margin-right: auto;
+	opacity 1
+	visibility visible
+	z-index 3
+	color white
+	font-weight bold 
+	
+
+
+
+#skills-grid::before
+		display none 
+		
+.skill-item.svg
+	background-color none
+	background-image url('/images/svg.svg')
+	background-size contain
+	background-repeat no-repeat
+	background-position center
+
+.skill-item.canvas
+	background-color none
+	background-image url('/images/canvas.png')
+	background-size cover
+	background-repeat no-repeat
+	background-position center
+	
+
+
+
+
+

@@ -255,7 +255,8 @@
 		}]).
 		controller('LoginController', ['AuthService','$scope', '$interval', '$window', '$mdDialog', function(AuthService, $scope, $interval, $window, $mdDialog){
 
-// 			var vm = this;
+			var vm = this;
+		
 // 			vm.user = 'mik'
 // 			 // vm.userlist = {};
 // 			 // vm.loginForm ={};
