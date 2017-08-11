@@ -385,15 +385,17 @@ img[src*='shape']
 	#banner-svg {
 		top 1
 		margin 40
-		transform translateY(-350px)
-		filter url(#MyFilter) grayscale(0%)
+		// transform translateY(-350px)
+		// filter url(#MyFilter) grayscale(0%)
 
 		// background purple
 	}
 	.svg-wrapper{
 		background-image url('/images/hexagons.svg')
 		background-size contain
+		min-height 400px
 		height calc(100vh - 48px)
+		filter url(#pictureFilter) grayscale(50%)
 		
 	
 	}

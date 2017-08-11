@@ -689,15 +689,14 @@ img[src*='shape'] {
   #banner-svg {
     top: 1;
     margin: 40;
-    -webkit-transform: translateY(-350px);
-    transform: translateY(-350px);
-    -webkit-filter: url("#MyFilter") grayscale(0%);
-            filter: url("#MyFilter") grayscale(0%);
   }
   .svg-wrapper {
     background-image: url("/images/hexagons.svg");
     background-size: contain;
+    min-height: 400px;
     height: calc(100vh - 48px);
+    -webkit-filter: url("#pictureFilter") grayscale(50%);
+            filter: url("#pictureFilter") grayscale(50%);
   }
 }
 #canvas-container {
