@@ -119,7 +119,7 @@
 	
 #banner-svg
 	position absolute 
-	top 120
+	top 120px
 	filter url(#MyFilter) url(#turb)
 		
 
@@ -383,10 +383,11 @@ img[src*='shape']
 
 @media screen and (max-width: 667px) {
 	#banner-svg {
-		top 1
-		margin 40
+		top 70px
+		margin 40px
+		z-index 9
 		// transform translateY(-350px)
-		// filter url(#MyFilter) grayscale(0%)
+		filter none
 
 		// background purple
 	}
@@ -398,6 +399,12 @@ img[src*='shape']
 		filter url(#pictureFilter) grayscale(50%)
 		
 	
+	}
+}
+	
+@media screen and (max-width: 600px) {
+	#title-grid-container svg #skills{
+		font-size: 40px
 	}
 }
 

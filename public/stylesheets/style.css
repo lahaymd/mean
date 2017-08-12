@@ -450,7 +450,7 @@ md-input-container {
 }
 #banner-svg {
   position: absolute;
-  top: 120;
+  top: 120px;
   -webkit-filter: url("#MyFilter") url("#turb");
           filter: url("#MyFilter") url("#turb");
 }
@@ -687,8 +687,11 @@ img[src*='shape'] {
 }
 @media screen and (max-width: 667px) {
   #banner-svg {
-    top: 1;
-    margin: 40;
+    top: 70px;
+    margin: 40px;
+    z-index: 9;
+    -webkit-filter: none;
+            filter: none;
   }
   .svg-wrapper {
     background-image: url("/images/hexagons.svg");
@@ -697,6 +700,11 @@ img[src*='shape'] {
     height: calc(100vh - 48px);
     -webkit-filter: url("#pictureFilter") grayscale(50%);
             filter: url("#pictureFilter") grayscale(50%);
+  }
+}
+@media screen and (max-width: 600px) {
+  #title-grid-container svg #skills {
+    font-size: 40px;
   }
 }
 #canvas-container {
