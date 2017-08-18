@@ -1,15 +1,26 @@
 #title-grid-container
 	svg(id='grid-title' x='0' y='0' width='100%' height='200' xmlns="http://www.w3.org/2000/svg")
-		text( id='skills' x="50%" y="100" text-anchor='middle' fill='none' stroke='red' stroke-width='3') these are my skills
+		defs
+			filter(id='specLight')
+				feSpecularLighting(result='specOut' specularConstant=".75" specularExponent="20" lighting-color="yellow" )
+					fePointLight(x="350" y="50" z="1000")
+				feComposite(in="SourceGraphic" in2="specOut" operator="in"   )
+			rect(id='rect' x='0' y='0' width='300' height='200' fill='orange')
+		rect(x='0' y='0' width='100%' height='200' fill='purple' style='filter:url(#specLight);')
+		text( id='skills' x="50%" y="100" text-anchor='middle' ) these are my skills
 	#skills-grid
-			div.skill-item#grid-skill HTML
-			div.skill-item#grid-skill CSS
-			div.skill-item#grid-skill JavaScript
+			div.skill-item#grid-skill.html
+				div#html &lthtml&gt
+			div.skill-item#grid-skill 
+				div CSS
+			div.skill-item#grid-skill 
+				div JavaScript
+			div.skill-item#grid-skill 
+				div(ng-non-bindable) &#123;&#123;AngularJS}}
 			a#grid-skill(ui-sref='svg')
 				div.skill-item.svg 
 			a#grid-skill(ui-sref='canvas')
 				div.skill-item.canvas
 					#ab 
-					div.can CANVASS
-			div.skill-item#grid-skill Illustrator
+					div.can CANVAS
 		//- div AngularJS

@@ -5,6 +5,7 @@
 			// vm.isSidenavOpen= false;
 			// vm.user
 			// vm.userr
+			vm.toggleNav = () => $mdSidenav('left').toggle();
 			
 			 vm.showAdvanced = function(ev) {
 					    $mdDialog.show({

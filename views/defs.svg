@@ -3,6 +3,117 @@
 			<feGaussianBlur in="SourceGraphic"  ng-attr-std_deviation='{{vm.sd}}'/>
 		</filter>
 	<defs>
+      <filter id='money'>
+    <feMorphology in='SourceGraphic' operator='dilate' radius='2' result='expand'/>
+
+    <feOffset in='expand' dx='1' dy='1' result='shadow_1'/>
+    <feOffset in='expand' dx='2' dy='2' result='shadow_2'/>
+    <feOffset in='expand' dx='3' dy='3' result='shadow_3'/>
+    <feOffset in='expand' dx='4' dy='4' result='shadow_4'/>
+    <feOffset in='expand' dx='5' dy='5' result='shadow_5'/>
+    <feOffset in='expand' dx='6' dy='6' result='shadow_6'/>
+    <feOffset in='expand' dx='7' dy='7' result='shadow_7'/>
+
+    <feMerge result='shadow'>
+      <feMergeNode in='expand'/>
+      <feMergeNode in='shadow_1'/>
+      <feMergeNode in='shadow_2'/>
+      <feMergeNode in='shadow_3'/>
+      <feMergeNode in='shadow_4'/>
+      <feMergeNode in='shadow_5'/>
+      <feMergeNode in='shadow_6'/>
+      <feMergeNode in='shadow_7'/>
+    </feMerge>
+
+    <feFlood flood-color='orange'/>
+    <feComposite in2='shadow' operator='in' result='shadow'/>
+
+    <feMorphology in='shadow' operator='dilate' radius='1' result='border'/>
+    <feFlood flood-color='#35322a' result='border_color'/>
+    <feComposite in2='border' operator='in' result='border'/>
+
+    <feOffset in='border' dx='1' dy='1' result='secondShadow_1'/>
+    <feOffset in='border' dx='2' dy='2' result='secondShadow_2'/>
+    <feOffset in='border' dx='3' dy='3' result='secondShadow_3'/>
+    <feOffset in='border' dx='4' dy='4' result='secondShadow_4'/>
+    <feOffset in='border' dx='5' dy='5' result='secondShadow_5'/>
+    <feOffset in='border' dx='6' dy='6' result='secondShadow_6'/>
+    <feOffset in='border' dx='7' dy='7' result='secondShadow_7'/>
+    <feOffset in='border' dx='8' dy='8' result='secondShadow_8'/>
+    <feOffset in='border' dx='9' dy='9' result='secondShadow_9'/>
+    <feOffset in='border' dx='10' dy='10' result='secondShadow_10'/>
+    <feOffset in='border' dx='11' dy='11' result='secondShadow_11'/>
+
+    <feMerge result='secondShadow'>
+      <feMergeNode in='border'/>
+      <feMergeNode in='secondShadow_1'/>
+      <feMergeNode in='secondShadow_2'/>
+      <feMergeNode in='secondShadow_3'/>
+      <feMergeNode in='secondShadow_4'/>
+      <feMergeNode in='secondShadow_5'/>
+      <feMergeNode in='secondShadow_6'/>
+      <feMergeNode in='secondShadow_7'/>
+      <feMergeNode in='secondShadow_8'/>
+      <feMergeNode in='secondShadow_9'/>
+      <feMergeNode in='secondShadow_10'/>
+      <feMergeNode in='secondShadow_11'/>
+    </feMerge>
+
+    <!-- <feImage x='0' y='0' width='600' height='200' xlink:href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/78779/stripes.svg'/> -->
+    <feComposite in2='secondShadow' operator='in' result='secondShadow'/>
+
+    <feMerge>
+      <feMergeNode in='secondShadow'/>
+      <feMergeNode in='border'/>
+      <feMergeNode in='shadow'/>
+      <feMergeNode in='SourceGraphic'/>
+    </feMerge>
+  </filter>
+
+
+
+
+      <filter id="filter">
+        <!-- COLORS -->
+          <feFlood flood-color="#582D1" result="COLOR-red" />
+        <!-- COLORS END -->
+
+        <!-- FRACTAL TEXTURE -->
+          <feTurbulence baseFrequency=".05,.004" type="fractalNoise" numOctaves="4" seed="0" result="FRACTAL-TEXTURE_10" />
+          <feColorMatrix type="matrix" values="0 0 0 0 0,
+          0 0 0 0 0,
+          0 0 0 0 0,
+          0 0 0 -1.2 1.1" in="FRACTAL-TEXTURE_10" result="FRACTAL-TEXTURE_20" />
+        <!-- FRACTAL TEXTURE END -->
+
+        <!-- STROKE -->
+          <feMorphology operator="dilate" radius="4" in="SourceAlpha" result="STROKE_10" />
+        <!-- STROKE END -->
+
+        <!-- EXTRUDED BEVEL -->
+         <feOffset in="STROKE_10" result="BEVEL_10"/>
+          <feConvolveMatrix order="9,9" divisor="1"
+          kernelMatrix="1 0 0 0 0 0 0 0 0
+          0 1 0 0 0 0 0 0 0
+          0 0 1 0 0 0 0 0 0
+          0 0 0 1 0 0 0 0 0
+          0 0 0 0 1 0 0 0 0
+          0 0 0 0 0 1 0 0 0
+          0 0 0 0 0 0 1 0 0
+          0 0 0 0 0 0 0 1 0
+          0 0 0 0 0 0 0 0 1"  targetX='8' targetY='8' in="BEVEL_10" result="BEVEL_20" />
+
+          <!-- <feOffset dx="4" dy="4" in="BEVEL_20" result="BEVEL_25"/> -->
+          <feComposite operator="out" in="BEVEL_25" in2="STROKE_10" result="BEVEL_30"/>
+          <feComposite in="COLOR-red" in2="BEVEL_30" operator="in" result="BEVEL_40" />
+          <feMerge result="BEVEL_50">
+            <feMergeNode in="BEVEL_40" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+         <!-- EXTRUDED BEVEL END -->
+
+        <feComposite operator="in" in="BEVEL_50" in2="FRACTAL-TEXTURE_20" result="RESULT"/>
+        </filter>
     <filter id="turb">
             <feTurbulence id="turbwave" type="fractalNoise" baseFrequency="0.03" numOctaves="2"
                 result="turbulence_3" data-filterId="3" />

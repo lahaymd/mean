@@ -1,8 +1,16 @@
-div.grid-sidenav(class='container' ng-controller="SidenavController as $ctrl")
-		md-sidenav(layout='column' layout-align='start end' class='md-sidenav-left md-whiteframe-z2' md-component-id='left'  ng-click='$ctrl.toggleNav()') 
+div.grid-sidenav(class='container' ng-controller="NavController as vm")
+		md-sidenav(layout='column' layout-align='start end' class='md-sidenav-left md-whiteframe-z2' md-component-id='left'  ng-click='vm.toggleNav()') 
 			//- md-button( name='register' md-nav-click="goto('register')" ui-sref='register' ui-sref-active='active') Register
 			//- md-divider
 			md-button( name='login' md-nav-click="goto('login')" ui-sref='login' ui-sref-active='active') Home
+			md-divider
+			md-button( ng-hide='vm.isLogged()' ng-click='vm.showAdvanced($event)' )  Sign Up
+			md-divider
+			md-button( ng-hide='vm.isLogged()'   ng-click='vm.showSignIn($event)') Sign In
+			md-divider
+			md-button( ng-hide='!vm.isLogged()' ng-click='vm.logout()') Log Out
+			md-divider
+			md-button( ng-hide='!vm.isLogged()' ng-click='vm.showUpdate($event)') Update Profile
 			md-divider
 			md-button( name='hireme' md-nav-click="goto('hireme')" ui-sref='hireme' ui-sref-active='active') Contact Me
 			md-divider

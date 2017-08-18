@@ -4,10 +4,10 @@ svg(id='banner-svg' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w
 			feTurbulence(id="turbwave" type="fractalNoise" baseFrequency="0.03" numOctaves="2" result="turbulence_3" data-filterId="3")
 			feDisplacementMap( xChannelSelector="R" yChannelSelector="G" in="SourceGraphic" in2="turbulence_3" scale="40")
 		filter( id="MyFilter" filterUnits="userSpaceOnUse" x='0' y='0' width='100vw' height='500' )
-			feGaussianBlur(in="SourceAlpha" stdDeviation="4" result="blur")
-			feOffset(in="blur" dx="4" dy="4" result="offsetBlur")
+			feGaussianBlur(in="SourceAlpha" stdDeviation="3" result="blur")
+			feOffset(in="blur" dx="40" dy="24" result="offsetBlur")
 			feSpecularLighting(in="blur" surfaceScale="5" specularConstant=".75" specularExponent="20" lighting-color="#bbbbbb" result="specOut")
-				fePointLight(x="-5000" y="-10000" z="20000")
+				fePointLight(x="5" y="10" z="20000")
 			feComposite(in="specOut" in2="SourceAlpha" operator="in" result="specOut")
 			feComposite(in="SourceGraphic" in2="specOut" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="litPaint")
 			feMerge
