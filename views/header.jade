@@ -17,7 +17,7 @@ div.headercontroller.grid-header(ng-controller='NavController as vm')
 		//- md-button(ng-hide='vm.isLogged()' ng-click='vm.showAdvanced($event)') Sign Up
 		//- md-button(ng-hide='vm.isLogged()' ng-click='vm.showSignIn($event)') Sign In
 	div.nav-wrapper
-		md-nav-bar( hide-xs   md-selected-nav-item='vm.currentNavItem'  layout='row' layout-align='space-around' layout-fill layout-margin layout-padding) 
+		md-nav-bar( hide-xs hide-sm   md-selected-nav-item='vm.currentNavItem'  layout='row' layout-align='space-around' layout-fill layout-margin layout-padding) 
 			md-nav-item(  name='login' md-nav-click="goto('login')" ui-sref='login' ui-sref-active='active') Home
 			//- md-nav-item( name='users' md-nav-click="goto('users')" ui-sref='users' ui-sref-active='active') Table Example
 			//- md-nav-item( name='readerboard' md-nav-click="goto('readerboard')" ui-sref='readerboard' ui-sref-active='active') Letter Example
@@ -42,7 +42,7 @@ div.headercontroller.grid-header(ng-controller='NavController as vm')
 			md-button#no-pad(ng-hide='vm.isLogged()' ng-click='vm.showSignIn($event)') Sign In
 			md-button#no-pad(ng-hide='!vm.isLogged()' ng-click='vm.showUpdate($event)') Update Profile
 	
-		md-button#hamburger( ng-click='vm.open()' hide show-xs )
+		md-button#hamburger( ng-click='vm.open()' hide show-xs show-sm)
 			md-icon(md-svg-src='/static/material-design-icons/navigation/svg/production/ic_menu_24px.svg')
 
 		

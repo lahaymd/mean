@@ -2,9 +2,8 @@
 	angular.module('myApp').
 		controller('NavController', ['$mdSidenav', '$location', 'AuthService', '$mdDialog',  function($mdSidenav, $location, AuthService, $mdDialog) {
 			var vm = this;
-			// vm.isSidenavOpen= false;
-			// vm.user
-			// vm.userr
+
+
 			vm.toggleNav = () => $mdSidenav('left').toggle();
 			
 			 vm.showAdvanced = function(ev) {

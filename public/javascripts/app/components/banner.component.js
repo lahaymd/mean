@@ -18,7 +18,7 @@
 				if (bf >= .015 || bf <.01 ){dx = -dx}
 			tur.attr('baseFrequency',bf);
 			bf += dx;
-			console.log('bf inside',bf)
+			// console.log('bf inside',bf)
 			},1000/5)
 		}
 

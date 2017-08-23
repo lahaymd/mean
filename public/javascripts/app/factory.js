@@ -25,10 +25,15 @@ angular.module('myApp').factory('AuthService',
       getHired: getHired,
       getSession: getSession,
       showToast: showToast,
-      getUser: getUser
+      getUser: getUser,
+      findUppercase: findUppercase
     };
 
     return service;
+
+    function findUppercase(input) {
+      return input.match(/[A-Z]/g).length;
+    }
 
     function showToast() {
       console.log('from show toast service')

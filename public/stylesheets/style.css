@@ -87,6 +87,12 @@
 #canvas-container canvas {
   height: 100%;
 }
+@media (max-width: 736px) {
+  #canvas-container {
+    height: 100vh;
+    width: 100vw;
+  }
+}
 .font-magician {
   font-family: 'Alice';
 }
@@ -229,10 +235,10 @@ md-toast.md-success-toast-theme .md-toast-content {
   display: -ms-flexbox;
   display: box;
   display: flex;
-  -webkit-box-pack: end;
-  -o-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
+  -webkit-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -240,6 +246,7 @@ md-toast.md-success-toast-theme .md-toast-content {
   width: 100%;
   z-index: 21;
   background-color: #303030;
+  border-bottom: #2ecc40 5px solid;
 }
 .welcome {
   text-align: center;
@@ -252,12 +259,18 @@ md-toast.md-success-toast-theme .md-toast-content {
   -webkit-transition: all 3s ease;
   transition: all 3s ease;
 }
-@media (min-width: 600px) {
-  .headercontroller,
-  display flex,
-  justify-content space-between,
-  max-width 375px,
-  * {
+@media (max-width: 959px) {
+  .headercontroller {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
+    -webkit-box-pack: end;
+    -o-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+  }
+  .headercontroller * {
     margin: 0 !important;
     padding: 0 !important;
   }
@@ -295,6 +308,22 @@ md-toast.md-success-toast-theme .md-toast-content {
   transition: all;
   -webkit-clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
           clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+}
+#colored-box {
+  height: 2em;
+  width: 100%;
+  background-color: #b10dc9;
+}
+.sticky-container {
+  height: 400px;
+}
+#sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  width: 200px;
+  height: 200px;
+  background-color: #d13f19;
+  top: 50px;
 }
 @-webkit-keyframes clippy {
   from {
@@ -450,7 +479,6 @@ md-input-container {
 }
 #banner-svg {
   position: absolute;
-  top: 120px;
   -webkit-filter: url("#MyFilter") url("#turb");
           filter: url("#MyFilter") url("#turb");
 }
@@ -876,36 +904,53 @@ md-sidenav .md-button {
 #title-grid-container {
   background-image: url("/images/export-pattern.svg");
 }
-.skill-item#grid-skill {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: box;
-  display: flex;
-}
-.skill-item#grid-skill div {
-  margin: auto;
+#grid-title {
+  font-size: 72px;
+  margin: 0 auto;
 }
 #skills {
   -webkit-filter: url("#money");
           filter: url("#money");
 }
-#grid-title {
-  font-size: 72px;
-  margin: 0 auto;
+.skills-grid.grid-in-view {
+  -webkit-transform: translateY(0px);
+  transform: translateY(0px);
+  opacity: 1;
+  -ms-filter: none;
+  -webkit-filter: none;
+          filter: none;
 }
-#skills-grid {
+.skills-grid {
   display: grid;
   padding-bottom: 10px;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-auto-rows: 200px;
   grid-gap: 10px;
+  -webkit-transform: translateY(100px);
+  transform: translateY(100px);
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+  -webkit-transition: all 2s;
+  transition: all 2s;
 }
-.skill-item {
+.skills-grid .skill-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
   height: 200px;
-  background-color: #d13f19;
+  background-color: #b10dc9;
   text-align: center;
   box-shadow: 2px 2px 2px #000;
   position: relative;
+}
+.skills-grid .skill-item div {
+  margin: auto;
+  background-color: transparent;
+}
+.skills-grid:before {
+  display: none;
 }
 #ab,
 .can {
@@ -946,17 +991,14 @@ md-sidenav .md-button {
   color: #fff;
   font-weight: bold;
 }
-#skills-grid::before {
-  display: none;
-}
-.skill-item.svg {
+.svg {
   background-color: none;
   background-image: url("/images/svg.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
-.skill-item.canvas {
+.canvas {
   background-color: none;
   background-image: url("/images/canvas.png");
   background-size: cover;
