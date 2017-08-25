@@ -1,3 +1,4 @@
+a(href="#anchor" du-smooth-scroll) scroll it!
 banner-component
 include ../defs.svg
 //- div {{vm.bitch}}
@@ -13,7 +14,7 @@ skills-component
 //- canvas-component(circs='11') canvas example
 //- include svg-text.svg
 .blend
-	.intro(in-view="vm.introIsVisible = $inview"  ng-class="{'intro-inview': vm.introIsVisible}") Who I am and what I do
+	.intro( id='anchor' in-view="vm.introIsVisible = $inview"  ng-class="{'intro-inview': vm.introIsVisible}") Who I am and what I do
 	.banner-text(in-view="vm.bannerTextIsVisible = $inview"  ng-class="{'banner-text-in-view': vm.bannerTextIsVisible}") Hey, I’m an independent web developer and designer. I work primarily with the MEAN stack. Have a look through some of my projects. Need help with an upcoming project or application? Learn a bit more about me and then consider hiring me.
 //- img(src='images/hexagons.svg')
 //- include ../sidebar

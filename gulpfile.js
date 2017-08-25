@@ -120,14 +120,15 @@ gulp.task('vendor', function() {
       'node_modules/angular-aria/angular-aria.min.js',
       'node_modules/angular-inview/angular-inview.js',
       'node_modules/angular-material-data-table/dist/md-data-table.min.js',
-      'node_modules/d3/build/d3.min.js'
+      'node_modules/d3/build/d3.min.js',
+      'node_modules/ngSmoothScroll/lib/angular-smooth-scroll.js'
     ])
     .pipe(sourcemaps.init())
     .pipe(concat('vendorbundle.js'))
     // .pipe(uglify())
     .pipe(gulp.dest('public/distribution/scripts'))
     .pipe(reload({stream: true}));
-})
+}) 
 
 gulp.task('css',['styles'], function() {
   return gulp.src([

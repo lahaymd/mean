@@ -1,4 +1,20 @@
+nav(id='top' )
+	a(href='#top') top
+	ul()
+		li.gco( ng-repeat='g in $ctrl.gco' )
+			a( ng-href='#'+'{{g}}' scroll-to='{{g}}') {{g}}
+md-button(ng-click='$ctrl.start()') start
+md-button(ng-click='$ctrl.stop()') stop
 #gco-container
 	canvas#text
 	canvas#gco
 	//- h1 {{$ctrl.gco}}
+div(smooth-scroll
+	duration="800"
+	easing="easeInQuint"
+	offset="420") smooth scroll to me
+md-list
+	md-list-item(ng-repeat='g in $ctrl.gco')
+		p(id='{{g}}' scroll-to='top' ) {{g}}
+a( href='#top' ) to top
+div(scroll-to='top') div scroll to
