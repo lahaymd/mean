@@ -13,7 +13,32 @@
           console.log('gco',this.gco[0])
 			var canvasText = angular.element(document).find('canvas')[0];
 			var canvas = angular.element(document).find('canvas')[1];
-				
+				var body = angular.element(document).find('main')[0];
+				var can;
+				var canvasArray = [];
+			angular.forEach(this.gco, function(value, key){
+				var cant = document.createElement('canvas');
+				// console.log(body)
+				// console.log(value , key)
+				cant.setAttribute('id', value)
+				can = cant.getContext('2d');
+				cant.height= 300;
+				can.globalCompositeOperation = value
+				can.fillStyle='blue'
+				can.fillRect(25, 25, 100, 100);
+				can.fillStyle='red'
+				can.fillRect(75, 75, 100, 100);
+				canvasArray.push(cant)
+				// can.clearRect(0,0,300,150);
+
+
+
+			});
+			console.log(canvasArray)
+			angular.forEach(canvasArray, function(value, key){
+				console.log('value = ' ,value)
+				body.append(value);
+			});
 			console.log(canvas)
 			console.log(canvasText)
 			canvas.width = 500;
