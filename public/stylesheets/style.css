@@ -298,7 +298,7 @@ md-toast.md-success-toast-theme .md-toast-content {
   -webkit-clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
           clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
 }
-#colored-box {
+#topid {
   height: 2em;
   width: 100%;
   background-color: #b10dc9;

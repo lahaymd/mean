@@ -13,6 +13,7 @@
           console.log('gco',this.gco[0])
 			var canvasText = angular.element(document).find('canvas')[0];
 			var canvas = angular.element(document).find('canvas')[1];
+				
 			console.log(canvas)
 			console.log(canvasText)
 			canvas.width = 500;
