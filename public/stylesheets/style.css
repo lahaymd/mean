@@ -157,9 +157,24 @@ foot {
 #gco-container canvas {
   border: 5px #ffdc00 solid;
 }
-nav ul li.gco {
+ul li.gco {
   display: inline-block;
   margin: 10px;
+}
+canvas-directive {
+  width: 50vw;
+  min-width: 300px;
+  height: 300px;
+  border: 5px #ffc0cb solid;
+  margin: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-pack: justify;
+  -o-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 @media (max-width: 959px) {
   md-toast {

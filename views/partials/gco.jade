@@ -1,20 +1,26 @@
-main
-nav(id='top' )
-	a(href='#top') top
-	ul()
-		li.gco( ng-repeat='g in $ctrl.gco' )
-			a( ng-href='#'+'{{g}}' scroll-to='{{g}}') {{g}}
+//- canvas-directive(gco='xor')
+//- canvas-directive(gco='source-over')
+//- canvas#source(height='500' width='500' style="border:1px solid brown;")
+//- main
+//- nav(id='top' )
+//- 	a(href='#top') top
+div {{$ctrl.offset}}
+ul()
+	li.gco( ng-repeat='g in $ctrl.gco' )
+		a( ng-href='#'+'{{g}}' scroll-to='{{g}}' offset='{{$ctrl.offset}}') {{g}}
 md-button(ng-click='$ctrl.start()') start
 md-button(ng-click='$ctrl.stop()') stop
 #gco-container
 	canvas#text
 	canvas#gco
 	//- h1 {{$ctrl.gco}}
-div(smooth-scroll
-	duration="800"
-	easing="easeInQuint"
-	offset="420") smooth scroll to me
+//- div(smooth-scroll
+//- 	duration="800"
+//- 	easing="easeInQuint"
+//- 	offset="420") smooth scroll to me
 md-list
 	md-list-item(ng-repeat='g in $ctrl.gco')
-		p(id='{{g}}' scroll-to='top' ) {{g}}
+		div(scroll-to='topid')
+			canvas-directive(gco='{{g}}' )
+		//- p(id='{{g}}' scroll-to='top' ) {{g}}
 		//- canvas(id='{{g}}')
