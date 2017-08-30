@@ -9,17 +9,31 @@
 		rect(x='0' y='0' width='100%' height='300' fill='purple' style='filter:url(#specLight);')
 		text( id='skills' x="50%" y="150" text-anchor='middle' ) these are my skills
 	.skills-grid(in-view="ctrl.myGridIsVisible = $inview"  ng-class="{'grid-in-view': ctrl.myGridIsVisible}" )
-			div.skill-item
-				div#html &lthtml&gt
-			div.skill-item 
-				div CSS
-			div.skill-item 
-				div JavaScript
-			div.skill-item 
-				div(ng-non-bindable) &#123;&#123;AngularJS}}
+			a(ui-sref='')
+				div.skill-item#html
+					.ab
+					.can html
+					//- div#html &lthtml&gt
+			a(ui-sref='')
+				div.skill-item#css
+					.ab
+					.can css
+					//- div CSS
+			a(ui-sref='')
+				div.skill-item#js
+					.ab
+					.can javascript
+					//- div JavaScript
+			a(ui-sref='')
+				div.skill-item#angular
+					.ab
+					.can angular
+					//- div(ng-non-bindable) &#123;&#123;AngularJS}}
 			a(ui-sref='svg')
-				div.skill-item.svg 
+				div.skill-item.svg
+					.ab
+					.can svg
 			a(ui-sref='canvas')
 				div.skill-item.canvas
-					#ab 
-					div.can CANVAS	
+					.ab 
+					div.can canvas	

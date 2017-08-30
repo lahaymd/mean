@@ -935,6 +935,7 @@ md-sidenav .md-button {
   opacity: 0.5;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
   filter: alpha(opacity=50);
+  font-size: 48px;
   -webkit-transition: all 2s;
   transition: all 2s;
 }
@@ -949,43 +950,34 @@ md-sidenav .md-button {
   box-shadow: 2px 2px 2px #000;
   position: relative;
 }
-.skills-grid .skill-item div {
-  margin: auto;
-  background-color: transparent;
-}
 .skills-grid:before {
   display: none;
 }
-#ab,
+.ab,
 .can {
   position: absolute;
+  text-align: center;
+  bottom: 40%;
   left: 0;
   right: 0;
-  margin-left: auto;
-  margin-right: auto;
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
   visibility: hidden;
   z-index: 2;
 }
-.skill-item:hover #ab {
+.skill-item:hover .ab {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   opacity: 0.48;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=48)";
   filter: alpha(opacity=48);
   visibility: visible;
   background-color: #212121;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
 }
 .skill-item:hover .can {
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
   opacity: 1;
   -ms-filter: none;
   -webkit-filter: none;
@@ -1006,6 +998,34 @@ md-sidenav .md-button {
   background-color: none;
   background-image: url("/images/canvas.png");
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#html {
+  background-image: url("/images/html-5.svg");
+  background-color: none;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#css {
+  background-image: url("/images/css-3.svg");
+  background-color: none;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#js {
+  background-image: url("/images/java-script.svg");
+  background-color: none;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#angular {
+  background-image: url("/images/angular.svg");
+  background-color: none;
+  background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
 }
