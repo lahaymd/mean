@@ -473,8 +473,8 @@ md-input-container {
           mask-size: cover;
 }
 .blend {
-  min-height: 500px;
   height: 100vh;
+  overflow: scroll;
   background-color: #3db6b8;
   background-size: cover;
   background-image: url("/images/hexagons.svg");
@@ -487,9 +487,7 @@ md-input-container {
           filter: url("#MyFilter") url("#turb");
 }
 .banner-text {
-  position: absolute;
   text-align: center;
-  margin-top: 300px;
   margin: 1em 5% 0px 5%;
 }
 #target {
