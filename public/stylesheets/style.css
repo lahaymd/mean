@@ -473,7 +473,6 @@ md-input-container {
           mask-size: cover;
 }
 .blend {
-  height: 100vh;
   overflow: scroll;
   background-color: #3db6b8;
   background-size: cover;
