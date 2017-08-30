@@ -10,7 +10,11 @@ angular
     .config(config)
     .run(function($rootScope, $transitions, $state, $mdToast, $location) {
 
+
+   
+
     $transitions.onBefore({to:'*'}, function(trans){
+
    
       var myAuthService = trans.injector().get('AuthService');
       var foo = trans.$to().data.restricted;
@@ -40,9 +44,9 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
 	       $urlRouterProvider.otherwise('/');
          $locationProvider.html5Mode(true);
     $stateProvider
-       .state('login', {
+       .state('home', {
           url: '/',
-          templateUrl: '/partials/login',
+          templateUrl: '/partials/home',
            controller: 'LoginController',
             data: {restricted: false},
            controllerAs: 'vm'

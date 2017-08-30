@@ -1,7 +1,11 @@
 (function() {
 	angular.module('myApp').
-		controller('NavController', ['$mdSidenav', '$location', 'AuthService', '$mdDialog',  function($mdSidenav, $location, AuthService, $mdDialog) {
+		controller('NavController', ['$transitions','$mdSidenav', '$location', 'AuthService', '$mdDialog',  function($transitions,$mdSidenav, $location, AuthService, $mdDialog) {
 			var vm = this;
+
+			vm.initScope = function() {
+			    $state.go('home');
+			}
 
 
 			vm.toggleNav = () => $mdSidenav('left').toggle();
@@ -167,10 +171,27 @@
 			vm.getSession()
 
 		
-			vm.currentNavItem = $location.path().slice(1) || 'login';
+
+
+
+$transitions.onSuccess({to:'*'}, function(trans,state,foo){
+			// console.log(trans.router.globals.current.name)
+			// console.log('state',state)
+			// console.log('foo',foo)
+			var $state = trans.router.globals.current.name;
+			console.log($state);
+			if( ($state != 'hireme') && ($state != 'home') && ($state !== 'pdf')){
+				console.log('beep');
+				vm.currentNavItem = '';
+
+			}
+			
+		
+			// if($state){}
+			vm.currentNavItem = $location.path().slice(1) || 'home';
 			console.log('current nav item',vm.currentNavItem)
 
-
+})
 	
 		vm.open= function() {
 			$mdSidenav('left').toggle();

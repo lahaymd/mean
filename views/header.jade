@@ -18,14 +18,14 @@ div.headercontroller.grid-header( ng-controller='NavController as vm')
 		//- md-button(ng-hide='vm.isLogged()' ng-click='vm.showSignIn($event)') Sign In
 	div.nav-wrapper
 		md-nav-bar( hide-xs hide-sm   md-selected-nav-item='vm.currentNavItem'  layout='row' layout-align='space-around' layout-fill layout-margin layout-padding) 
-			md-nav-item(  name='login' md-nav-click="goto('login')" ui-sref='login' ui-sref-active='active') Home
+			md-nav-item(  name='home' md-nav-click="goto('home')" ui-sref='home' ui-sref-active='active') Home
 			//- md-nav-item( name='users' md-nav-click="goto('users')" ui-sref='users' ui-sref-active='active') Table Example
 			//- md-nav-item( name='readerboard' md-nav-click="goto('readerboard')" ui-sref='readerboard' ui-sref-active='active') Letter Example
 			md-nav-item( name='hireme' md-nav-click="goto('hireme')" ui-sref='hireme' ui-sref-active='active') Contact Me
 			md-nav-item( name='pdf' md-nav-click="goto('pdf')" ui-sref='pdf' ui-sref-active='active') Resume
 			//- md-nav-item( name='canvas' md-nav-click="goto('canvas')" ui-sref='canvas' ui-sref-active='active') Canvas
 			md-menu(md-offset='0 50')
-				md-button(ng-click='$mdOpenMenu($event)') Examples
+				md-button(ng-click='$mdOpenMenu($event)' ui-sref-active='active') Examples
 				md-menu-content(ng-click='$mdCloseMenu($event)' width='4')
 					md-menu-item
 						md-button(ui-sref='users') Dynamic Users Table
