@@ -1,7 +1,7 @@
 (function() {
-	angular.module('myApp').
-		controller('ReaderboardController', ['$scope', '$mdBottomSheet', function($scope, $mdBottomSheet){
-			var vm = this;
+  angular.module('myApp').
+    controller('ReaderboardController', ['$scope', '$mdBottomSheet', '$window', function($scope, $mdBottomSheet, $window){
+      var vm = this;
 
       vm.showListBottomSheet = function() {
     // $scope.alert = '';
@@ -30,55 +30,79 @@
     });
   };
 
-      vm.focused = function(){
-          console.log('focused')
-          angular.element(document.querySelector('.headercontroller')).addClass('hideme')
+      // vm.focused = function(){
+      //     console.log('focused')
+      //     angular.element(document.querySelector('.headercontroller')).addClass('hideme')
+      // }
+
+      // vm.blurred = ()=> {
+      //   console.log('blurred')
+      //   angular.element(document.querySelector('.headercontroller')).removeClass('hideme')
+      // }
+
+        angular.element(document.querySelector('#topid')).addClass('hideme')
+        angular.element(document.querySelector('foot')).addClass('hideme')
+        angular.element(document.querySelector('.headercontroller')).addClass('hideme')
+      vm.yana = true;
+      vm. toggleElements = 'show'
+      vm.toggleHeaderAndFooter = ()=> {
+        if(vm.yana){
+        vm. toggleElements = 'show'
+
+        angular.element(document.querySelector('.headercontroller')).addClass('hideme')
+        angular.element(document.querySelector('#topid')).addClass('hideme')
+        angular.element(document.querySelector('foot')).addClass('hideme')
+        } else {
+
+        vm. toggleElements = 'hide'
+        angular.element(document.querySelector('#topid')).removeClass('hideme')
+        angular.element(document.querySelector('foot')).removeClass('hideme')
+        angular.element(document.querySelector('.headercontroller')).removeClass('hideme') 
+        }
+
+
       }
 
-      vm.blurred = ()=> {
-        console.log('blurred')
-        angular.element(document.querySelector('.headercontroller')).removeClass('hideme')
-      }
+   
+      vm.areaOne = function(one,two) {
 
-			vm.areaOne = function(one,two) {
+        var foo = function(x){
+          x = x || '';
+        return  x.replace(/\s+/g, '').split('').sort()
 
-				var foo = function(x){
-					x = x || '';
-				return	x.replace(/\s+/g, '').split('').sort()
+          .map(function(letter) {
+            return letter.toLowerCase().match(/\S/g);
+          })
+          .reduce(function(last, now) {
+            return last.concat(now)
+          },[])
+          .reduce(function(last, now) {
+            var index = last[0].indexOf(now);
+            if(index === -1) {
+              last[0].push(now);
+              last[1].push(1)
+            } else {
+              last[1][index] += 1;
+            }
+            return last
+          }, [[], []])
+          .reduce(function(last, now, index, context) {
+            var zip = [];
+            last.forEach(function(word, i) {
+              zip.push([word, context[1][i]])
+            });
+            return zip;
+          }) 
+        };
 
-					.map(function(letter) {
-						return letter.toLowerCase().match(/\S/g);
-					})
-					.reduce(function(last, now) {
-						return last.concat(now)
-					},[])
-					.reduce(function(last, now) {
-						var index = last[0].indexOf(now);
-						if(index === -1) {
-							last[0].push(now);
-							last[1].push(1)
-						} else {
-							last[1][index] += 1;
-						}
-						return last
-					}, [[], []])
-					.reduce(function(last, now, index, context) {
-						var zip = [];
-						last.forEach(function(word, i) {
-							zip.push([word, context[1][i]])
-						});
-						return zip;
-					}) 
-				};
+          vm.letters = foo(one);
+          vm.lettersTwo = foo(two)
+          
+      
 
-					vm.letters = foo(one);
-				 	vm.lettersTwo = foo(two)
-					
-			
+        var letterDifference = function(){
 
-				var letterDifference = function(){
-
-					Array.from(document.getElementsByClassName("d3")).forEach(
+          Array.from(document.getElementsByClassName("d3")).forEach(
     function(element, index, array) {
         element.remove()
     }
@@ -89,47 +113,47 @@
         element.remove()
     }
 );
-				
-					// var x =document.getElementsByClassName('d3');
-					// 		console.log(x)
-					var arr = [];
-					// 		x[0].remove()
-					var lettersLength = vm.letters.length;
-					var lettersTwoLength = vm.lettersTwo.length;
-					var lettersTwoMapped = vm.lettersTwo.map(function(item){ return item[0]});
-					var lettersMapped = vm.letters.map(function(item){ return item[0]});
-					var lettersMap = vm.letters.map(function(item){ return item[1]});
-					var lettersTwoMap = vm.lettersTwo.map(function(item){ return item[1]});
-						
-								for(var i = 0; i< lettersLength; i++) {
-									if(lettersTwoMapped.indexOf(lettersMapped[i]) !== -1) {
-										var MappedFindIdx =lettersTwoMapped.findIndex(function(index, idx, arr){return index === lettersMapped[i] ;});
-											continue;
-									} else {
+        
+          // var x =document.getElementsByClassName('d3');
+          //    console.log(x)
+          var arr = [];
+          //    x[0].remove()
+          var lettersLength = vm.letters.length;
+          var lettersTwoLength = vm.lettersTwo.length;
+          var lettersTwoMapped = vm.lettersTwo.map(function(item){ return item[0]});
+          var lettersMapped = vm.letters.map(function(item){ return item[0]});
+          var lettersMap = vm.letters.map(function(item){ return item[1]});
+          var lettersTwoMap = vm.lettersTwo.map(function(item){ return item[1]});
+            
+                for(var i = 0; i< lettersLength; i++) {
+                  if(lettersTwoMapped.indexOf(lettersMapped[i]) !== -1) {
+                    var MappedFindIdx =lettersTwoMapped.findIndex(function(index, idx, arr){return index === lettersMapped[i] ;});
+                      continue;
+                  } else {
 
-												arr.push([lettersMapped[i] , -Math.abs(lettersMap[i]) ] );
-											}
-								}
-					
-							for(var i =0; i < lettersTwoLength; i++) {
-								if(lettersMapped.indexOf(lettersTwoMapped[i]) !== -1) {
-						var MappedFindIndex =lettersMapped.findIndex(function(index, idx, arr){return index === lettersTwoMapped[i] ;});
-						// console.log('MappedFindIndex',MappedFindIndex)
-						// alert('MappedFindIndex',MappedFindIndex)
+                        arr.push([lettersMapped[i] , -Math.abs(lettersMap[i]) ] );
+                      }
+                }
+          
+              for(var i =0; i < lettersTwoLength; i++) {
+                if(lettersMapped.indexOf(lettersTwoMapped[i]) !== -1) {
+            var MappedFindIndex =lettersMapped.findIndex(function(index, idx, arr){return index === lettersTwoMapped[i] ;});
+            // console.log('MappedFindIndex',MappedFindIndex)
+            // alert('MappedFindIndex',MappedFindIndex)
 
-								arr.push([lettersTwoMapped[i] , lettersTwoMap[i] - lettersMap[MappedFindIndex]]);
-								}
-								else  {
-									arr.push([lettersTwoMapped[i] , lettersTwoMap[i] ]);
+                arr.push([lettersTwoMapped[i] , lettersTwoMap[i] - lettersMap[MappedFindIndex]]);
+                }
+                else  {
+                  arr.push([lettersTwoMapped[i] , lettersTwoMap[i] ]);
 
-								}
-							}
-							console.log(arr)
-					return arr;
+                }
+              }
+              console.log(arr)
+          return arr;
 
-				} //end of letterDifference function
+        } //end of letterDifference function
 
-				vm.results = letterDifference().sort();
+        vm.results = letterDifference().sort();
 
         vm.changeZero = function() {
           if(vm.results[0][1] !==NaN) {vm.results[0][1]++}
@@ -146,19 +170,29 @@
   // }
         // var width = getBBWidth.width;
         // var height = getBBWidth.height;
-        var width = 500;
-        var height = 400;
+        var width = $window.innerWidth;
+        console.log(width)
+        var height = $window.innerHeight;
         var margin = 40;
-        var svg = d3.select(".d3-attach").insert("svg",":first-child")
-                  .attr("class", 'd3')
+
+        // var svg = d3.select(".d3-attach").insert("svg",":first-child")
+        var svg = d3.select("#bubble-chart")
+                  // .attr("class", 'd3')
                   .attr("viewBox", "0 0 " + width + " " + height )
             .attr("preserveAspectRatio", "xMidYMid meet")
+            // .style('background-color', 'red')
                                      // .attr("width", width + margin + margin) 
                                      // .attr("height", height + margin + margin)
-                                     .style('width' ,'75vw')
-                                     .style('height', '75vh')
+                                     // .style('width' ,'75vw')
+                                     // .style('height', '75vh')
+                                     console.log('svg', svg)
+                                     svg.selectAll('g').remove()
+                                     console.log('svg', svg)
+                                    
                                     var g = svg.append('g')
                                      .attr('transform', 'translate(' +width/2 +','+ height/2 +')')
+                                     .attr('class', 'foo')
+                                     .style('background-color', 'purple')
 
                  var radii = vm.results.map(function(item) {return Math.abs(item[1])})
                  var color = d3.scaleOrdinal(d3.schemeCategory20);
@@ -192,11 +226,18 @@
                                       // .force("charge", d3.forceManyBody(50))
 
                  
-                    var circles = g.selectAll('circles')
+                    var circles = g.selectAll('circle')
+                          
                             .data(vm.results, function(d) { return d;});
+console.log('circles', circles)
+
+      
+        
+
 
                             var circleEnter = circles.enter()
                             .append('circle')
+                            .attr('class', 'thesvgid')
                             .attr('fill', function(d){
                               if(d[1] < 0) {return negColor(d[1])} else {
 
@@ -364,7 +405,7 @@ var gBar = svgBar.append("g")
       .transition(t)
       .attr("height", function(d) { console.log('ybar sum ' + sum); return heightBar - (yBar(d[1]/sum)) ; })
       } //end of vm.areaOne function
-		}]) // closing controller function
+    }]) // closing controller function
 
 
 

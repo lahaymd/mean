@@ -1,3 +1,16 @@
+
+
+
+#textarea-container
+	position fixed
+	// display flex
+	width 30vw
+	left 0
+	top 60px
+	height 100%
+	background-color grey
+	
+
 .result
 	font-size 44px
 	color black
@@ -18,11 +31,23 @@
 	
 .button-group
 	background-color grey
-	width 25vw
+	display inline-block
+	// width 25vw
 	
 #bar-chart
-	width 75vw
-	height 75vw  
+	width 70vw
+	margin-left 30vw
+	height 50vh  
+	border 5px red solid
+	background-color green
+	
+#bubble-chart
+	width 70vw
+	margin-left 30vw
+	height 50vh
+	border 5px blue solid
+	background-color orange
+	
 	
 #combine
 	color salmon
@@ -31,18 +56,43 @@
 .hideme
 	display none
 	
-#noMargin
-	margin 0 !important
+// #noMargin
+// 	margin 0 !important
 	
 
-@media(max-width 667px)
-	#readerboardContainer
-		flex-direction column
-	.button-group
-		background-color purple
-		-webkit-flex-direction row 
-		-ms-flex-direction row 
-		flex-direction row 
-		width 100vw
-		order 2
+// @media(max-width 667px)
+// 	#readerboardContainer
+// 		flex-direction column
+// 	.button-group
+// 		background-color purple
+// 		-webkit-flex-direction row 
+// 		-ms-flex-direction row 
+// 		flex-direction row 
+// 		width 100vw
+// 		order 2
 		
+@media screen and (max-width: 667px) 
+	#textarea-container
+		position fixed
+		// display flex
+		width 100%
+		bottom 0
+		height 20vh
+		top auto
+		background-color red
+	md-input-container
+		margin 0 !important
+		display inline-block
+
+	md-checkbox
+		background-color:red
+		position fixed !important
+		opacity .3
+		top 0
+		height 60px
+		width 300px
+		
+	#bar-chart, #bubble-chart
+		height 40vh
+		width 100vw
+		margin 0
