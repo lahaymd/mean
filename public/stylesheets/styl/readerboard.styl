@@ -6,7 +6,7 @@
 	// display flex
 	width 30vw
 	left 0
-	top 60px
+	top 0px
 	height 100%
 	background-color grey
 	
@@ -31,7 +31,7 @@
 	
 .button-group
 	background-color grey
-	display inline-block
+	display flex
 	// width 25vw
 	
 #bar-chart
@@ -74,12 +74,14 @@
 @media screen and (max-width: 667px) 
 	#textarea-container
 		position fixed
-		// display flex
+		display flex
+		flex-wrap wrap
+		align-items flex-start
 		width 100%
 		bottom 0
-		height 20vh
-		top auto
-		background-color red
+		height 30vh
+		top 70vh
+		// background-color red
 	md-input-container
 		margin 0 !important
 		display inline-block
@@ -93,6 +95,6 @@
 		width 300px
 		
 	#bar-chart, #bubble-chart
-		height 40vh
+		height 35vh
 		width 100vw
 		margin 0

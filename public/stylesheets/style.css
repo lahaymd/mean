@@ -154,6 +154,9 @@ foot {
     background-position: 100% 0;
   }
 }
+.links {
+  color: #fff;
+}
 #gco-container canvas {
   border: 5px #ffdc00 solid;
 }
@@ -830,7 +833,7 @@ object {
   position: fixed;
   width: 30vw;
   left: 0;
-  top: 60px;
+  top: 0px;
   height: 100%;
   background-color: #808080;
 }
@@ -855,7 +858,10 @@ object {
 }
 .button-group {
   background-color: #808080;
-  display: inline-block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
 }
 #bar-chart {
   width: 70vw;
@@ -880,11 +886,23 @@ object {
 @media screen and (max-width: 667px) {
   #textarea-container {
     position: fixed;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
+    -webkit-box-lines: multiple;
+    -moz-box-lines: multiple;
+    -o-box-lines: multiple;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: start;
+    -o-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
     width: 100%;
     bottom: 0;
-    height: 20vh;
-    top: auto;
-    background-color: #d13f19;
+    height: 30vh;
+    top: 70vh;
   }
   md-input-container {
     margin: 0 !important;
@@ -902,7 +920,7 @@ object {
   }
   #bar-chart,
   #bubble-chart {
-    height: 40vh;
+    height: 35vh;
     width: 100vw;
     margin: 0;
   }

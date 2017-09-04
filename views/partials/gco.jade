@@ -7,7 +7,7 @@
 div {{$ctrl.offset}}
 ul()
 	li.gco( ng-repeat='g in $ctrl.gco' )
-		a( ng-href='#'+'{{g}}' scroll-to='{{g}}' offset='{{$ctrl.offset}}') {{g}}
+		a.links( ng-href='#'+'{{g}}' scroll-to='{{g}}' offset='{{$ctrl.offset}}') {{g}}
 md-button(ng-click='$ctrl.start()') start
 md-button(ng-click='$ctrl.stop()') stop
 #gco-container
