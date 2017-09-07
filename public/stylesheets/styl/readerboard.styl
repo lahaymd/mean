@@ -1,13 +1,21 @@
-
+md-checkbox
+	background-color:red
+	position fixed !important
+	opacity .3
+	top 0
+	height 60px
+	width 300px
+	z-index 999
+	left 30vw
 
 
 #textarea-container
 	position fixed
-	// display flex
+	z-index 1000
 	width 30vw
 	left 0
 	top 0px
-	height 100%
+	height 100vh
 	background-color grey
 	
 
@@ -32,21 +40,31 @@
 .button-group
 	background-color grey
 	display flex
+	flex-direction column
 	// width 25vw
 	
 #bar-chart
 	width 70vw
 	margin-left 30vw
 	height 50vh  
-	border 5px red solid
-	background-color green
+	border-style solid
+	border-image repeating-linear-gradient( 45deg, pink, green 1%, purple 1%, red 8%) 20 
+	background-color hsla(.3,100%,80%,.4)
+	border-width 10px 
+	// border-image-slice:34% 
+	// border-image-outset 10px
+	// border-image-repeat: repeat;
 	
 #bubble-chart
 	width 70vw
 	margin-left 30vw
 	height 50vh
-	border 5px blue solid
-	background-color orange
+	border
+	background-color rgba(255,0,255,.3)
+	// border-radius 2em
+	border: 10px solid white;
+	border-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'><defs><linearGradient id='redgradient'><stop offset='0' stop-color='%23FFC14D'/><stop offset='0.362' stop-color='%23FF4834'/><stop offset='1' stop-color='%233B0300'/></linearGradient></defs><g id='Layer_1'><path d='M0,0 L50,0 L50,50 L0,50 L0,0 z' fill='url(%23redgradient)' width='100%' height='100%'/></g></svg>") 10% stretch;
+
 	
 	
 #combine
@@ -70,8 +88,17 @@
 // 		flex-direction row 
 // 		width 100vw
 // 		order 2
+@media screen and (max-width 736px)
+
+
+	.input-container, .input-container1
+		margin-bottom 10px !important
+		margin-top 50px !important
 		
-@media screen and (max-width: 667px) 
+@media screen and (max-width: 666px) 
+	md-dialog-actions 
+		flex-direction column
+		margin-top 50px
 	#textarea-container
 		position fixed
 		display flex
@@ -81,10 +108,41 @@
 		bottom 0
 		height 30vh
 		top 70vh
-		// background-color red
-	md-input-container
+	.button-group
+		display grid
+		size inherit
+		background-color blue
+		grid-template-columns auto 1fr 1fr
+		grid-template-rows auto 1fr
+		&:before
+			display none
+			
+	#combine
+		justify-self center
+		align-self start
+		padding 0 !important
 		margin 0 !important
-		display inline-block
+		grid-column-start 1 
+		grid-column-end: 2
+		grid-row-start 1
+		grid-row-end 2	
+	#separate
+		justify-self start
+		align-self start
+		padding 0 !important
+		margin-top -25px !important
+		grid-column-start 1 
+		grid-column-end: 2
+		grid-row-start 2
+		grid-row-end 3
+
+		// background-color red
+	.input-container
+		margin-top 25px !important
+		// display inline-block
+	.input-container1
+		margin-bottom 10px !important
+		margin-top 50px !important
 
 	md-checkbox
 		background-color:red

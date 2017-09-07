@@ -55,8 +55,8 @@
         } else {
 
         vm. toggleElements = 'hide'
-        angular.element(document.querySelector('#topid')).removeClass('hideme')
-        angular.element(document.querySelector('foot')).removeClass('hideme')
+        // angular.element(document.querySelector('#topid')).removeClass('hideme')
+        // angular.element(document.querySelector('foot')).removeClass('hideme')
         angular.element(document.querySelector('.headercontroller')).removeClass('hideme') 
         }
 
@@ -301,9 +301,9 @@ function dragstarted(d) {
 
     simulation.force('x', d3.forceX(function(d) {
                                   
-                        if(d[1]< 0)  { return 475;
+                        if(d[1]< 0)  { return width;
                         } else {
-                         return 120
+                         return width/3;
                        }
                           } ))
               .force('y', d3.forceY(function(d) {

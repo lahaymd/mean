@@ -1,6 +1,6 @@
 
 
-angular.module('myApp').factory('AuthService',
+angular.module('api.users', []).factory('AuthService',
   ['$q', '$timeout', '$http', '$mdToast',
   function ($q, $timeout, $http, $mdToast) {
 

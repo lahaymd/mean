@@ -78,5 +78,11 @@
     "ui-router": "^1.0.0-alpha.3",
     "util": "latest"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "angular-mocks": "^1.6.6",
+    "jasmine-core": "^2.8.0",
+    "karma": "^1.7.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.0"
+  }
 }

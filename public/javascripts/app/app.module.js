@@ -3,7 +3,7 @@
 
 
 
-	angular.module('myApp', ['ui.router','ngAnimate', 'ngMessages', 'ngMaterial', 'angular-inview', 'md.data.table', 'smoothScroll'])
+	angular.module('myApp', ['api.users', 'ui.router','ngAnimate', 'ngMessages', 'ngMaterial', 'angular-inview', 'md.data.table', 'smoothScroll'])
 		.config(function($mdThemingProvider) {
 			$mdThemingProvider.theme('default')
 				.primaryPalette('blue')

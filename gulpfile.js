@@ -96,7 +96,7 @@ gulp.task('browser-sync', ['nodemon'], function () {
 });
 
 gulp.task('scripts',  function() {
-  return gulp.src(['public/javascripts/app/app.module.js', 'public/javascripts/**/*.js'])
+  return gulp.src(['public/javascripts/app/app.module.js', 'public/javascripts/**/*.js', '!public/javascripts/**/*.spec.js'])
     .pipe(plumber())
     .pipe(ngAnnotate())
     .pipe(sourcemaps.init())

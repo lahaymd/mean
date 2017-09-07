@@ -1,33 +1,32 @@
-div#readerboardContainer
-		md-checkbox(ng-model='vm.yana' ng-change='vm.toggleHeaderAndFooter()') {{vm.toggleElements}} header 
-		#textarea-container
-			//- div#test(style='height: 100px; width:100px; background-color:red')
-			div.button-group
-				md-button#combine combine Nodes
-				md-button#separate separate nodes
-				//- md-button(ng-click='vm.showListBottomSheet()') show bottom sheet
-				md-input-container#noMargin()
-					label textarea 1
-					textarea(id='two' ng-model='vm.two'  ng-change='vm.areaOne(vm.one,vm.two);'  autofocus) 
-				md-input-container#noMargin()
-					label textarea 2
-					textarea(id='one' ng-model='vm.one' ng-change=' vm.areaOne(vm.one,vm.two)')
-		//- md-button#alert-width width
-		//- include ../scratch.svg
-	div.d3-attach(layout='row' layout-wrap )
-		svg#bubble-chart
-		svg#bar-chart
-		//- p#d3 d3
-		//- p rocks
-		//- h1.filtered(hide-xs hide-sm show-gt-sm flex='100' ng-style='{"text-align": "center"}' ) readerboard
-		//- h1.small-header(flex show-xs show-sm hide-gt-sm) Letters App
-		//- md-button(flex='100' ng-click='vm.clear()') clear
-		//- svg(#d3)
-			//- div(class='diff-container' flex='100' layout='row' layout-fill  layout-wrap layout-align='start center')
-			//- 	div(class='foo' ng-repeat='letter in vm.results' flex='20' flex-xs='33')
-			//- 		div.result  {{letter[0]}} : {{letter[1]}}
-			//- {{vm.results}}
+
+md-checkbox(ng-model='vm.yana' ng-change='vm.toggleHeaderAndFooter()') {{vm.toggleElements}} header 
+#textarea-container
+	//- div#test(style='height: 100px; width:100px; background-color:red')
+	div.button-group
+		md-button#combine combine Nodes
+		md-button#separate separate nodes
+		//- md-button(ng-click='vm.showListBottomSheet()') show bottom sheet
+		md-input-container.input-container
+			label textarea 1
+			textarea(id='two' ng-model='vm.two'  ng-change='vm.areaOne(vm.one,vm.two);'  autofocus) 
+		md-input-container.input-container
+			label textarea 2
+			textarea(id='one' ng-model='vm.one' ng-change=' vm.areaOne(vm.one,vm.two)')
+//- md-button#alert-width width
+//- include ../scratch.svg
+div.d3-attach(layout='row' layout-wrap )
+	svg#bubble-chart
+	svg#bar-chart
+	//- p#d3 d3
+	//- p rocks
+	//- h1.filtered(hide-xs hide-sm show-gt-sm flex='100' ng-style='{"text-align": "center"}' ) readerboard
+	//- h1.small-header(flex show-xs show-sm hide-gt-sm) Letters App
+	//- md-button(flex='100' ng-click='vm.clear()') clear
+	//- svg(#d3)
+		//- div(class='diff-container' flex='100' layout='row' layout-fill  layout-wrap layout-align='start center')
+		//- 	div(class='foo' ng-repeat='letter in vm.results' flex='20' flex-xs='33')
+		//- 		div.result  {{letter[0]}} : {{letter[1]}}
+		//- {{vm.results}}
 
 
 
-	
