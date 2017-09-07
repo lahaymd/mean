@@ -1,5 +1,6 @@
+//protractor tests
 describe('angularjs homepage todo list', function() {
-    console.log(browser)
+    // console.log(browser)
     browser.get('http://localhost:4000');
   beforeEach(function(){
     
