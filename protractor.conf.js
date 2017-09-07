@@ -1,5 +1,8 @@
 exports.config = {
-	specs: ['home.spec.js']
+	specs: ['home.spec.js'],
+	 params: {
+        client: 'http://localhost:3000/'
+    },
 	 // capabilities: {
   //   browserName: 'firefox'
   // }

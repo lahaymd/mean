@@ -1,7 +1,7 @@
 //protractor tests
 describe('angularjs homepage todo list', function() {
     // console.log(browser)
-    browser.get('http://localhost:4000');
+    browser.get(browser.params.client);
   beforeEach(function(){
     
   })
@@ -10,6 +10,6 @@ describe('angularjs homepage todo list', function() {
   });
   it('should go to resume', function(){
     element(by.id('contactMe')).click();    
-    expect(browser.getCurrentUrl()).toEqual('http://localhost:4000/hireme');
+    expect(browser.getCurrentUrl()).toEqual(browser.params.client + 'hireme');
   })
 });
