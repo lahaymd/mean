@@ -13,7 +13,7 @@ before_script:
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3 # give xvfb some time to start
   # - webdriver-manager update
-  - npm start
+  - node ./bin/www  
   - sleep 3
 install:
   - npm install
