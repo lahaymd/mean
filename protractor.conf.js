@@ -7,7 +7,8 @@ directConnect: true,
     },
 	 capabilities: {
     browserName: 'chrome'
-  },
-  allScriptsTimeout: 60000
+  }
+  // ,
+  // allScriptsTimeout: 60000
   // seleniumAddress: 'http://localhost:4444/wd/hub',
 };
