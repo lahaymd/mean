@@ -9,6 +9,6 @@ directConnect: true,
     browserName: 'chrome'
   }
   ,
-  // allScriptsTimeout: 60000
-  seleniumAddress: 'http://localhost:4444/wd/hub',
+  allScriptsTimeout: 60000
+  // seleniumAddress: 'http://localhost:4444/wd/hub',
 };
