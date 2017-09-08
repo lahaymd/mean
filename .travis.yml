@@ -13,9 +13,9 @@ before_script:
   - "sh -e /etc/init.d/xvfb start"
   - sleep 10 # give xvfb some time to start
   # - webdriver-manager update
-  - gulp 
-  - sleep 30
-install:
   - npm install
+ 
+install:
 script:
-  - npm run test
+  - gulp &
+  - npm test
