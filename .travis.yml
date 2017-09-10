@@ -32,6 +32,6 @@ before_install:
 #   - npm test
 deploy:
   provider: heroku
+  app: young-fortress-33377
   api_key:
     secure: f95a7c82-61b3-4de7-9b80-6ff88e982f31
-    app: young-fortress-33377
