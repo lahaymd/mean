@@ -3,6 +3,7 @@ node_js:
   - "7"
 dist: trusty
 addons:
+  chrome: beta
   apt:
     sources:
       - google-chrome
@@ -14,13 +15,16 @@ before_script:
   - sleep 10 # give xvfb some time to start
   - npm install
   # - npm install protractor -g 
-  # - ./node_modules/protractor/bin/webdriver-manager start > /dev/null 2>&1 &
   -  ./node_modules/protractor/bin/webdriver-manager update
-  -  ./node_modules/protractor/bin/webdriver-manager start &
+  - ./node_modules/protractor/bin/webdriver-manager start > /dev/null 2>&1 &
+  # -  ./node_modules/protractor/bin/webdriver-manager start &
   # - webdriver-manager update 
   # - webdriver-manager start &
   # - gulp &
   - npm start &
+before_install:
+  # - # start your web application and listen on `localhost`
+  - "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu --remote-debugging-port=9222 http://localhost &"
 
 # script:
 #   - npm test
