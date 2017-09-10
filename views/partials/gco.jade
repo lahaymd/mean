@@ -4,7 +4,7 @@
 //- main
 //- nav(id='top' )
 //- 	a(href='#top') top
-div {{$ctrl.offset}}
+//- div {{$ctrl.offset}}
 ul()
 	li.gco( ng-repeat='g in $ctrl.gco' )
 		a.links( ng-href='#'+'{{g}}' scroll-to='{{g}}' offset='{{$ctrl.offset}}') {{g}}

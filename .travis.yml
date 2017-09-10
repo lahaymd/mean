@@ -31,3 +31,7 @@ before_install:
 
 # script:
 #   - npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: f95a7c82-61b3-4de7-9b80-6ff88e982f31
