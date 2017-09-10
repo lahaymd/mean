@@ -2,6 +2,8 @@ language: node_js
 node_js:
   - "7"
 dist: trusty
+services:
+  mongodb
 addons:
   chrome: beta
   apt:
@@ -22,6 +24,7 @@ before_script:
   # - webdriver-manager start &
   # - gulp &
   - npm start &
+  - sleep 10
 before_install:
   # - # start your web application and listen on `localhost`
   - "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu --remote-debugging-port=9222 http://localhost &"
