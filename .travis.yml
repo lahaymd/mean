@@ -1,37 +1,29 @@
 language: node_js
 node_js:
-  - "7"
+- '7'
 dist: trusty
-services:
-  mongodb
+services: mongodb
 addons:
   chrome: beta
   apt:
     sources:
-      - google-chrome
+    - google-chrome
     packages:
-      - google-chrome-stable
+    - google-chrome-stable
 before_script:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 10 # give xvfb some time to start
-  - npm install
-  # - npm install protractor -g 
-  -  ./node_modules/protractor/bin/webdriver-manager update
-  - ./node_modules/protractor/bin/webdriver-manager start > /dev/null 2>&1 &
-  # -  ./node_modules/protractor/bin/webdriver-manager start &
-  # - webdriver-manager update 
-  # - webdriver-manager start &
-  # - gulp &
-  - npm start &
-  - sleep 10
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+- sleep 10
+- npm install
+- "./node_modules/protractor/bin/webdriver-manager update"
+- "./node_modules/protractor/bin/webdriver-manager start > /dev/null 2>&1 &"
+- npm start &
+- sleep 10
 before_install:
-  # - # start your web application and listen on `localhost`
-  - "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu --remote-debugging-port=9222 http://localhost &"
-# script:
-#   - npm test
+- "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu
+  --remote-debugging-port=9222 http://localhost &"
 deploy:
   provider: heroku
   app: young-fortress-33377
   api_key:
-    secure: f95a7c82-61b3-4de7-9b80-6ff88e982f31
+    secure: ctMbzXRMVd01rP8iGlF7/Hf+s52eAOtui3NadWYhP6yugqP78ZTpUgYHiwktl/CoX8AJzebyqT1WGDXTpq2Z2GlSSraSZD2M3X78RO7IESNSDtYCpH/gwV/3pZmDEcw/XRUQmjbd7mrHpsc954kXqpi1CI5bMb5lnHDRuh87507YVGYiwiUueyl7vsm0Noe6dROlonbzxdX3j6xsnxXCsoTn/xOkHEkk5Wkd5KZhpJ5kuvxZsgzDRP5sJxPvtdhzWm/JIiq/ZmTsOylWlVGo3uON32EHBi1czPsndQXGRxvvfY2VCZhP88GbLnszN/Icrtwf04yg1nZ4ljUU8a7eqWkNwQ6JHD/sOBen7E343MdlzSmORUz+DL9J9S67eDXNUVzq6SGdd187ppIKuusa7OeaQ87+Yx1DUcZKIt6+Boll5gfbYy66Xv/JoI1P1R8oB5H1U6MSbVaSDnrLEle/xvsNcwxz2VvSzGUCj3FK2PaRCPdBBNpLKj0EiuzqQz0z5UEZp2iI7FrautsskfOkuWdDiXB8qbHiqoIM8CU7jOWtGWlVPb9FGzaxf2ROIUBKLZ4YiCcF2ylM8FnQAOOXHS9GfxvPxvVLfnffxjvj7rC90cLYHIHTbHwpnSnc++ZECKP4iCV/p3XlcJQS0Eh8WfcLfmw6J5hu3BnTqKz90ZU=
