@@ -1,6 +1,11 @@
 language: node_js
 node_js:
 - '7'
+deploy:
+  provider: heroku
+  app: young-fortress-33377
+  api_key:
+    secure: ctMbzXRMVd01rP8iGlF7/Hf+s52eAOtui3NadWYhP6yugqP78ZTpUgYHiwktl/CoX8AJzebyqT1WGDXTpq2Z2GlSSraSZD2M3X78RO7IESNSDtYCpH/gwV/3pZmDEcw/XRUQmjbd7mrHpsc954kXqpi1CI5bMb5lnHDRuh87507YVGYiwiUueyl7vsm0Noe6dROlonbzxdX3j6xsnxXCsoTn/xOkHEkk5Wkd5KZhpJ5kuvxZsgzDRP5sJxPvtdhzWm/JIiq/ZmTsOylWlVGo3uON32EHBi1czPsndQXGRxvvfY2VCZhP88GbLnszN/Icrtwf04yg1nZ4ljUU8a7eqWkNwQ6JHD/sOBen7E343MdlzSmORUz+DL9J9S67eDXNUVzq6SGdd187ppIKuusa7OeaQ87+Yx1DUcZKIt6+Boll5gfbYy66Xv/JoI1P1R8oB5H1U6MSbVaSDnrLEle/xvsNcwxz2VvSzGUCj3FK2PaRCPdBBNpLKj0EiuzqQz0z5UEZp2iI7FrautsskfOkuWdDiXB8qbHiqoIM8CU7jOWtGWlVPb9FGzaxf2ROIUBKLZ4YiCcF2ylM8FnQAOOXHS9GfxvPxvVLfnffxjvj7rC90cLYHIHTbHwpnSnc++ZECKP4iCV/p3XlcJQS0Eh8WfcLfmw6J5hu3BnTqKz90ZU=
 dist: trusty
 services: mongodb
 addons:
@@ -22,8 +27,3 @@ before_script:
 before_install:
 - "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu
   --remote-debugging-port=9222 http://localhost &"
-deploy:
-  provider: heroku
-  app: young-fortress-33377
-  api_key:
-    secure: ctMbzXRMVd01rP8iGlF7/Hf+s52eAOtui3NadWYhP6yugqP78ZTpUgYHiwktl/CoX8AJzebyqT1WGDXTpq2Z2GlSSraSZD2M3X78RO7IESNSDtYCpH/gwV/3pZmDEcw/XRUQmjbd7mrHpsc954kXqpi1CI5bMb5lnHDRuh87507YVGYiwiUueyl7vsm0Noe6dROlonbzxdX3j6xsnxXCsoTn/xOkHEkk5Wkd5KZhpJ5kuvxZsgzDRP5sJxPvtdhzWm/JIiq/ZmTsOylWlVGo3uON32EHBi1czPsndQXGRxvvfY2VCZhP88GbLnszN/Icrtwf04yg1nZ4ljUU8a7eqWkNwQ6JHD/sOBen7E343MdlzSmORUz+DL9J9S67eDXNUVzq6SGdd187ppIKuusa7OeaQ87+Yx1DUcZKIt6+Boll5gfbYy66Xv/JoI1P1R8oB5H1U6MSbVaSDnrLEle/xvsNcwxz2VvSzGUCj3FK2PaRCPdBBNpLKj0EiuzqQz0z5UEZp2iI7FrautsskfOkuWdDiXB8qbHiqoIM8CU7jOWtGWlVPb9FGzaxf2ROIUBKLZ4YiCcF2ylM8FnQAOOXHS9GfxvPxvVLfnffxjvj7rC90cLYHIHTbHwpnSnc++ZECKP4iCV/p3XlcJQS0Eh8WfcLfmw6J5hu3BnTqKz90ZU=
