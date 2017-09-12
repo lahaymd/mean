@@ -43,7 +43,7 @@ if (process.env.TRAVIS) {
     'browserName': 'chrome',
     'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
     'Build': 'meanstack',
-    'BuildName': 'meanstack-build-name'
+    'BuildName': 'meanstack-build-name',
     'name': 'foobar',
     'public': 'public'
   };
