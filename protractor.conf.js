@@ -44,7 +44,7 @@ if (process.env.TRAVIS) {
   },{
    ' browserName': 'firefox'
 
-  }],
+  }]
   config.capabilities = {
     // 'browserName': 'chrome',
     "platform": "OS X 10.9",
