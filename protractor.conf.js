@@ -40,20 +40,32 @@ if (process.env.TRAVIS) {
   config.sauceUser = process.env.SAUCE_USERNAME;
   config.sauceKey = process.env.SAUCE_ACCESS_KEY;
   config.multiCapabilities = [{
-   ' browserName': 'chrome'
-  },{
-   ' browserName': 'firefox'
-
-  }]
-  config.capabilities = {
-    // 'browserName': 'chrome',
-    "platform": "OS X 10.9",
+   ' browserName': 'chrome',
+   "platform": "OS X 10.9",
     'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
     'Build': 'meanstack',
     'BuildName': 'meanstack-build-name',
     'name': 'foobar',
-    'public': 'public'
-  };
+    'public'
+  },{
+   ' browserName': 'firefox',
+   "platform": "OS X 10.9",
+    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+    'Build': 'meanstack',
+    'BuildName': 'meanstack-build-name',
+    'name': 'foobar',
+    'public'
+
+  }];
+  // config.capabilities = {
+  //   // 'browserName': 'chrome',
+  //   "platform": "OS X 10.9",
+  //   'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+  //   'Build': 'meanstack',
+  //   'BuildName': 'meanstack-build-name',
+  //   'name': 'foobar',
+  //   'public': 'public'
+  // };
 }
 
 module.exports.config = exports.config = config;
