@@ -40,7 +40,7 @@ if (process.env.TRAVIS) {
   config.capabilities = {
     'browserName': 'chrome',
     'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-    'build': process.env.TRAVIS_BUILD_NUMBER,
+    'build': 'mean',
     'name': 'foobar',
     'public': 'public'
   };
