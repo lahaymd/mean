@@ -40,8 +40,8 @@ if (process.env.TRAVIS) {
   config.sauceUser = process.env.SAUCE_USERNAME;
   config.sauceKey = process.env.SAUCE_ACCESS_KEY;
   config.capabilities = {
-    'browserName': 'firefox',
-    "platform": "OS X 10.9",
+    'browserName': 'chrome',
+    "platform": "OS X 10.11",
     'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
     'Build': 'meanstack',
     'BuildName': 'meanstack-build-name',
