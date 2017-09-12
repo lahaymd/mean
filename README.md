@@ -1,4 +1,4 @@
-
+[![Build Status](https://travis-ci.org/lahaymd/mean.svg?branch=master)](https://travis-ci.org/lahaymd/mean)
 #MEAN Stack app built with angular material and ui router
 *CRUD example connected to mongolab
 *Hosted on Heroku
