@@ -12,7 +12,8 @@ var config = {
   // name: 'saucy'
   // //   browserName: 'chrome'
   // },
-  framework: 'jasmine2'
+  framework: 'jasmine2',
+  sauceBuild: 'mean-sauceid'
   // ,
   // ,
   // allScriptsTimeout: 60000,
@@ -41,7 +42,8 @@ if (process.env.TRAVIS) {
   config.capabilities = {
     'browserName': 'chrome',
     'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-    'build': 'meanstack',
+    'Build': 'meanstack',
+    'BuildName': 'meanstack-build-name'
     'name': 'foobar',
     'public': 'public'
   };
