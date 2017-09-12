@@ -11,8 +11,9 @@ chromeOnly: true,
   framework: 'jasmine2',
   // ,
   allScriptsTimeout: 60000,
-  build: "build-1234",
+  // build: "build-1234",
   public: "public",
+  passed: true
   // seleniumAddress: 'http://localhost:4444/wd/hub'
 
 };
