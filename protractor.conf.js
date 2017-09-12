@@ -14,7 +14,19 @@ chromeOnly: true,
   },
   framework: 'jasmine2',
   // ,
-  allScriptsTimeout: 60000
+  allScriptsTimeout: 60000,
+    onPrepare: function () {
+        var caps = browser.getCapabilities()
+    },
+      onComplete: function () {
+
+        var printSessionId = function (jobName) {
+            browser.getSession().then(function (session) {
+                console.log('SauceOnDemandSessionID=' + session.getId() + ' job-name=' + jobName);
+            });
+        }
+        printSessionId("SAUCY");
+    }
   // seleniumAddress: 'http://localhost:4444/wd/hub'
 
 };
