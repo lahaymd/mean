@@ -41,6 +41,7 @@ if (process.env.TRAVIS) {
   config.sauceKey = process.env.SAUCE_ACCESS_KEY;
   config.capabilities = {
     'browserName': 'chrome',
+    "platform": "OS X 10.9",
     'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
     'Build': 'meanstack',
     'BuildName': 'meanstack-build-name',
