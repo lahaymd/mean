@@ -1,4 +1,4 @@
-exports.config = {
+var config = {
 chromeOnly: true,
 // directConnect: true,
 	specs: ['home.spec.js'],
@@ -26,3 +26,5 @@ if (process.env.TRAVIS) {
     'build': process.env.TRAVIS_BUILD_NUMBER
   };
 }
+
+exports.config= config
