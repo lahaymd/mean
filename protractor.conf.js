@@ -10,7 +10,9 @@ chromeOnly: true,
   // }
   framework: 'jasmine2',
   // ,
-  allScriptsTimeout: 60000
+  allScriptsTimeout: 60000,
+  build: "build-1234",
+  public: "public",
   // seleniumAddress: 'http://localhost:4444/wd/hub'
 
 };
