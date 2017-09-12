@@ -41,7 +41,7 @@ if (process.env.TRAVIS) {
   config.capabilities = {
     'browserName': 'chrome',
     'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-    'build': 'mean',
+    'build': 'meanstack',
     'name': 'foobar',
     'public': 'public'
   };
