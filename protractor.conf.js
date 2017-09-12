@@ -46,7 +46,7 @@ if (process.env.TRAVIS) {
     'Build': 'meanstack',
     'BuildName': 'meanstack-build-name',
     'name': 'foobar',
-    'public'
+    'public': 'public'
   },{
    ' browserName': 'firefox',
    "platform": "OS X 10.9",
@@ -54,7 +54,7 @@ if (process.env.TRAVIS) {
     'Build': 'meanstack',
     'BuildName': 'meanstack-build-name',
     'name': 'foobar',
-    'public'
+    'public' : 'public'
 
   }];
   // config.capabilities = {
