@@ -39,8 +39,14 @@ if (process.env.TRAVIS) {
   console.log('travis vars ' + process.env.TRAVIS)
   config.sauceUser = process.env.SAUCE_USERNAME;
   config.sauceKey = process.env.SAUCE_ACCESS_KEY;
+  config.multiCapabilities = [{
+   ' browserName': 'chrome'
+  },{
+   ' browserName': 'firefox'
+
+  }],
   config.capabilities = {
-    'browserName': 'chrome',
+    // 'browserName': 'chrome',
     "platform": "OS X 10.9",
     'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
     'Build': 'meanstack',
