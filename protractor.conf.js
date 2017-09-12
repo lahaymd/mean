@@ -5,15 +5,16 @@ chromeOnly: true,
 	 params: {
         client: 'http://localhost:3000/'
     },
-	 // capabilities: {
+	 capabilities: {
+  public: "public",
+  passed: true,
+  build: "build-mean",
+  name: 'saucy'
   //   browserName: 'chrome'
-  // }
+  },
   framework: 'jasmine2',
   // ,
-  allScriptsTimeout: 60000,
-  // build: "build-1234",
-  public: "public",
-  passed: true
+  allScriptsTimeout: 60000
   // seleniumAddress: 'http://localhost:4444/wd/hub'
 
 };
