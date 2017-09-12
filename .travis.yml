@@ -23,7 +23,7 @@ before_script:
 - npm install
 # - "./node_modules/protractor/bin/webdriver-manager update"
 # - "./node_modules/protractor/bin/webdriver-manager start > /dev/null 2>&1 &"
-- npm start &
+- gulp &
 - sleep 10
 before_install:
 - "/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome --headless --disable-gpu
