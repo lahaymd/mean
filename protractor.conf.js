@@ -123,7 +123,7 @@ if (process.env.TRAVIS) {
   {
     'browserName': 'internet explorer',
     "platform": "Windows 10",
-    "version": "11.103"
+    "version": "11.103",
     'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
     // 'Build': 'meanstack',
     // 'BuildName': 'meanstack-build-name',
