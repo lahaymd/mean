@@ -1,4 +1,8 @@
 //protractor tests
+    // browser.driver.manage().window().maximize();
+    var width = 960;
+var height = 600;
+browser.driver.manage().window().setSize(width, height);
 describe('angularjs homepage todo list', function() {
     // console.log(browser)
     browser.get(browser.params.client);
