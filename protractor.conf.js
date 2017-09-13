@@ -104,7 +104,7 @@ if (process.env.TRAVIS) {
   }, {
     'browserName': 'safari',
     "platform": "OS X 10.11",
-    "version": "10.0",
+    "version": "9.0",
     'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
     // 'Build': 'meanstack',
     // 'BuildName': 'meanstack-build-name',
