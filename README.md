@@ -10,5 +10,6 @@ MEAN Stack app built with angular material and ui router
   * Hosted on Heroku
   * Examples include d3, html5 canvas, and ng-animate
   * Node modules include nodemailer, sharp, and multer
+  * Continuous intergration with Travis CI and Sauce Labs
   
 [mikelahay.com](http://mikelahay.com)
