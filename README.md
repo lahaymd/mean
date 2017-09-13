@@ -11,4 +11,4 @@ MEAN Stack app built with angular material and ui router
   * Examples include d3, html5 canvas, and ng-animate
   * Node modules include nodemailer, sharp, and multer
   
-[mikelahay.com](http://mikelahay.com.com)
+[mikelahay.com](http://mikelahay.com)
