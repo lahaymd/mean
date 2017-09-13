@@ -91,23 +91,47 @@ if (process.env.TRAVIS) {
   console.log('travis vars ' + process.env.TRAVIS)
   config.sauceUser = process.env.SAUCE_USERNAME;
   config.sauceKey = process.env.SAUCE_ACCESS_KEY;
-  config.sauceBuild = 'sauce-build';
+  config.sauceBuild =  'sauce-build-' + process.env.TRAVIS_BUILD_NUMBER;
   config.multiCapabilities = [
   {
     'browserName': 'chrome',
     "platform": "OS X 10.11",
     'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-    'Build': 'meanstack',
-    'BuildName': 'meanstack-build-name',
-    'name': 'chrome-build',
+    // 'Build': 'meanstack',
+    // 'BuildName': 'meanstack-build-name',
+    'name': 'chrome-build'+ process.env.TRAVIS_BUILD_NUMBER,
+    'public': 'public'
+  }, {
+    'browserName': 'safari',
+    "platform": "OS X 10.11",
+    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+    // 'Build': 'meanstack',
+    // 'BuildName': 'meanstack-build-name',
+    'name': 'safari-build'+ process.env.TRAVIS_BUILD_NUMBER,
+    'public': 'public'
+  }, {
+    'browserName': 'opera',
+    "platform": "Windows 7",
+    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+    // 'Build': 'meanstack',
+    // 'BuildName': 'meanstack-build-name',
+    'name': 'opera-build'+ process.env.TRAVIS_BUILD_NUMBER,
+    'public': 'public'
+  }, {
+    'browserName': 'internet explorer',
+    "platform": "Windows 10",
+    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+    // 'Build': 'meanstack',
+    // 'BuildName': 'meanstack-build-name',
+    'name': 'internet explorer-build'+ process.env.TRAVIS_BUILD_NUMBER,
     'public': 'public'
   }, {
     'browserName': 'firefox',
     "platform": "OS X 10.11",
     'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
-    'Build': 'meanstack',
-    'BuildName': 'meanstack-build-name',
-    'name': 'firefox-build',
+    // 'Build': 'meanstack',
+    // 'BuildName': 'meanstack-build-name',
+    'name': 'firefox-build'+ process.env.TRAVIS_BUILD_NUMBER,
     'public': 'public'
   }
   ];
