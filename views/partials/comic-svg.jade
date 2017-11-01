@@ -1,130 +1,132 @@
-include comic-svg.svg
-//- svg(x="0px" y="0px" id=svgid)
-//- 	defs(width='0' height='0')
-//- 		filter#convolve
-//- 			feConvolveMatrix(in="SourceGraphic" order="3" preserveAlpha="true" kernelMatrix='{{$ctrl.cm1}} {{$ctrl.cm2}} {{$ctrl.cm3}} {{$ctrl.cm4}} {{$ctrl.cm5}} {{$ctrl.cm6}} {{$ctrl.cm7}} {{$ctrl.cm8}} {{$ctrl.cm9}}')
+//- include comic-svg.svg
+img#colorMatrix(src='/images/cooper.png')
+svg(x="0px" y="0px" id=svgid)
+	defs(width='0' height='0')
+		filter#convolve
+			feConvolveMatrix(in="SourceGraphic" order="3" preserveAlpha="true" kernelMatrix='{{$ctrl.cm1}} {{$ctrl.cm2}} {{$ctrl.cm3}} {{$ctrl.cm4}} {{$ctrl.cm5}} {{$ctrl.cm6}} {{$ctrl.cm7}} {{$ctrl.cm8}} {{$ctrl.cm9}}')
 
-//- 		filter#color
-//- 			feColorMatrix(type="matrix" values=" {{$ctrl.one}} {{$ctrl.two}} {{$ctrl.three}} {{$ctrl.four}} {{$ctrl.five}} {{$ctrl.six}} {{$ctrl.seven}} {{$ctrl.eight}} {{$ctrl.nine}} {{$ctrl.ten}} {{$ctrl.eleven}} {{$ctrl.twelve}} {{$ctrl.thirteen}} {{$ctrl.forteen}} {{$ctrl.fifteen}} {{$ctrl.sixteen}} {{$ctrl.seventeen}} {{$ctrl.eighteen}} {{$ctrl.nineteen}} {{$ctrl.twenty}}")
-//- 		filter#component-transfer
-//- 			feComponentTransfer
-//- 				feFuncR( type='table' tableValues='{{$ctrl.compTran1}} {{$ctrl.compTran2}} {{$ctrl.compTran3}} {{$ctrl.compTran4}}')
-//- 				feFuncG( type='table' tableValues='{{$ctrl.compTran5}} {{$ctrl.compTran6}} {{$ctrl.compTran7}} {{$ctrl.compTran8}}')
-//- 				feFuncB( type='table' tableValues='{{$ctrl.compTran9}} {{$ctrl.compTran10}} {{$ctrl.compTran11}} {{$ctrl.compTran12}}')
-//- 				feFuncA( type='table' tableValues='{{$ctrl.compTran13}} {{$ctrl.compTran14}} {{$ctrl.compTran15}} {{$ctrl.compTran16}}')
-//- 		pattern( id='pattern' width='25' height='500' patternUnits='userSpaceOnUse')
-//- 			rect(fill='green' y="0" class="st0" width="25" height="500")
-//- 			g
-//- 				rect(  y="475" class="st1" width="25" height="25")
-//- 				rect(  x="1" y="451.2" class="st1" width="22.9" height="22.9")
-//- 				rect(  x="2" y="426.8" class="st1" width="21" height="21")
-//- 				rect(  x="2.9" y="403.3" class="st1" width="19.3" height="19.3")
-//- 				rect(  x="3.7" y="380" class="st1" width="17.6" height="17.6")
-//- 				rect(  x="4.4" y="356.5" class="st1" width="16.2" height="16.2")
-//- 				rect(  x="5.1" y="333.1" class="st1" width="14.8" height="14.8")
-//- 				rect(  x="5.7" y="308.4" class="st1" width="13.6" height="13.6")
-//- 				rect(  x="6.3" y="285" class="st1" width="12.5" height="12.5")
-//- 				rect(  x="6.8" y="262.5" class="st1" width="11.4" height="11.4")
-//- 				rect(  x="7.3" y="241.1" class="st1" width="10.5" height="10.5")
-//- 				rect(  x="7.7" y="220.6" class="st1" width="9.6" height="9.6")
-//- 				rect(  x="8.1" y="197" class="st1" width="8.8" height="8.8")
-//- 				rect(  x="8.5" y="172" class="st1" width="8.1" height="8.1")
-//- 				rect( id="XMLID_18_" x="8.8" y="149.2" class="st1" width="7.4" height="7.4")
-//- img#colorMatrix(src='/images/cooper.png')
-//- .slider-comp-tran
-//- 	.comp-tran Component Transfer
-//- 	label(for="") {{$ctrl.compTran1}}
-//- 		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran1')
-//- 	label(for="") {{$ctrl.compTran2}}
-//- 		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran2')
-//- 	label(for="") {{$ctrl.compTran3}}
-//- 		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran3')
-//- 	label(for="") {{$ctrl.compTran4}}
-//- 		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran4')
-//- 	label(for="") {{$ctrl.compTran5}}
-//- 		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran5')
-//- 	label(for="") {{$ctrl.compTran6}}
-//- 		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran6')
-//- 	label(for="") {{$ctrl.compTran7}}
-//- 		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran7')
-//- 	label(for="") {{$ctrl.compTran8}}
-//- 		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran8')
-//- 	label(for="") {{$ctrl.compTran9}}
-//- 		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran9')
-//- 	label(for="") {{$ctrl.compTran10}}
-//- 		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran10')
-//- 	label(for="") {{$ctrl.compTran11}}
-//- 		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran11')
-//- 	label(for="") {{$ctrl.compTran12}}
-//- 		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran12')
-//- 	label(for="") {{$ctrl.compTran13}}
-//- 		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran13')
-//- 	label(for="") {{$ctrl.compTran14}}
-//- 		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran14')
-//- 	label(for="") {{$ctrl.compTran15}}
-//- 		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran15')
-//- 	label(for="") {{$ctrl.compTran16}}
-//- 		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran16')
-//- .slider-grid		
-//- 	label {{$ctrl.one}}
-//- 		md-slider.slider(step='.1' min='-1' max='1' ng-model='$ctrl.one')
-//- 	label {{$ctrl.two}}
-//- 		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.two")
-//- 	label {{$ctrl.three}}
-//- 		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.three")
-//- 	label {{$ctrl.four}}
-//- 		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.four")
-//- 	label {{$ctrl.five}}
-//- 		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.five")
-//- 	label {{$ctrl.six}}
-//- 		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.six")
-//- 	label {{$ctrl.seven}}
-//- 		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.seven")
-//- 	label {{$ctrl.eight}}
-//- 		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.eight")
-//- 	label {{$ctrl.nine}}
-//- 		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.nine")
-//- 	label {{$ctrl.ten}}
-//- 		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.ten")
-//- 	label {{$ctrl.eleven}}
-//- 		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.eleven")
-//- 	label {{$ctrl.twelve}}
-//- 		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.twelve")
-//- 	label {{$ctrl.thirteen}}
-//- 		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.thirteen")
-//- 	label {{$ctrl.forteen}}
-//- 		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.forteen")
-//- 	label {{$ctrl.fifteen}}
-//- 		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.fifteen")
-//- 	label {{$ctrl.sixteen}}
-//- 		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.sixteen")
-//- 	label {{$ctrl.seventeen}}
-//- 		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.seventeen")
-//- 	label {{$ctrl.eighteen}}
-//- 		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.eighteen")
-//- 	label {{$ctrl.nineteen}}
-//- 		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.nineteen")
-//- 	label {{$ctrl.twenty}}
-//- 		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.twenty")
-//- .slider-cm
-//- 	label {{$ctrl.cm1}}
-//- 		md-slider.cm(step='1' min='-10' max='10' ng-model='$ctrl.cm1')
-//- 	label {{$ctrl.cm2}}
-//- 		md-slider.cm(step='1' min='-10' max='10' ng-model='$ctrl.cm2')
-//- 	label {{$ctrl.cm3}}
-//- 		md-slider.cm(step='1' min='-10' max='10' ng-model='$ctrl.cm3')
-//- 	label {{$ctrl.cm4}}
-//- 		md-slider.cm(step='1' min='-10' max='10' ng-model='$ctrl.cm4')
-//- 	label {{$ctrl.cm5}}
-//- 		md-slider.cm(step='1' min='-10' max='10' ng-model='$ctrl.cm5')
-//- 	label {{$ctrl.cm6}}
-//- 		md-slider.cm(step='1' min='-10' max='10' ng-model='$ctrl.cm6')
-//- 	label {{$ctrl.cm7}}
-//- 		md-slider.cm(step='1' min='-10' max='10' ng-model='$ctrl.cm7')
-//- 	label {{$ctrl.cm8}}
-//- 		md-slider.cm(step='1' min='-10' max='10' ng-model='$ctrl.cm8')
-//- 	label {{$ctrl.cm9}}
-//- 		md-slider.cm(step='1' min='-10' max='10' ng-model='$ctrl.cm9')
+		filter#color
+			feColorMatrix(type="matrix" values=" {{$ctrl.one}} {{$ctrl.two}} {{$ctrl.three}} {{$ctrl.four}} {{$ctrl.five}} {{$ctrl.six}} {{$ctrl.seven}} {{$ctrl.eight}} {{$ctrl.nine}} {{$ctrl.ten}} {{$ctrl.eleven}} {{$ctrl.twelve}} {{$ctrl.thirteen}} {{$ctrl.forteen}} {{$ctrl.fifteen}} {{$ctrl.sixteen}} {{$ctrl.seventeen}} {{$ctrl.eighteen}} {{$ctrl.nineteen}} {{$ctrl.twenty}}")
+		filter#component-transfer
+			feComponentTransfer
+				feFuncR( type='table' tableValues='{{$ctrl.compTran1}} {{$ctrl.compTran2}} {{$ctrl.compTran3}} {{$ctrl.compTran4}}')
+				feFuncG( type='table' tableValues='{{$ctrl.compTran5}} {{$ctrl.compTran6}} {{$ctrl.compTran7}} {{$ctrl.compTran8}}')
+				feFuncB( type='table' tableValues='{{$ctrl.compTran9}} {{$ctrl.compTran10}} {{$ctrl.compTran11}} {{$ctrl.compTran12}}')
+				feFuncA( type='table' tableValues='{{$ctrl.compTran13}} {{$ctrl.compTran14}} {{$ctrl.compTran15}} {{$ctrl.compTran16}}')
+		pattern( id='pattern' width='25' height='500' patternUnits='userSpaceOnUse')
+			rect(fill='green' y="0" class="st0" width="25" height="500")
+			g
+				rect(  y="475" class="st1" width="25" height="25")
+				rect(  x="1" y="451.2" class="st1" width="22.9" height="22.9")
+				rect(  x="2" y="426.8" class="st1" width="21" height="21")
+				rect(  x="2.9" y="403.3" class="st1" width="19.3" height="19.3")
+				rect(  x="3.7" y="380" class="st1" width="17.6" height="17.6")
+				rect(  x="4.4" y="356.5" class="st1" width="16.2" height="16.2")
+				rect(  x="5.1" y="333.1" class="st1" width="14.8" height="14.8")
+				rect(  x="5.7" y="308.4" class="st1" width="13.6" height="13.6")
+				rect(  x="6.3" y="285" class="st1" width="12.5" height="12.5")
+				rect(  x="6.8" y="262.5" class="st1" width="11.4" height="11.4")
+				rect(  x="7.3" y="241.1" class="st1" width="10.5" height="10.5")
+				rect(  x="7.7" y="220.6" class="st1" width="9.6" height="9.6")
+				rect(  x="8.1" y="197" class="st1" width="8.8" height="8.8")
+				rect(  x="8.5" y="172" class="st1" width="8.1" height="8.1")
+				rect( id="XMLID_18_" x="8.8" y="149.2" class="st1" width="7.4" height="7.4")
+.slider-comp-tran
+	.comp-tran Component Transfer
+	label(for="") {{$ctrl.compTran1}}
+		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran1')
+	label(for="") {{$ctrl.compTran2}}
+		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran2')
+	label(for="") {{$ctrl.compTran3}}
+		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran3')
+	label(for="") {{$ctrl.compTran4}}
+		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran4')
+	label(for="") {{$ctrl.compTran5}}
+		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran5')
+	label(for="") {{$ctrl.compTran6}}
+		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran6')
+	label(for="") {{$ctrl.compTran7}}
+		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran7')
+	label(for="") {{$ctrl.compTran8}}
+		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran8')
+	label(for="") {{$ctrl.compTran9}}
+		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran9')
+	label(for="") {{$ctrl.compTran10}}
+		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran10')
+	label(for="") {{$ctrl.compTran11}}
+		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran11')
+	label(for="") {{$ctrl.compTran12}}
+		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran12')
+	label(for="") {{$ctrl.compTran13}}
+		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran13')
+	label(for="") {{$ctrl.compTran14}}
+		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran14')
+	label(for="") {{$ctrl.compTran15}}
+		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran15')
+	label(for="") {{$ctrl.compTran16}}
+		md-slider.comp-tran(step='.1' min='-1' max='1' ng-model='$ctrl.compTran16')
+.slider-grid
+	.color-matrix Color Matrix	
+	label {{$ctrl.one}}
+		md-slider.slider(step='.1' min='-1' max='1' ng-model='$ctrl.one')
+	label {{$ctrl.two}}
+		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.two")
+	label {{$ctrl.three}}
+		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.three")
+	label {{$ctrl.four}}
+		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.four")
+	label {{$ctrl.five}}
+		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.five")
+	label {{$ctrl.six}}
+		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.six")
+	label {{$ctrl.seven}}
+		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.seven")
+	label {{$ctrl.eight}}
+		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.eight")
+	label {{$ctrl.nine}}
+		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.nine")
+	label {{$ctrl.ten}}
+		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.ten")
+	label {{$ctrl.eleven}}
+		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.eleven")
+	label {{$ctrl.twelve}}
+		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.twelve")
+	label {{$ctrl.thirteen}}
+		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.thirteen")
+	label {{$ctrl.forteen}}
+		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.forteen")
+	label {{$ctrl.fifteen}}
+		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.fifteen")
+	label {{$ctrl.sixteen}}
+		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.sixteen")
+	label {{$ctrl.seventeen}}
+		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.seventeen")
+	label {{$ctrl.eighteen}}
+		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.eighteen")
+	label {{$ctrl.nineteen}}
+		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.nineteen")
+	label {{$ctrl.twenty}}
+		md-slider.slider(step=".1", min="-1", max="1", ng-model="$ctrl.twenty")
+.slider-cm
+	.convolve-matrix Convolve Matrix	
+	label {{$ctrl.cm1}}
+		md-slider.cm(step='1' min='-10' max='10' ng-model='$ctrl.cm1')
+	label {{$ctrl.cm2}}
+		md-slider.cm(step='1' min='-10' max='10' ng-model='$ctrl.cm2')
+	label {{$ctrl.cm3}}
+		md-slider.cm(step='1' min='-10' max='10' ng-model='$ctrl.cm3')
+	label {{$ctrl.cm4}}
+		md-slider.cm(step='1' min='-10' max='10' ng-model='$ctrl.cm4')
+	label {{$ctrl.cm5}}
+		md-slider.cm(step='1' min='-10' max='10' ng-model='$ctrl.cm5')
+	label {{$ctrl.cm6}}
+		md-slider.cm(step='1' min='-10' max='10' ng-model='$ctrl.cm6')
+	label {{$ctrl.cm7}}
+		md-slider.cm(step='1' min='-10' max='10' ng-model='$ctrl.cm7')
+	label {{$ctrl.cm8}}
+		md-slider.cm(step='1' min='-10' max='10' ng-model='$ctrl.cm8')
+	label {{$ctrl.cm9}}
+		md-slider.cm(step='1' min='-10' max='10' ng-model='$ctrl.cm9')
 
 
 

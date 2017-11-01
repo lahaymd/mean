@@ -2,10 +2,13 @@
 	angular.module('myApp').
 		controller('NavController', ['$transitions','$mdSidenav', '$location', 'AuthService', '$mdDialog',  function($transitions,$mdSidenav, $location, AuthService, $mdDialog) {
 			var vm = this;
+			vm.userlist;
 
 			vm.initScope = function() {
 			    $state.go('home');
 			}
+			vm.visible = true;
+			vm.toggleHeader = () => vm.visible = !vm.visible; 
 
 
 			vm.toggleNav = () => $mdSidenav('left').toggle();
@@ -276,7 +279,20 @@ $transitions.onSuccess({to:'*'}, function(trans,state,foo){
 		}]).
 		controller('LoginController', ['AuthService','$scope', '$interval', '$window', '$mdDialog', '$document', function(AuthService, $scope, $interval, $window, $mdDialog, $document){
 
-			// var vm = this;
+			var vm = this;
+
+			
+			vm.fetchMongoLab= function() {
+			                  AuthService.getMongoLab()
+			                  .then(function(users) {
+			                    vm.userlist = users;
+			                    // console.log(users)
+			                  }, function(error) {
+			                    // console.log(error)
+			                  })
+			                }
+
+			vm.fetchMongoLab();
 			//     var top = 400;
 		 //    var duration = 2000; //milliseconds
 

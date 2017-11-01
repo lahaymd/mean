@@ -43,7 +43,7 @@
 			this.compTran14 = .33;
 			this.compTran15 = .66;
 			this.compTran16 = 1;
-			this.cm1 = 0;
+			this.cm1 = 1;
 			this.cm2 = 0;
 			this.cm3 = 0;
 			this.cm4 = 0;

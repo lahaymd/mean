@@ -1,52 +1,54 @@
 div.headercontroller.grid-header( ng-controller='NavController as vm')
-	div.log-wrapper
-		//- a#logo( hide-xs hide-sm href='/')
-		//- 	include coat-of-arms.svg
-		div.welcome(ng-show='vm.isLogged()') Welcome {{vm.session}}
-		//- img(src='/images/code.png')
-		//- ({{vm.user.files}})
-		//- {{vm.userr}}
-		img#profile-pic(ng-hide='!vm.isLogged()' src="{{vm.userr.files}}")
-		//- md-button(hide show-xs ng-hide='!vm.isLogged()' ng-click='vm.logout()') Log Out
-		//- md-button(hide show-xs ng-hide='vm.isLogged()' ng-click='vm.showAdvanced($event)') Sign Up
-		//- md-button(hide show-xs ng-hide='vm.isLogged()' ng-click='vm.showSignIn($event)') Sign In
-		//- md-button(hide show-xs ng-hide='!vm.isLogged()' ng-click='vm.showUpdate($event)') Update Profile
-		//- div(ng-show='vm.isLogged()') you are logged in
-		//- md-button(ng-click='vm.isLogged()') is logged?
-		//- md-button(ng-hide='!vm.isLogged()' ng-click='vm.logout()') Log Out
-		//- md-button(ng-hide='vm.isLogged()' ng-click='vm.showAdvanced($event)') Sign Up
-		//- md-button(ng-hide='vm.isLogged()' ng-click='vm.showSignIn($event)') Sign In
-	div.nav-wrapper
-		md-nav-bar( hide-xs hide-sm   md-selected-nav-item='vm.currentNavItem'  layout='row' layout-align='space-around' layout-fill layout-margin layout-padding) 
-			md-nav-item(  name='home' md-nav-click="goto('home')" ui-sref='home' ui-sref-active='active') Home
-			//- md-nav-item( name='users' md-nav-click="goto('users')" ui-sref='users' ui-sref-active='active') Table Example
-			//- md-nav-item( name='readerboard' md-nav-click="goto('readerboard')" ui-sref='readerboard' ui-sref-active='active') Letter Example
-			md-nav-item#contactMe( name='hireme' md-nav-click="goto('hireme')" ui-sref='hireme' ui-sref-active='active') Contact Me
-			md-nav-item( name='pdf' md-nav-click="goto('pdf')" ui-sref='pdf' ui-sref-active='active') Resume
-			//- md-nav-item( name='canvas' md-nav-click="goto('canvas')" ui-sref='canvas' ui-sref-active='active') Canvas
-			md-menu(md-offset='0 50')
-				md-button(ng-click='$mdOpenMenu($event)' ui-sref-active='active') Examples
-				md-menu-content(ng-click='$mdCloseMenu($event)' width='4')
-					md-menu-item
-						md-button(ui-sref='users') Dynamic Users Table
-					md-menu-item
-						md-button(ui-sref='readerboard') Letters App
-					md-menu-item
-						md-button(ui-sref='canvas') Canvas
-					md-menu-item
-						md-button(ui-sref='svg') SVG
-					md-menu-item
-						md-button(ui-sref='gco') Global Composite Operation
-			md-button#no-pad(ng-hide='!vm.isLogged()' ng-click='vm.logout()') Log Out
-			md-button#no-pad(ng-hide='vm.isLogged()' ng-click='vm.showAdvanced($event)') Sign Up
-			md-button#no-pad(ng-hide='vm.isLogged()' ng-click='vm.showSignIn($event)') Sign In
-			md-button#no-pad(ng-hide='!vm.isLogged()' ng-click='vm.showUpdate($event)') Update Profile
-	
-		md-button#hamburger( ng-click='vm.open()' hide show-xs show-sm)
-			md-icon(md-svg-src='/static/material-design-icons/navigation/svg/production/ic_menu_24px.svg')
+	div.visible(ng-click='vm.toggleHeader()') {{vm.visible}}
+	div.visible-wrapper(ng-show='vm.visible')
+		div.log-wrapper
+			//- a#logo( hide-xs hide-sm href='/')
+			//- 	include coat-of-arms.svg
+			div.welcome(ng-show='vm.isLogged()') Welcome {{vm.session}}
+			//- img(src='/images/code.png')
+			//- ({{vm.user.files}})
+			//- {{vm.userr}}
+			img#profile-pic(ng-hide='!vm.isLogged()' src="{{vm.userr.files}}")
+			//- md-button(hide show-xs ng-hide='!vm.isLogged()' ng-click='vm.logout()') Log Out
+			//- md-button(hide show-xs ng-hide='vm.isLogged()' ng-click='vm.showAdvanced($event)') Sign Up
+			//- md-button(hide show-xs ng-hide='vm.isLogged()' ng-click='vm.showSignIn($event)') Sign In
+			//- md-button(hide show-xs ng-hide='!vm.isLogged()' ng-click='vm.showUpdate($event)') Update Profile
+			//- div(ng-show='vm.isLogged()') you are logged in
+			//- md-button(ng-click='vm.isLogged()') is logged?
+			//- md-button(ng-hide='!vm.isLogged()' ng-click='vm.logout()') Log Out
+			//- md-button(ng-hide='vm.isLogged()' ng-click='vm.showAdvanced($event)') Sign Up
+			//- md-button(ng-hide='vm.isLogged()' ng-click='vm.showSignIn($event)') Sign In
+		div.nav-wrapper
+			md-nav-bar( hide-xs hide-sm   md-selected-nav-item='vm.currentNavItem'  layout='row' layout-align='space-around' layout-fill layout-margin layout-padding) 
+				md-nav-item(  name='home' md-nav-click="goto('home')" ui-sref='home' ui-sref-active='active') Home
+				//- md-nav-item( name='users' md-nav-click="goto('users')" ui-sref='users' ui-sref-active='active') Table Example
+				//- md-nav-item( name='readerboard' md-nav-click="goto('readerboard')" ui-sref='readerboard' ui-sref-active='active') Letter Example
+				md-nav-item#contactMe( name='hireme' md-nav-click="goto('hireme')" ui-sref='hireme' ui-sref-active='active') Contact Me
+				md-nav-item( name='pdf' md-nav-click="goto('pdf')" ui-sref='pdf' ui-sref-active='active') Resume
+				//- md-nav-item( name='canvas' md-nav-click="goto('canvas')" ui-sref='canvas' ui-sref-active='active') Canvas
+				md-menu(md-offset='0 50')
+					md-button(ng-click='$mdOpenMenu($event)' ui-sref-active='active') Examples
+					md-menu-content(ng-click='$mdCloseMenu($event)' width='4')
+						md-menu-item
+							md-button(ui-sref='users') Dynamic Users Table
+						md-menu-item
+							md-button(ui-sref='readerboard') Letters App
+						md-menu-item
+							md-button(ui-sref='canvas') Canvas
+						md-menu-item
+							md-button(ui-sref='svg') SVG
+						md-menu-item
+							md-button(ui-sref='gco') Global Composite Operation
+				md-button#no-pad(ng-hide='!vm.isLogged()' ng-click='vm.logout()') Log Out
+				md-button#no-pad(ng-hide='vm.isLogged()' ng-click='vm.showAdvanced($event)') Sign Up
+				md-button#no-pad(ng-hide='vm.isLogged()' ng-click='vm.showSignIn($event)') Sign In
+				md-button#no-pad(ng-hide='!vm.isLogged()' ng-click='vm.showUpdate($event)') Update Profile
+		
+			md-button#hamburger( ng-click='vm.open()' hide show-xs show-sm)
+				md-icon(md-svg-src='/static/material-design-icons/navigation/svg/production/ic_menu_24px.svg')
 
-		
-				
-				
-		
-		//- {{vm.userlist}}
+			
+					
+					
+			
+	//- {{vm.userlist}}

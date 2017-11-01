@@ -312,6 +312,7 @@ angular.module('api.users', []).factory('AuthService',
             user = false;
            }
            // alert('response'+ JSON.stringify(response));
+           console.log('response data' , response.data)
            return response.data;
         }, function(response) {
            alert(response)

@@ -73,7 +73,7 @@
     "rucksack-css": "^0.8.6",
     "rupture": "^0.6.1",
     "serve-favicon": "latest",
-    "sharp": "^0.18.2",
+    "sharp": "^0.18.4",
     "stylus": "latest",
     "typographic": "^2.9.3",
     "ui-router": "^1.0.0-alpha.3",
@@ -87,6 +87,7 @@
     "karma": "^1.7.1",
     "karma-chrome-launcher": "^2.2.0",
     "karma-firefox-launcher": "^1.0.1",
+    "karma-html-reporter": "^0.2.7",
     "karma-jasmine": "^1.1.0",
     "protractor": "^5.1.2"
   }
