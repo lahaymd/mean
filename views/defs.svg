@@ -1,8 +1,15 @@
-<svg width='0' height='0'>
-		<filter id='blurred'>
-			<feGaussianBlur in="SourceGraphic"  ng-attr-std_deviation='{{vm.sd}}'/>
-		</filter>
+<svg width='0' height='0' >
+<!--           <g id="shape">
+            <circle cx="100" cy="100" r="100" />
+        </g> -->
 	<defs>
+
+        <symbol id="sym" viewBox='0 0 75 75'   preserveAspectRatio=''  >
+          <circle cx="25" cy="25" r="25"/>
+        </symbol>
+    <filter id='blurred'>
+      <feGaussianBlur in="SourceGraphic"  ng-attr-std_deviation='{{vm.sd}}'/>
+    </filter>
       <filter id='money'>
     <feMorphology in='SourceGraphic' operator='dilate' radius='2' result='expand'/>
 

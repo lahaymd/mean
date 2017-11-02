@@ -171,6 +171,7 @@ gulp.task('default', ['browser-sync', 'scripts', 'css'], function () {
   gulp.watch('public/javascripts/**/*.js',   ['bs-reload']);
   gulp.watch('public/stylesheets/**/*.styl',  ['css']);
   gulp.watch('views/**/*.jade', ['jade-watch']);
+  gulp.watch('/**/*.svg');
 });
 
 

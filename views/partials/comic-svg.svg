@@ -1,5 +1,6 @@
 <svg  x="0px" y="0px" viewBox="0 0 960 500" >
 	 <defs width='0' height='0' >
+
 	 	<pattern id='pattern' width='25' height='500' patternUnits='userSpaceOnUse' >
 	<rect fill='green' y="0" class="st0" width="25" height="500"/>
 <g  >
