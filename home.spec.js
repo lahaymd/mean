@@ -10,7 +10,7 @@ describe('angularjs homepage todo list', function() {
     
   })
   it('should add a todo', function() {
-    expect(browser.getTitle()).toEqual('Mike La Hay\'s single page web app');
+    expect(browser.getTitle()).toEqual('mikelahay.com');
   });
   it('should go to resume', function(){
     element(by.id('contactMe')).click();    
