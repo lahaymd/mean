@@ -68,6 +68,10 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
           url: '/canvas',
           component: 'canvasComponent',
           data: {restricted: false}
+        }).state('svg-filter', {
+          url: '/svg-filter',
+          component: 'svgFilterComponent',
+          data: {restricted: false}
         }).
         state('gco', {
           url: '/gco',

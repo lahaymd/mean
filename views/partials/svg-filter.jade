@@ -1,0 +1,18 @@
+input(ng-model='$ctrl.url')
+#grid-img-wrapper
+	//- form.signup( name='myForm1' novalidate  ng-model="myForm1" ng-submit='dialog.updateToMongoLab()')
+	//- 					label(for="files") Pic<br />
+	//- 					input#image(type='file' name="files"  accept="application/x-zip-compressed,image/*" capture='camera' file-input='dialog.updateMe.files' ) 
+	//- 					md-button.md-raised.md-primary(type="submit", value="Create" ) Picture
+
+	
+	//- img.svg-filter(src='images/wrigley.jpeg' )
+	//- img.svg-filter#son-of-sam(src='images/wrigley.jpeg' style='width: 500; height: auto')
+	//- img.svg-filter#deicide(src='images/wrigley.jpeg' style='width: 500; height: auto')
+	//- img.svg-filter#green-channel(src='images/wrigley.jpeg' style='width: 500; height: auto')
+	img.svg-filter(src='{{$ctrl.url}}' )
+	img.svg-filter#son-of-sam(src='{{$ctrl.url}}' )
+	img.svg-filter#deicide(src='{{$ctrl.url}}' )
+	img.svg-filter#green-eggs-and-sam(src='{{$ctrl.url}}' )
+	img.svg-filter#green-channel(src='{{$ctrl.url}}' )
+	img.svg-filter#invert(src='{{$ctrl.url}}' )

@@ -26,7 +26,8 @@ angular.module('api.users', []).factory('AuthService',
       getSession: getSession,
       showToast: showToast,
       getUser: getUser,
-      findUppercase: findUppercase
+      findUppercase: findUppercase,
+      uploadImg: uploadImg
     };
 
     return service;
@@ -54,6 +55,45 @@ angular.module('api.users', []).factory('AuthService',
         }, function(response){
           // alert(response)
         })
+    }
+
+    function uploadImg(files){
+      
+      var fd = new FormData();
+
+      if(files !== undefined) {
+          
+        fd.append('files', files[0]);
+      }
+      console.log('ffiless',files)
+
+
+      return $http.post('/api/mongolab', fd , 
+          {
+            transformRequest: angular.identity,
+            headers: {'Content-Type': undefined}
+          }
+
+        )
+        // handle success
+         .then(function(response) {
+          // console.log('response', response)
+          // console.log('responSE.data', response.data)
+          // alert('factory posttomongolab response' + JSON.stringify(response))
+          // alert('factory posttomongolab response.data' +response.data)
+           //  if(response.data == "" || response.data == 'this names taken') {
+           //    alert('already in db')
+           //  } else {
+
+           // user = true;
+           //  }
+           return response.data;
+        }, function(response) {
+          // console.log(response)
+          // alert('error from factory posttomongolab ' + response.data)
+        })
+
+
     }
 
     function updateMongoLab(fuck, shit, files) {
