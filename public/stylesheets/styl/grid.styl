@@ -8,7 +8,26 @@ md-toast.md-success-toast-theme .md-toast-content {
   background-color: green;
 }
 
+.grid-wrapper
+	display grid
+	min-height 100vh
+	grid-template-columns 1fr 1fr 1fr
+	grid-template-rows auto 1fr auto
+	grid-template-areas "header header header" "view view view" "footer footer footer"
+	// grid-gap 0 20px
+	
+.grid-header
+	grid-area header
 
+	
+.grid-footer
+	grid-area footer
+	
+.grid-view
+	grid-area view
+	
+.grid-sidenav
+	grid-area sidenav
 
 .test
 	color blue
@@ -17,6 +36,7 @@ md-toast.md-success-toast-theme .md-toast-content {
 		color red
 	.grid-wrapper
 		display grid
+		min-height 100vh
 		grid-template-columns 1fr 1fr 1fr
 		grid-template-rows auto 1fr auto
 		grid-template-areas "header header header" "view view view" "footer footer footer"

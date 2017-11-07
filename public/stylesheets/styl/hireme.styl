@@ -6,11 +6,12 @@
 	
 
 #grid-img-wrapper
+	// height 100vh
 	display grid
-	grid-template-columns: 33% 33% 33%;
-	// grid-template-rows: 80px auto 80px;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 50% 1fr;
 	grid-column-gap: 10px;
-	grid-row-gap: 15px;
+	grid-row-gap: 10px;
 	&:before, :after
 		display none
 	& img

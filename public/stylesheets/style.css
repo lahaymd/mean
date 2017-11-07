@@ -187,6 +187,25 @@ canvas-directive {
 md-toast.md-success-toast-theme .md-toast-content {
   background-color: #2ecc40;
 }
+.grid-wrapper {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "header header header" "view view view" "footer footer footer";
+}
+.grid-header {
+  grid-area: header;
+}
+.grid-footer {
+  grid-area: footer;
+}
+.grid-view {
+  grid-area: view;
+}
+.grid-sidenav {
+  grid-area: sidenav;
+}
 .test {
   color: #0074d9;
 }
@@ -196,6 +215,7 @@ md-toast.md-success-toast-theme .md-toast-content {
   }
   .grid-wrapper {
     display: grid;
+    min-height: 100vh;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto 1fr auto;
     grid-template-areas: "header header header" "view view view" "footer footer footer";
@@ -377,9 +397,10 @@ md-toast.md-success-toast-theme .md-toast-content {
 }
 #grid-img-wrapper {
   display: grid;
-  grid-template-columns: 33% 33% 33%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 50% 1fr;
   grid-column-gap: 10px;
-  grid-row-gap: 15px;
+  grid-row-gap: 10px;
 }
 #grid-img-wrapper:before,
 #grid-img-wrapper :after {
@@ -1802,6 +1823,25 @@ ul {
 md-toast.md-success-toast-theme .md-toast-content {
   background-color: #2ecc40;
 }
+.grid-wrapper {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "header header header" "view view view" "footer footer footer";
+}
+.grid-header {
+  grid-area: header;
+}
+.grid-footer {
+  grid-area: footer;
+}
+.grid-view {
+  grid-area: view;
+}
+.grid-sidenav {
+  grid-area: sidenav;
+}
 .test {
   color: #0074d9;
 }
@@ -1811,6 +1851,7 @@ md-toast.md-success-toast-theme .md-toast-content {
   }
   .grid-wrapper {
     display: grid;
+    min-height: 100vh;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto 1fr auto;
     grid-template-areas: "header header header" "view view view" "footer footer footer";
