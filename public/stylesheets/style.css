@@ -406,16 +406,29 @@ md-toast.md-success-toast-theme .md-toast-content {
 #grid-img-wrapper :after {
   display: none;
 }
-#grid-img-wrapper img {
+#grid-img-wrapper img,
+#grid-img-wrapper svg {
   width: 100%;
 }
 #gel-wrapper #gel {
   -webkit-filter: url("#convolve");
           filter: url("#convolve");
 }
+.hover {
+  -webkit-animation: translateMe 5s ease-in alternate infinite;
+  animation: translateMe 5s ease-in alternate infinite;
+}
 #son-of-sam {
   -webkit-filter: url("#son-of-sam");
           filter: url("#son-of-sam");
+}
+#son-of-jake {
+  -webkit-filter: url("#son-of-jake");
+          filter: url("#son-of-jake");
+}
+#son-of-jake-inverted {
+  -webkit-filter: url("#son-of-jake-inverted");
+          filter: url("#son-of-jake-inverted");
 }
 #deicide {
   -webkit-filter: url("#deicide");
@@ -456,6 +469,26 @@ md-input-container {
 }
 .red-stroke {
   stroke: #d13f19;
+}
+@-webkit-keyframes translateMe {
+  0% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+  100% {
+    -webkit-transform: translate(500px);
+    transform: translate(500px);
+  }
+}
+@keyframes translateMe {
+  0% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+  100% {
+    -webkit-transform: translate(500px);
+    transform: translate(500px);
+  }
 }
 @-webkit-keyframes stroke-width {
   50% {

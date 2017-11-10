@@ -41,6 +41,8 @@ div.headercontroller.grid-header( ng-controller='NavController as vm')
 						md-menu-item
 							md-button(ui-sref='svg') SVG
 						md-menu-item
+							md-button(ui-sref='svg-filter') SVG Filters
+						md-menu-item
 							md-button(ui-sref='gco') Global Composite Operation
 				md-button#no-pad(ng-hide='!vm.isLogged()' ng-click='vm.logout()') Log Out
 				md-button#no-pad(ng-hide='vm.isLogged()' ng-click='vm.showAdvanced($event)') Sign Up

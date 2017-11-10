@@ -8,7 +8,81 @@
           <circle cx="25" cy="25" r="25"/>
         </symbol>
 
+
+    <mask id="mask4">
+      <image xlink:href='images/cooper.png' style="width:500; height:300;" filter='url(#son-of-jake)'  />
+      </mask> 
+
+      <mask id="mask5">
+    <image class='my-scale' xlink:href='images/cooper.png' style="width:500; height:300;" filter='url(#son-of-jake-inverted)'  />
+      </mask>
+
+
+
+      <filter id='son-of-jake' color-interpolation-filters="sRGB">
+
+        <feComponentTransfer>
+          <feFuncR type='discrete' tableValues='1 1'/>
+          <feFuncG type='discrete' tableValues='0 1'/>
+          <feFuncB type='discrete' tableValues='0 0'/>
+        </feComponentTransfer>  
+          
+                <feColorMatrix  type="hueRotate" values="180" />
+
+        <feComponentTransfer>
+          <feFuncR type='discrete' tableValues='0 1'/>
+          <feFuncG type='discrete' tableValues='0 1'/>
+          <feFuncB type='discrete' tableValues='0 1'/>
+        </feComponentTransfer>
+
+      </filter>
+
+
+      <filter id='son-of-jake-inverted' color-interpolation-filters="sRGB">
+
+        <feComponentTransfer>
+          <feFuncR type='discrete' tableValues='1 1'/>
+          <feFuncG type='discrete' tableValues='0 1'/>
+          <feFuncB type='discrete' tableValues='0 0'/>
+        </feComponentTransfer>  
+          
+                <feColorMatrix  type="hueRotate" values="180" />
+
+        <feComponentTransfer>
+          <feFuncR type='discrete' tableValues='1 0'/>
+          <feFuncG type='discrete' tableValues='1 0'/>
+          <feFuncB type='discrete' tableValues='1 0'/>
+        </feComponentTransfer>
+
+                <!-- <feColorMatrix  type="hueRotate" values="180" /> -->
+        
+
+      </filter>
+
           <filter id='green-channel' color-interpolation-filters="sRGB">
+
+        <feComponentTransfer>
+          <feFuncR type='discrete' tableValues='0 1'/>
+          <feFuncG type='discrete' tableValues='1 1'/>
+          <feFuncB type='discrete' tableValues='0 0'/>
+        </feComponentTransfer>  
+          
+                <feColorMatrix  type="hueRotate" values="180" />
+        
+        <feComponentTransfer>
+          <feFuncR type='discrete' tableValues='0 0'/>
+          <feFuncG type='discrete' tableValues='1 0'/>
+          <feFuncB type='discrete' tableValues='0 0'/>
+        </feComponentTransfer>
+
+        <feColorMatrix type='matrix' 
+          values='1 0 0 0 0
+                          -1 1 0 0 0 
+                          0 0 1 0 0
+                          0 0 0 1 0'/>
+
+     
+      </filter>    <filter id='green-channel-inverse' color-interpolation-filters="sRGB">
 
         <feComponentTransfer>
           <feFuncR type='discrete' tableValues='0 1'/>

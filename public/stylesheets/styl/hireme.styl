@@ -14,7 +14,7 @@
 	grid-row-gap: 10px;
 	&:before, :after
 		display none
-	& img
+	& img, svg
 		width 100%
 	
 #gel-wrapper #gel
@@ -25,9 +25,27 @@
 // 	bottom 0
 // 	right 0 
 // 	left 0
+
+		.hover {
+			animation: translateMe 5s ease-in alternate infinite;
+			
+		}
+		
+
+		@keyframes translateMe {
+			0% {transform: translate(0)}
+			100% {transform: translate(500px)}
+		}
+
 #son-of-sam
 	filter url(#son-of-sam)
-
+		
+#son-of-jake
+	filter url(#son-of-jake)
+		
+#son-of-jake-inverted
+	filter url(#son-of-jake-inverted)
+		
 #deicide
 	filter url(#deicide)
 		
