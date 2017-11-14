@@ -113,7 +113,7 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
           url: '/readerboard',
           templateUrl: '/partials/readerboard',
           controller: 'ReaderboardController',
-           data: {restricted: true},
+           data: {restricted: false},
           controllerAs: 'vm'
 
         }).
