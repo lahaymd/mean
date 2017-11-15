@@ -9,7 +9,10 @@
   	</linearGradient>
 
 
-    <pattern  id="Triangle"  width="10" height="10" patternUnits="userSpaceOnUse">
+
+ 
+
+  <pattern  id="Triangle"  width="10" height="10" patternUnits="userSpaceOnUse">
       <polygon fill-opacity="0.25" fill='url(#grad)'  points="5,0 10,10 0,10"/>
 	</pattern>
   </defs>
