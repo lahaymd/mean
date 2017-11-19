@@ -257,6 +257,23 @@ md-toast.md-success-toast-theme .md-toast-content {
     -ms-flex-item-align: center;
   }
 }
+.svg-2.morph path {
+  d: path("M2,8 L5,2 L8,8");
+}
+.svg-2 path {
+  fill: none;
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.container {
+  width: 38px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
 .visible-wrapper {
   -webkit-transition: all linear 0.5s;
   -webkit-transition: all linear 0.5s;
@@ -608,8 +625,8 @@ md-input-container {
 }
 #banner-svg {
   position: absolute;
-  -webkit-filter: url("#MyFilter") url("#turb");
-          filter: url("#MyFilter") url("#turb");
+  -webkit-filter: url("#MyFilter");
+          filter: url("#MyFilter");
 }
 .banner-text {
   text-align: center;
@@ -950,24 +967,12 @@ object {
     height: 100%;
   }
 }
-md-checkbox {
-  background-color: #d13f19;
-  position: fixed !important;
-  opacity: 0.3;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
-  filter: alpha(opacity=30);
-  top: 0;
-  height: 60px;
-  width: 300px;
-  z-index: 999;
-  left: 30vw;
-}
 #textarea-container {
   position: fixed;
   z-index: 1000;
   width: 30vw;
   left: 0;
-  top: 0px;
+  top: 120px;
   height: 100vh;
   background-color: #808080;
 }
@@ -1005,10 +1010,6 @@ md-checkbox {
   width: 70vw;
   margin-left: 30vw;
   height: 50vh;
-  border-style: solid;
-  -o-border-image: repeating-linear-gradient(45deg, #ffc0cb, #2ecc40 1%, #b10dc9 1%, #d13f19 8%) 20;
-     border-image: -webkit-repeating-linear-gradient(45deg, #ffc0cb, #2ecc40 1%, #b10dc9 1%, #d13f19 8%) 20;
-     border-image: repeating-linear-gradient(45deg, #ffc0cb, #2ecc40 1%, #b10dc9 1%, #d13f19 8%) 20;
   background-color: rgba(255,154,153,0.4);
   border-width: 10px;
 }
@@ -1017,9 +1018,6 @@ md-checkbox {
   margin-left: 30vw;
   height: 50vh;
   background-color: rgba(255,0,255,0.3);
-  border: 10px solid #fff;
-  -o-border-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'><defs><linearGradient id='redgradient'><stop offset='0' stop-color='%23FFC14D'/><stop offset='0.362' stop-color='%23FF4834'/><stop offset='1' stop-color='%233B0300'/></linearGradient></defs><g id='Layer_1'><path d='M0,0 L50,0 L50,50 L0,50 L0,0 z' ='url(%23redgradient)' width='100%' height='100%'/></g></svg>") 10% stretch;
-  border-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50'><defs><linearGradient id='redgradient'><stop offset='0' stop-color='%23FFC14D'/><stop offset='0.362' stop-color='%23FF4834'/><stop offset='1' stop-color='%233B0300'/></linearGradient></defs><g id='Layer_1'><path d='M0,0 L50,0 L50,50 L0,50 L0,0 z' fill='url(%23redgradient)' width='100%' height='100%'/></g></svg>") 10% stretch;
 }
 #combine {
   color: #fa8072;

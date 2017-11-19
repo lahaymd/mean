@@ -3,7 +3,7 @@ div.headercontroller.grid-header( ng-controller='NavController as vm')
 	//- div.visible(ng-click='vm.toggleHeader()') 
 	//- svg.visible(ng-click='vm.toggleHeader()' width='50' height='50' hide-xs hide-sm )
 	//- 	use(xlink:href='#sym'  style='stroke: red'  )
-	div.visible-wrapper(ng-show='vm.visible')
+	div.visible-wrapper(ng-show='vm.visible' ng-hide='!vm.toggled')
 		div.log-wrapper
 			//- a#logo( hide-xs hide-sm href='/')
 			//- 	include coat-of-arms.svg
@@ -24,8 +24,7 @@ div.headercontroller.grid-header( ng-controller='NavController as vm')
 		div.nav-wrapper
 			md-nav-bar( hide-xs hide-sm   md-selected-nav-item='vm.currentNavItem'  layout='row' layout-align='space-around' layout-fill layout-margin layout-padding) 
 				md-nav-item(  name='home' md-nav-click="goto('home')" ui-sref='home' ui-sref-active='active') Home
-				//- md-nav-item( name='users' md-nav-click="goto('users')" ui-sref='users' ui-sref-active='active') Table Example
-				//- md-nav-item( name='readerboard' md-nav-click="goto('readerboard')" ui-sref='readerboard' ui-sref-active='active') Letter Example
+						
 				md-nav-item#contactMe( name='hireme' md-nav-click="goto('hireme')" ui-sref='hireme' ui-sref-active='active') Contact Me
 				md-nav-item( name='pdf' md-nav-click="goto('pdf')" ui-sref='pdf' ui-sref-active='active') Resume
 				//- md-nav-item( name='canvas' md-nav-click="goto('canvas')" ui-sref='canvas' ui-sref-active='active') Canvas
@@ -48,9 +47,12 @@ div.headercontroller.grid-header( ng-controller='NavController as vm')
 				md-button#no-pad(ng-hide='vm.isLogged()' ng-click='vm.showAdvanced($event)') Sign Up
 				md-button#no-pad(ng-hide='vm.isLogged()' ng-click='vm.showSignIn($event)') Sign In
 				md-button#no-pad(ng-hide='!vm.isLogged()' ng-click='vm.showUpdate($event)') Update Profile
-		
+
 			md-button#hamburger( ng-click='vm.open()' hide show-xs show-sm)
 				md-icon(md-svg-src='/static/material-design-icons/navigation/svg/production/ic_menu_24px.svg')
+	div(class="container" ng-click='vm.toggleHead()' hide-xs hide-sm)
+		svg( viewBox="0 0 10 10" class="svg-2")
+			path(d=" M2,2 L5,8 L8,2")
 
 			
 					

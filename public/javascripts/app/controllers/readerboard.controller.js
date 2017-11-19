@@ -40,28 +40,28 @@
       //   angular.element(document.querySelector('.headercontroller')).removeClass('hideme')
       // }
 
-        angular.element(document.querySelector('#topid')).addClass('hideme')
-        angular.element(document.querySelector('foot')).addClass('hideme')
-        angular.element(document.querySelector('.headercontroller')).addClass('hideme')
-      vm.yana = true;
-      vm. toggleElements = 'show'
-      vm.toggleHeaderAndFooter = ()=> {
-        if(vm.yana){
-        vm. toggleElements = 'show'
+      //   angular.element(document.querySelector('#topid')).addClass('hideme')
+      //   angular.element(document.querySelector('foot')).addClass('hideme')
+      //   angular.element(document.querySelector('.headercontroller')).addClass('hideme')
+      // vm.yana = true;
+      // vm. toggleElements = 'show'
+      // vm.toggleHeaderAndFooter = ()=> {
+      //   if(vm.yana){
+      //   vm. toggleElements = 'show'
 
-        angular.element(document.querySelector('.headercontroller')).addClass('hideme')
-        angular.element(document.querySelector('#topid')).addClass('hideme')
-        angular.element(document.querySelector('foot')).addClass('hideme')
-        } else {
+      //   angular.element(document.querySelector('.headercontroller')).addClass('hideme')
+      //   angular.element(document.querySelector('#topid')).addClass('hideme')
+      //   angular.element(document.querySelector('foot')).addClass('hideme')
+      //   } else {
 
-        vm. toggleElements = 'hide'
-        // angular.element(document.querySelector('#topid')).removeClass('hideme')
-        // angular.element(document.querySelector('foot')).removeClass('hideme')
-        angular.element(document.querySelector('.headercontroller')).removeClass('hideme') 
-        }
+      //   vm. toggleElements = 'hide'
+      //   // angular.element(document.querySelector('#topid')).removeClass('hideme')
+      //   // angular.element(document.querySelector('foot')).removeClass('hideme')
+      //   angular.element(document.querySelector('.headercontroller')).removeClass('hideme') 
+      //   }
 
 
-      }
+      // }
 
    
       vm.areaOne = function(one,two) {

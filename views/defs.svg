@@ -2,7 +2,19 @@
 <!--           <g id="shape">
             <circle cx="100" cy="100" r="100" />
         </g> -->
-	<defs>
+    <style type="text/css">
+  .st0{fill:#FFFF00;}
+  .st1{fill:none;stroke:#000000;stroke-width:4;stroke-miterlimit:10;}
+  .st2{fill:#00FFFF;stroke:#000000;stroke-width:4;stroke-miterlimit:10;}
+</style>
+  <defs>
+
+<symbol id="XMLID_1_" viewBox='0 0 100 100'>
+  <path id="XMLID_14_" class="st0" d="M50,94C25.7,94,6,74.3,6,50S25.7,6,50,6s44,19.7,44,44S74.3,94,50,94z"/>
+  <path id="XMLID_13_" class="st1" d="M50,94C25.7,94,6,74.3,6,50S25.7,6,50,6s44,19.7,44,44S74.3,94,50,94z"/>
+<polygon id="XMLID_2_" class="st2" points="50,8.2 62.3,33.1 89.7,37.1 69.9,56.5 74.5,83.8 50,70.9 25.5,83.8 30.1,56.5 10.3,37.1 
+  37.7,33.1 "/>
+</symbol>
 
         <symbol id="sym" viewBox='0 0 75 75'   preserveAspectRatio=''  >
           <circle cx="25" cy="25" r="25"/>
