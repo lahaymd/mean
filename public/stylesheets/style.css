@@ -268,7 +268,7 @@ md-toast.md-success-toast-theme .md-toast-content {
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
-.container {
+.arrow-container {
   width: 38px;
   position: absolute;
   right: 20px;

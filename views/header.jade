@@ -3,7 +3,7 @@ div.headercontroller.grid-header( ng-controller='NavController as vm')
 	//- div.visible(ng-click='vm.toggleHeader()') 
 	//- svg.visible(ng-click='vm.toggleHeader()' width='50' height='50' hide-xs hide-sm )
 	//- 	use(xlink:href='#sym'  style='stroke: red'  )
-	div.visible-wrapper(ng-show='vm.visible' ng-hide='!vm.toggled')
+	div.visible-wrapper(ng-show='vm.visible' ng-hide='!vm.toggledme')
 		div.log-wrapper
 			//- a#logo( hide-xs hide-sm href='/')
 			//- 	include coat-of-arms.svg
@@ -47,15 +47,8 @@ div.headercontroller.grid-header( ng-controller='NavController as vm')
 				md-button#no-pad(ng-hide='vm.isLogged()' ng-click='vm.showAdvanced($event)') Sign Up
 				md-button#no-pad(ng-hide='vm.isLogged()' ng-click='vm.showSignIn($event)') Sign In
 				md-button#no-pad(ng-hide='!vm.isLogged()' ng-click='vm.showUpdate($event)') Update Profile
-
 			md-button#hamburger( ng-click='vm.open()' hide show-xs show-sm)
 				md-icon(md-svg-src='/static/material-design-icons/navigation/svg/production/ic_menu_24px.svg')
-	div(class="container" ng-click='vm.toggleHead()' hide-xs hide-sm)
+	div(class="arrow-container" ng-click='vm.toggleHead()' hide-xs hide-sm)
 		svg( viewBox="0 0 10 10" class="svg-2")
 			path(d=" M2,2 L5,8 L8,2")
-
-			
-					
-					
-			
-	//- {{vm.userlist}}

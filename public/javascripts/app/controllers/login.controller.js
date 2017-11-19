@@ -3,20 +3,22 @@
 		controller('NavController', ['$transitions','$mdSidenav', '$location', 'AuthService', '$mdDialog',  function($transitions,$mdSidenav, $location, AuthService, $mdDialog) {
 			var vm = this;
 			vm.userlist;
-			vm.toggled = true
+			vm.toggledme = true;
 			vm.toggleHead = ()=>  {
-				vm.toggled == true ? vm.toggled = false : vm.toggled = true;
+				// vm.toggled == true ? vm.toggled = false : vm.toggled = true;
 				var svg2 = document.querySelector('.svg-2');
-				var textContainer = document.querySelector('#textarea-container')
-				if(vm.toggled === true) {
-					textContainer.style.top = '120px'
+				var textContainer = document.querySelector('#textarea-container');
+				if(vm.toggledme === true) {
+					// textContainer.style.top = '120px'
 					svg2.classList.remove('morph')	
+					vm.toggledme = false;
 				} else {
 					setTimeout(function(){
 
-					textContainer.style.top = '0px'
+					// textContainer.style.top = '0px'
 					}, 500)
 					svg2.classList.add('morph')	
+					vm.toggledme = true;
 				}
 
 			}
@@ -214,7 +216,9 @@ $transitions.onSuccess({to:'*'}, function(trans,state,foo){
 })
 	
 		vm.open= function() {
+	
 			$mdSidenav('left').toggle();
+		
 			}
 		
 	}]).
