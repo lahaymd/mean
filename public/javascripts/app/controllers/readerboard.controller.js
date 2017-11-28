@@ -21,8 +21,7 @@
     </md-list>
   </div>
 </md-bottom-sheet>`
-      // templateUrl: 'bottom-sheet-list-template.html',
-      // controller: 'ListBottomSheetCtrl'
+
     }).then(function(clickedItem) {
       // $scope.alert = clickedItem['name'] + ' clicked!';
     }).catch(function(error) {
@@ -30,40 +29,7 @@
     });
   };
 
-      // vm.focused = function(){
-      //     console.log('focused')
-      //     angular.element(document.querySelector('.headercontroller')).addClass('hideme')
-      // }
 
-      // vm.blurred = ()=> {
-      //   console.log('blurred')
-      //   angular.element(document.querySelector('.headercontroller')).removeClass('hideme')
-      // }
-
-      //   angular.element(document.querySelector('#topid')).addClass('hideme')
-      //   angular.element(document.querySelector('foot')).addClass('hideme')
-      //   angular.element(document.querySelector('.headercontroller')).addClass('hideme')
-      // vm.yana = true;
-      // vm. toggleElements = 'show'
-      // vm.toggleHeaderAndFooter = ()=> {
-      //   if(vm.yana){
-      //   vm. toggleElements = 'show'
-
-      //   angular.element(document.querySelector('.headercontroller')).addClass('hideme')
-      //   angular.element(document.querySelector('#topid')).addClass('hideme')
-      //   angular.element(document.querySelector('foot')).addClass('hideme')
-      //   } else {
-
-      //   vm. toggleElements = 'hide'
-      //   // angular.element(document.querySelector('#topid')).removeClass('hideme')
-      //   // angular.element(document.querySelector('foot')).removeClass('hideme')
-      //   angular.element(document.querySelector('.headercontroller')).removeClass('hideme') 
-      //   }
-
-
-      // }
-
-   
       vm.areaOne = function(one,two) {
 
         var foo = function(x){
@@ -160,70 +126,51 @@
         }
 
       
-  //       vm.qs = () => {
 
-  //       var getWidth = document.querySelector('.d3').getBoundingClientRect();
-  //       width = getWidth.width;
-  //       var getheight = document.querySelector('.d3').getBoundingClientRect();
-  //       height = getheight.height;
-  //       alert(width)
-  // }
-        // var width = getBBWidth.width;
-        // var height = getBBWidth.height;
         var width = $window.innerWidth;
         console.log(width)
         var height = $window.innerHeight;
         var margin = 40;
-
-        // var svg = d3.select(".d3-attach").insert("svg",":first-child")
         var svg = d3.select("#bubble-chart")
-                  // .attr("class", 'd3')
-                  .attr("viewBox", "0 0 " + width + " " + height )
-            .attr("preserveAspectRatio", "xMidYMid meet")
-            // .style('background-color', 'red')
-                                     // .attr("width", width + margin + margin) 
-                                     // .attr("height", height + margin + margin)
-                                     // .style('width' ,'75vw')
-                                     // .style('height', '75vh')
-                                     console.log('svg', svg)
-                                     svg.selectAll('g').remove()
-                                     console.log('svg', svg)
-                                    
-                                    var g = svg.append('g')
-                                     .attr('transform', 'translate(' +width/2 +','+ height/2 +')')
-                                     .attr('class', 'foo')
-                                     .style('background-color', 'purple')
+                    .attr("viewBox", "0 0 " + width + " " + height )
+                    .attr("preserveAspectRatio", "xMidYMid meet")
 
-                 var radii = vm.results.map(function(item) {return Math.abs(item[1])})
-                 var color = d3.scaleOrdinal(d3.schemeCategory20);
-                 const negColor =d3.scaleOrdinal(d3.schemeCategory20b)
+         console.log('svg', svg)
+         svg.selectAll('g').remove()
+         var g = svg.append('g')
+                    .attr('transform', 'translate(' +width/2 +','+ height/2 +')')
+                    .attr('class', 'foo')
+                    .style('background-color', 'purple')
 
-                 var rscale = d3.scaleLinear().domain([1,d3.max(radii)]).range([10,50])
-                  console.log(d3.max(radii))
+         var radii = vm.results.map(function(item) {return Math.abs(item[1])})
+         var color = d3.scaleOrdinal(d3.schemeCategory20);
+         const negColor =d3.scaleOrdinal(d3.schemeCategory20b)
+         var rscale = d3.scaleLinear().domain([1,d3.max(radii)]).range([10,50])
+                  console.log('rscale ',d3.max(radii))
                   console.log(radii)
                   console.log(d3.min(radii))
                   console.log(rscale(10))
                   console.log(rscale(-10))
                   console.log(rscale(Math.abs(-10)))
                   
+          var simulation = d3.forceSimulation()
+            .force('x', d3.forceX(width/2).strength(.92))
+            .force('y', d3.forceY(width/2).strength(.92) )
+            // .velocityDecay(.4)
+            // .alphaTarget(.2)
+            .force('collide', d3.forceCollide(function(d){
+              // alert(d)
+              // console.log('d' + d3.max(vm.results,function(d) {return d[1]}))
+              // console.log(rscale(d));
+              return rscale(Math.abs(d[1])) +2;
+            }).iterations(16))
+            .force("center", d3.forceCenter())
+           
+            // .force("charge", d3.forceManyBody().strength([400])) 
+            // .force("link", d3.forceLink())
+            // .force("charge", d3.forceManyBody(50))
 
 
-                                    var simulation = d3.forceSimulation()
-                                      .force('x', d3.forceX(width/2).strength(.92))
-                                      .force('y', d3.forceY(width/2).strength(.92) )
-             //                         .velocityDecay(.4)
-                      // .alphaTarget(.2)
-                                      .force('collide', d3.forceCollide(function(d){
-                                        // alert(d)
-                                        // console.log('d' + d3.max(vm.results,function(d) {return d[1]}))
-                                        // console.log(rscale(d));
-                                        return rscale(Math.abs(d[1])) +2;
-                                      }).iterations(16))
-                                      .force("center", d3.forceCenter())
-                                     
-                                      // .force("charge", d3.forceManyBody().strength([400])) 
-                                      // .force("link", d3.forceLink())
-                                      // .force("charge", d3.forceManyBody(50))
 
                  
                     var circles = g.selectAll('circle')
@@ -239,11 +186,12 @@ console.log('circles', circles)
                             .append('circle')
                             .attr('class', 'thesvgid')
                             .attr('fill', function(d){
-                              if(d[1] < 0) {return negColor(d[1])} else {
+                              if(d[1] < 0) {return 'url(#myGradient)'} else {
 
                              return color(d[1]);
                               }
                             })
+                            // .attr('filter', d => 'url(#son-of-sam)')
                             .style('opacity', function(d){
                               if(d[1]===0) {return 0;} else{
                                 return 1;
@@ -258,7 +206,8 @@ console.log('circles', circles)
                             .call(d3.drag()
                 .on("start", dragstarted)
                 .on("drag", dragged)
-                .on("end", dragended));  
+                .on("end", dragended)); 
+
 
 
                         //    circlesEnter.transition()

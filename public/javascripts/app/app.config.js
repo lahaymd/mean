@@ -78,6 +78,12 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
            data: {restricted: false},
           component: 'gcoComponent'
         }).
+        state('dashboard', {
+          url: '/dashboard',
+          // templateUrl: '/partials/dashboard',
+          component: 'dashboardComponent',
+           data: {restricted: false}
+        }).
         state('svg', {
           url: '/svg',
           component: 'svgComponent',
@@ -116,7 +122,7 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
            data: {restricted: false},
           controllerAs: 'vm'
 
-        }).
+        }).        
         state('pdf', {
           url: '/pdf',
           templateUrl: '/partials/pdf' ,
