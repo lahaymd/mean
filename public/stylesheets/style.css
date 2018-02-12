@@ -52,12 +52,6 @@
   -webkit-animation: dash 1s linear 1s forwards;
   animation: dash 1s linear 1s forwards;
 }
-.bar {
-  fill: #4682b4;
-}
-.bar:hover {
-  fill: #a52a2a;
-}
 .axis--x path {
   display: none;
 }
@@ -966,6 +960,18 @@ object {
   object {
     height: 100%;
   }
+}
+.enter {
+  fill: #2ecc40;
+}
+.update {
+  fill: #333;
+}
+.exit {
+  fill: #a52a2a;
+}
+.barf {
+  fill: #ffc0cb;
 }
 #textarea-container {
   position: fixed;

@@ -8,6 +8,16 @@
   .st2{fill:#00FFFF;stroke:#000000;stroke-width:4;stroke-miterlimit:10;}
 </style>
   <defs>
+      <linearGradient id='myGradient'>
+           <stop offset="0%"  stop-color="lime"/>
+                   <stop offset="50%" stop-color="white"/>
+                   <stop offset="75%" stop-color="black"/>
+                   <stop offset="100%" stop-color="red"/>
+         </linearGradient>
+
+        <pattern  id="Triangle"  width="10" height="10" patternUnits="userSpaceOnUse">
+          <polygon fill-opacity="0.25" fill='blue'  points="5,0 10,10 0,10"/>
+     </pattern>
 
 <symbol id="XMLID_1_" viewBox='0 0 100 100'>
   <path id="XMLID_14_" class="st0" d="M50,94C25.7,94,6,74.3,6,50S25.7,6,50,6s44,19.7,44,44S74.3,94,50,94z"/>
