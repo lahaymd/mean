@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 
-<svg
+<svg:svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -18,10 +17,10 @@
    style="enable-background:new 0 0 135.3 157.6;"
    xml:space="preserve"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="hexagons.svg"><metadata
+   sodipodi:docname="hexagons.svg"><svg:metadata
      id="metadata4153"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><sodipodi:namedview
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></svg:metadata><sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1"
@@ -31,66 +30,53 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1280"
-     inkscape:window-height="751"
+     inkscape:window-height="773"
      id="namedview4151"
      showgrid="false"
      inkscape:zoom="2.7982479"
-     inkscape:cx="67.40027"
-     inkscape:cy="83.261777"
+     inkscape:cx="-26.944481"
+     inkscape:cy="97.556436"
      inkscape:window-x="0"
      inkscape:window-y="1"
      inkscape:window-maximized="1"
-     inkscape:current-layer="Layer_1" /><style
+     inkscape:current-layer="Layer_1" /><svg:style
      type="text/css"
      id="style4137">
-   <!--   #XMLID_1_, #XMLID_3_, #XMLID_4_
-     {
-	
-		animation: rotation 2s infinite linear;
-
- }
-@keyframes rotation {
-		from {
-				transform: rotate(0deg);
-		}
-		to {
-				transform: rotate(359deg);
-		}
-} -->
-
-    
 	.st0{fill:none;stroke:#9966CC;stroke-width:16;stroke-miterlimit:10;}
 	.st1{fill:none;stroke:#9966CC;stroke-width:8;stroke-miterlimit:10;}
-</style><defs
-     id="defs4139"><circle
-       id="c"
-       cx="80"
-       cy="100"
-       r="50"
-       style="fill:yellow" /><filter
-       id="f"><feImage
-         xlink:href="#c"
-         result="c"
-         id="feImage4155" /><feImage
+</svg:style><svg:defs
+     id="defs4139"><inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 78.8 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="135.3 : 78.8 : 1"
+       inkscape:persp3d-origin="67.65 : 52.533333 : 1"
+       id="perspective8087" /><svg:filter
+       id="f"><svg:feImage
          xlink:href="./cooper.png"
          result="img"
-         id="feImage4142" /><feComposite
-         in="SourceGraphic"
-         in2="c"
-         id="feComposite4144"
-         operator="xor" /></filter></defs><g
+         id="feImage4142"><svg:feComposite
+           in="SourceGraphic"
+           in2="img"
+           id="feComposite4144"
+           operator="xor" /></svg:feImage><feImage
+         result="image"
+         xlink:href="#i" /></svg:filter><circle
+       cx="200"
+       cy="200"
+       r="200" /></svg:defs><svg:g
      id="g4146"
      transform="matrix(1.0440724,0,0,0.97147805,3.0846756,-4.0180397)"
-     style="filter:url(#f)"><polygon
+     style="filter:url(#f)"><svg:polygon
        id="XMLID_1_"
        class="st0"
        points="84.2,8 109.2,51.5 84.2,95 34.2,95 9.2,51.5 34.2,8 "
-       style="fill:none;stroke:green;stroke-width:16;stroke-miterlimit:10" /><polygon
+       style="fill:none;stroke:#9966cc;stroke-width:16;stroke-miterlimit:10" /><svg:polygon
        id="XMLID_3_"
        class="st1"
        points="130.9,136.7 111.9,153.1 88.2,144.9 83.5,120.3 102.5,103.9 126.2,112.1 "
-       style="fill:none;stroke:#9966cc;stroke-width:8;stroke-miterlimit:10" /><polygon
+       style="fill:none;stroke:#9966cc;stroke-width:8;stroke-miterlimit:10" /><svg:polygon
        id="XMLID_4_"
        class="st1"
        points="59.9,93.7 40.9,110.1 17.2,101.9 12.5,77.3 31.5,60.9 55.2,69.1 "
-       style="fill:none;stroke:#9966cc;stroke-width:8;stroke-miterlimit:10" /></g></svg>
+       style="fill:none;stroke:#9966cc;stroke-width:8;stroke-miterlimit:10" /></svg:g></svg:svg>
