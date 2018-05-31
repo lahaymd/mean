@@ -1,0 +1,103 @@
+
+<svg height=0 >
+  <defs> 
+     <pattern width='20' height='20' patternUnits='userSpaceOnUse' id="p">
+       <rect fill=green width=20 height=20 />
+      <circle id='a' fill='orange' cx=10 cy=10 r=5 />
+    </pattern>
+     <pattern id="Triangle" width="10" height="10"
+        patternUnits="userSpaceOnUse">
+      <polygon points="5,0 10,10 0,10"/>
+	</pattern>
+     <linearGradient id="MyGradient">
+            <stop offset="0%"  stop-color="red"/>
+            <stop offset="75%" stop-color="blue"/>
+        </linearGradient>
+    <text id='t' x="40" y="55" font-family="Verdana" font-size="75">
+    Hello
+  </text>
+    <circle id='circle' fill='coral' cx=150 cy=75 r=20 />
+        <circle id='c' fill='red' cx=150 cy=75 r=40 />
+        <filter id="filter">
+          <feImage result='c' xlink:href='#c' />
+    <feImage result='circ' xlink:href='#circle' />
+           
+      <feMorphology in='circ' result='morph' operator='dilate'radius='2'/>
+     
+      <feComposite operator='out' in='morph' in2='circ' result=circComp />
+
+      <feComposite operator='out' in='SourceGraphic' in2='circComp' result='foo'/>
+      <feComposite operator='over' in='circ' in2='foo' />
+    </filter>
+    
+    
+    <filter id="f">
+    
+      <feMorphology result='m' operator='dilate'
+                    radius='3'/>
+      <feImage result='i' xlink:href='#t' />
+      <feComposite operator='xor' in='m' in2='i' />
+      
+    </filter>
+    
+     <filter id="kotex" width=200% height=200% >
+<!--     <feTurbulence type="turbulence" baseFrequency="0.05"
+        numOctaves="2" result="turbulence"/>
+    <feDisplacementMap in2="turbulence" in="SourceGraphic" result='dis'
+        scale="1" xChannelSelector="R" yChannelSelector="G"/> -->
+     <feGaussianBlur in=SourceGraphic stdDeviation=3 result='blur' />
+      <feColorMatrix in=blur result=cm values='0 0 0 0 0
+                             0 0 0 0 0
+                             0 0 0 0 0
+                             0 0 0 3 0' />
+      <feComposite operator='over' in='SourceGraphic' in2='cm' />
+    </filter>
+    
+    <filter id="silo" x="0" y="0" width="100%" height="100%">
+      <feImage y=30 result=img  width='192' height='120' xlink:href='http://eskipaper.com/images/paint-splatter-wallpaper-8.jpg' />
+      <feTile in=img result=i />
+      <feComposite operator=xor in=img in2=SourceGraphic />
+    </filter>
+    
+   
+    
+    <mask id="m">
+      <circle id='toAnimate' fill='white' cx=100 cy=50 r=40 />
+    </mask>
+   
+  </defs>
+ 
+<!--    <rect width=150 height=100 fill='url(#p)' mask='url(#m)' /> -->
+</svg>
+<svg viewBox='0  0 192 120'>
+  
+  <image filter='url(#silo)' y=0 width=142 height=120 href="http://www.stickpng.com/assets/images/584ab294e583a46e8c837a30.png" />
+</svg>
+
+<!-- <svg viewBox='0 0 800 800'>
+   <circle filter='url(#f)' fill='purple' cx=400 cy=400 r=400 />
+</svg>
+
+<svg viewBox='0 0 550 350'>
+     <rect x=10 y=50 width=550 height=200 fill='red' filter='url(#f)' />
+</svg> -->
+ <svg  viewBox='0 0 550 200' >
+   <rect  width=550 height=200 fill='url(#MyGradient)'  />
+    <text text-anchor='middle' filter='url(#filter)' id='t' x="50%" y="100" font-family="Verdana" font-size="75">
+    Hello
+  </text>
+<!--    <circle  fill='url(#p)' cx=100 cy=100 r=100 /> -->
+</svg>
+
+ <svg  viewBox='0 0 550 200'  >
+   
+     
+  <rect  width=550 height=200 fill='url(#p)'   />
+   <rect  width=550 height=50 fill='yellow' filter='url(#kotex)'  />
+    <rect y=150 width=550 height=50 fill='yellow' filter='url(#kotex)'  />
+<!--     <text text-anchor='middle' filter='url(#filter)' id='t' x="50%" y="150" font-family="Verdana" font-size="155">
+    Hello
+  </text> -->
+      
+<!--    <circle  fill='url(#p)' cx=100 cy=100 r=100 /> -->
+</svg>

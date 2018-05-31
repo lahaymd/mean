@@ -62,7 +62,8 @@
 	.st0{fill:none;stroke:#9966CC;stroke-width:16;stroke-miterlimit:10;}
 	.st1{fill:none;stroke:#9966CC;stroke-width:8;stroke-miterlimit:10;}
 </style><defs
-     id="defs4139"><circle
+     id="defs4139">
+     <circle
        id="c"
        cx="80"
        cy="100"
