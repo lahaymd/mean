@@ -15,6 +15,7 @@ var routes = require('./routes/index');
 var hireme = require('./routes/hireme.api');
 var mongolab = require('./routes/mongolab.api');
 var images = require('./routes/images.api');
+var stops = require('./routes/stops.api');
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var app = express();
 
@@ -56,6 +57,7 @@ app.use('/api/hireme', hireme);
 app.use('/api/users', api);
 app.use('/api/mongolab', mongolab);
 app.use('/api/images', images);
+app.use('/api/stops', stops);
 app.get('/', routes.index);
 app.get('/partials/:name', routes.partials);
 app.get('/partials/:name/:id', routes.nested);
