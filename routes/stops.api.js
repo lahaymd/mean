@@ -9,8 +9,7 @@ router.post('/', function (req, res) {
     Stop.create(
         {
             name: req.body.name,
-            attributes: 
-                req.body.stops
+            attributes: req.body.stops
             //     {
             //     offset: req.body.offset,
             //     stopColor: req.body.stopColor,
