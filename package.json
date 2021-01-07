@@ -8,8 +8,8 @@
     "test": "karma start karma.conf.js; node_modules/.bin/protractor protractor.conf.js --browser=chrome"
   },
   "engines": {
-    "node": "8.8.0",
-    "npm": "4.2.0"
+    "node": "15.4.0",
+    "npm": "7.0.15"
   },
   "dependencies": {
     "angular": "^1.7.0",
