@@ -6,24 +6,24 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-var mongo = require('mongodb');
-var mongoose = require('mongoose');
+// var mongo = require('mongodb');
+// var mongoose = require('mongoose');
 // var util = require('util');
 // var multer = require('multer');
 var api = require('./routes/api');
 var routes = require('./routes/index');
 var hireme = require('./routes/hireme.api');
-var mongolab = require('./routes/mongolab.api');
+// var mongolab = require('./routes/mongolab.api');
 var images = require('./routes/images.api');
 var stops = require('./routes/stops.api');
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var app = express();
 
-if(env === 'development'){
-mongoose.connect('localhost:27017/mongoose');
-} else {
-mongoose.connect('mongodb://lahaymd:zz040577@ds127998.mlab.com:27998/mikelahay');
-}
+// if(env === 'development'){
+// mongoose.connect('localhost:27017/mongoose');
+// } else {
+// mongoose.connect('mongodb://lahaymd:zz040577@ds127998.mlab.com:27998/mikelahay');
+// }
 
 
 // view engine setup
@@ -60,7 +60,7 @@ app.use(session({ secret: 'anystringoftext',
 
 app.use('/api/hireme', hireme);
 app.use('/api/users', api);
-app.use('/api/mongolab', mongolab);
+// app.use('/api/mongolab', mongolab);
 app.use('/api/images', images);
 app.use('/api/stops', stops);
 app.get('/', routes.index);
