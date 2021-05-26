@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "build": "babel src -d lib",
-    "heroku-postbuild": "node ./bin/www",
+
     "test": "karma start karma.conf.js; node_modules/.bin/protractor protractor.conf.js --browser=chrome"
   },
   "engines": {
