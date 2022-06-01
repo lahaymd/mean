@@ -73,7 +73,7 @@
     "rucksack-css": "^0.8.6",
     "rupture": "^0.6.1",
     "serve-favicon": "^2.5.0",
-    "sharp": "^0.27.0",
+    "sharp": "^0.30.5",
     "stylus": "latest",
     "typographic": "^2.9.3",
     "ui-router": "^1.0.0-alpha0",
